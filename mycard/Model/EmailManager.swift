@@ -12,7 +12,7 @@ import RxSwift
 struct EmailManager {
     static var manager = EmailManager()
     
-    var list: BehaviorRelay<[Email]> = BehaviorRelay(value: [Email(type: "", address: "Personal")])
+    var list: BehaviorRelay<[Email]> = BehaviorRelay(value: [Email(type: "Personal", address: "")])
     
     func append(with email: Email) {
         var emailList = list.value

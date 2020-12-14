@@ -307,21 +307,52 @@
                                                     <constraint firstAttribute="height" constant="50" id="YJ6-Nh-X7y"/>
                                                 </constraints>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lty-mb-fne">
+                                                <rect key="frame" x="16" y="786.5" width="382" height="1"/>
+                                                <color key="backgroundColor" name="MC Black 5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="jZr-0K-IGZ"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcJ-jt-VmA">
+                                                <rect key="frame" x="16" y="806.5" width="48.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36B-cg-aRn">
+                                                <rect key="frame" x="380" y="806.5" width="18" height="22"/>
+                                                <color key="tintColor" name="MC Black"/>
+                                                <state key="normal" image="plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="addEmailPressed:" destination="CHm-Rj-w6x" eventType="touchUpInside" id="cvg-8Y-Ukb"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kYj-HU-vxP" customClass="EmailListStackView" customModule="mycard" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="846.5" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="SkP-XK-EmH"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="OrQ-yq-7dT" firstAttribute="top" secondItem="cBt-9a-F1W" secondAttribute="bottom" constant="24" id="0qn-Tu-jfR"/>
                                             <constraint firstItem="cbu-0R-8Od" firstAttribute="top" secondItem="5kw-OD-S2u" secondAttribute="bottom" constant="18" id="2Zw-Db-Uu4"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lty-mb-fne" secondAttribute="trailing" constant="16" id="4eU-Ac-HSY"/>
                                             <constraint firstItem="cTU-bc-7CY" firstAttribute="centerX" secondItem="5ZV-G1-zbB" secondAttribute="centerX" id="5IB-hk-OVT"/>
                                             <constraint firstAttribute="trailing" secondItem="cbu-0R-8Od" secondAttribute="trailing" constant="16" id="6cU-3u-9Rb"/>
                                             <constraint firstItem="cTU-bc-7CY" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="7nY-ic-LQr"/>
+                                            <constraint firstAttribute="trailing" secondItem="36B-cg-aRn" secondAttribute="trailing" constant="16" id="8fc-nS-d8b"/>
                                             <constraint firstItem="eBz-sR-Ak9" firstAttribute="leading" secondItem="O75-RJ-9FQ" secondAttribute="leading" constant="60" id="8j7-YT-nlc"/>
                                             <constraint firstItem="OrQ-yq-7dT" firstAttribute="centerX" secondItem="5ZV-G1-zbB" secondAttribute="centerX" id="9Ls-EA-AMd"/>
                                             <constraint firstItem="cBt-9a-F1W" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="Cxw-PT-gxc"/>
                                             <constraint firstItem="eBz-sR-Ak9" firstAttribute="top" secondItem="O75-RJ-9FQ" secondAttribute="top" constant="60" id="EjN-cd-ehU"/>
                                             <constraint firstItem="OrQ-yq-7dT" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="EwK-40-KUW"/>
                                             <constraint firstAttribute="trailing" secondItem="cBt-9a-F1W" secondAttribute="trailing" constant="16" id="F6D-Ks-KQp"/>
+                                            <constraint firstItem="kYj-HU-vxP" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="I5K-77-rju"/>
                                             <constraint firstItem="O75-RJ-9FQ" firstAttribute="centerX" secondItem="5ZV-G1-zbB" secondAttribute="centerX" id="Im4-NM-Xhb"/>
+                                            <constraint firstItem="Lty-mb-fne" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="MiW-OR-z4N"/>
                                             <constraint firstItem="cbu-0R-8Od" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="OLZ-tE-BAh"/>
                                             <constraint firstAttribute="trailing" secondItem="OrQ-yq-7dT" secondAttribute="trailing" constant="16" id="RpY-em-c3y"/>
                                             <constraint firstItem="cTU-bc-7CY" firstAttribute="top" secondItem="Asc-PM-SP0" secondAttribute="bottom" constant="8" id="TUR-DI-IzD"/>
@@ -329,12 +360,18 @@
                                             <constraint firstItem="Asc-PM-SP0" firstAttribute="centerX" secondItem="5ZV-G1-zbB" secondAttribute="centerX" id="XSb-sq-YZ6"/>
                                             <constraint firstItem="CXF-Px-ir5" firstAttribute="top" secondItem="OrQ-yq-7dT" secondAttribute="bottom" constant="18" id="Y6a-w6-Byc"/>
                                             <constraint firstAttribute="trailing" secondItem="5kw-OD-S2u" secondAttribute="trailing" constant="16" id="bBe-PJ-qQT"/>
+                                            <constraint firstItem="kYj-HU-vxP" firstAttribute="top" secondItem="36B-cg-aRn" secondAttribute="bottom" constant="18" id="gK1-2G-M7W"/>
                                             <constraint firstItem="CXF-Px-ir5" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="gMT-Mf-SqL"/>
                                             <constraint firstItem="Asc-PM-SP0" firstAttribute="top" secondItem="5ZV-G1-zbB" secondAttribute="top" id="igc-E5-iCV"/>
                                             <constraint firstItem="cBt-9a-F1W" firstAttribute="centerX" secondItem="5ZV-G1-zbB" secondAttribute="centerX" id="kYK-Lh-OuE"/>
                                             <constraint firstItem="O75-RJ-9FQ" firstAttribute="top" secondItem="cTU-bc-7CY" secondAttribute="bottom" constant="24" id="ogL-fU-iql"/>
+                                            <constraint firstItem="mcJ-jt-VmA" firstAttribute="top" secondItem="Lty-mb-fne" secondAttribute="bottom" constant="19" id="pVn-GV-mwi"/>
+                                            <constraint firstItem="mcJ-jt-VmA" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="pzj-Vn-pQu"/>
+                                            <constraint firstAttribute="trailing" secondItem="kYj-HU-vxP" secondAttribute="trailing" constant="16" id="q4W-7l-oGs"/>
                                             <constraint firstItem="5kw-OD-S2u" firstAttribute="top" secondItem="OrQ-yq-7dT" secondAttribute="bottom" constant="18" id="qVT-YR-sYp"/>
+                                            <constraint firstItem="Lty-mb-fne" firstAttribute="top" secondItem="cbu-0R-8Od" secondAttribute="bottom" constant="24" id="rid-IV-72c"/>
                                             <constraint firstItem="cBt-9a-F1W" firstAttribute="top" secondItem="eBz-sR-Ak9" secondAttribute="bottom" constant="28" id="sdx-wh-p6i"/>
+                                            <constraint firstItem="36B-cg-aRn" firstAttribute="top" secondItem="Lty-mb-fne" secondAttribute="bottom" constant="19" id="tuh-IV-WO7"/>
                                             <constraint firstItem="Asc-PM-SP0" firstAttribute="leading" secondItem="5ZV-G1-zbB" secondAttribute="leading" constant="16" id="uRL-xv-hVP"/>
                                         </constraints>
                                     </view>
@@ -367,6 +404,9 @@
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
                         <outlet property="customNavBar" destination="dMR-Ie-Gyu" id="2G2-tJ-EMI"/>
+                        <outlet property="emailLabel" destination="mcJ-jt-VmA" id="Jth-bs-QqH"/>
+                        <outlet property="emailListStackView" destination="kYj-HU-vxP" id="rGz-Hj-IGd"/>
+                        <outlet property="emailListStackviewHeightConstraint" destination="SkP-XK-EmH" id="wvF-hd-VSY"/>
                         <outlet property="firstNameTextField" destination="llI-cF-9Nf" id="yzp-9z-Feu"/>
                         <outlet property="lastNameTextField" destination="jZu-ie-9WL" id="0nb-b9-6GZ"/>
                         <outlet property="middleNameTextField" destination="sr8-uC-61M" id="GoY-65-rGd"/>

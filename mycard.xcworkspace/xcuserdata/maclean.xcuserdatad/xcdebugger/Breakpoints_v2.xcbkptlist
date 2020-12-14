@@ -46,8 +46,8 @@
             filePath = "mycard/Controller/PersonalInfo/PersonalInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "addNewPhonePressed(_:)"
             landmarkType = "7">
          </BreakpointContent>

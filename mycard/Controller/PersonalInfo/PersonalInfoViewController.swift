@@ -20,10 +20,12 @@ class PersonalInfoViewController: UIViewController {
     @IBOutlet weak var nameStackView: UIStackView!
     
     @IBOutlet weak var phoneNumbersStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailListStackviewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBOutlet weak var phoneNumbersStackView: PhoneListStackView!
+    @IBOutlet weak var emailListStackView: EmailListStackView!
     @IBOutlet weak var customNavBar: CustomNavigationBar!
     
     override func viewDidLoad() {
@@ -36,6 +38,7 @@ class PersonalInfoViewController: UIViewController {
         nameSetup()
         
         phoneNumbersStackViewHeightConstraint.isActive = false
+        emailListStackviewHeightConstraint.isActive = false
         
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -45,6 +48,9 @@ class PersonalInfoViewController: UIViewController {
     @IBAction func addNewPhonePressed(_ sender: Any) {
         PhoneNumberManager.numbers.append(with: PhoneNumber(type: "Home", number: ""))
     }
+    @IBAction func addEmailPressed(_ sender: Any) {
+        EmailManager.manager.append(with: Email(type: "Personal", address: ""))
+    }
 }
 
 
@@ -52,10 +58,11 @@ class PersonalInfoViewController: UIViewController {
 extension PersonalInfoViewController {
     func uiSetup() {
         phoneNumbersStackView.configure()
+        emailListStackView.configure()
         customNavBar.setup(backIndicatorImage: "xmark")
         personalInfoLabel.style(with: K.TextStyles.heading1)
         pageCountLabel.style(with: K.TextStyles.subTitle)
-//        emailLabel.style(with: K.TextStyles.subTitle)
+        emailLabel.style(with: K.TextStyles.subTitle)
         
         titleLabel.style(with: K.TextStyles.captionBlack60)
         phoneTitleLabel.style(with: K.TextStyles.captionBlack60)
