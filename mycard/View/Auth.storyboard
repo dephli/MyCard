@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AZ2-QV-1p8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Signup View Controller-->
+        <scene sceneID="Ur3-Fo-TiL">
+            <objects>
+                <viewController id="AZ2-QV-1p8" customClass="SignupViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YWr-Me-PMO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywv-G2-JE5" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="HYY-Ts-dft">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="06Y-qq-fZE"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBr-zY-SV0">
+                                <rect key="frame" x="24" y="88" width="53.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COS-Pp-g3z">
+                                <rect key="frame" x="24" y="145" width="366" height="48"/>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="J0F-yR-Ex2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="MC Black 5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUH-3S-uEt">
+                                <rect key="frame" x="24" y="209" width="366" height="48"/>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="AH5-06-dbQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="tel"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="MC Black 5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="xPadding">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-IV-cau">
+                                <rect key="frame" x="24" y="790" width="366" height="48"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="pKT-OZ-JBq"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" title="Sign up"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signupButtonPressed:" destination="AZ2-QV-1p8" eventType="touchUpInside" id="Yyw-cQ-nv1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pA9-5H-44x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="COS-Pp-g3z" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="808-Sb-0WE"/>
+                            <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="kUH-3S-uEt" secondAttribute="trailing" constant="24" id="8GE-qQ-oBb"/>
+                            <constraint firstItem="Ywv-G2-JE5" firstAttribute="trailing" secondItem="pA9-5H-44x" secondAttribute="trailing" id="EXg-ht-t6c"/>
+                            <constraint firstItem="xeH-IV-cau" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="EnY-dm-qru"/>
+                            <constraint firstItem="kUH-3S-uEt" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="Tb8-Ma-PY3"/>
+                            <constraint firstItem="xeH-IV-cau" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="VBH-wr-F3I"/>
+                            <constraint firstItem="lBr-zY-SV0" firstAttribute="top" secondItem="Ywv-G2-JE5" secondAttribute="bottom" id="XaP-6y-gen"/>
+                            <constraint firstItem="lBr-zY-SV0" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="bSJ-wL-h5D"/>
+                            <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="COS-Pp-g3z" secondAttribute="trailing" constant="24" id="dOh-xP-KpI"/>
+                            <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="xeH-IV-cau" secondAttribute="trailing" constant="24" id="dW9-LM-iJd"/>
+                            <constraint firstItem="kUH-3S-uEt" firstAttribute="top" secondItem="COS-Pp-g3z" secondAttribute="bottom" constant="16" id="fWI-QP-pmP"/>
+                            <constraint firstItem="Ywv-G2-JE5" firstAttribute="top" secondItem="pA9-5H-44x" secondAttribute="top" id="fh9-VG-aT5"/>
+                            <constraint firstItem="COS-Pp-g3z" firstAttribute="top" secondItem="lBr-zY-SV0" secondAttribute="bottom" constant="36" id="gAz-06-F34"/>
+                            <constraint firstItem="pA9-5H-44x" firstAttribute="bottom" secondItem="xeH-IV-cau" secondAttribute="bottom" constant="24" id="l7C-c7-Nlw"/>
+                            <constraint firstItem="Ywv-G2-JE5" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" id="sKH-PF-Hwm"/>
+                            <constraint firstItem="kUH-3S-uEt" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="xQ8-qk-OoZ"/>
+                            <constraint firstItem="COS-Pp-g3z" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="xWD-qn-dfU"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="customNavigationBar" destination="Ywv-G2-JE5" id="QZ3-Hj-TwC"/>
+                        <outlet property="nameTextField" destination="COS-Pp-g3z" id="8wz-uk-NCq"/>
+                        <outlet property="phoneNumberTextField" destination="kUH-3S-uEt" id="dgh-uX-sYt"/>
+                        <outlet property="signupButton" destination="xeH-IV-cau" id="guC-Up-U6c"/>
+                        <outlet property="signupLabel" destination="lBr-zY-SV0" id="zu4-rj-yRz"/>
+                        <segue destination="90I-YX-6Vb" kind="show" identifier="SignupToVerifyPhoneNumber" id="Z4k-Zf-eJs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zL2-MS-S4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2620" y="-410"/>
+        </scene>
+        <!--Verify Number View Controller-->
+        <scene sceneID="IhG-4p-EsX">
+            <objects>
+                <viewController storyboardIdentifier="VerifyNumberViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="90I-YX-6Vb" customClass="VerifyNumberViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IWB-fe-fwI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJl-jY-0nL">
+                                <rect key="frame" x="24" y="125" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOD-RV-oFX" customClass="OneTimeTextField" customModule="mycard" customModuleProvider="target">
+                                <rect key="frame" x="24" y="177.5" width="328" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Pj5-Mi-dGi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afX-LB-QOQ">
+                                <rect key="frame" x="24" y="790" width="366" height="48"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="v8q-8B-fIa"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" title="Verify"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="verifyButtonPressed:" destination="90I-YX-6Vb" eventType="touchUpInside" id="hVg-Rw-SUo"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lQ-My-8rA" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="Bkh-g8-ieH">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="zxO-8I-6SO">
+                                            <connections>
+                                                <action selector="onBackButtonPressed:" destination="90I-YX-6Vb" id="mtv-RR-Pj9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Verify Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2I-Ie-VDW">
+                                <rect key="frame" x="24" y="88" width="163" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H4A-Rp-put"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="afX-LB-QOQ" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="IsL-MQ-3jY"/>
+                            <constraint firstItem="afX-LB-QOQ" firstAttribute="centerX" secondItem="IWB-fe-fwI" secondAttribute="centerX" id="Lpc-aZ-MrC"/>
+                            <constraint firstItem="bJl-jY-0nL" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="STT-Ub-IMl"/>
+                            <constraint firstItem="0lQ-My-8rA" firstAttribute="top" secondItem="H4A-Rp-put" secondAttribute="top" id="SVZ-eG-8NF"/>
+                            <constraint firstItem="0lQ-My-8rA" firstAttribute="trailing" secondItem="H4A-Rp-put" secondAttribute="trailing" id="USE-Pf-irU"/>
+                            <constraint firstItem="H4A-Rp-put" firstAttribute="trailing" secondItem="afX-LB-QOQ" secondAttribute="trailing" constant="24" id="Wh5-Rb-U8m"/>
+                            <constraint firstItem="qOD-RV-oFX" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="X6B-BF-FTt"/>
+                            <constraint firstItem="0lQ-My-8rA" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" id="azG-4e-Gai"/>
+                            <constraint firstItem="H4A-Rp-put" firstAttribute="trailing" secondItem="qOD-RV-oFX" secondAttribute="trailing" constant="62" id="dGS-Xe-iyy"/>
+                            <constraint firstItem="bJl-jY-0nL" firstAttribute="top" secondItem="P2I-Ie-VDW" secondAttribute="bottom" constant="16" id="f0w-ww-mDm"/>
+                            <constraint firstItem="P2I-Ie-VDW" firstAttribute="top" secondItem="0lQ-My-8rA" secondAttribute="bottom" id="isP-A8-tWt"/>
+                            <constraint firstItem="P2I-Ie-VDW" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="moX-gF-ysM"/>
+                            <constraint firstItem="qOD-RV-oFX" firstAttribute="top" secondItem="bJl-jY-0nL" secondAttribute="bottom" constant="32" id="osd-ll-Ao2"/>
+                            <constraint firstItem="H4A-Rp-put" firstAttribute="bottom" secondItem="afX-LB-QOQ" secondAttribute="bottom" constant="24" id="tVR-lo-gIf"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="98d-hS-C83"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="codeTextField" destination="qOD-RV-oFX" id="God-Ud-1iG"/>
+                        <outlet property="customNavigationBar" destination="0lQ-My-8rA" id="YIu-Kt-PES"/>
+                        <outlet property="promptLabel" destination="bJl-jY-0nL" id="ByY-Wy-r11"/>
+                        <outlet property="verifyNumberLabel" destination="P2I-Ie-VDW" id="yaI-IH-sNX"/>
+                        <segue destination="r7C-eF-oux" kind="show" identifier="verifyNumberToCards" id="53f-jF-M6V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Urw-Xw-2NM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3799" y="-410"/>
+        </scene>
+        <!--Cards-->
+        <scene sceneID="AgP-j7-PVo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Cards" id="r7C-eF-oux" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4Ma-c3-hQr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwC-js-KPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4959" y="-402"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <namedColor name="MC Black 5">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.05000000074505806" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Blue">
+            <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

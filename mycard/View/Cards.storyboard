@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="war-fk-8Jl">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gt6-IC-fGw">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="war-fk-8Jl" customClass="TabBarController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="CXb-6H-MLX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="MC Blue"/>
+                        <color key="selectedImageTintColor" name="MC Blue"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="-3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" name="MC Black 10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JbX-bx-uTx" kind="relationship" relationship="viewControllers" id="g1C-e5-ErB"/>
+                        <segue destination="uY1-ah-92m" kind="relationship" relationship="viewControllers" id="zqe-XG-391"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kte-sh-PjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3311.594202898551" y="355.58035714285711"/>
+        </scene>
+        <!--Cards-->
+        <scene sceneID="EY0-OY-BMQ">
+            <objects>
+                <navigationController modalTransitionStyle="crossDissolve" id="JbX-bx-uTx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="k24-77-c8G" kind="relationship" relationship="rootViewController" id="lQ2-Ul-atc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QYY-ya-uih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4536" y="63"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="S16-0H-Q2T">
+            <objects>
+                <viewController storyboardIdentifier="CardViewController" modalTransitionStyle="crossDissolve" id="k24-77-c8G" customClass="CardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gqs-O2-oAD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
+                                <rect key="frame" x="24" y="72" width="366" height="571"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for card" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cey-Ik-m6r">
+                                <rect key="frame" x="24" y="0.0" width="366" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="5kP-Hi-1wS"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H85-pB-znW">
+                                <rect key="frame" x="334" y="563" width="56" height="56"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="ezR-yl-unX"/>
+                                    <constraint firstAttribute="width" constant="56" id="f7n-UY-2ds"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" image="add card"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="MC Blue 40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="3cY-qt-pzE" kind="showDetail" id="azC-UC-UkX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="155-iA-Vsi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="9D4-pb-Th0"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="H85-pB-znW" secondAttribute="trailing" constant="24" id="D1L-ms-vs7"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" constant="24" id="GTi-ap-pNJ"/>
+                            <constraint firstItem="cey-Ik-m6r" firstAttribute="leading" secondItem="Gqs-O2-oAD" secondAttribute="leading" constant="24" id="IdV-fG-B8h"/>
+                            <constraint firstAttribute="trailing" secondItem="cey-Ik-m6r" secondAttribute="trailing" constant="24" id="RpZ-Xd-Zgt"/>
+                            <constraint firstItem="cey-Ik-m6r" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="ThV-Ne-YfO"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
+                            <constraint firstItem="cey-Ik-m6r" firstAttribute="centerX" secondItem="Gqs-O2-oAD" secondAttribute="centerX" id="oBe-01-qFy"/>
+                            <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="cey-Ik-m6r" secondAttribute="bottom" constant="8" id="vhA-gR-FrX"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="H85-pB-znW" secondAttribute="bottom" constant="24" id="zZY-cF-waI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="m0U-ej-1un"/>
+                    <connections>
+                        <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
+                        <outlet property="floatiingButtonConstraints" destination="zZY-cF-waI" id="aJF-e0-liS"/>
+                        <outlet property="searchBar" destination="cey-Ik-m6r" id="RlH-Ua-AJK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSX-w4-lk8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5857.971014492754" y="-40.178571428571423"/>
+        </scene>
+        <!--PersonalInfo-->
+        <scene sceneID="PTB-5p-8eQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PersonalInfo" id="3cY-qt-pzE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Nrf-US-5Jd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FtX-K3-KnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6976" y="35"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="DA6-ou-Bxb">
+            <objects>
+                <navigationController modalTransitionStyle="crossDissolve" id="uY1-ah-92m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Me" image="user" id="mVM-HC-JWU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oJB-df-qm5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="44q-Dm-qKS" kind="relationship" relationship="rootViewController" id="qkh-OC-cDu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHn-Fp-vLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103" y="1104"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="tzq-EB-t5P">
+            <objects>
+                <viewController id="44q-Dm-qKS" customClass="ProfileViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sJG-et-bDh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ee0-p6-uow"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f0k-sa-4tZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bN0-fa-rYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5858" y="1073"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add card" width="24" height="24"/>
+        <image name="cards" width="20" height="16"/>
+        <image name="user" width="16" height="18"/>
+        <namedColor name="MC Black 10">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Blue">
+            <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Blue 40">
+            <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
