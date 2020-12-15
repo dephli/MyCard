@@ -46,10 +46,10 @@
             filePath = "mycard/Controller/PersonalInfo/PersonalInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "addNewPhonePressed(_:)"
-            landmarkType = "7">
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,6 +98,54 @@
             endingLineNumber = "31"
             landmarkName = "configure()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E40BD9F-22C2-483B-A86A-71DA54DEAA81"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mycard/Controller/PersonalInfo/SocialMediaViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "addLinkedinButtonPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3E40BD9F-22C2-483B-A86A-71DA54DEAA81 - 2617ef0df11f6b31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mycard.SocialMediaViewController.addLinkedinButtonPressed(Any) -&gt; ()"
+                  moduleName = "mycard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclean/Developer/projects/swift/archive/mycard/mycard/Controller/PersonalInfo/SocialMediaViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "3E40BD9F-22C2-483B-A86A-71DA54DEAA81 - 46ac5f6e4bb9b593"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in mycard.SocialMediaViewController.addLinkedinButtonPressed(Any) -&gt; ()"
+                  moduleName = "mycard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclean/Developer/projects/swift/archive/mycard/mycard/Controller/PersonalInfo/SocialMediaViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "86">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -23,6 +23,8 @@ class PersonalInfoViewController: UIViewController {
     @IBOutlet weak var emailListStackviewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var socialMediaLabel: UILabel!
+    @IBOutlet weak var socialMediaButton: UIButton!
     
     @IBOutlet weak var phoneNumbersStackView: PhoneListStackView!
     @IBOutlet weak var emailListStackView: EmailListStackView!
@@ -51,18 +53,23 @@ class PersonalInfoViewController: UIViewController {
     @IBAction func addEmailPressed(_ sender: Any) {
         EmailManager.manager.append(with: Email(type: "Personal", address: ""))
     }
+    @IBAction func socialMediaButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
+    }
 }
 
 
 //MARK: - UI Setup
 extension PersonalInfoViewController {
     func uiSetup() {
+        socialMediaButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
         phoneNumbersStackView.configure()
         emailListStackView.configure()
         customNavBar.setup(backIndicatorImage: "xmark")
         personalInfoLabel.style(with: K.TextStyles.heading1)
         pageCountLabel.style(with: K.TextStyles.subTitle)
         emailLabel.style(with: K.TextStyles.subTitle)
+        socialMediaLabel.style(with: K.TextStyles.subTitle)
         
         titleLabel.style(with: K.TextStyles.captionBlack60)
         phoneTitleLabel.style(with: K.TextStyles.captionBlack60)

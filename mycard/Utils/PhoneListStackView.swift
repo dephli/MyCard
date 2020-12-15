@@ -87,6 +87,7 @@ extension PhoneListStackView {
         textfield.rightPadding = 16
         textfield.layer.cornerRadius = 8
         textfield.textContentType = .name
+        textfield.keyboardType = .numberPad
         textfield.placeholder = "Phone Number"
         textfield.setTextStyle(with: K.TextStyles.bodyBlack40)
         textfield.tag = index

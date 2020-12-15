@@ -88,7 +88,8 @@ extension EmailListStackView {
         textfield.leftPadding = 16
         textfield.rightPadding = 16
         textfield.layer.cornerRadius = 8
-        textfield.textContentType = .name
+        textfield.textContentType = .emailAddress
+        textfield.keyboardType = .emailAddress
         textfield.placeholder = "Email Address"
         textfield.setTextStyle(with: K.TextStyles.bodyBlack40)
         textfield.tag = index
@@ -116,6 +117,7 @@ extension EmailListStackView {
         numberTypePicker.leftPadding = 16
         numberTypePicker.rightPadding = 16
         numberTypePicker.text = text ?? ""
+        numberTypePicker.setTextStyle(with: K.TextStyles.bodyBlack40)
 
         numberTypePicker.tag = index
     
