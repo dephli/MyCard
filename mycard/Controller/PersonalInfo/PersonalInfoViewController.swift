@@ -70,7 +70,18 @@ class PersonalInfoViewController: UIViewController {
     @IBAction func socialMediaButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
-
+    @IBAction func nextButtonPressed(_ sender: Any) {
+//        let workInfoController = WorkInfoViewController()
+//        let transition = CATransition()
+//        transition.duration = 0.5
+//        transition.type = .push
+//        transition.subtype = .fromRight
+//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+//        view.window?.layer.add(transition, forKey: kCATransition)
+        performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
+//        present(workInfoController, animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -78,7 +89,7 @@ class PersonalInfoViewController: UIViewController {
 extension PersonalInfoViewController {
     
     func uiSetup() {
-//        socialMediaButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
+        socialMediaButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
         socialMediaListStackView.configure()
         customNavBar.setup(backIndicatorImage: "xmark")
         personalInfoLabel.style(with: K.TextStyles.heading1)

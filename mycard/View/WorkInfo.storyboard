@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pi2-Ui-4pk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Work Info View Controller-->
+        <scene sceneID="H9i-eY-gGn">
+            <objects>
+                <viewController storyboardIdentifier="WorkInfoViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Pi2-Ui-4pk" customClass="WorkInfoViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fvj-2I-Aim">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCb-Yg-gu6" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="b3f-Ku-GCE">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="Fny-n0-Bcr">
+                                            <color key="tintColor" name="MC Black"/>
+                                            <connections>
+                                                <action selector="backBarButtonPressed:" destination="Pi2-Ui-4pk" id="2lD-0B-i62"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 of 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coD-SW-AJp">
+                                <rect key="frame" x="16" y="90" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work or Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kD-cF-8lp">
+                                <rect key="frame" x="16" y="119" width="137" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfE-zf-nfj">
+                                <rect key="frame" x="16" y="160" width="382" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload company logo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7U-lF-mwo">
+                                        <rect key="frame" x="108" y="61.5" width="166.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MC Black 40"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-io-cCI">
+                                        <rect key="frame" x="334" y="96" width="40" height="40"/>
+                                        <color key="backgroundColor" name="MC Blue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="2W6-9G-LZM"/>
+                                            <constraint firstAttribute="width" constant="40" id="7Ja-ZL-A5B"/>
+                                        </constraints>
+                                        <state key="normal" image="camera"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="T7U-lF-mwo" firstAttribute="centerY" secondItem="BfE-zf-nfj" secondAttribute="centerY" id="9kX-sl-hu5"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lg8-io-cCI" secondAttribute="bottom" constant="8" id="LpT-kX-fC2"/>
+                                    <constraint firstAttribute="height" constant="144" id="P1q-YI-psA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lg8-io-cCI" secondAttribute="trailing" constant="8" id="vR4-6X-N7f"/>
+                                    <constraint firstItem="T7U-lF-mwo" firstAttribute="centerX" secondItem="BfE-zf-nfj" secondAttribute="centerX" id="z0W-gg-Ozn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="MC Black 10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-YO-z6w">
+                                <rect key="frame" x="16" y="320" width="382" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="lrJ-6S-el8">
+                                        <rect key="frame" x="12" y="8" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="OYu-Xe-802"/>
+                                            <constraint firstAttribute="height" constant="24" id="U1p-6V-Rhq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The image uploaded here will be the cover of this card" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba3-4v-pFe">
+                                        <rect key="frame" x="50" y="8" width="320" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="MC Blue 10"/>
+                                <constraints>
+                                    <constraint firstItem="Ba3-4v-pFe" firstAttribute="top" secondItem="XVt-YO-z6w" secondAttribute="top" constant="8" id="3cn-RO-pSN"/>
+                                    <constraint firstItem="Ba3-4v-pFe" firstAttribute="leading" secondItem="lrJ-6S-el8" secondAttribute="trailing" constant="14" id="HyO-cf-b0F"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ba3-4v-pFe" secondAttribute="trailing" constant="12" id="i6C-pt-Fss"/>
+                                    <constraint firstAttribute="height" constant="60" id="jva-Wy-K23"/>
+                                    <constraint firstItem="lrJ-6S-el8" firstAttribute="leading" secondItem="XVt-YO-z6w" secondAttribute="leading" constant="12" id="qcJ-hz-7Y5"/>
+                                    <constraint firstItem="lrJ-6S-el8" firstAttribute="top" secondItem="XVt-YO-z6w" secondAttribute="top" constant="8" id="xTJ-aE-efu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORK INFO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJo-Ab-18p">
+                                <rect key="frame" x="16" y="399" width="92.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GpR-k8-eQt">
+                                <rect key="frame" x="16" y="439" width="382" height="48"/>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="B0R-Lh-ueG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Role or Job title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-ML-Ds6">
+                                <rect key="frame" x="16" y="503" width="382" height="48"/>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Mo1-nB-sRH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-3E-DBr">
+                                <rect key="frame" x="16" y="567" width="382" height="1"/>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="JTm-g3-wRg"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORK LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl6-dr-2uA">
+                                <rect key="frame" x="16" y="587" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A1C-QI-qAt">
+                                <rect key="frame" x="16" y="627" width="382" height="48"/>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="qtl-fU-Fcm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnm-fe-lIP">
+                                <rect key="frame" x="16" y="824" width="382" height="48"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ABK-NO-eFl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" name="MC White"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oWo-EM-8YA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="e5h-3E-DBr" secondAttribute="trailing" constant="16" id="093-1Q-pUO"/>
+                            <constraint firstItem="BfE-zf-nfj" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="1Rf-Oq-akA"/>
+                            <constraint firstItem="fJo-Ab-18p" firstAttribute="top" secondItem="XVt-YO-z6w" secondAttribute="bottom" constant="19" id="1c1-fg-uPc"/>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="Pnm-fe-lIP" secondAttribute="trailing" constant="16" id="1pV-bt-AKO"/>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="BfE-zf-nfj" secondAttribute="trailing" constant="16" id="2ue-9G-y2q"/>
+                            <constraint firstItem="A1C-QI-qAt" firstAttribute="top" secondItem="Bl6-dr-2uA" secondAttribute="bottom" constant="19" id="5YD-BC-dJc"/>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="XVt-YO-z6w" secondAttribute="trailing" constant="16" id="9lJ-uB-nbH"/>
+                            <constraint firstItem="fJo-Ab-18p" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="APr-Gc-SAg"/>
+                            <constraint firstItem="7kD-cF-8lp" firstAttribute="top" secondItem="coD-SW-AJp" secondAttribute="bottom" constant="8" id="DbW-Uf-ZR4"/>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="5C9-ML-Ds6" secondAttribute="trailing" constant="16" id="FAn-th-akj"/>
+                            <constraint firstItem="Bl6-dr-2uA" firstAttribute="top" secondItem="e5h-3E-DBr" secondAttribute="bottom" constant="19" id="G6V-X0-C0N"/>
+                            <constraint firstItem="5C9-ML-Ds6" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="KQY-An-92Z"/>
+                            <constraint firstAttribute="bottom" secondItem="Pnm-fe-lIP" secondAttribute="bottom" constant="24" id="LVA-Eq-2fJ"/>
+                            <constraint firstItem="Pnm-fe-lIP" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="Nd8-Vf-rwR"/>
+                            <constraint firstItem="GCb-Yg-gu6" firstAttribute="top" secondItem="oWo-EM-8YA" secondAttribute="top" id="QdZ-d6-JoN"/>
+                            <constraint firstItem="coD-SW-AJp" firstAttribute="top" secondItem="GCb-Yg-gu6" secondAttribute="bottom" constant="2" id="Sb2-c4-umC"/>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="A1C-QI-qAt" secondAttribute="trailing" constant="16" id="Sgv-Lo-EB1"/>
+                            <constraint firstItem="GCb-Yg-gu6" firstAttribute="trailing" secondItem="oWo-EM-8YA" secondAttribute="trailing" id="UAu-fA-v9A"/>
+                            <constraint firstItem="A1C-QI-qAt" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="Yrc-Gq-NFg"/>
+                            <constraint firstItem="5C9-ML-Ds6" firstAttribute="top" secondItem="GpR-k8-eQt" secondAttribute="bottom" constant="16" id="a3F-yu-Gum"/>
+                            <constraint firstItem="oWo-EM-8YA" firstAttribute="trailing" secondItem="GpR-k8-eQt" secondAttribute="trailing" constant="16" id="d3X-hm-Fe6"/>
+                            <constraint firstItem="BfE-zf-nfj" firstAttribute="top" secondItem="7kD-cF-8lp" secondAttribute="bottom" constant="20" id="eY5-hm-rZD"/>
+                            <constraint firstItem="e5h-3E-DBr" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="fTr-rf-GRR"/>
+                            <constraint firstItem="XVt-YO-z6w" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="gfT-ai-PCK"/>
+                            <constraint firstItem="e5h-3E-DBr" firstAttribute="top" secondItem="5C9-ML-Ds6" secondAttribute="bottom" constant="16" id="j4i-fj-0a0"/>
+                            <constraint firstItem="coD-SW-AJp" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="jfz-KT-TZL"/>
+                            <constraint firstItem="GpR-k8-eQt" firstAttribute="top" secondItem="fJo-Ab-18p" secondAttribute="bottom" constant="19" id="jts-5t-GoV"/>
+                            <constraint firstItem="7kD-cF-8lp" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="rpT-bU-1ub"/>
+                            <constraint firstItem="XVt-YO-z6w" firstAttribute="top" secondItem="BfE-zf-nfj" secondAttribute="bottom" constant="16" id="vy3-3m-Syq"/>
+                            <constraint firstItem="Bl6-dr-2uA" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="xWd-q5-j6Y"/>
+                            <constraint firstItem="GpR-k8-eQt" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" constant="16" id="xxt-0D-rki"/>
+                            <constraint firstItem="GCb-Yg-gu6" firstAttribute="leading" secondItem="oWo-EM-8YA" secondAttribute="leading" id="znV-5h-UeT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="Ba3-4v-pFe" id="867-DA-6Wp"/>
+                        <outlet property="navigationBar" destination="GCb-Yg-gu6" id="tbs-wm-ej8"/>
+                        <outlet property="pageCountLabel" destination="coD-SW-AJp" id="kkH-Di-f7f"/>
+                        <outlet property="titleLabel" destination="7kD-cF-8lp" id="wtg-Aw-Ca6"/>
+                        <outlet property="workInfoSectionLabel" destination="fJo-Ab-18p" id="n1P-aY-Zzc"/>
+                        <outlet property="workLocationLabel" destination="Bl6-dr-2uA" id="9n4-tZ-njS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9f8-Mu-ohG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1947.826086956522" y="206.91964285714286"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="camera" width="20" height="16"/>
+        <image name="info" width="24" height="24"/>
+        <namedColor name="MC Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 10">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 40">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 5">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.05000000074505806" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Blue">
+            <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Blue 10">
+            <color red="0.33333333333333331" green="0.074509803921568626" blue="0.71764705882352942" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

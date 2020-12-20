@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfz-n6-Aaq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfz-n6-Aaq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -68,6 +68,7 @@ in store for you.</string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="arrowButtonPressed:" destination="Lzh-RX-gxj" eventType="touchUpInside" id="bV5-zk-X8m"/>
+                                    <segue destination="M9w-zf-q79" kind="show" id="M0X-55-2hk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceo-Gf-bTa">
@@ -127,6 +128,16 @@ in store for you.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U52-w9-Laa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2642.0289855072465" y="85.714285714285708"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="RJs-Ro-gi7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="I" storyboardName="Camera" id="M9w-zf-q79" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iwk-Ua-kf4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHV-i9-bS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2488" y="526"/>
         </scene>
         <!--Auth-->
         <scene sceneID="oan-Gd-PrX">

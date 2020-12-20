@@ -23,7 +23,7 @@ class SetupCardViewController: UIViewController {
     
     @objc
     func userLoggedIn() {
-        print("adsfdsaf")
+//        
     }
     
     @IBAction

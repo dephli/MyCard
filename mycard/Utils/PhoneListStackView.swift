@@ -104,6 +104,7 @@ extension PhoneListStackView {
         numberTypePicker.heightAnchor.constraint(equalToConstant: 48).isActive = true
         numberTypePicker.layer.cornerRadius = 8
         numberTypePicker.tintColor = .black
+        numberTypePicker.borderColor = UIColor(named: K.Colors.mcBlack10)
         numberTypePicker.leftPadding = 16
         numberTypePicker.rightPadding = 16
         numberTypePicker.tintColor = .clear
@@ -121,8 +122,6 @@ extension PhoneListStackView {
         numberTypePicker.rightViewMode = .always
         
         numberTypePicker.addTarget(self, action: #selector(textfieldDidBeginEditing(_:)), for: .editingDidBegin)
-        
-        
         
         return numberTypePicker
     }

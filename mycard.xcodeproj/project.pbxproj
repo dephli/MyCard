@@ -25,6 +25,10 @@
 		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
 		827354472588CEE800236797 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354462588CEE800236797 /* SocialMedia.swift */; };
 		8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273544B2588CFDA00236797 /* SocialMediaManger.swift */; };
+		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
+		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
+		8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C924258F6AF100D3FA58 /* Camera.storyboard */; };
+		8293C92B258F6B3300D3FA58 /* CaptureImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C92A258F6B3300D3FA58 /* CaptureImageViewController.swift */; };
 		829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728CE2582704700C99E33 /* UIButtonExtension.swift */; };
 		829728F32582893B00C99E33 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728F22582893B00C99E33 /* UserAuth.swift */; };
 		829728FB258289B900C99E33 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728FA258289B900C99E33 /* AuthService.swift */; };
@@ -98,6 +102,10 @@
 		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
 		827354462588CEE800236797 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		8273544B2588CFDA00236797 /* SocialMediaManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaManger.swift; sourceTree = "<group>"; };
+		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
+		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
+		8293C924258F6AF100D3FA58 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		8293C92A258F6B3300D3FA58 /* CaptureImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageViewController.swift; sourceTree = "<group>"; };
 		829728CE2582704700C99E33 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		829728F22582893B00C99E33 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		829728FA258289B900C99E33 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -201,6 +209,22 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		8293C91B258EEAE400D3FA58 /* WorkInfo */ = {
+			isa = PBXGroup;
+			children = (
+				8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */,
+			);
+			path = WorkInfo;
+			sourceTree = "<group>";
+		};
+		8293C929258F6B1400D3FA58 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				8293C92A258F6B3300D3FA58 /* CaptureImageViewController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		829728EC2582889F00C99E33 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +322,8 @@
 				82F0AA062580719200F1DFFC /* ContactsCell.swift */,
 				82F0AA072580719200F1DFFC /* ContactsCell.xib */,
 				82AF5D562581211500E5E18B /* PersonalInfo.storyboard */,
+				8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */,
+				8293C924258F6AF100D3FA58 /* Camera.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +347,8 @@
 		82C43750257C42D000CF945F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8293C929258F6B1400D3FA58 /* Camera */,
+				8293C91B258EEAE400D3FA58 /* WorkInfo */,
 				82AF5D5B2581218E00E5E18B /* PersonalInfo */,
 				82BED3D7257EF6D700F8E96E /* Cards */,
 				825F15F4257D607300A3E103 /* Auth */,
@@ -472,7 +500,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				825F15F0257D497400A3E103 /* Auth.storyboard in Resources */,
+				8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */,
 				82C43788257CFF9B00CF945F /* Inter-SemiBold.ttf in Resources */,
+				8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */,
 				82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */,
 				82B696AA257C12C0005AFE62 /* LaunchScreen.storyboard in Resources */,
 				82B696A7257C12C0005AFE62 /* Assets.xcassets in Resources */,
@@ -560,12 +590,14 @@
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
 				82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */,
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
+				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
 				82BED3CE257EDB4200F8E96E /* UiViewControllerExtension.swift in Sources */,
 				82BED3F5257F063C00F8E96E /* NavigationController.swift in Sources */,
 				82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */,
 				825F15F6257D609400A3E103 /* SignupViewController.swift in Sources */,
 				825FC34125866CA200FAA8E8 /* KeyChainService.swift in Sources */,
+				8293C92B258F6B3300D3FA58 /* CaptureImageViewController.swift in Sources */,
 				825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */,
 				825F1601257D64A900A3E103 /* VerifyNumberViewController.swift in Sources */,
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,

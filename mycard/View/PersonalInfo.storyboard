@@ -59,6 +59,11 @@
                                                     <constraint firstAttribute="height" constant="96" id="Ot2-Gl-0sM"/>
                                                     <constraint firstAttribute="width" constant="96" id="wXx-B7-7kP"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="48"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTl-V5-5Wk">
                                                 <rect key="frame" x="219" y="139" width="40" height="40"/>
@@ -348,6 +353,9 @@
                                                         <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="nextButtonPressed:" destination="CHm-Rj-w6x" eventType="touchUpInside" id="2cv-8s-lDu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -459,6 +467,7 @@
                         <outlet property="socialMediaListStackViewHeightConstraint" destination="jQm-N6-57i" id="v36-0a-CFM"/>
                         <outlet property="suffixTextField" destination="lt8-p6-p70" id="xAw-RL-6oZ"/>
                         <segue destination="f2D-ub-vkb" kind="show" identifier="personalInfoToSocialMedia" id="bIC-r4-yQr"/>
+                        <segue destination="tSk-yO-IwH" kind="show" identifier="PersonalInfoToWorkInfo" id="Xmv-JM-2gL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goH-eZ-Pgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -780,6 +789,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVh-HL-VO4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2995.6521739130435" y="-136.60714285714286"/>
+        </scene>
+        <!--WorkInfo-->
+        <scene sceneID="9F0-or-Ajf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WorkInfo" id="tSk-yO-IwH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="P9Y-T2-Vov"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3pr-Fb-VoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3040" y="611"/>
         </scene>
     </scenes>
     <resources>
