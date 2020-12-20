@@ -28,6 +28,8 @@ class SocialMediaViewController: UIViewController {
     @IBOutlet weak var instagramStackView: UIStackView!
     
     
+    let socialMediaObservable = SocialMediaManger.manager.list.asObservable()
+    
     override func viewWillAppear(_ animated: Bool) {
         linkedinAccountTextfield.isHidden = true
         linkedinAccountTextfield.alpha = 0
@@ -61,6 +63,27 @@ class SocialMediaViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        var accounts: [SocialMedia] = []
+        
+        if facebookTextfield.text != "" {
+            accounts.append(SocialMedia(link: facebookTextfield.text!, type: .facebook, icon: UIImage(named: K.Images.facebook)!))
+        }
+        
+        if facebookTextfield.text != "" {
+            accounts.append(SocialMedia(link: twitterLabel.text!, type: .twitter, icon: UIImage(named: K.Images.twitter)!))
+        }
+        
+        if facebookTextfield.text != "" {
+            accounts.append(SocialMedia(link: instagramAccountTextfield.text!, type: .instagram, icon: UIImage(named: K.Images.instagram)!))
+        }
+        
+        if facebookTextfield.text != "" {
+            accounts.append(SocialMedia(link: linkedinAccountTextfield.text!, type: .linkedin, icon: UIImage(named: K.Images.linkedin)!))
+        }
+        
+        SocialMediaManger.manager.list.accept(accounts)
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -73,28 +96,44 @@ class SocialMediaViewController: UIViewController {
 extension SocialMediaViewController {
     @IBAction func addLinkedinButtonPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.linkedinAccountTextfield.alpha = 1
+            if self.linkedinAccountTextfield.alpha == 1 {
+                self.linkedinAccountTextfield.alpha = 0
+            } else {
+                self.linkedinAccountTextfield.alpha = 1
+            }
             self.linkedinAccountTextfield.isHidden.toggle()
         })
     }
     
     @IBAction func addFacebookButtonPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.facebookTextfield.alpha = 1
+            if self.facebookTextfield.alpha == 1 {
+                self.facebookTextfield.alpha = 0
+            } else {
+                self.facebookTextfield.alpha = 1
+            }
             self.facebookTextfield.isHidden.toggle()
         })
     }
     
     @IBAction func addTwitterButtonPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.twitterAccountTextfield.alpha = 1
+            if self.twitterAccountTextfield.alpha == 1 {
+                self.twitterAccountTextfield.alpha = 0
+            } else {
+                self.twitterAccountTextfield.alpha = 1
+            }
             self.twitterAccountTextfield.isHidden.toggle()
         })
     }
     
     @IBAction func addInstagramButtonPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.instagramAccountTextfield.alpha = 1
+            if self.instagramAccountTextfield.alpha == 1 {
+                self.instagramAccountTextfield.alpha = 0
+            } else {
+                self.instagramAccountTextfield.alpha = 1
+            }
             self.instagramAccountTextfield.isHidden.toggle()
         })
     }

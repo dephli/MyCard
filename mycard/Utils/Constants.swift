@@ -49,8 +49,16 @@ struct K {
         static let personalInfoToSocialMedia = "personalInfoToSocialMedia"
     }
     
-    struct notifications {
+    struct Notifications {
         static let phoneNumberNotification = "phoneNumberNotification"
         static let passNameNotification = "passNameNotification"
+    }
+    
+    struct Images {
+        static let facebook = "socials facebook"
+        static let twitter = "socials twitter"
+        static let instagram = "socials instagram"
+        static let linkedin = "socials linkedin"
+        static let chevron_right = "chevron right"
     }
 }

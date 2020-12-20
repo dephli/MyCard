@@ -13,18 +13,15 @@ class EmailListStackView: UIStackView {
     let emailTypes = ["Personal", "Work", "Other"]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
-    func configure() {
+    func configure(with emails: [Email]) {
         let pickerView = UIPickerView()
         
         pickerView.delegate = self
         pickerView.dataSource = self
-//        let disposeBag = DisposeBag()
-        EmailManager.manager.list.asObservable()
-            .subscribe(onNext: { //2
-              [unowned self] email in
+
                 DispatchQueue.main.async {
                     self.removeAllArrangedSubviews()
-                    for i in 0 ..< email.count {
+                    for i in 0 ..< emails.count {
                         self.spacing = 16
                         
                         let stackView = UIStackView()
@@ -33,19 +30,18 @@ class EmailListStackView: UIStackView {
                         stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
                         stackView.spacing = 16
                         
-                        let isHidden = email.count > 1 ? false : true
+                        let isHidden = emails.count > 1 ? false : true
                         
-                        let textField = setupTextField(with: email[i].address, at: i)
-                        let numberTypeTextfield = pickerTextfield(at: i, text: email[i].type)
+                        let textField = self.setupTextField(with: emails[i].address, at: i)
+                        let numberTypeTextfield = self.pickerTextfield(at: i, text: emails[i].type)
                         numberTypeTextfield.inputView = pickerView
-                        let minusButton = setupMinusButton(at: i, isHidden: isHidden)
+                        let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
                         stackView.addArrangedSubview(textField)
                         stackView.addArrangedSubview(numberTypeTextfield)
                         stackView.addArrangedSubview(minusButton)
                         self.addArrangedSubview(stackView)
                     }
                 }
-            })
         
     }
 
@@ -113,7 +109,7 @@ extension EmailListStackView {
         numberTypePicker.widthAnchor.constraint(equalToConstant: 108).isActive = true
         numberTypePicker.heightAnchor.constraint(equalToConstant: 48).isActive = true
         numberTypePicker.layer.cornerRadius = 8
-        numberTypePicker.tintColor = .black
+        numberTypePicker.tintColor = .clear
         numberTypePicker.leftPadding = 16
         numberTypePicker.rightPadding = 16
         numberTypePicker.text = text ?? ""

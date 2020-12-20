@@ -22,6 +22,9 @@
 		825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3822586BDED00FAA8E8 /* PhoneNumber.swift */; };
 		825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */; };
 		825FC3942586E18000FAA8E8 /* PhoneListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */; };
+		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
+		827354472588CEE800236797 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354462588CEE800236797 /* SocialMedia.swift */; };
+		8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273544B2588CFDA00236797 /* SocialMediaManger.swift */; };
 		829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728CE2582704700C99E33 /* UIButtonExtension.swift */; };
 		829728F32582893B00C99E33 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728F22582893B00C99E33 /* UserAuth.swift */; };
 		829728FB258289B900C99E33 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728FA258289B900C99E33 /* AuthService.swift */; };
@@ -92,6 +95,9 @@
 		825FC3822586BDED00FAA8E8 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberManager.swift; sourceTree = "<group>"; };
 		825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListStackView.swift; sourceTree = "<group>"; };
+		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
+		827354462588CEE800236797 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
+		8273544B2588CFDA00236797 /* SocialMediaManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaManger.swift; sourceTree = "<group>"; };
 		829728CE2582704700C99E33 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		829728F22582893B00C99E33 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		829728FA258289B900C99E33 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -306,6 +312,8 @@
 				825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */,
 				82AD90D62587760D0014B96E /* Email.swift */,
 				82AD90DB258776180014B96E /* EmailManager.swift */,
+				827354462588CEE800236797 /* SocialMedia.swift */,
+				8273544B2588CFDA00236797 /* SocialMediaManger.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 				820F5B49258037480077174E /* CustomNavigationBar.swift */,
 				825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */,
 				82AD90E825879ECF0014B96E /* EmailListStackView.swift */,
+				827354412588BAC100236797 /* SocialMediaListStackView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -545,7 +554,9 @@
 				82C4375E257C515100CF945F /* Constants.swift in Sources */,
 				829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */,
 				820F5B4F258050B00077174E /* Contact.swift in Sources */,
+				827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */,
 				82BED3F0257EFE1A00F8E96E /* TabBarController.swift in Sources */,
+				827354472588CEE800236797 /* SocialMedia.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
 				82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */,
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
@@ -575,6 +586,7 @@
 				829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */,
 				82B696A0257C12BD005AFE62 /* SceneDelegate.swift in Sources */,
 				825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */,
+				8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

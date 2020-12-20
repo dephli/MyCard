@@ -13,41 +13,35 @@ class PhoneListStackView: UIStackView {
     let numberTypes = ["Home", "Mobile", "Work", "Other"]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
-    func configure() {
-//        self.heightAnchor.
+    func configure(with numbers: [PhoneNumber]) {
         let pickerView = UIPickerView()
         
         pickerView.delegate = self
         pickerView.dataSource = self
-//        let disposeBag = DisposeBag()
-        PhoneNumberManager.numbers.list.asObservable()
-            .subscribe(onNext: { //2
-              [unowned self] numbers in
-                DispatchQueue.main.async {
-                    self.removeAllArrangedSubviews()
-                    for i in 0 ..< numbers.count {
-                        self.spacing = 16
-                        
-                        let stackView = UIStackView()
-                        stackView.translatesAutoresizingMaskIntoConstraints = false
-                        stackView.axis = .horizontal
-                        stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-                        stackView.spacing = 16
-                        
-                        let isHidden = numbers.count > 1 ? false : true
-                        
-                        let textField = setupTextField(with: numbers[i].number, at: i)
-                        let numberTypeTextfield = setupButton(at: i, text: numbers[i].type)
-                        numberTypeTextfield.inputView = pickerView
-                        let minusButton = setupMinusButton(at: i, isHidden: isHidden)
-                        stackView.addArrangedSubview(textField)
-                        stackView.addArrangedSubview(numberTypeTextfield)
-                        stackView.addArrangedSubview(minusButton)
-                        self.addArrangedSubview(stackView)
-                    }
-                }
-            })
         
+        DispatchQueue.main.async {
+            self.removeAllArrangedSubviews()
+            for i in 0 ..< numbers.count {
+                self.spacing = 16
+                
+                let stackView = UIStackView()
+                stackView.translatesAutoresizingMaskIntoConstraints = false
+                stackView.axis = .horizontal
+                stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                stackView.spacing = 16
+                
+                let isHidden = numbers.count > 1 ? false : true
+                
+                let textField = self.setupTextField(with: numbers[i].number, at: i)
+                let numberTypeTextfield = self.setupButton(at: i, text: numbers[i].type)
+                numberTypeTextfield.inputView = pickerView
+                let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
+                stackView.addArrangedSubview(textField)
+                stackView.addArrangedSubview(numberTypeTextfield)
+                stackView.addArrangedSubview(minusButton)
+                self.addArrangedSubview(stackView)
+            }
+        }
     }
 
 }
