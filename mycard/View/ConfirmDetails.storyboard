@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LkL-cD-wFF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Confirm Details View Controller-->
+        <scene sceneID="Khq-4b-Kpj">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="LkL-cD-wFF" customClass="ConfirmDetailsViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FJR-xU-MNe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1050"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oJ-FB-3dE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="928"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-Li-6E2">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="928"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pme-Ap-gGb">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                                <color key="backgroundColor" name="MC Gray Light"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="106" id="E4C-Ed-6CE"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-cg-ZOV">
+                                                <rect key="frame" x="24" y="8" width="366" height="156"/>
+                                                <subviews>
+                                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ocj-QO-e88">
+                                                        <rect key="frame" x="163" y="28" width="40" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="9Ld-Ht-7FE"/>
+                                                            <constraint firstAttribute="width" constant="40" id="v4u-Be-vtf"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-aa-vQN">
+                                                        <rect key="frame" x="173.5" y="38.5" width="19" height="19"/>
+                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" name="MC Black 40"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" name="MC Black 40"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. John Agyekum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNv-oe-Wwz">
+                                                        <rect key="frame" x="112.5" y="80" width="141" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senior Content Analyst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sY-qB-gmg">
+                                                        <rect key="frame" x="96" y="105" width="174.5" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ocj-QO-e88" firstAttribute="top" secondItem="d8D-cg-ZOV" secondAttribute="top" constant="28" id="EKO-uV-rEN"/>
+                                                    <constraint firstItem="QNv-oe-Wwz" firstAttribute="centerX" secondItem="d8D-cg-ZOV" secondAttribute="centerX" id="Mt5-Wl-b5V"/>
+                                                    <constraint firstItem="QNv-oe-Wwz" firstAttribute="top" secondItem="Ocj-QO-e88" secondAttribute="bottom" constant="12" id="Wyy-UW-KyD"/>
+                                                    <constraint firstItem="5sY-qB-gmg" firstAttribute="top" secondItem="QNv-oe-Wwz" secondAttribute="bottom" constant="4" id="eZ6-aq-sb1"/>
+                                                    <constraint firstItem="Ocj-QO-e88" firstAttribute="centerX" secondItem="d8D-cg-ZOV" secondAttribute="centerX" id="gRv-vh-c6o"/>
+                                                    <constraint firstItem="Lzn-aa-vQN" firstAttribute="centerY" secondItem="Ocj-QO-e88" secondAttribute="centerY" id="hhV-pk-f7N"/>
+                                                    <constraint firstItem="Lzn-aa-vQN" firstAttribute="centerX" secondItem="Ocj-QO-e88" secondAttribute="centerX" id="jvV-62-bMp"/>
+                                                    <constraint firstItem="5sY-qB-gmg" firstAttribute="centerX" secondItem="d8D-cg-ZOV" secondAttribute="centerX" id="mWt-Rk-9Fw"/>
+                                                    <constraint firstAttribute="height" constant="156" id="zBk-ji-yMz"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" name="MC Black 10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="MC White"/>
+                                        <constraints>
+                                            <constraint firstItem="pme-Ap-gGb" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" id="0gY-mf-qAY"/>
+                                            <constraint firstAttribute="trailing" secondItem="pme-Ap-gGb" secondAttribute="trailing" id="3mA-1J-Mu6"/>
+                                            <constraint firstAttribute="trailing" secondItem="d8D-cg-ZOV" secondAttribute="trailing" constant="24" id="BPG-ft-rAn"/>
+                                            <constraint firstItem="pme-Ap-gGb" firstAttribute="top" secondItem="4Zm-Li-6E2" secondAttribute="top" id="Lc1-Nl-ovf"/>
+                                            <constraint firstItem="d8D-cg-ZOV" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="24" id="Y0D-Rw-jbE"/>
+                                            <constraint firstItem="d8D-cg-ZOV" firstAttribute="top" secondItem="4Zm-Li-6E2" secondAttribute="top" constant="8" id="Zxy-7K-66B"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="MC Gray Light"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4Zm-Li-6E2" secondAttribute="trailing" id="3aY-kb-vgS"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Zm-Li-6E2" secondAttribute="bottom" id="FTe-Io-N2j"/>
+                                    <constraint firstItem="4Zm-Li-6E2" firstAttribute="leading" secondItem="8oJ-FB-3dE" secondAttribute="leading" id="b2L-wM-8Sj"/>
+                                    <constraint firstItem="4Zm-Li-6E2" firstAttribute="top" secondItem="8oJ-FB-3dE" secondAttribute="top" id="jCn-oT-7Cf"/>
+                                </constraints>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RY-gO-xT0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" name="MC Gray Light"/>
+                                <items>
+                                    <navigationItem id="5Zh-1x-cRK">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="mYg-Tr-B6S">
+                                            <color key="tintColor" name="MC Black"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KW7-JR-ERC"/>
+                        <color key="backgroundColor" name="MC Gray Light"/>
+                        <constraints>
+                            <constraint firstItem="9RY-gO-xT0" firstAttribute="leading" secondItem="KW7-JR-ERC" secondAttribute="leading" id="3Df-q1-Qft"/>
+                            <constraint firstItem="4Zm-Li-6E2" firstAttribute="width" secondItem="FJR-xU-MNe" secondAttribute="width" id="3Wx-jx-ytu"/>
+                            <constraint firstItem="KW7-JR-ERC" firstAttribute="bottom" secondItem="8oJ-FB-3dE" secondAttribute="bottom" id="A6i-OV-aTV"/>
+                            <constraint firstItem="4Zm-Li-6E2" firstAttribute="height" secondItem="FJR-xU-MNe" secondAttribute="height" multiplier="0.88381" priority="250" id="H2U-wi-HtJ"/>
+                            <constraint firstItem="8oJ-FB-3dE" firstAttribute="top" secondItem="9RY-gO-xT0" secondAttribute="bottom" id="NPK-cr-eC2"/>
+                            <constraint firstItem="9RY-gO-xT0" firstAttribute="trailing" secondItem="KW7-JR-ERC" secondAttribute="trailing" id="Nwl-rM-aKw"/>
+                            <constraint firstItem="KW7-JR-ERC" firstAttribute="top" secondItem="9RY-gO-xT0" secondAttribute="top" id="Utj-so-wCe"/>
+                            <constraint firstItem="8oJ-FB-3dE" firstAttribute="leading" secondItem="KW7-JR-ERC" secondAttribute="leading" id="a1F-x6-waq"/>
+                            <constraint firstItem="KW7-JR-ERC" firstAttribute="trailing" secondItem="8oJ-FB-3dE" secondAttribute="trailing" id="uCg-kt-RmF"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="1050"/>
+                    <connections>
+                        <outlet property="customNavigationBar" destination="9RY-gO-xT0" id="ejq-gP-DiX"/>
+                        <outlet property="jobTitleLabel" destination="5sY-qB-gmg" id="Nq7-oo-KJJ"/>
+                        <outlet property="nameInitialsLabel" destination="Lzn-aa-vQN" id="5IW-ri-fjo"/>
+                        <outlet property="nameInitialsView" destination="Ocj-QO-e88" id="Mf4-vz-cRo"/>
+                        <outlet property="nameLabel" destination="QNv-oe-Wwz" id="HA9-LR-XmI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AIj-0D-r3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="195.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <namedColor name="MC Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 10">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 40">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Gray Light">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

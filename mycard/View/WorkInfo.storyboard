@@ -208,6 +208,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButtonPressed:" destination="Pi2-Ui-4pk" eventType="touchUpInside" id="V0Z-ok-LB0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oWo-EM-8YA"/>
@@ -254,11 +257,22 @@
                         <outlet property="titleLabel" destination="7kD-cF-8lp" id="wtg-Aw-Ca6"/>
                         <outlet property="workInfoSectionLabel" destination="fJo-Ab-18p" id="n1P-aY-Zzc"/>
                         <outlet property="workLocationLabel" destination="Bl6-dr-2uA" id="9n4-tZ-njS"/>
+                        <segue destination="nba-dj-s3W" kind="show" identifier="WorkInfoToConfirmDetails" id="SHX-pd-dJv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9f8-Mu-ohG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1947.826086956522" y="206.91964285714286"/>
+        </scene>
+        <!--ConfirmDetails-->
+        <scene sceneID="Ilz-Fr-fZy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ConfirmDetails" id="nba-dj-s3W" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aI6-IA-gKe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jez-M5-a8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2604" y="276"/>
         </scene>
     </scenes>
     <resources>

@@ -28,7 +28,6 @@ struct K {
         static let subTitle = TextStyle(style: .small, color: .black60, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
         static let subTitleBlue = TextStyle(style: .small, color: .primary, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
         static let bodyBlack40 = TextStyle(style: .normal, color: .black40, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
-//        static let bodyBlueMedium = TextStyle(style: .normal, color: .primary, emphasis: .medium, alignment: .left, lineSpacing: 1.2)
         
         static let bodyBlack60 = TextStyle(style: .normal, color: .black60, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
         static let bodyBlack5 = TextStyle(style: .normal, color: .black5, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
@@ -51,6 +50,7 @@ struct K {
         static let verifyNumberToCards = "verifyNumberToCards"
         static let personalInfoToSocialMedia = "personalInfoToSocialMedia"
         static let personalInfoToWorkInfo = "PersonalInfoToWorkInfo"
+        static let workInfoToConfirmDetails = "WorkInfoToConfirmDetails"
     }
     
     struct Notifications {

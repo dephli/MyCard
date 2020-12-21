@@ -8,10 +8,10 @@
 import UIKit
 import AVFoundation
 
-class CaptureImageViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class CaptureImageViewController: UIViewController {
     @IBOutlet weak var addManuallyButton: UIButton!
     @IBOutlet weak var importCardButton: UIButton!
-    @IBOutlet weak var videoPreviewVIew: UIView!
+    @IBOutlet weak var videoPreviewView: UIView!
     
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCapturePhotoOutput?
@@ -64,15 +64,15 @@ class CaptureImageViewController: UIViewController, AVCapturePhotoCaptureDelegat
     func setupLivePreview() {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
         
-        videoPreviewLayer?.videoGravity = .resizeAspect
+        videoPreviewLayer?.videoGravity = .resizeAspectFill
         videoPreviewLayer?.connection?.videoOrientation = .portrait
-        videoPreviewVIew.layer.addSublayer(videoPreviewLayer!)
+        videoPreviewView.layer.addSublayer(videoPreviewLayer!)
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession!.startRunning()
             
             DispatchQueue.main.async {
-                self.videoPreviewLayer?.frame = self.videoPreviewVIew.bounds
+                self.videoPreviewLayer?.frame = self.videoPreviewView.bounds
             }
         }
     }
@@ -83,6 +83,9 @@ class CaptureImageViewController: UIViewController, AVCapturePhotoCaptureDelegat
         stillImageOutput?.capturePhoto(with: settings, delegate: self)
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 
@@ -93,4 +96,11 @@ class CaptureImageViewController: UIViewController, AVCapturePhotoCaptureDelegat
     }
     */
 
+}
+
+
+extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        
+    }
 }
