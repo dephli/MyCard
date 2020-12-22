@@ -37,6 +37,7 @@
 		829728FB258289B900C99E33 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728FA258289B900C99E33 /* AuthService.swift */; };
 		8297290025828E1F00C99E33 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 829728FF25828E1F00C99E33 /* GoogleService-Info.plist */; };
 		829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829729832582DDC000C99E33 /* NotificationNameExtension.swift */; };
+		82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A82D91259117D000175898 /* ReviewPhotoViewController.swift */; };
 		82AD90D72587760D0014B96E /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90D62587760D0014B96E /* Email.swift */; };
 		82AD90DC258776180014B96E /* EmailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90DB258776180014B96E /* EmailManager.swift */; };
 		82AD90E425879E7E0014B96E /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90E325879E7E0014B96E /* UIStackViewExtension.swift */; };
@@ -118,6 +119,7 @@
 		829728FF25828E1F00C99E33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8297291C25828FCD00C99E33 /* mycard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mycard.entitlements; sourceTree = "<group>"; };
 		829729832582DDC000C99E33 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
+		82A82D91259117D000175898 /* ReviewPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotoViewController.swift; sourceTree = "<group>"; };
 		82AD90D62587760D0014B96E /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		82AD90DB258776180014B96E /* EmailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailManager.swift; sourceTree = "<group>"; };
 		82AD90E325879E7E0014B96E /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				8293C92A258F6B3300D3FA58 /* CaptureImageViewController.swift */,
+				82A82D91259117D000175898 /* ReviewPhotoViewController.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,
 				82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */,
+				82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */,
 				82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */,
 				829728FB258289B900C99E33 /* AuthService.swift in Sources */,
 				825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */,

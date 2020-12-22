@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -109,7 +110,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="MC Black 80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="centerX" secondItem="hlt-fv-nNk" secondAttribute="centerX" id="6TF-WD-dta"/>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="leading" secondItem="hlt-fv-nNk" secondAttribute="leading" constant="32" id="HXs-B9-Mzi"/>
@@ -137,15 +138,73 @@
                         <outlet property="addManuallyButton" destination="Lrc-D0-xi6" id="fed-Vs-oCv"/>
                         <outlet property="importCardButton" destination="6HL-2P-bbX" id="cIS-Ot-OLg"/>
                         <outlet property="videoPreviewView" destination="QLI-Fm-IYt" id="ZAM-78-0Gn"/>
+                        <segue destination="Qf8-Xl-LGT" kind="presentation" identifier="CapturePhotoToReviewPhoto" id="suQ-Nm-IGA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpZ-H8-UFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="150"/>
         </scene>
+        <!--Review Photo View Controller-->
+        <scene sceneID="JcO-8h-cMI">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Qf8-Xl-LGT" customClass="ReviewPhotoViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="61x-5X-kev">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYr-Ir-cDE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qav-1G-ZvU">
+                                <rect key="frame" x="179" y="734" width="56" height="56"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Pb3-8W-Shs"/>
+                                    <constraint firstAttribute="width" constant="56" id="fCh-cn-vrb"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="arrow.forward" catalog="system" symbolScale="large"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZN-XK-oYm">
+                                <rect key="frame" x="16" y="44" width="18" height="22"/>
+                                <color key="tintColor" name="MC Black"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="Y3Y-Jq-0QI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rhn-ag-boP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rhn-ag-boP" firstAttribute="bottom" secondItem="qav-1G-ZvU" secondAttribute="bottom" constant="72" id="HUu-Db-mvE"/>
+                            <constraint firstItem="OZN-XK-oYm" firstAttribute="leading" secondItem="Rhn-ag-boP" secondAttribute="leading" constant="16" id="ibW-yN-q6u"/>
+                            <constraint firstItem="qav-1G-ZvU" firstAttribute="centerX" secondItem="61x-5X-kev" secondAttribute="centerX" id="ni7-k4-Krs"/>
+                            <constraint firstItem="OZN-XK-oYm" firstAttribute="top" secondItem="Rhn-ag-boP" secondAttribute="top" id="zqO-ND-pvK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="TYr-Ir-cDE" id="n9C-wV-0q6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="igC-c4-L6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1947.826086956522" y="150"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="camera bottom left angle" width="18" height="18"/>
         <image name="camera bottom right angle" width="18" height="18"/>
         <image name="camera top left angle" width="18" height="18"/>
@@ -153,8 +212,12 @@
         <image name="capture button" width="72" height="72"/>
         <image name="create card" width="26" height="22"/>
         <image name="import" width="26" height="25"/>
-        <namedColor name="MC Black 80">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="MC Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Blue">
+            <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

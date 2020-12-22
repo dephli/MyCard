@@ -51,6 +51,7 @@ struct K {
         static let personalInfoToSocialMedia = "personalInfoToSocialMedia"
         static let personalInfoToWorkInfo = "PersonalInfoToWorkInfo"
         static let workInfoToConfirmDetails = "WorkInfoToConfirmDetails"
+        static let capturePhotoToReviewPhoto = "CapturePhotoToReviewPhoto"
     }
     
     struct Notifications {
