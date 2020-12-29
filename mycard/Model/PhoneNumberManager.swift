@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 struct PhoneNumberManager {
+    private init () {}
     static let numbers = PhoneNumberManager()
     
     var list: BehaviorRelay<[PhoneNumber]> = BehaviorRelay(value: [PhoneNumber(type: "Home", number: "")])

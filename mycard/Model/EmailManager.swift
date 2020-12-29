@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 struct EmailManager {
+    private init () {}
     static var manager = EmailManager()
     
     var list: BehaviorRelay<[Email]> = BehaviorRelay(value: [Email(type: "Personal", address: "")])

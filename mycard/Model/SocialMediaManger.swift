@@ -9,6 +9,7 @@ import Foundation
 import RxCocoa
 
 struct SocialMediaManger {
+    private init () {}
     static let manager = SocialMediaManger()
     
     var list: BehaviorRelay<[SocialMedia]> = BehaviorRelay(value: [])
