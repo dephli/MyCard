@@ -30,6 +30,7 @@ class CardViewController: UIViewController {
         self.dismissKey()
         uiSetup()
         cardTableView.dataSource = self
+        cardTableView.delegate = self
         
         cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
     }
@@ -69,15 +70,22 @@ class CardViewController: UIViewController {
         label.text = "Cards";
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CardDetailsViewController {
+            destination.contact = contacts[(cardTableView.indexPathForSelectedRow?.row)!]
+        }
+    }
 }
 
-extension CardViewController: UITableViewDataSource {
+extension CardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCellIdentifier, for: indexPath) as! ContactsCell
+        cell.selectionStyle = .none
         let contact = contacts[indexPath.row]
         cell.nameLabel.text = contact.name
         cell.descriptionLabel.text = contact.occupation
@@ -85,8 +93,18 @@ extension CardViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = .moveIn
+        transition.subtype = .fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window?.layer.add(transition, forKey: kCATransition)
+        
+        performSegue(withIdentifier: K.Segues.cardsToCardDetails, sender: self)
+    }
 }
 
-extension CardViewController: UITableViewDelegate {
-    
-}
+

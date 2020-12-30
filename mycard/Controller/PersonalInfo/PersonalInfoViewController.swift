@@ -71,15 +71,7 @@ class PersonalInfoViewController: UIViewController {
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
     @IBAction func nextButtonPressed(_ sender: Any) {
-//        let workInfoController = WorkInfoViewController()
-//        let transition = CATransition()
-//        transition.duration = 0.5
-//        transition.type = .push
-//        transition.subtype = .fromRight
-//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-//        view.window?.layer.add(transition, forKey: kCATransition)
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
-//        present(workInfoController, animated: true, completion: nil)
     }
     
 }

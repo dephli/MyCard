@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82097D41259B4270000CB955 /* CardDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82097D40259B4270000CB955 /* CardDetails.storyboard */; };
+		82097D47259B4321000CB955 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82097D46259B4321000CB955 /* CardDetailsViewController.swift */; };
 		820F5B4A258037480077174E /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F5B49258037480077174E /* CustomNavigationBar.swift */; };
 		820F5B4F258050B00077174E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820F5B4E258050B00077174E /* Contact.swift */; };
 		8214E62125902DF80054A345 /* ConfirmDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8214E62025902DF80054A345 /* ConfirmDetails.storyboard */; };
@@ -88,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82097D40259B4270000CB955 /* CardDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardDetails.storyboard; sourceTree = "<group>"; };
+		82097D46259B4321000CB955 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		820F5B49258037480077174E /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		820F5B4E258050B00077174E /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8214E62025902DF80054A345 /* ConfirmDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmDetails.storyboard; sourceTree = "<group>"; };
@@ -193,6 +197,14 @@
 				8CA3228599EE86A84A48B245 /* Pods-mycard.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		82097D45259B42FF000CB955 /* CardDetails */ = {
+			isa = PBXGroup;
+			children = (
+				82097D46259B4321000CB955 /* CardDetailsViewController.swift */,
+			);
+			path = CardDetails;
 			sourceTree = "<group>";
 		};
 		8214E62625902E4A0054A345 /* Start */ = {
@@ -352,6 +364,7 @@
 				8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */,
 				8293C924258F6AF100D3FA58 /* Camera.storyboard */,
 				8214E62025902DF80054A345 /* ConfirmDetails.storyboard */,
+				82097D40259B4270000CB955 /* CardDetails.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -375,6 +388,7 @@
 		82C43750257C42D000CF945F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				82097D45259B42FF000CB955 /* CardDetails */,
 				8214E62A25902EF30054A345 /* ConfirmDetails */,
 				8293C929258F6B1400D3FA58 /* Camera */,
 				8293C91B258EEAE400D3FA58 /* WorkInfo */,
@@ -540,6 +554,7 @@
 				82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */,
 				82C4378C257CFFB500CF945F /* Inter-Bold.ttf in Resources */,
 				82C43786257CFF9B00CF945F /* Inter-Regular.ttf in Resources */,
+				82097D41259B4270000CB955 /* CardDetails.storyboard in Resources */,
 				82C43787257CFF9B00CF945F /* Inter-Medium.ttf in Resources */,
 				82B696A5257C12BD005AFE62 /* Main.storyboard in Resources */,
 			);
@@ -609,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				825FC3942586E18000FAA8E8 /* PhoneListStackView.swift in Sources */,
+				82097D47259B4321000CB955 /* CardDetailsViewController.swift in Sources */,
 				825FC2BB258645D100FAA8E8 /* User.swift in Sources */,
 				82C4375E257C515100CF945F /* Constants.swift in Sources */,
 				829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */,

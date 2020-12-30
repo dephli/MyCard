@@ -51,6 +51,7 @@ struct K {
         static let personalInfoToWorkInfo = "PersonalInfoToWorkInfo"
         static let workInfoToConfirmDetails = "WorkInfoToConfirmDetails"
         static let capturePhotoToReviewPhoto = "CapturePhotoToReviewPhoto"
+        static let cardsToCardDetails = "CardsToCardDetails"
     }
 
     struct Notifications {
