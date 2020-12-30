@@ -23,6 +23,9 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
+    @IBOutlet weak var phoneButtonLabel: UILabel!
+    @IBOutlet weak var mailButtonLabel: UILabel!
+    @IBOutlet weak var locationButtonLabel: UILabel!
     
     @IBOutlet weak var cardViewFaceIndicator1: UIView!
     @IBOutlet weak var cardViewFaceIndicator2: UIView!
@@ -34,6 +37,7 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var phoneTextLabel: UILabel!
     @IBOutlet weak var emailTextLabel: UILabel!
     @IBOutlet weak var workInfoTextLabel: UILabel!
+    @IBOutlet weak var workPositionTextLabel: UILabel!
     @IBOutlet weak var workLocationTextLabel: UILabel!
     
     @IBOutlet weak var noteTextField: UITextField!
@@ -50,6 +54,11 @@ class CardDetailsViewController: UIViewController {
         nameInitialsView.backgroundColor = randomColor
         nameInitialsView.alpha = 0.1
         nameInitialsLabel.textColor = randomColor
+        
+        phoneButtonLabel.style(with: K.TextStyles.captionBlack60)
+        mailButtonLabel.style(with: K.TextStyles.captionBlack60)
+        locationButtonLabel.style(with: K.TextStyles.captionBlack60)
+        
         nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         jobTitleLabel.style(with: K.TextStyles.subTitle)
         noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
@@ -69,6 +78,7 @@ class CardDetailsViewController: UIViewController {
         phoneTextLabel.style(with: K.TextStyles.bodyBlack)
         emailTextLabel.style(with: K.TextStyles.bodyBlack)
         workInfoTextLabel.style(with: K.TextStyles.bodyBlack)
+        workPositionTextLabel.style(with: K.TextStyles.bodyBlack)
         workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
     }
     
