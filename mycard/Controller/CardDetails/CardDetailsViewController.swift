@@ -140,6 +140,22 @@ class CardDetailsViewController: UIViewController {
         }
     }
     
+    fileprivate func confirmDeletion() {
+        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            
+        }
+        
+        let alertController = UIAlertController(title: "Delete Card", message: "Are you sure you want to delete this card?", preferredStyle: .alert)
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true, completion: nil)
+        alertController.view.tintColor = .black
+    }
+  
     /*
     // MARK: - Navigation
 
@@ -150,4 +166,74 @@ class CardDetailsViewController: UIViewController {
     }
     */
 
+}
+
+//MARK: - ActionSheet Actions
+extension CardDetailsViewController {
+    
+    @IBAction func moreButtonPressed(_ sender: Any) {
+        var image = UIImage(named: "edit")
+        image?.withTintColor(UIColor(named: K.Colors.mcBlack)!)
+        let editAction = UIAlertAction(
+            title: "Edit Card", style: .default) { (action) in
+        }
+        editAction.setValue(image, forKey: "image")
+        editAction.setValue(0, forKey: "titleTextAlignment")
+
+        
+        image = UIImage(named: "add to collection")
+        let addAction = UIAlertAction(
+            title: "Add to collection", style: .default) { (action) in
+        }
+        addAction.setValue(image, forKey: "image")
+        addAction.setValue(0, forKey: "titleTextAlignment")
+
+        
+        image = UIImage(named: "scan card qr")
+        let viewAction = UIAlertAction(title: "View card QR", style: .default) { (action) in
+            let storyBoard = UIStoryboard(name: "QRCode", bundle: nil)
+            let qrCodeViewController = storyBoard.instantiateViewController(identifier: "QRCodeViewController") as! QRCodeViewController
+//            qrCodeViewController.contact = Contact(name: <#T##String#>, image: <#T##String?#>, occupation: <#T##String#>, organization: <#T##String#>)
+            
+            self.present(qrCodeViewController, animated: true, completion: nil)
+            
+            
+        }
+        viewAction.setValue(image, forKey: "image")
+        viewAction.setValue(0, forKey: "titleTextAlignment")
+
+        let exportAction = UIAlertAction(title: "Export to contacts", style: .default) { (action) in
+            
+        }
+        image = UIImage(named: "contacts")
+        exportAction.setValue(image, forKey: "image")
+        exportAction.setValue(0, forKey: "titleTextAlignment")
+        
+        let deleteAction = UIAlertAction(title: "Delete card", style: .destructive) { (action) in
+            self.confirmDeletion()
+        }
+
+        image = UIImage(named: "delete")
+        deleteAction.setValue(image, forKey: "image")
+        deleteAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            
+        }
+        
+        
+        let alert = UIAlertController(title: nil, message: nil,
+              preferredStyle: .actionSheet)
+
+        alert.addAction(editAction)
+        alert.addAction(addAction)
+        alert.addAction(viewAction)
+        alert.addAction(exportAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        alert.view.tintColor = .black
+        
+    }
 }

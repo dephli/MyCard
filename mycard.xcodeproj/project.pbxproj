@@ -54,7 +54,7 @@
 		82B696AA257C12C0005AFE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B696A8257C12C0005AFE62 /* LaunchScreen.storyboard */; };
 		82B696B5257C12C0005AFE62 /* mycardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696B4257C12C0005AFE62 /* mycardTests.swift */; };
 		82B696C0257C12C0005AFE62 /* mycardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696BF257C12C0005AFE62 /* mycardUITests.swift */; };
-		82BED3CE257EDB4200F8E96E /* UiViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3CD257EDB4200F8E96E /* UiViewControllerExtension.swift */; };
+		82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */; };
 		82BED3D3257EF6B300F8E96E /* Cards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82BED3D2257EF6B300F8E96E /* Cards.storyboard */; };
 		82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3D8257EF6EB00F8E96E /* CardViewController.swift */; };
 		82BED3E1257EF6F900F8E96E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3E0257EF6F900F8E96E /* ProfileViewController.swift */; };
@@ -67,6 +67,9 @@
 		82C43787257CFF9B00CF945F /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C43784257CFF9B00CF945F /* Inter-Medium.ttf */; };
 		82C43788257CFF9B00CF945F /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C43785257CFF9B00CF945F /* Inter-SemiBold.ttf */; };
 		82C4378C257CFFB500CF945F /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C43782257CFF8E00CF945F /* Inter-Bold.ttf */; };
+		82EB8292259D44420098399A /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82EB8291259D44420098399A /* QRCode.storyboard */; };
+		82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB8297259D447F0098399A /* QRCodeViewController.swift */; };
+		82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB82A2259D47920098399A /* UIVIewExtension.swift */; };
 		82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0AA062580719200F1DFFC /* ContactsCell.swift */; };
 		82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F0AA072580719200F1DFFC /* ContactsCell.xib */; };
 		FE8895A1A19FB6C5C59B4ECD /* Pods_mycard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */; };
@@ -144,7 +147,7 @@
 		82B696BB257C12C0005AFE62 /* mycardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mycardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B696BF257C12C0005AFE62 /* mycardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mycardUITests.swift; sourceTree = "<group>"; };
 		82B696C1257C12C0005AFE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82BED3CD257EDB4200F8E96E /* UiViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtension.swift; sourceTree = "<group>"; };
+		82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		82BED3D2257EF6B300F8E96E /* Cards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cards.storyboard; sourceTree = "<group>"; };
 		82BED3D8257EF6EB00F8E96E /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		82BED3E0257EF6F900F8E96E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +160,9 @@
 		82C43783257CFF9A00CF945F /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		82C43784257CFF9B00CF945F /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		82C43785257CFF9B00CF945F /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		82EB8291259D44420098399A /* QRCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
+		82EB8297259D447F0098399A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		82EB82A2259D47920098399A /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		82F0AA062580719200F1DFFC /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		82F0AA072580719200F1DFFC /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
 		8CA3228599EE86A84A48B245 /* Pods-mycard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.release.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,11 +235,12 @@
 			children = (
 				825A4B59257E54F900201A01 /* UITextFieldExtension.swift */,
 				825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */,
-				82BED3CD257EDB4200F8E96E /* UiViewControllerExtension.swift */,
+				82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */,
 				829728CE2582704700C99E33 /* UIButtonExtension.swift */,
 				829729832582DDC000C99E33 /* NotificationNameExtension.swift */,
 				82AD90E325879E7E0014B96E /* UIStackViewExtension.swift */,
 				8214E633259047D10054A345 /* UIColorExtension.swift */,
+				82EB82A2259D47920098399A /* UIVIewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +372,7 @@
 				8293C924258F6AF100D3FA58 /* Camera.storyboard */,
 				8214E62025902DF80054A345 /* ConfirmDetails.storyboard */,
 				82097D40259B4270000CB955 /* CardDetails.storyboard */,
+				82EB8291259D44420098399A /* QRCode.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +396,7 @@
 		82C43750257C42D000CF945F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				82EB8296259D44660098399A /* QRCode */,
 				82097D45259B42FF000CB955 /* CardDetails */,
 				8214E62A25902EF30054A345 /* ConfirmDetails */,
 				8293C929258F6B1400D3FA58 /* Camera */,
@@ -426,6 +435,14 @@
 				82C43782257CFF8E00CF945F /* Inter-Bold.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		82EB8296259D44660098399A /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				82EB8297259D447F0098399A /* QRCodeViewController.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		CCD0CF5D6060AA7AD4F15112 /* Frameworks */ = {
@@ -548,6 +565,7 @@
 				8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */,
 				82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */,
 				82B696AA257C12C0005AFE62 /* LaunchScreen.storyboard in Resources */,
+				82EB8292259D44420098399A /* QRCode.storyboard in Resources */,
 				82B696A7257C12C0005AFE62 /* Assets.xcassets in Resources */,
 				8297290025828E1F00C99E33 /* GoogleService-Info.plist in Resources */,
 				82BED3D3257EF6B300F8E96E /* Cards.storyboard in Resources */,
@@ -638,7 +656,7 @@
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
 				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
-				82BED3CE257EDB4200F8E96E /* UiViewControllerExtension.swift in Sources */,
+				82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */,
 				82BED3F5257F063C00F8E96E /* NavigationController.swift in Sources */,
 				82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */,
 				825F15F6257D609400A3E103 /* SignupViewController.swift in Sources */,
@@ -647,6 +665,7 @@
 				825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */,
 				825F1601257D64A900A3E103 /* VerifyNumberViewController.swift in Sources */,
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,
+				82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */,
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,
 				82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */,
@@ -658,6 +677,7 @@
 				820F5B4A258037480077174E /* CustomNavigationBar.swift in Sources */,
 				825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */,
 				82B6969E257C12BD005AFE62 /* AppDelegate.swift in Sources */,
+				82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */,
 				829728F32582893B00C99E33 /* UserAuth.swift in Sources */,
 				82BED3E1257EF6F900F8E96E /* ProfileViewController.swift in Sources */,
 				82AD90E925879ECF0014B96E /* EmailListStackView.swift in Sources */,
