@@ -3,10 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
          <PersistentStrings>
             <PersistentString
-               value = "App.keychain![&quot;token&quot;]">
+               value = "keychainService.token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CardViewController.handleSearchFieldTapped():CardViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.searchController.searchBar.showsScopeBar">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -15,6 +23,14 @@
          <PersistentStrings>
             <PersistentString
                value = "UserDefaults.standard.string(forKey: &quot;token&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "App.keychain![&quot;token&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -31,14 +47,6 @@
          <PersistentStrings>
             <PersistentString
                value = "self.name">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "keychainService.token">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

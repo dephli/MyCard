@@ -9,10 +9,14 @@ import UIKit
 
 class CardViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchStackView: UIStackView!
+    @IBOutlet weak var searchStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardTableView: UITableView!
     @IBOutlet weak var floatiingButtonConstraints: NSLayoutConstraint!
     
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
     }
@@ -32,7 +36,19 @@ class CardViewController: UIViewController {
         cardTableView.dataSource = self
         cardTableView.delegate = self
         
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for card"
+        searchController.searchBar.scopeButtonTitles = [
+            "All", "Name", "Company", "Role"
+        ]
+        searchController.searchBar.showsScopeBar = false
+
         cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
+        searchView.addGestureRecognizer(gestureRecognizer)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,6 +56,34 @@ class CardViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(keyboardHideNotification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc func handleSearchFieldTapped() {
+        let textfield = searchController.searchBar.searchTextField
+        navigationItem.searchController = searchController
+        searchController.isActive = true
+        searchController.hidesNavigationBarDuringPresentation = true
+        navigationController?.navigationBar.backgroundColor = .white
+        DispatchQueue.main.async {
+            let font = UIFont(name: "inter", size: 16)
+
+            textfield.backgroundColor = .clear
+            textfield.font = font
+            textfield.heightAnchor.constraint(equalToConstant: 48).isActive = true
+            
+            self.searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font : font!], for: .normal)
+            self.searchController.searchBar.heightAnchor.constraint(equalToConstant: 48).isActive = true
+            self.searchController.searchBar.setShowsScope(true, animated: true)
+            self.searchController.searchBar.becomeFirstResponder()
+            self.searchController.searchBar.borderColor = .red
+            self.searchController.searchBar.searchBarStyle = .minimal
+            self.searchStackView.isHidden = true
+            self.searchStackViewHeightConstraint.constant = 0
+            self.searchController.searchBar.showsScopeBar = true
+
+        }
+    }
+    
+    
     
     @objc
     func handleKeyboard(keyboardShowNotification notification: Notification) {
@@ -69,6 +113,7 @@ class CardViewController: UIViewController {
         label.style(with: K.TextStyles.heading1)
         label.text = "Cards";
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,3 +153,25 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
+extension CardViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
+extension CardViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        print("hello world")
+    }
+}
+
+extension CardViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        UIView.animate(withDuration: 3) {
+            searchBar.showsScopeBar = false
+            self.searchStackView.isHidden = false
+            self.searchStackViewHeightConstraint.constant = 48
+        navigationItem.searchController = nil
+//        }
+    }
+}
