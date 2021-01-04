@@ -11,13 +11,14 @@ class QRCodeViewController: UIViewController {
     
     var contact: Contact?
     
+    @IBOutlet weak var customNavBar: UINavigationBar!
     @IBOutlet weak var qrcodeImageView: UIImageView!
     @IBOutlet weak var nameInitialsView: UIView!
     @IBOutlet weak var nameInitialsLabel: UILabel!
     var filter: CIFilter!
     
     fileprivate func qrCodeSetup() {
-        view.setGradientBackground( colorTop: UIColor(named: "MC Wine")!, colorBottom: UIColor(named: K.Colors.mcBlue)!)
+        view.setGradientBackground( colorTop: UIColor(named: K.Colors.mcBlue)!, colorBottom: UIColor(named: "MC Wine")!)
         let text = "https://www.josephmacleanarhin@outlook.com"
         let data = text.data(using: .ascii, allowLossyConversion: false)
         
@@ -34,6 +35,7 @@ class QRCodeViewController: UIViewController {
         super.viewDidLoad()
         
         qrCodeSetup()
+        customNavBar.shadowImage = UIImage()
         
         let randomColor = UIColor.random
         
@@ -41,9 +43,13 @@ class QRCodeViewController: UIViewController {
         nameInitialsView.alpha = 0.1
         nameInitialsLabel.textColor = randomColor
         
+        
     }
     
-
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

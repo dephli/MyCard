@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="gt6-IC-fGw">
@@ -52,7 +57,7 @@
             <objects>
                 <navigationController modalTransitionStyle="crossDissolve" id="JbX-bx-uTx" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,22 +84,15 @@
             <objects>
                 <viewController storyboardIdentifier="CardViewController" modalTransitionStyle="crossDissolve" id="k24-77-c8G" customClass="CardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gqs-O2-oAD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
-                                <rect key="frame" x="24" y="72" width="366" height="571"/>
+                                <rect key="frame" x="24" y="108" width="366" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for card" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cey-Ik-m6r">
-                                <rect key="frame" x="24" y="0.0" width="366" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="5kP-Hi-1wS"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H85-pB-znW">
-                                <rect key="frame" x="334" y="563" width="56" height="56"/>
+                                <rect key="frame" x="334" y="607" width="56" height="56"/>
                                 <color key="backgroundColor" name="MC Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="ezR-yl-unX"/>
@@ -123,19 +121,58 @@
                                     <segue destination="3cY-qt-pzE" kind="showDetail" id="azC-UC-UkX"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTI-5V-EUJ">
+                                <rect key="frame" x="24" y="52" width="366" height="48"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-oY-adW">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXP-7y-DQe">
+                                                <rect key="frame" x="16" y="0.0" width="304" height="48"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                <color key="textColor" name="MC Black 40"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="pXP-7y-DQe" firstAttribute="top" secondItem="LKc-oY-adW" secondAttribute="top" id="NSm-1b-UPh"/>
+                                            <constraint firstItem="pXP-7y-DQe" firstAttribute="leading" secondItem="LKc-oY-adW" secondAttribute="leading" constant="16" id="Oep-0m-79Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="pXP-7y-DQe" secondAttribute="trailing" id="QDb-ct-uMp"/>
+                                            <constraint firstAttribute="bottom" secondItem="pXP-7y-DQe" secondAttribute="bottom" id="QEz-mC-SlO"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFq-Sj-k3t">
+                                        <rect key="frame" x="320" y="0.0" width="46" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="ERk-BF-afT"/>
+                                            <constraint firstAttribute="width" constant="46" id="vbZ-n6-n42"/>
+                                        </constraints>
+                                        <state key="normal" image="sort"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="MC Black 5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="qlB-bn-nzw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="155-iA-Vsi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="3HG-Rq-F2r"/>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="4ei-a6-rui"/>
                             <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="9D4-pb-Th0"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="H85-pB-znW" secondAttribute="trailing" constant="24" id="D1L-ms-vs7"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" constant="24" id="GTi-ap-pNJ"/>
-                            <constraint firstItem="cey-Ik-m6r" firstAttribute="leading" secondItem="Gqs-O2-oAD" secondAttribute="leading" constant="24" id="IdV-fG-B8h"/>
-                            <constraint firstAttribute="trailing" secondItem="cey-Ik-m6r" secondAttribute="trailing" constant="24" id="RpZ-Xd-Zgt"/>
-                            <constraint firstItem="cey-Ik-m6r" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="ThV-Ne-YfO"/>
+                            <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="MBb-Z4-45a"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
-                            <constraint firstItem="cey-Ik-m6r" firstAttribute="centerX" secondItem="Gqs-O2-oAD" secondAttribute="centerX" id="oBe-01-qFy"/>
-                            <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="cey-Ik-m6r" secondAttribute="bottom" constant="8" id="vhA-gR-FrX"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="BTI-5V-EUJ" secondAttribute="trailing" constant="24" id="cuI-aN-CrR"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="H85-pB-znW" secondAttribute="bottom" constant="24" id="zZY-cF-waI"/>
                         </constraints>
                     </view>
@@ -143,13 +180,15 @@
                     <connections>
                         <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
                         <outlet property="floatiingButtonConstraints" destination="zZY-cF-waI" id="aJF-e0-liS"/>
-                        <outlet property="searchBar" destination="cey-Ik-m6r" id="RlH-Ua-AJK"/>
+                        <outlet property="searchStackView" destination="BTI-5V-EUJ" id="Thw-QM-IcS"/>
+                        <outlet property="searchStackViewHeightConstraint" destination="qlB-bn-nzw" id="QNP-1h-dPT"/>
+                        <outlet property="searchView" destination="LKc-oY-adW" id="QJB-4x-mZ3"/>
                         <segue destination="6H9-H6-S1g" kind="showDetail" identifier="CardsToCardDetails" animates="NO" id="Ki3-ol-g6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSX-w4-lk8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5857.971014492754" y="-40.178571428571423"/>
+            <point key="canvasLocation" x="5857.971014492754" y="-40.760869565217398"/>
         </scene>
         <!--PersonalInfo-->
         <scene sceneID="PTB-5p-8eQ">
@@ -193,7 +232,7 @@
             <objects>
                 <viewController id="44q-Dm-qKS" customClass="ProfileViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sJG-et-bDh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Ee0-p6-uow"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -208,9 +247,16 @@
     <resources>
         <image name="add card" width="24" height="24"/>
         <image name="cards" width="20" height="16"/>
+        <image name="sort" width="24" height="24"/>
         <image name="user" width="16" height="18"/>
         <namedColor name="MC Black 10">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 40">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 5">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.05000000074505806" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MC Blue">
             <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -192,9 +192,7 @@ extension CardDetailsViewController {
         image = UIImage(named: "scan card qr")
         let viewAction = UIAlertAction(title: "View card QR", style: .default) { (action) in
             let storyBoard = UIStoryboard(name: "QRCode", bundle: nil)
-            let qrCodeViewController = storyBoard.instantiateViewController(identifier: "QRCodeViewController") as! QRCodeViewController
-//            qrCodeViewController.contact = Contact(name: <#T##String#>, image: <#T##String?#>, occupation: <#T##String#>, organization: <#T##String#>)
-            
+            let qrCodeViewController = storyBoard.instantiateViewController(identifier: "QRCodeViewController") as! QRCodeViewController            
             self.present(qrCodeViewController, animated: true, completion: nil)
             
             
