@@ -12,6 +12,9 @@
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Personal Info View Controller-->
@@ -39,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1225"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3L-AI-FUD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1217"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1216.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5o-RI-AC8">
                                                 <rect key="frame" x="16" y="2" width="41.5" height="20.5"/>
@@ -78,6 +81,9 @@
                                                         <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="photoButtonPressed:" destination="CHm-Rj-w6x" eventType="touchUpInside" id="kaW-Ep-DMe"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRq-DW-shb">
                                                 <rect key="frame" x="16" y="202" width="47.5" height="20.5"/>
@@ -160,12 +166,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UAe-uG-Eco" customClass="SocialMediaListStackView" customModule="mycard" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="948" width="382" height="0.0"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" id="jQm-N6-57i"/>
-                                                </constraints>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Utf-jM-id0">
                                                 <rect key="frame" x="16" y="241.5" width="382" height="368"/>
                                                 <subviews>
@@ -178,7 +178,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="FZo-Os-dzH"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -289,14 +289,8 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ipz-v6-xQK" customClass="SocialMediaListStackView" customModule="mycard" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="948" width="382" height="1"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="R93-0u-3iW"/>
-                                                </constraints>
-                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnG-lw-Hkk">
-                                                <rect key="frame" x="16" y="973" width="382" height="48"/>
+                                                <rect key="frame" x="16" y="972.5" width="382" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="SYd-cy-GPE"/>
                                                 </constraints>
@@ -309,14 +303,14 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4s-kM-4VT">
-                                                <rect key="frame" x="16" y="1045" width="382" height="1"/>
+                                                <rect key="frame" x="16" y="1044.5" width="382" height="1"/>
                                                 <color key="backgroundColor" name="MC Black 5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LzQ-sP-cCM"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yud-z4-I77">
-                                                <rect key="frame" x="16" y="1065" width="382" height="48"/>
+                                                <rect key="frame" x="16" y="1064.5" width="382" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="LPi-JO-DKz"/>
                                                 </constraints>
@@ -341,7 +335,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87U-iH-wdx">
-                                                <rect key="frame" x="16" y="1145" width="382" height="48"/>
+                                                <rect key="frame" x="16" y="1144.5" width="382" height="48"/>
                                                 <color key="backgroundColor" name="MC Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="3KA-Sa-pae"/>
@@ -357,6 +351,12 @@
                                                     <action selector="nextButtonPressed:" destination="CHm-Rj-w6x" eventType="touchUpInside" id="2cv-8s-lDu"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fRX-8D-TzW" customClass="SocialMediaListStackView" customModule="mycard" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="948" width="382" height="1"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="D9f-7R-rWk"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -364,6 +364,7 @@
                                             <constraint firstItem="HRq-DW-shb" firstAttribute="top" secondItem="fYQ-GV-2it" secondAttribute="bottom" constant="27" id="4Jx-yG-vpP"/>
                                             <constraint firstAttribute="trailing" secondItem="kuP-eQ-PsG" secondAttribute="trailing" constant="16" id="9fF-tF-FRZ"/>
                                             <constraint firstItem="bnG-lw-Hkk" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="BEn-wC-V8M"/>
+                                            <constraint firstItem="bnG-lw-Hkk" firstAttribute="top" secondItem="fRX-8D-TzW" secondAttribute="bottom" constant="23.5" id="BFb-oq-Y17"/>
                                             <constraint firstItem="WhC-ER-A5v" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="BbI-FJ-ucr"/>
                                             <constraint firstItem="fYQ-GV-2it" firstAttribute="top" secondItem="geE-PH-ZDh" secondAttribute="bottom" constant="28" id="CDa-gR-1Z7"/>
                                             <constraint firstItem="HBo-8U-WmB" firstAttribute="top" secondItem="23U-aW-1ZS" secondAttribute="bottom" constant="19" id="CGt-LN-JO7"/>
@@ -373,10 +374,9 @@
                                             <constraint firstItem="87U-iH-wdx" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="Ga4-Ro-Rbl"/>
                                             <constraint firstItem="z4s-kM-4VT" firstAttribute="top" secondItem="bnG-lw-Hkk" secondAttribute="bottom" constant="24" id="GcF-FQ-dbZ"/>
                                             <constraint firstItem="NTl-V5-5Wk" firstAttribute="top" secondItem="fYQ-GV-2it" secondAttribute="top" constant="60" id="IpG-T7-WKA"/>
-                                            <constraint firstAttribute="trailing" secondItem="UAe-uG-Eco" secondAttribute="trailing" constant="16" id="J3v-GW-amE"/>
                                             <constraint firstAttribute="trailing" secondItem="z4s-kM-4VT" secondAttribute="trailing" constant="16" id="J97-KK-UUx"/>
                                             <constraint firstItem="Utf-jM-id0" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="Jwc-JG-RWg"/>
-                                            <constraint firstItem="bnG-lw-Hkk" firstAttribute="top" secondItem="Ipz-v6-xQK" secondAttribute="bottom" constant="24" id="OOf-y1-2GA"/>
+                                            <constraint firstItem="fRX-8D-TzW" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="L4a-ha-w3V"/>
                                             <constraint firstItem="yud-z4-I77" firstAttribute="top" secondItem="z4s-kM-4VT" secondAttribute="bottom" constant="19" id="OuG-yo-upO"/>
                                             <constraint firstAttribute="bottom" secondItem="87U-iH-wdx" secondAttribute="bottom" constant="24" id="Pcc-Rx-VQ4"/>
                                             <constraint firstItem="geE-PH-ZDh" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="PjO-em-HZC"/>
@@ -390,18 +390,14 @@
                                             <constraint firstItem="kuP-eQ-PsG" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="TQU-P7-cZj"/>
                                             <constraint firstItem="NTl-V5-5Wk" firstAttribute="leading" secondItem="fYQ-GV-2it" secondAttribute="leading" constant="60" id="TSd-6C-uze"/>
                                             <constraint firstItem="geE-PH-ZDh" firstAttribute="top" secondItem="R5o-RI-AC8" secondAttribute="bottom" constant="8" id="VWN-m6-auC"/>
-                                            <constraint firstItem="Ipz-v6-xQK" firstAttribute="top" secondItem="WhC-ER-A5v" secondAttribute="bottom" constant="19" id="VqX-qZ-7e3"/>
+                                            <constraint firstAttribute="trailing" secondItem="fRX-8D-TzW" secondAttribute="trailing" constant="16" id="WZx-IL-8RR"/>
                                             <constraint firstItem="23U-aW-1ZS" firstAttribute="top" secondItem="Utf-jM-id0" secondAttribute="bottom" constant="19" id="XHr-WY-9MM"/>
                                             <constraint firstItem="fmz-HM-Vi1" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="XS6-Wf-Hy8"/>
                                             <constraint firstAttribute="trailing" secondItem="fmz-HM-Vi1" secondAttribute="trailing" constant="16" id="Xec-HP-nTE"/>
-                                            <constraint firstItem="Ipz-v6-xQK" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="Xpe-T3-LCx"/>
-                                            <constraint firstItem="UAe-uG-Eco" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="XqY-CX-CFx"/>
                                             <constraint firstAttribute="trailing" secondItem="23U-aW-1ZS" secondAttribute="trailing" constant="16" id="YF5-aj-BHg"/>
                                             <constraint firstAttribute="trailing" secondItem="HKG-8Z-baW" secondAttribute="trailing" constant="16" id="Yfr-d5-eDy"/>
-                                            <constraint firstItem="UAe-uG-Eco" firstAttribute="top" secondItem="WhC-ER-A5v" secondAttribute="bottom" constant="19" id="bbF-Uo-ELM"/>
                                             <constraint firstItem="yud-z4-I77" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="bmq-7O-Vgr"/>
                                             <constraint firstItem="uhu-O4-CHb" firstAttribute="top" secondItem="23U-aW-1ZS" secondAttribute="bottom" constant="19" id="c1h-M5-xgz"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ipz-v6-xQK" secondAttribute="trailing" constant="16" id="c9p-zq-kDW"/>
                                             <constraint firstItem="fYQ-GV-2it" firstAttribute="centerX" secondItem="c3L-AI-FUD" secondAttribute="centerX" id="cnI-ul-KYG"/>
                                             <constraint firstItem="R5o-RI-AC8" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="e9W-LQ-1Cp"/>
                                             <constraint firstAttribute="trailing" secondItem="Utf-jM-id0" secondAttribute="trailing" constant="16" id="gUD-iU-wFc"/>
@@ -417,6 +413,7 @@
                                             <constraint firstItem="HRq-DW-shb" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="sfl-Bs-8K0"/>
                                             <constraint firstAttribute="trailing" secondItem="87U-iH-wdx" secondAttribute="trailing" constant="16" id="tFz-he-BFw"/>
                                             <constraint firstItem="HBo-8U-WmB" firstAttribute="leading" secondItem="c3L-AI-FUD" secondAttribute="leading" constant="16" id="vbc-ud-rjg"/>
+                                            <constraint firstItem="fRX-8D-TzW" firstAttribute="top" secondItem="WhC-ER-A5v" secondAttribute="bottom" constant="19" id="wBX-D3-8dB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -444,6 +441,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="1313"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="fYQ-GV-2it" id="6FD-Mw-kgg"/>
                         <outlet property="customNavBar" destination="dMR-Ie-Gyu" id="2G2-tJ-EMI"/>
                         <outlet property="emailLabel" destination="BlG-1n-B4m" id="QLB-bE-oRa"/>
                         <outlet property="emailListStackView" destination="HKG-8Z-baW" id="SGb-dg-dyu"/>
@@ -460,11 +458,11 @@
                         <outlet property="phoneNumbersStackViewHeightConstraint" destination="zGq-7a-rtL" id="rxN-7S-T8M"/>
                         <outlet property="phoneTitleLabel" destination="HBo-8U-WmB" id="YV7-hJ-gDB"/>
                         <outlet property="prefixTextField" destination="eQB-MC-0hj" id="J4q-66-26J"/>
-                        <outlet property="profileButtonToStackViewConstraint" destination="OOf-y1-2GA" id="KV8-5F-MZQ"/>
+                        <outlet property="scrollView" destination="cRl-fv-kd2" id="BIb-wt-gPK"/>
                         <outlet property="socialMediaButton" destination="bnG-lw-Hkk" id="D4a-Sr-zmA"/>
                         <outlet property="socialMediaLabel" destination="WhC-ER-A5v" id="VHg-mU-6G2"/>
-                        <outlet property="socialMediaListStackView" destination="UAe-uG-Eco" id="MbQ-pn-dGY"/>
-                        <outlet property="socialMediaListStackViewHeightConstraint" destination="jQm-N6-57i" id="v36-0a-CFM"/>
+                        <outlet property="socialMediaListStackView" destination="fRX-8D-TzW" id="426-jm-lem"/>
+                        <outlet property="socialMediaListStackViewHeightConstraint" destination="D9f-7R-rWk" id="imV-do-rhp"/>
                         <outlet property="suffixTextField" destination="lt8-p6-p70" id="xAw-RL-6oZ"/>
                         <segue destination="f2D-ub-vkb" kind="show" identifier="personalInfoToSocialMedia" id="bIC-r4-yQr"/>
                         <segue destination="tSk-yO-IwH" kind="show" identifier="PersonalInfoToWorkInfo" id="Xmv-JM-2gL"/>
@@ -472,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goH-eZ-Pgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908.6956521739132" y="61.607142857142854"/>
+            <point key="canvasLocation" x="1908.6956521739132" y="61.272321428571423"/>
         </scene>
         <!--Social Media View Controller-->
         <scene sceneID="z4X-pE-cd7">
@@ -771,17 +769,21 @@
                     <navigationItem key="navigationItem" id="I4N-CY-MZh"/>
                     <connections>
                         <outlet property="doneButton" destination="fRN-Gj-eZv" id="SbQ-d3-veA"/>
+                        <outlet property="facebookButton" destination="8YB-JY-eKS" id="bdV-0L-7ub"/>
                         <outlet property="facebookLabel" destination="yP0-N6-GFe" id="glh-de-f2m"/>
                         <outlet property="facebookStackView" destination="9Hc-Sv-7aN" id="wHv-s9-yxK"/>
                         <outlet property="facebookTextfield" destination="V88-2W-VQh" id="3cc-Jj-JOW"/>
                         <outlet property="instagramAccountTextfield" destination="3MC-u1-uft" id="Hmx-5M-oKc"/>
+                        <outlet property="instagramButton" destination="iHP-1d-K7z" id="gpG-jk-lGJ"/>
                         <outlet property="instagramLabel" destination="TqH-12-Pee" id="5HR-sp-52b"/>
                         <outlet property="instagramStackView" destination="LGl-yr-ccM" id="q1Y-A7-FDY"/>
                         <outlet property="linkedinAccountTextfield" destination="C6F-4g-eLa" id="YYd-Cd-sic"/>
+                        <outlet property="linkedinButton" destination="Vjg-Sv-BbC" id="yMN-DF-Xqg"/>
                         <outlet property="linkedinLabel" destination="3G2-3w-Jcy" id="2UW-Gb-RxR"/>
                         <outlet property="linkedinStackView" destination="8KR-he-QC4" id="FTx-9l-WMD"/>
                         <outlet property="socialsLabel" destination="Gga-BN-p2N" id="ydZ-vW-QBa"/>
                         <outlet property="twitterAccountTextfield" destination="DOi-qq-beK" id="aSq-ca-KMC"/>
+                        <outlet property="twitterButton" destination="an0-9f-4BE" id="0O0-7u-KI3"/>
                         <outlet property="twitterLabel" destination="DkA-zs-fxg" id="UVK-iI-5H6"/>
                         <outlet property="twitterStackView" destination="Xff-QE-ovw" id="4Rk-Tn-I9k"/>
                     </connections>

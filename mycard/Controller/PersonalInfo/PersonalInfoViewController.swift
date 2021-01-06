@@ -23,15 +23,14 @@ class PersonalInfoViewController: UIViewController {
     @IBOutlet weak var middleNameTextField: UITextField!
     @IBOutlet weak var suffixTextField: UITextField!
     
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var socialMediaButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var phoneNumbersStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailListStackviewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var socialMediaListStackViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var profileButtonToStackViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var profileButtonToLabelConstraint: NSLayoutConstraint!
     
-
     @IBOutlet weak var nameStackView: UIStackView!
     @IBOutlet weak var phoneNumbersStackView: PhoneListStackView!
     @IBOutlet weak var emailListStackView: EmailListStackView!
@@ -41,7 +40,13 @@ class PersonalInfoViewController: UIViewController {
     @IBOutlet weak var customNavBar: CustomNavigationBar!
     
     let phoneNumberObservable = PhoneNumberManager.numbers.list.asObservable()
+    let socialMediaObservable =
+        SocialMediaManger.manager.list.asObservable()
     let disposeBag = DisposeBag()
+    
+    let imagePicker = UIImagePickerController()
+    
+    var keyboardHeight: Float?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +56,15 @@ class PersonalInfoViewController: UIViewController {
         uiSetup()
 
         nameSetup()
- 
+        
+        view.viewOfType(type: UITextField.self) { (textfield) in
+            textfield.delegate = self
+        }
+        
+        fullNameTextField.becomeFirstResponder()
         phoneNumbersStackViewHeightConstraint.isActive = false
         emailListStackviewHeightConstraint.isActive = false
         socialMediaListStackViewHeightConstraint.isActive = false
-//        profileButtonToStackViewConstraint.isActive = false
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -70,6 +79,14 @@ class PersonalInfoViewController: UIViewController {
     @IBAction func socialMediaButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
+    @IBAction func photoButtonPressed(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true)
+        }
+    }
     @IBAction func nextButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
     }
@@ -82,7 +99,6 @@ extension PersonalInfoViewController {
     
     func uiSetup() {
         socialMediaButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
-        socialMediaListStackView.configure()
         customNavBar.setup(backIndicatorImage: "xmark")
         personalInfoLabel.style(with: K.TextStyles.heading1)
         pageCountLabel.style(with: K.TextStyles.subTitle)
@@ -100,6 +116,10 @@ extension PersonalInfoViewController {
             emailListStackView.configure(with: emails)
         }.disposed(by: disposeBag)
         
+        socialMediaObservable.subscribe { [unowned self] accounts in
+            socialMediaListStackView.configure(with: accounts)
+        }.disposed(by: disposeBag)
+
     }
 }
 
@@ -146,4 +166,43 @@ extension PersonalInfoViewController {
 
         }
     }
+}
+
+extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
+        let image = info[.editedImage] as? UIImage
+        DispatchQueue.main.async {
+            self.avatarImageView.image = image
+        }
+    }
+}
+
+extension PersonalInfoViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var point = textField.convert(textField.frame.origin, to: self.scrollView)
+        point.x = 0.0
+        
+        scrollView.setContentOffset(CGPoint(x: 0, y: Int(self.keyboardHeight ?? 0)), animated: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        scrollView.setContentOffset(CGPoint.zero, animated: true)
+    }
+    
+    fileprivate func keyboardNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
+    
+    @objc func handleKeyboardShow(notification: Notification) {
+        if let userInfo = notification.userInfo,
+            let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            self.keyboardHeight = Float(keyboardRectangle.height)
+        }
+    }
+    
+    
 }

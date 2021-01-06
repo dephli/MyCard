@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
+         contextName = "closure #1 in User.phoneNumberAuth(with:onActionComplete:):User.swift">
          <PersistentStrings>
             <PersistentString
-               value = "keychainService.token">
+               value = "self.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,6 +19,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "SocialMediaManger.replace(with:):SocialMediaManger.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "list.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in VerifyNumberViewController.verifyButtonPressed(_:):VerifyNumberViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -27,10 +35,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
          <PersistentStrings>
             <PersistentString
-               value = "App.keychain![&quot;token&quot;]">
+               value = "keychainService.token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SocialMediaViewController.doneButtonPressed(_:):SocialMediaViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "linkedinAccountTextfield=&quot;&quot;">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -43,10 +59,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in User.phoneNumberAuth(with:onActionComplete:):User.swift">
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.name">
+               value = "App.keychain![&quot;token&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

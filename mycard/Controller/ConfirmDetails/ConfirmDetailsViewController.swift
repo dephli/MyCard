@@ -44,7 +44,7 @@ class ConfirmDetailsViewController: UIViewController {
     
     fileprivate func setupUI() {
         socialMediaStackViewHeightConstraint.isActive = false
-        socialMediaStackView.configure()
+        socialMediaStackView.configure(with: [])
         customNavigationBar.shadowImage = UIImage()
         let randomColor = UIColor.random
         nameInitialsView.backgroundColor = randomColor

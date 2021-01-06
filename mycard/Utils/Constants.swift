@@ -65,5 +65,14 @@ struct K {
         static let instagram = "socials instagram"
         static let linkedin = "socials linkedin"
         static let chevron_right = "chevron right"
+        static let minus = "minus"
+        static let plus = "plus"
+    }
+    
+    struct SocialMedia {
+        static let facebook = "facebook"
+        static let twitter = "twitter"
+        static let instagram = "instagram"
+        static let linkedin = "linkedin"
     }
 }
