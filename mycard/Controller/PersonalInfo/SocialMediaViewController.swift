@@ -27,24 +27,16 @@ class SocialMediaViewController: UIViewController {
     @IBOutlet weak var twitterStackView: UIStackView!
     @IBOutlet weak var instagramStackView: UIStackView!
     
+    @IBOutlet weak var linkedinButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var twitterButton: UIButton!
+    @IBOutlet weak var instagramButton: UIButton!
     
-    let socialMediaObservable = SocialMediaManger.manager.list.asObservable()
     
-    override func viewWillAppear(_ animated: Bool) {
-        linkedinAccountTextfield.isHidden = true
-        linkedinAccountTextfield.alpha = 0
-        
-        twitterAccountTextfield.isHidden = true
-        twitterAccountTextfield.alpha = 0
-        
-        facebookTextfield.isHidden = true
-        facebookTextfield.alpha = 0
-        
-        instagramAccountTextfield.isHidden = true
-        instagramAccountTextfield.alpha = 0
-    }
+    
+    let socialMediaList = SocialMediaManger.manager.getAll
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         socialsLabel.style(with: K.TextStyles.heading1)
@@ -59,6 +51,12 @@ class SocialMediaViewController: UIViewController {
         twitterAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
         instagramAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
         doneButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
+        
+        
+        
+        populateTextFields()
+        self.dismissKey()
+
 
     }
     
@@ -67,74 +65,127 @@ class SocialMediaViewController: UIViewController {
         var accounts: [SocialMedia] = []
         
         if facebookTextfield.text != "" {
-            accounts.append(SocialMedia(link: facebookTextfield.text!, type: .facebook, icon: UIImage(named: K.Images.facebook)!))
+            accounts.append(SocialMedia(link: facebookTextfield.text!, type: K.SocialMedia.facebook))
         }
         
-        if facebookTextfield.text != "" {
-            accounts.append(SocialMedia(link: twitterLabel.text!, type: .twitter, icon: UIImage(named: K.Images.twitter)!))
+        if twitterAccountTextfield.text != "" {
+            accounts.append(SocialMedia(link: twitterLabel.text!, type: K.SocialMedia.twitter))
         }
         
-        if facebookTextfield.text != "" {
-            accounts.append(SocialMedia(link: instagramAccountTextfield.text!, type: .instagram, icon: UIImage(named: K.Images.instagram)!))
+        if instagramAccountTextfield.text != "" {
+            accounts.append(SocialMedia(link: instagramAccountTextfield.text!, type: K.SocialMedia.instagram))
         }
         
-        if facebookTextfield.text != "" {
-            accounts.append(SocialMedia(link: linkedinAccountTextfield.text!, type: .linkedin, icon: UIImage(named: K.Images.linkedin)!))
+        if linkedinAccountTextfield.text != "" {
+            accounts.append(SocialMedia(link: linkedinAccountTextfield.text!, type: K.SocialMedia.linkedin))
         }
-        
-        SocialMediaManger.manager.list.accept(accounts)
+        SocialMediaManger.manager.replace(with: accounts)
         
         dismiss(animated: true, completion: nil)
     }
-    
-    
-
 }
 
 
 //MARK: - Button Pressed Actions
 extension SocialMediaViewController {
-    @IBAction func addLinkedinButtonPressed(_ sender: Any) {
+    @IBAction func addLinkedinButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3, animations: {
-            if self.linkedinAccountTextfield.alpha == 1 {
-                self.linkedinAccountTextfield.alpha = 0
+            let image: UIImage
+            if self.linkedinAccountTextfield.isHidden {
+                self.linkedinAccountTextfield.show()
+                image = UIImage(systemName: K.Images.minus)!
             } else {
-                self.linkedinAccountTextfield.alpha = 1
+                self.linkedinAccountTextfield.hide()
+                image = UIImage(systemName: K.Images.plus)!
             }
-            self.linkedinAccountTextfield.isHidden.toggle()
+            sender.setImage(image, for: .normal)
         })
     }
     
-    @IBAction func addFacebookButtonPressed(_ sender: Any) {
+    @IBAction func addFacebookButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3, animations: {
-            if self.facebookTextfield.alpha == 1 {
-                self.facebookTextfield.alpha = 0
+            let image: UIImage
+            if self.facebookTextfield.isHidden {
+                self.facebookTextfield.show()
+                image = UIImage(systemName: K.Images.minus)!
             } else {
-                self.facebookTextfield.alpha = 1
+                self.facebookTextfield.hide()
+                image = UIImage(systemName: K.Images.plus)!
             }
-            self.facebookTextfield.isHidden.toggle()
+            sender.setImage(image, for: .normal)
         })
     }
     
-    @IBAction func addTwitterButtonPressed(_ sender: Any) {
+    @IBAction func addTwitterButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3, animations: {
-            if self.twitterAccountTextfield.alpha == 1 {
-                self.twitterAccountTextfield.alpha = 0
+            let image: UIImage
+            if self.twitterAccountTextfield.isHidden {
+                self.twitterAccountTextfield.show()
+                image = UIImage(systemName: K.Images.minus)!
             } else {
-                self.twitterAccountTextfield.alpha = 1
+                self.twitterAccountTextfield.hide()
+                image = UIImage(systemName: K.Images.plus)!
             }
-            self.twitterAccountTextfield.isHidden.toggle()
+            sender.setImage(image, for: .normal)
         })
     }
     
-    @IBAction func addInstagramButtonPressed(_ sender: Any) {
+    @IBAction func addInstagramButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3, animations: {
-            if self.instagramAccountTextfield.alpha == 1 {
-                self.instagramAccountTextfield.alpha = 0
+            let image: UIImage
+            if self.instagramAccountTextfield.isHidden {
+                self.instagramAccountTextfield.show()
+                image = UIImage(systemName: K.Images.minus)!
             } else {
-                self.instagramAccountTextfield.alpha = 1
+                self.instagramAccountTextfield.hide()
+                image = UIImage(systemName: K.Images.plus)!
             }
-            self.instagramAccountTextfield.isHidden.toggle()
+            
+            sender.setImage(image, for: .normal)
+
         })
     }
+}
+
+
+extension SocialMediaViewController {
+    fileprivate func populateTextFields() {
+        if let linkedIn = socialMediaList.first(where: { (socialMedia) -> Bool in
+            return socialMedia.type == K.SocialMedia.linkedin
+        }) {
+            linkedinAccountTextfield.text = linkedIn.link
+            linkedinButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+            
+        } else {
+            linkedinAccountTextfield.hide()
+        }
+        
+        if let twitter = socialMediaList.first(where: { (socialMedia) -> Bool in
+            return socialMedia.type == K.SocialMedia.twitter
+        }) {
+            twitterAccountTextfield.text = twitter.link
+            twitterButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+        } else {
+            twitterAccountTextfield.hide()
+        }
+        
+        if let instagram = socialMediaList.first(where: { (socialMedia) -> Bool in
+            return socialMedia.type == K.SocialMedia.instagram
+        }) {
+            instagramAccountTextfield.text = instagram.link
+            instagramButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+        } else {
+            instagramAccountTextfield.hide()
+        }
+        
+        if let facebook = socialMediaList.first(where: { (socialMedia) -> Bool in
+            return socialMedia.type == K.SocialMedia.facebook
+        }) {
+            facebookTextfield.text = facebook.link
+            facebookButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+        } else {
+            facebookTextfield.hide()
+        }
+    }
+
 }

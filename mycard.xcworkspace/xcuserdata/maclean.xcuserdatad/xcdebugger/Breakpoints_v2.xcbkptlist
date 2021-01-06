@@ -55,54 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E40BD9F-22C2-483B-A86A-71DA54DEAA81"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "mycard/Controller/PersonalInfo/SocialMediaViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "addLinkedinButtonPressed(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3E40BD9F-22C2-483B-A86A-71DA54DEAA81 - 2617ef0df11f6b31"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "mycard.SocialMediaViewController.addLinkedinButtonPressed(Any) -&gt; ()"
-                  moduleName = "mycard"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclean/Developer/projects/swift/archive/mycard/mycard/Controller/PersonalInfo/SocialMediaViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "3E40BD9F-22C2-483B-A86A-71DA54DEAA81 - 46ac5f6e4bb9b593"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in mycard.SocialMediaViewController.addLinkedinButtonPressed(Any) -&gt; ()"
-                  moduleName = "mycard"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maclean/Developer/projects/swift/archive/mycard/mycard/Controller/PersonalInfo/SocialMediaViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "86">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "734BE311-59A0-4D45-9828-169E0D708F43"
             shouldBeEnabled = "No"
             ignoreCount = "0"

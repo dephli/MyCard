@@ -30,4 +30,18 @@ extension UIView {
 
        layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func viewOfType<T:UIView>(type:T.Type, process: (_ view:T) -> Void)
+     {
+         if let view = self as? T
+         {
+             process(view)
+         }
+         else {
+             for subView in subviews
+             {
+                 subView.viewOfType(type:type, process:process)
+             }
+         }
+     }
 }

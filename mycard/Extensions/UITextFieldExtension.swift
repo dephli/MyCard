@@ -48,4 +48,15 @@ extension UITextField {
         self.layer.addSublayer(border)
     }
     
+    func hide() {
+        self.isHidden = true
+        self.alpha = 0
+        self.text = ""
+    }
+    
+    func show() {
+        self.isHidden = false
+        self.alpha = 1
+    }
+    
 }
