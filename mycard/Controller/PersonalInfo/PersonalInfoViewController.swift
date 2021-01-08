@@ -36,6 +36,8 @@ class PersonalInfoViewController: UIViewController {
     @IBOutlet weak var emailListStackView: EmailListStackView!
     @IBOutlet weak var socialMediaListStackView: SocialMediaListStackView!
     
+    @IBOutlet weak var profileButtonToSocialMediaLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileButtonToSocialMediaStackViewConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var customNavBar: CustomNavigationBar!
     
@@ -65,6 +67,8 @@ class PersonalInfoViewController: UIViewController {
         phoneNumbersStackViewHeightConstraint.isActive = false
         emailListStackviewHeightConstraint.isActive = false
         socialMediaListStackViewHeightConstraint.isActive = false
+        profileButtonToSocialMediaLabelConstraint?.isActive = false
+        profileButtonToSocialMediaStackViewConstraint?.isActive = false
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -115,6 +119,18 @@ extension PersonalInfoViewController {
         EmailManager.manager.list.asObservable().subscribe { [unowned self] emails in
             emailListStackView.configure(with: emails)
         }.disposed(by: disposeBag)
+        
+        let constraintToLabel = socialMediaButton.topAnchor.constraint(equalTo: socialMediaLabel.bottomAnchor, constant: 14)
+        let constraintToStackView = socialMediaButton.topAnchor.constraint(equalTo: socialMediaListStackView.bottomAnchor, constant: 24)
+        socialMediaObservable.subscribe { accounts in
+            
+            let isEmpty = SocialMediaManger.manager.getAll.isEmpty
+            constraintToLabel.isActive = isEmpty
+            
+            constraintToStackView.isActive = !isEmpty
+            
+        }.disposed(by: disposeBag)
+
         
         socialMediaObservable.subscribe { [unowned self] accounts in
             socialMediaListStackView.configure(with: accounts)
