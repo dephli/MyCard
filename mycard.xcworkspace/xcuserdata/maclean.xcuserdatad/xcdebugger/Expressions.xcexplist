@@ -11,18 +11,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in CardViewController.handleSearchFieldTapped():CardViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.searchController.searchBar.showsScopeBar">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "SocialMediaManger.replace(with:):SocialMediaManger.swift">
          <PersistentStrings>
             <PersistentString
                value = "list.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CardViewController.handleSearchFieldTapped():CardViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.searchController.searchBar.showsScopeBar">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,6 +47,17 @@
          <PersistentStrings>
             <PersistentString
                value = "linkedinAccountTextfield=&quot;&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in PersonalInfoViewController.uiSetup():PersonalInfoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "self.profileButtonToSocialMediaStackViewConstraint">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
