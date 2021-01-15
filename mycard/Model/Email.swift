@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Email {
+struct Email: Codable {
     var type: String
     var address: String
 }

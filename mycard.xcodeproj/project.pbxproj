@@ -27,6 +27,8 @@
 		825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3822586BDED00FAA8E8 /* PhoneNumber.swift */; };
 		825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */; };
 		825FC3942586E18000FAA8E8 /* PhoneListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */; };
+		82647AF925AE127A0091D104 /* ContactCreationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647AF825AE127A0091D104 /* ContactCreationManager.swift */; };
+		82647B0125AE47F20091D104 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647B0025AE47F20091D104 /* StringExtension.swift */; };
 		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
 		827354472588CEE800236797 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354462588CEE800236797 /* SocialMedia.swift */; };
 		8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273544B2588CFDA00236797 /* SocialMediaManger.swift */; };
@@ -114,6 +116,8 @@
 		825FC3822586BDED00FAA8E8 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberManager.swift; sourceTree = "<group>"; };
 		825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListStackView.swift; sourceTree = "<group>"; };
+		82647AF825AE127A0091D104 /* ContactCreationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCreationManager.swift; sourceTree = "<group>"; };
+		82647B0025AE47F20091D104 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
 		827354462588CEE800236797 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		8273544B2588CFDA00236797 /* SocialMediaManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaManger.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				82AD90E325879E7E0014B96E /* UIStackViewExtension.swift */,
 				8214E633259047D10054A345 /* UIColorExtension.swift */,
 				82EB82A2259D47920098399A /* UIVIewExtension.swift */,
+				82647B0025AE47F20091D104 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				82AD90DB258776180014B96E /* EmailManager.swift */,
 				827354462588CEE800236797 /* SocialMedia.swift */,
 				8273544B2588CFDA00236797 /* SocialMediaManger.swift */,
+				82647AF825AE127A0091D104 /* ContactCreationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -659,6 +665,7 @@
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
 				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
+				82647B0125AE47F20091D104 /* StringExtension.swift in Sources */,
 				82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */,
 				82BED3F5257F063C00F8E96E /* NavigationController.swift in Sources */,
 				82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */,
@@ -666,6 +673,7 @@
 				825FC34125866CA200FAA8E8 /* KeyChainService.swift in Sources */,
 				8293C92B258F6B3300D3FA58 /* CaptureImageViewController.swift in Sources */,
 				825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */,
+				82647AF925AE127A0091D104 /* ContactCreationManager.swift in Sources */,
 				825F1601257D64A900A3E103 /* VerifyNumberViewController.swift in Sources */,
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,
 				8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */,

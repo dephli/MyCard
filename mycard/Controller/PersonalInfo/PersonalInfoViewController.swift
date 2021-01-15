@@ -50,6 +50,13 @@ class PersonalInfoViewController: UIViewController {
     
     var keyboardHeight: Float?
     
+    let prefixTypes = ["mr", "ms", "mrs", "dr"]
+    let suffixes = ["phd", "ccna", "obe", "sr", "jr", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "snr"]
+    var userDefinedPrefixType: [String] = []
+    var previousPrefix = ""
+    var previousFirstName = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +65,8 @@ class PersonalInfoViewController: UIViewController {
         uiSetup()
 
         nameSetup()
+        
+            userDefinedPrefixType = prefixTypes
         
         view.viewOfType(type: UITextField.self) { (textfield) in
             textfield.delegate = self
@@ -91,10 +100,11 @@ class PersonalInfoViewController: UIViewController {
             present(imagePicker, animated: true)
         }
     }
+    
     @IBAction func nextButtonPressed(_ sender: Any) {
+        saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
     }
-    
 }
 
 
@@ -154,10 +164,10 @@ extension PersonalInfoViewController {
     }
     
     @IBAction func bottomCaretButtonPressed(_ sender: UIButton) {
-
+//        distributeNames()
+        
         let stackViewLength = nameStackView.arrangedSubviews.count
         
-
         DispatchQueue.main.async {
                 self.nameStackView.arrangedSubviews[0].alpha = 0
 
@@ -205,12 +215,11 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         scrollView.setContentOffset(CGPoint.zero, animated: true)
+        distributeNames(textField)
     }
     
     fileprivate func keyboardNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     @objc func handleKeyboardShow(notification: Notification) {
@@ -221,4 +230,146 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     }
     
     
+}
+
+extension PersonalInfoViewController {
+    fileprivate func saveProfileInfo() {
+        var contact: Contact = ContactCreationManager.manager.contact.value
+        if fullNameTextField.text != "" {
+            contact.fullName = fullNameTextField.text
+        }
+
+        ContactCreationManager.manager.contact.accept(contact)
+    }
+}
+
+
+extension PersonalInfoViewController {
+    fileprivate func distributeNames(_ textfield: UITextField) {
+
+        if textfield.placeholder == "Full Name" {
+            DispatchQueue.main.async {
+                self.splitFullname()
+            }
+        }
+        else {
+            DispatchQueue.main.async {
+                self.setAllNames()
+            }
+        }
+    }
+    
+    func splitFullname() {
+        
+        let fullName = fullNameTextField.text!
+        if fullName.count > 1 {
+                let names = fullName.trimmingCharacters(in: .whitespaces).components(separatedBy: " ")
+                        for i in 1..<nameStackView.arrangedSubviews.count {
+                            (nameStackView.arrangedSubviews[i] as? UITextField)?.text = ""
+                        }
+                
+//                TODO: Refactor this code
+            let first = names[0].trimmingCharacters(in: .punctuationCharacters)
+                    
+//            check if first word is a prefix word
+            if prefixTypes.contains(first.trimmingCharacters(in: .punctuationCharacters).lowercased()) {
+                prefixTextField.text = first
+//                if word is a prefix word and there are two words, set second word to lastName
+                        if names.count == 2 {
+                            lastNameTextField.text = names[1]
+                        }
+//                        if word is a prefix and there are 3
+                        else if names.count == 3 {
+//                            if last word is a suffix word, set suffix to last word and lastname to middle word
+                            if suffixes.contains(names[names.count-1].trimmingCharacters(in: .punctuationCharacters).lowercased()) {
+                                suffixTextField.text = names[names.count - 1]
+                                lastNameTextField.text = names[names.count-2]
+                            } else {
+//                                else set lastName to last word, first name to middle word
+                                firstNameTextField.text = names[names.count-2]
+                                lastNameTextField.text = names[names.count-1]
+                            }
+                        }
+//                        if there are 4 or more words
+                        else if names.count == 4 {
+//                            and last word is a suffix word, set lastname to last word,
+                            if suffixes.contains(names[names.count-1].trimmingCharacters(in: .punctuationCharacters).lowercased()) {
+                                suffixTextField.text = names[names.count - 1]
+                                lastNameTextField.text = names[names.count-2]
+                                firstNameTextField.text = names[names.count-3]
+//                                firstNameTextField.text = names[1..<names.count-3].joined(separator: " ")
+                            } else {
+                                lastNameTextField.text = names[names.count-1]
+                                middleNameTextField.text = names[names.count-2]
+                                firstNameTextField.text = names[names.count - 3]
+                            }
+                        }
+                        else {
+                            if suffixes.contains(names[names.count-1].trimmingCharacters(in: .punctuationCharacters).lowercased()) {
+                                suffixTextField.text = names[names.count - 1]
+                                lastNameTextField.text = names[names.count-2]
+                                middleNameTextField.text = names[names.count-3]
+                                firstNameTextField.text = names[1..<names.count-3].joined(separator: " ")
+                            } else {
+                                lastNameTextField.text = names[names.count-1]
+                                middleNameTextField.text = names[names.count-2]
+                                firstNameTextField.text = names[1..<names.count-2].joined(separator: " ")
+                            }
+                        }
+                
+                    } else {
+                        let last = names[names.count - 1]
+                        if names.count == 2 {
+                            firstNameTextField.text = names[0]
+                            lastNameTextField.text = names[1]
+                        }
+                        else if names.count == 3 {
+                            if suffixes.contains(last.lowercased().trimmingCharacters(in:.punctuationCharacters)) {
+                                suffixTextField.text = last
+                                lastNameTextField.text = names[names.count-2]
+                                firstNameTextField.text = names[names.count-3]
+                            } else {
+                                lastNameTextField.text = last
+                                middleNameTextField.text = names[names.count-2]
+                                firstNameTextField.text = names[0..<names.count-2].joined(separator: " ")
+                            }
+                        }
+                        else {
+                            if suffixes.contains(last.lowercased().trimmingCharacters(in:.punctuationCharacters)) {
+                                suffixTextField.text = last
+                                lastNameTextField.text = names[names.count-2]
+                                middleNameTextField.text = names[names.count-3]
+                                firstNameTextField.text = names[0..<names.count-3].joined(separator: " ")
+                            } else {
+                                lastNameTextField.text = last
+                                middleNameTextField.text = names[names.count-2]
+                                firstNameTextField.text = names[0..<names.count-2].joined(separator: " ")
+                            }
+                        }
+                    }
+            } else {
+                prefixTextField.text = ""
+                firstNameTextField.text = ""
+                lastNameTextField.text = ""
+                middleNameTextField.text = ""
+                suffixTextField.text = ""
+            }
+    }
+    
+    func setAllNames() {
+        let prefixText = prefixTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .punctuationCharacters)
+        let firstNameText = firstNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .punctuationCharacters)
+        let middleNameText = middleNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .punctuationCharacters)
+        let lastNameText = lastNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .punctuationCharacters)
+        let suffixText = suffixTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .punctuationCharacters)
+        
+        let prefix = prefixText != "" ? "\(prefixText) " : ""
+        let firstName = firstNameText != "" ? "\(firstNameText) " : ""
+        let middleName = middleNameText != "" ? "\(middleNameText) " : ""
+        let lastName =  lastNameText != "" ? "\(lastNameText) " : ""
+        let suffix = suffixText != "" ? "\(suffixText) " : ""
+        
+        fullNameTextField.text = "\(prefix)\(firstName)\(middleName)\(lastName)\(suffix)"
+
+    }
 }
