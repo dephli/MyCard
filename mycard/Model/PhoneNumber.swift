@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PhoneNumber {
+struct PhoneNumber: Codable {
     var type: String?
     var number: String?
 }

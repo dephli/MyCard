@@ -22,11 +22,11 @@ class CardViewController: UIViewController {
     }
     
     var contacts: [Contact] = [
-        Contact(name: "Mr. John Agyekum", image: "BingWallpaper", occupation: "UI Designer", organization: "Qodehub"),
-        Contact(name: "Mr. Kwame Ofori", image: "", occupation: "CEO", organization: "Frimps Oil"),
-        Contact(name: "Ms. Aaliyah Ansah", image: "BingWallpaper", occupation: "Lawyer", organization: "Peason Specter"),
-        Contact(name: "Dr. Charles Boyle", image: "", occupation: "Surgeon", organization: "Seattle Grace Hospital"),
-        Contact(name: "Mr. Jake Peralta", image: "", occupation: "Sargeant", organization: "Brooklyn 99th Precinct"),
+//        Contact(name: "Mr. John Agyekum", image: "BingWallpaper", occupation: "UI Designer", organization: "Qodehub"),
+//        Contact(name: "Mr. Kwame Ofori", image: "", occupation: "CEO", organization: "Frimps Oil"),
+//        Contact(name: "Ms. Aaliyah Ansah", image: "BingWallpaper", occupation: "Lawyer", organization: "Peason Specter"),
+//        Contact(name: "Dr. Charles Boyle", image: "", occupation: "Surgeon", organization: "Seattle Grace Hospital"),
+//        Contact(name: "Mr. Jake Peralta", image: "", occupation: "Sargeant", organization: "Brooklyn 99th Precinct"),
     ]
 
     override func viewDidLoad() {
@@ -44,6 +44,12 @@ class CardViewController: UIViewController {
             "All", "Name", "Company", "Role"
         ]
         searchController.searchBar.showsScopeBar = false
+        searchController.searchBar.searchBarStyle = .minimal
+
+        searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
+//
+//        searchController.searchBar.scopeBarBackgroundImage = UIImage(named: "scope bar background")
+        
 
         cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
@@ -132,7 +138,7 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCellIdentifier, for: indexPath) as! ContactsCell
         cell.selectionStyle = .none
         let contact = contacts[indexPath.row]
-        cell.nameLabel.text = contact.name
+        cell.nameLabel.text = contact.fullName
         cell.descriptionLabel.text = contact.occupation
         cell.organizationLabel.text = contact.organization
         

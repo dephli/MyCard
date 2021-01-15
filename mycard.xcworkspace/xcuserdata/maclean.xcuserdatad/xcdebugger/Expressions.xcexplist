@@ -27,18 +27,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in VerifyNumberViewController.verifyButtonPressed(_:):VerifyNumberViewController.swift">
+         contextName = "closure #3 in PersonalInfoViewController.uiSetup():PersonalInfoViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UserDefaults.standard.string(forKey: &quot;token&quot;)">
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "self.profileButtonToSocialMediaStackViewConstraint">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
+         contextName = "closure #1 in VerifyNumberViewController.verifyButtonPressed(_:):VerifyNumberViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "keychainService.token">
+               value = "UserDefaults.standard.string(forKey: &quot;token&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -51,13 +54,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #3 in PersonalInfoViewController.uiSetup():PersonalInfoViewController.swift">
+         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
          <PersistentStrings>
             <PersistentString
-               value = "">
-            </PersistentString>
-            <PersistentString
-               value = "self.profileButtonToSocialMediaStackViewConstraint">
+               value = "keychainService.token">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -66,6 +66,14 @@
          <PersistentStrings>
             <PersistentString
                value = "KeychainService().token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PersonalInfoViewController.setPrefix():PersonalInfoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefinedPrefixType">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
