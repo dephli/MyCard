@@ -370,7 +370,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YZB-h8-gAZ">
-                                                        <rect key="frame" x="56" y="0.0" width="326" height="69.5"/>
+                                                        <rect key="frame" x="56" y="0.0" width="326" height="66.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="WORK INFO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bds-Yp-Fd2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92.5" height="20.5"/>
@@ -379,14 +379,14 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qodehub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-5d-VQ5">
-                                                                <rect key="frame" x="0.0" y="24.5" width="71" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="24.5" width="67" height="19"/>
+                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="UI Designer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAt-iS-JOG">
-                                                                <rect key="frame" x="0.0" y="49" width="89" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="47.5" width="84" height="19"/>
+                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -462,7 +462,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vPR-JA-jGi" customClass="SocialMediaListStackView" customModule="mycard" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="713" width="382" height="50"/>
+                                                <rect key="frame" x="32" y="713" width="350" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="rS7-Z0-kqa"/>
                                                 </constraints>
@@ -587,13 +587,13 @@
                                             <constraint firstAttribute="trailing" secondItem="fX1-Zb-eEU" secondAttribute="trailing" constant="16" id="6FD-Rx-ntE"/>
                                             <constraint firstItem="WJJ-r6-cm7" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="80" id="6T5-8h-KPR"/>
                                             <constraint firstAttribute="trailing" secondItem="yHZ-gN-hhL" secondAttribute="trailing" constant="16" id="7KC-4z-6Up"/>
-                                            <constraint firstAttribute="trailing" secondItem="vPR-JA-jGi" secondAttribute="trailing" constant="16" id="8KR-au-Ptx"/>
+                                            <constraint firstAttribute="trailing" secondItem="vPR-JA-jGi" secondAttribute="trailing" constant="32" id="8KR-au-Ptx"/>
                                             <constraint firstItem="lI0-iv-6PY" firstAttribute="top" secondItem="yFI-RL-wRp" secondAttribute="bottom" constant="16" id="9xt-1i-t29"/>
                                             <constraint firstAttribute="bottom" secondItem="vPR-JA-jGi" secondAttribute="bottom" constant="235.5" id="Ayn-QX-Yg7"/>
                                             <constraint firstAttribute="trailing" secondItem="d8D-cg-ZOV" secondAttribute="trailing" constant="24" id="BPG-ft-rAn"/>
                                             <constraint firstItem="TsU-pj-dAc" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="80" id="BtJ-J4-cfx"/>
                                             <constraint firstItem="O3L-gl-JGY" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="80" id="ECS-dB-E96"/>
-                                            <constraint firstItem="vPR-JA-jGi" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="16" id="Ei9-IT-A7b"/>
+                                            <constraint firstItem="vPR-JA-jGi" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="32" id="Ei9-IT-A7b"/>
                                             <constraint firstItem="9ic-ZL-W2x" firstAttribute="top" secondItem="yHZ-gN-hhL" secondAttribute="bottom" constant="16" id="Elv-9W-GM5"/>
                                             <constraint firstItem="lI0-iv-6PY" firstAttribute="leading" secondItem="4Zm-Li-6E2" secondAttribute="leading" constant="16" id="Hi6-tg-JY7"/>
                                             <constraint firstItem="yHZ-gN-hhL" firstAttribute="top" secondItem="TsU-pj-dAc" secondAttribute="bottom" constant="16" id="K4W-ER-wdJ"/>
@@ -673,6 +673,8 @@
                     </view>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
+                        <outlet property="cardJobTitleLabel" destination="5sY-qB-gmg" id="Y5e-Zu-5wC"/>
+                        <outlet property="cardNameLabel" destination="QNv-oe-Wwz" id="stb-Ym-ua5"/>
                         <outlet property="cardView" destination="d8D-cg-ZOV" id="36K-Mg-Dyy"/>
                         <outlet property="cardViewFaceIndicator1" destination="QLH-MA-8Tx" id="Ymp-Xw-Mbw"/>
                         <outlet property="cardViewFaceIndicator2" destination="Ovj-Tc-10A" id="Sov-5G-gzP"/>
@@ -680,7 +682,8 @@
                         <outlet property="customNavigationBar" destination="9RY-gO-xT0" id="ejq-gP-DiX"/>
                         <outlet property="emailAddressLabel" destination="Q3L-zi-5kP" id="CEE-gF-Avz"/>
                         <outlet property="emailTextLabel" destination="MjE-4d-8OR" id="kb8-gh-bjt"/>
-                        <outlet property="jobTitleLabel" destination="5sY-qB-gmg" id="Nq7-oo-KJJ"/>
+                        <outlet property="emailTypeLabel" destination="hMM-BC-Mjf" id="mrC-Vi-dqL"/>
+                        <outlet property="jobTitleLabel" destination="TAt-iS-JOG" id="4ab-4p-GAE"/>
                         <outlet property="nameInitialsLabel" destination="Lzn-aa-vQN" id="5IW-ri-fjo"/>
                         <outlet property="nameInitialsView" destination="Ocj-QO-e88" id="Mf4-vz-cRo"/>
                         <outlet property="nameLabel" destination="MKU-vz-9gk" id="PHc-j0-Uco"/>
@@ -688,6 +691,7 @@
                         <outlet property="noteLabel" destination="QIt-Lw-5ue" id="Aoh-ST-BhU"/>
                         <outlet property="noteTextField" destination="RtW-33-qkT" id="OhH-Nn-Plt"/>
                         <outlet property="phoneLabel" destination="ggS-xq-rxR" id="Bc1-br-FKF"/>
+                        <outlet property="phoneNumberTypeLabel" destination="JD7-gq-m3u" id="aqw-7e-PAH"/>
                         <outlet property="phoneTextLabel" destination="Mzt-PD-xgP" id="Kqi-MY-XLr"/>
                         <outlet property="socialMediaLabel" destination="8An-ge-CdI" id="jXG-PI-E1v"/>
                         <outlet property="socialMediaStackView" destination="vPR-JA-jGi" id="NHe-c0-esY"/>

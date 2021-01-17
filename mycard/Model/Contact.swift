@@ -10,7 +10,7 @@ import Foundation
 struct Contact: Codable {
     var prefix: String?
     var fullName: String?
-    var firsName: String?
+    var firstName: String?
     var middleName: String?
     var lastName: String?
     var suffix: String?
@@ -21,6 +21,6 @@ struct Contact: Codable {
     var emailAddress: [Email]
     var socialMedia: [SocialMedia]
     var companyName: String
-    var role: String
+    var jobTitle: String
     var companyLocation: String
 }

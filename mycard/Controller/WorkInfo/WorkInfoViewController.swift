@@ -25,12 +25,11 @@ class WorkInfoViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     let imagePicker = UIImagePickerController()
+    var companyImage: UIImage?
     var keyboardHeight: Float?
     
     fileprivate func keyboardNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     override func viewDidLoad() {
@@ -65,7 +64,20 @@ class WorkInfoViewController: UIViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
+        var contact: Contact = ContactCreationManager.manager.contact.value
+        contact.companyName = companyNameTextField.text!
+        contact.jobTitle = jobTitleTextField.text!
+        contact.companyLocation = workLocationTextField.text!
+        
+        ContactCreationManager.manager.contact.accept(contact)
         performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationController = segue.destination as? ConfirmDetailsViewController
+        guard let cardImage = self.companyImage else {return}
+        destinationController!.cardImage = cardImage
+
     }
 }
 
@@ -97,6 +109,7 @@ extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationC
                 imageView.leadingAnchor.constraint(equalTo: self.companyLogoView.leadingAnchor, constant: 0).isActive = true
                 imageView.trailingAnchor.constraint(equalTo: self.companyLogoView.trailingAnchor, constant: 0).isActive = true
             }
+            self.companyImage = image
         }
     }
 }
@@ -107,7 +120,7 @@ extension WorkInfoViewController: UITextFieldDelegate {
         var point = textField.convert(textField.frame.origin, to: self.scrollView)
         point.x = 0.0
         
-        scrollView.setContentOffset(CGPoint(x: 0, y: Int(self.keyboardHeight ?? 260)), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y: 160), animated: true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {

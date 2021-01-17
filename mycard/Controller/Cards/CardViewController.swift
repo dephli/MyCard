@@ -22,6 +22,12 @@ class CardViewController: UIViewController {
     }
     
     var contacts: [Contact] = [
+        Contact(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: "", image: "", occupation: "Architect", organization: "Accra Builders", phoneNumber: [
+        PhoneNumber(type: "Mobile", number: "02444445543")], emailAddress: [
+            Email(type: "Personal", address: "John@example.com")
+                ], socialMedia: [
+                    SocialMedia(link: "@john", type: "twitter")
+                ], companyName: "Accra Architecs", jobTitle: "Lead Architect", companyLocation: "Cantonments, Accra")
 //        Contact(name: "Mr. John Agyekum", image: "BingWallpaper", occupation: "UI Designer", organization: "Qodehub"),
 //        Contact(name: "Mr. Kwame Ofori", image: "", occupation: "CEO", organization: "Frimps Oil"),
 //        Contact(name: "Ms. Aaliyah Ansah", image: "BingWallpaper", occupation: "Lawyer", organization: "Peason Specter"),
