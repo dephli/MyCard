@@ -41,7 +41,7 @@ class PersonalInfoViewController: UIViewController {
     
     @IBOutlet weak var customNavBar: CustomNavigationBar!
     
-    let phoneNumberObservable = PhoneNumberManager.numbers.list.asObservable()
+    let phoneNumberObservable = PhoneNumberManager.manager.list.asObservable()
     let socialMediaObservable =
         SocialMediaManger.manager.list.asObservable()
     let disposeBag = DisposeBag()
@@ -84,7 +84,7 @@ class PersonalInfoViewController: UIViewController {
     }
     
     @IBAction func addNewPhonePressed(_ sender: Any) {
-        PhoneNumberManager.numbers.append(with: PhoneNumber(type: "Home", number: ""))
+        PhoneNumberManager.manager.append(with: PhoneNumber(type: "Home", number: ""))
     }
     @IBAction func addEmailPressed(_ sender: Any) {
         EmailManager.manager.append(with: Email(type: "Personal", address: ""))
@@ -238,6 +238,14 @@ extension PersonalInfoViewController {
         if fullNameTextField.text != "" {
             contact.fullName = fullNameTextField.text
         }
+        contact.firstName = firstNameTextField.text!
+        contact.lastName = lastNameTextField.text!
+        contact.middleName = middleNameTextField.text!
+        contact.prefix = prefixTextField.text!
+        contact.suffix = suffixTextField.text!
+        contact.phoneNumber = PhoneNumberManager.manager.list.value
+        contact.emailAddress = EmailManager.manager.list.value
+        contact.socialMedia = SocialMediaManger.manager.getAll
 
         ContactCreationManager.manager.contact.accept(contact)
     }

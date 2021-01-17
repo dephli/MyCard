@@ -50,17 +50,17 @@ class PhoneListStackView: UIStackView {
 //MARK: - actions
 extension PhoneListStackView {
     @objc func textfieldDidChange(_ textfield: UITextField) {
-        var list = PhoneNumberManager.numbers.list.value
+        var list = PhoneNumberManager.manager.list.value
         list[textfield.tag].number = textfield.text
-        PhoneNumberManager.numbers.list.accept(list)
+        PhoneNumberManager.manager.list.accept(list)
     }
     
     
     @objc func removeView(_ button: UIButton) {
-        var list = PhoneNumberManager.numbers.list.value
+        var list = PhoneNumberManager.manager.list.value
         let index = button.tag
         list.remove(at: index)
-        PhoneNumberManager.numbers.list.accept(list)
+        PhoneNumberManager.manager.list.accept(list)
     }
     
     @objc func textfieldDidBeginEditing(_ textfield: UITextField) {
@@ -157,9 +157,9 @@ extension PhoneListStackView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var list = PhoneNumberManager.numbers.list.value
+        var list = PhoneNumberManager.manager.list.value
         list[activePickerIndex!].type = numberTypes[row]
-        PhoneNumberManager.numbers.list.accept(list)
+        PhoneNumberManager.manager.list.accept(list)
         activeTextField?.resignFirstResponder()
     }
     
