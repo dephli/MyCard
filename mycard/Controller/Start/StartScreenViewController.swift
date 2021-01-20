@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Hero
 
 class StartScreenViewController: UIViewController {
 
 
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
@@ -23,16 +25,10 @@ class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        nextButton.hero.id = "arrowButton"
         infoLabel.style(with: K.TextStyles.heading1)
         
-        NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(userLoggedIn), name: Notification.Name("UserLoggedIn"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
     }
-    
-//    @objc
-//    func userLoggedIn() {
-//        print("adsfdsaf")
-//    }
 }

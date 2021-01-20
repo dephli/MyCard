@@ -19,4 +19,7 @@ class ReviewPhotoViewController: UIViewController {
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func arrowButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.Segues.cameraToAuth, sender: self)
+    }
 }

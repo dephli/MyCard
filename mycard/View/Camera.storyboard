@@ -18,7 +18,7 @@
         <!--Capture Image View Controller-->
         <scene sceneID="LA9-5m-6Qh">
             <objects>
-                <viewController id="kOJ-yS-wwY" customClass="CaptureImageViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="kOJ-yS-wwY" customClass="CaptureImageViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SGw-xU-CRW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,15 +75,16 @@
                                             <constraint firstAttribute="trailing" secondItem="7Qh-rA-JTx" secondAttribute="trailing" id="y3I-eQ-xkW"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-D0-xi6">
-                                        <rect key="frame" x="32" y="772" width="135" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-D0-xi6">
+                                        <rect key="frame" x="32" y="760" width="135" height="22"/>
                                         <state key="normal" title="Add manually" image="create card"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HL-2P-bbX">
-                                        <rect key="frame" x="262" y="769" width="120" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HL-2P-bbX">
+                                        <rect key="frame" x="262" y="757" width="120" height="25"/>
                                         <state key="normal" title="Import card" image="import"/>
+                                        <connections>
+                                            <action selector="importCardButtonPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="t7j-Nr-DlN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiZ-88-pel">
                                         <rect key="frame" x="171" y="642" width="72" height="72"/>
@@ -110,12 +111,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="centerX" secondItem="hlt-fv-nNk" secondAttribute="centerX" id="6TF-WD-dta"/>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="leading" secondItem="hlt-fv-nNk" secondAttribute="leading" constant="32" id="HXs-B9-Mzi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lrc-D0-xi6" secondAttribute="bottom" constant="36" id="Jhq-N2-ePf"/>
+                                    <constraint firstAttribute="bottom" secondItem="6HL-2P-bbX" secondAttribute="bottom" constant="36" id="ShZ-CU-sQn"/>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="centerY" secondItem="hlt-fv-nNk" secondAttribute="centerY" id="YF2-Lc-NKL"/>
+                                    <constraint firstItem="6HL-2P-bbX" firstAttribute="leading" secondItem="Lrc-D0-xi6" secondAttribute="trailing" constant="95" id="Zmc-g1-K42"/>
                                     <constraint firstAttribute="trailing" secondItem="r0d-Lc-Btp" secondAttribute="trailing" constant="32" id="cYk-Ce-oPq"/>
+                                    <constraint firstItem="Lrc-D0-xi6" firstAttribute="leading" secondItem="r0d-Lc-Btp" secondAttribute="leading" id="mIM-u7-tLx"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -174,6 +179,10 @@
                                         <real key="value" value="28"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="arrowButtonPressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="N5g-hA-tT1"/>
+                                    <segue destination="fvr-55-Kqv" kind="showDetail" identifier="CameratoAuth" id="b98-A4-veX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZN-XK-oYm">
                                 <rect key="frame" x="16" y="44" width="18" height="22"/>
@@ -200,6 +209,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igC-c4-L6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1947.826086956522" y="150"/>
+        </scene>
+        <!--Auth-->
+        <scene sceneID="i5Y-Q2-0LE">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Account Info" storyboardName="Auth" id="fvr-55-Kqv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pSx-r8-Hid"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaZ-37-beX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2521" y="106"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,6 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
-    @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     
     @IBOutlet weak var signupLabel: UILabel!
     
@@ -19,21 +18,39 @@ class SignupViewController: UIViewController {
     
     @IBOutlet weak var signupButton: UIButton!
 
+    @IBOutlet weak var backButton: UIButton!
     
-    @objc func handleNotification() {
-        print("hello world")
-    }
+    @IBOutlet weak var backButtonTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dismissKey()
-        customNavigationBar.setup(backIndicatorImage: "xmark")
 
         signupLabel.style(with: K.TextStyles.heading1)
         phoneNumberTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         nameTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         signupButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
+        backButtonTopConstraint.constant = -5
+
     }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+            self.backButtonTopConstraint.constant = 0
+            self.backButton.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+        super.viewDidAppear(animated)
+
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("hello")
+    }
+    
+
+    
     
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text, uid: nil)
@@ -44,5 +61,17 @@ class SignupViewController: UIViewController {
                 self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)
             }
         }
+    }
+    @IBAction func backButtonPressed(_ sender: Any) {
+
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+            self.backButtonTopConstraint.constant = -5
+            self.backButton.alpha = 0
+            self.view.layoutIfNeeded()
+        } completion: { (true) in
+            self.dismiss(animated: false, completion: nil)
+        }
+
+        
     }
 }

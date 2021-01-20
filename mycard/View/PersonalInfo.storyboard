@@ -56,7 +56,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Passport_photo_munich_RiemArcaden_1(1)" translatesAutoresizingMaskIntoConstraints="NO" id="fYQ-GV-2it">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="fYQ-GV-2it">
                                                 <rect key="frame" x="159" y="79" width="96" height="96"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="96" id="Ot2-Gl-0sM"/>
@@ -807,11 +807,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Passport_photo_munich_RiemArcaden_1(1)" width="567" height="567"/>
         <image name="camera" width="20" height="16"/>
         <image name="chevron down" width="10" height="6"/>
         <image name="draggable bar" width="56" height="6"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="profile placeholder" width="96" height="96"/>
         <image name="socials facebook" width="24" height="24"/>
         <image name="socials instagram" width="24" height="24"/>
         <image name="socials linkedin" width="24" height="24"/>

@@ -294,6 +294,7 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
+  - Hero (1.5.0)
   - KeychainAccess (4.2.1)
   - leveldb-library (1.22)
   - nanopb (2.30906.0):
@@ -313,6 +314,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - Hero
   - KeychainAccess
   - RxCocoa
   - RxSwift
@@ -332,6 +334,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - Hero
     - KeychainAccess
     - leveldb-library
     - nanopb
@@ -354,6 +357,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
@@ -363,6 +367,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 7ce91983019ed7b72032cd4c324ac9e3eea753de
+PODFILE CHECKSUM: b8da6e7be10935005ba4d9f612fc4af4aad0a1e1
 
 COCOAPODS: 1.10.0

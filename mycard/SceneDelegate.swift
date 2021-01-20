@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let keychainService = KeychainService()
         
         self.window = UIWindow(windowScene: windowScene)
-
+        let userDefaults = UserDefaults.standard
         
-        if keychainService.token != nil {
+        if keychainService.token != nil && userDefaults.bool(forKey: "hasPreviousAuth"){
             let storyboard = UIStoryboard(name: "Cards", bundle: nil)
             guard let rootVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else {
                 print("ViewController not found")

@@ -13,7 +13,7 @@
         <!--Setup Card View Controller-->
         <scene sceneID="4FL-CF-OYd">
             <objects>
-                <viewController id="Lzh-RX-gxj" customClass="SetupCardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Lzh-RX-gxj" customClass="SetupCardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZfK-G2-MSs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,7 @@ in store for you.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="skipButtonPressed:" destination="Lzh-RX-gxj" eventType="touchUpInside" id="Qam-3n-tI1"/>
                                     <segue destination="2we-T3-GYD" kind="show" id="ESe-C6-1uP"/>
                                 </connections>
                             </button>
@@ -120,6 +121,7 @@ in store for you.</string>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="arrowButton" destination="H97-RS-scI" id="x4c-Or-R6o"/>
                         <outlet property="descriptionLabel" destination="YrV-Yg-e2V" id="RqQ-2k-u16"/>
                         <outlet property="setupLabel" destination="fdC-EA-tQp" id="GL6-4e-CKV"/>
                         <outlet property="skipButton" destination="ceo-Gf-bTa" id="NE2-di-dLa"/>
@@ -197,7 +199,7 @@ in store for you.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Lzh-RX-gxj" kind="show" identifier="startToSetup" id="ESD-qo-liv"/>
+                                    <segue destination="Lzh-RX-gxj" kind="presentation" identifier="startToSetup" id="ESD-qo-liv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-zD-adm">
