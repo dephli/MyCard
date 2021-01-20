@@ -349,9 +349,13 @@ extension PersonalInfoViewController {
                                 middleNameTextField.text = names[names.count-3]
                                 firstNameTextField.text = names[0..<names.count-3].joined(separator: " ")
                             } else {
-                                lastNameTextField.text = last
-                                middleNameTextField.text = names[names.count-2]
-                                firstNameTextField.text = names[0..<names.count-2].joined(separator: " ")
+                                if names.count == 1 {
+                                    firstNameTextField.text = names[0]
+                                } else {
+                                    lastNameTextField.text = last
+                                    middleNameTextField.text = names[names.count-2]
+                                    firstNameTextField.text = names[0..<names.count-2].joined(separator: " ")
+                                }
                             }
                         }
                     }
