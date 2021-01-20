@@ -43,7 +43,7 @@ struct AuthService {
                     
                     var keychainService = KeychainService()
                     keychainService.token = token
-                    
+                    UserDefaults.standard.setValue(true, forKey: "hasPreviousAuth")
                     onActionComplete(nil, nil)
                 })
             }

@@ -16,6 +16,9 @@ target 'mycard' do
   
   #pods for keychain
   pod 'KeychainAccess'
+  
+  #pod for hero animation
+  pod 'Hero'
 
 #  target 'mycardTests' do
 #    inherit! :search_paths

@@ -52,6 +52,7 @@ struct K {
         static let workInfoToConfirmDetails = "WorkInfoToConfirmDetails"
         static let capturePhotoToReviewPhoto = "CapturePhotoToReviewPhoto"
         static let cardsToCardDetails = "CardsToCardDetails"
+        static let cameraToAuth = "CameratoAuth"
     }
 
     struct Notifications {

@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class CaptureImageViewController: UIViewController {
+class CaptureImageViewController: UIViewController{
     @IBOutlet weak var addManuallyButton: UIButton!
     @IBOutlet weak var importCardButton: UIButton!
     @IBOutlet weak var videoPreviewView: UIView!
@@ -17,6 +17,7 @@ class CaptureImageViewController: UIViewController {
     var stillImageOutput: AVCapturePhotoOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturedImage: UIImage?
+    let imagePicker = UIImagePickerController()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -85,7 +86,7 @@ class CaptureImageViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: false, completion: nil)
     }
 
     
@@ -95,7 +96,16 @@ class CaptureImageViewController: UIViewController {
             vc?.backgroundImage = capturedImage
         }
     }
-
+    
+    @IBAction func importCardButtonPressed(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 
@@ -109,5 +119,17 @@ extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
         self.capturedImage = image
         performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
         
+    }
+}
+
+
+extension CaptureImageViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            self.capturedImage = image
+            dismiss(animated: true) {
+                self.performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
+            }
+        }
     }
 }
