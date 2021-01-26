@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+enum SocialMediaType:String, Codable {
+    case facebook
+    case twitter
+    case linkedin
+    case instagram
+}
+
 struct SocialMedia: Codable, Equatable, Hashable {
     let link: String
-    let type: String
+    let type: SocialMediaType
 }

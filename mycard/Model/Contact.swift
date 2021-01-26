@@ -23,4 +23,5 @@ struct Contact: Codable {
     var companyName: String
     var jobTitle: String
     var companyLocation: String
+    var companyLogo: String?
 }

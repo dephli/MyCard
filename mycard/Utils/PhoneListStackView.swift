@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class PhoneListStackView: UIStackView {
-    let numberTypes = ["Home", "Mobile", "Work", "Other"]
+    let numberTypes: [PhoneNumberType] = [.home, .mobile, .work, .other]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
     func configure(with numbers: [PhoneNumber]) {
@@ -33,7 +33,7 @@ class PhoneListStackView: UIStackView {
                 let isHidden = numbers.count > 1 ? false : true
                 
                 let textField = self.setupTextField(with: numbers[i].number, at: i)
-                let numberTypeTextfield = self.setupButton(at: i, text: numbers[i].type)
+                let numberTypeTextfield = self.setupButton(at: i, text: numbers[i].type?.rawValue)
                 numberTypeTextfield.inputView = pickerView
                 let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
                 stackView.addArrangedSubview(textField)
@@ -153,7 +153,7 @@ extension PhoneListStackView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return numberTypes[row ]
+        return numberTypes[row].rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

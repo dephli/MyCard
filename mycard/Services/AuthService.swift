@@ -69,4 +69,10 @@ struct AuthService {
             
         })
     }
+    
+    var uid: String {
+        get {
+            return Auth.auth().currentUser!.uid
+        }
+    }
 }

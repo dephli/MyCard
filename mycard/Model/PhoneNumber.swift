@@ -7,7 +7,14 @@
 
 import Foundation
 
+enum PhoneNumberType: String, Codable {
+    case home
+    case mobile
+    case work
+    case other
+}
+
 struct PhoneNumber: Codable {
-    var type: String?
+    var type: PhoneNumberType?
     var number: String?
 }

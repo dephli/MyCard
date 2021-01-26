@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import FirebaseStorage
 
 class PersonalInfoViewController: UIViewController {
     @IBOutlet weak var pageCountLabel: UILabel!
@@ -84,7 +85,7 @@ class PersonalInfoViewController: UIViewController {
     }
     
     @IBAction func addNewPhonePressed(_ sender: Any) {
-        PhoneNumberManager.manager.append(with: PhoneNumber(type: "Home", number: ""))
+        PhoneNumberManager.manager.append(with: PhoneNumber(type: .home, number: ""))
     }
     @IBAction func addEmailPressed(_ sender: Any) {
         EmailManager.manager.append(with: Email(type: "Personal", address: ""))
@@ -195,12 +196,33 @@ extension PersonalInfoViewController {
 }
 
 extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
+    fileprivate func handleImageUploadError(_ error: Error) {
+        let alert = UIAlertController(title: "Image upload failed", message: "An error occured while uploading you image", preferredStyle: .alert)
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                print(error.localizedDescription)
+            } )
+        )
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true, completion: nil)
-        let image = info[.editedImage] as? UIImage
+        guard let image = info[.editedImage] as? UIImage else {return}
         DispatchQueue.main.async {
             self.avatarImageView.image = image
         }
+        let storageService = StorageService()
+        storageService.uploadImage(image: image) { (url, error) in
+            if let error = error {
+                self.handleImageUploadError(error)
+            } else {
+                var contact = ContactCreationManager.manager.contact.value
+                contact.image = url
+                ContactCreationManager.manager.contact.accept(contact)
+            }
+        }
+        
     }
 }
 

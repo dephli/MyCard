@@ -87,6 +87,7 @@ extension EmailListStackView {
         textfield.textContentType = .emailAddress
         textfield.keyboardType = .emailAddress
         textfield.placeholder = "Email Address"
+        textfield.autocapitalizationType = .none
         textfield.setTextStyle(with: K.TextStyles.bodyBlack40)
         textfield.tag = index
         textfield.addTarget(self, action: #selector(textfieldDidChange(_:)), for: .editingDidEnd)

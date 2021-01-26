@@ -100,5 +100,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCDFA990-4301-480C-AA0C-06E3BED929F4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mycard/Utils/SocialMediaListStackView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "configure(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CCDFA990-4301-480C-AA0C-06E3BED929F4 - 893803966cb82189"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mycard.SocialMediaListStackView.configure(with: Swift.Array&lt;mycard.SocialMedia&gt;) -&gt; ()"
+                  moduleName = "mycard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclean/Developer/projects/swift/archive/mycard/mycard/Utils/SocialMediaListStackView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "158">
+               </Location>
+               <Location
+                  uuid = "CCDFA990-4301-480C-AA0C-06E3BED929F4 - 9f489f39f5dcba30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in mycard.SocialMediaListStackView.configure(with: Swift.Array&lt;mycard.SocialMedia&gt;) -&gt; ()"
+                  moduleName = "mycard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maclean/Developer/projects/swift/archive/mycard/mycard/Utils/SocialMediaListStackView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "257">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0A9A980-96C1-4BA8-8D0E-8A3DD52E2A77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mycard/Controller/PersonalInfo/PersonalInfoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "addNewPhonePressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
