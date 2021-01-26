@@ -141,7 +141,7 @@ class ConfirmDetailsViewController: UIViewController {
         nameTextLabel.text = contact.fullName
         if contact.phoneNumber.count >= 1 {
             phoneTextLabel.text = contact.phoneNumber[0].number
-            phoneNumberTypeLabel.text = contact.phoneNumber[0].type
+            phoneNumberTypeLabel.text = contact.phoneNumber[0].type?.rawValue
         }
         
         if !contact.emailAddress.isEmpty {

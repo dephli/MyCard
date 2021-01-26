@@ -3,18 +3,48 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in User.phoneNumberAuth(with:onActionComplete:):User.swift">
+         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.name">
+               value = "keychainService.token">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SocialMediaManger.replace(with:):SocialMediaManger.swift">
+         contextName = "PersonalInfoViewController.setPrefix():PersonalInfoViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "list.value">
+               value = "userDefinedPrefixType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in VerifyNumberViewController.verifyButtonPressed(_:):VerifyNumberViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.string(forKey: &quot;token&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userDefaults.bool(forKey: &quot;hasPreviousAuth&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "App.keychain![&quot;token&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "keychainService.token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in User.phoneNumberAuth(with:onActionComplete:):User.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -38,10 +68,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in VerifyNumberViewController.verifyButtonPressed(_:):VerifyNumberViewController.swift">
+         contextName = "SocialMediaManger.replace(with:):SocialMediaManger.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UserDefaults.standard.string(forKey: &quot;token&quot;)">
+               value = "list.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in StorageService.uploadImage(image:onUploadComplete:):StorageService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "imageRef.download">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -54,14 +92,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "keychainService.token">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
          <PersistentStrings>
             <PersistentString
@@ -70,18 +100,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PersonalInfoViewController.setPrefix():PersonalInfoViewController.swift">
+         contextName = "closure #1 in closure #1 in StorageService.uploadImage(image:onUploadComplete:):StorageService.swift">
          <PersistentStrings>
             <PersistentString
-               value = "userDefinedPrefixType">
+               value = "url">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "App.keychain![&quot;token&quot;]">
+               value = "error.localizedString">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -23,16 +23,11 @@ class CardViewController: UIViewController {
     
     var contacts: [Contact] = [
         Contact(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: "", image: "", occupation: "Architect", organization: "Accra Builders", phoneNumber: [
-        PhoneNumber(type: "Mobile", number: "02444445543")], emailAddress: [
+                    PhoneNumber(type: .mobile, number: "02444445543")], emailAddress: [
             Email(type: "Personal", address: "John@example.com")
                 ], socialMedia: [
-                    SocialMedia(link: "@john", type: "twitter")
+                    SocialMedia(link: "@john", type: .twitter)
                 ], companyName: "Accra Architecs", jobTitle: "Lead Architect", companyLocation: "Cantonments, Accra")
-//        Contact(name: "Mr. John Agyekum", image: "BingWallpaper", occupation: "UI Designer", organization: "Qodehub"),
-//        Contact(name: "Mr. Kwame Ofori", image: "", occupation: "CEO", organization: "Frimps Oil"),
-//        Contact(name: "Ms. Aaliyah Ansah", image: "BingWallpaper", occupation: "Lawyer", organization: "Peason Specter"),
-//        Contact(name: "Dr. Charles Boyle", image: "", occupation: "Surgeon", organization: "Seattle Grace Hospital"),
-//        Contact(name: "Mr. Jake Peralta", image: "", occupation: "Sargeant", organization: "Brooklyn 99th Precinct"),
     ]
 
     override func viewDidLoad() {
@@ -42,6 +37,7 @@ class CardViewController: UIViewController {
         cardTableView.dataSource = self
         cardTableView.delegate = self
         
+//        set up searchcontroller
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -179,11 +175,9 @@ extension CardViewController: UISearchControllerDelegate {
 
 extension CardViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        UIView.animate(withDuration: 3) {
             searchBar.showsScopeBar = false
             self.searchStackView.isHidden = false
             self.searchStackViewHeightConstraint.constant = 48
         navigationItem.searchController = nil
-//        }
     }
 }

@@ -6,9 +6,10 @@ target 'mycard' do
   use_frameworks!
 
   # Pods for mycard
+  # firegase pods
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'Validator'
+  pod 'Firebase/Storage'
   
   #pods for rxswift
   pod 'RxSwift'

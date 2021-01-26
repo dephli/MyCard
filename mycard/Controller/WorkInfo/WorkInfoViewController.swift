@@ -94,6 +94,18 @@ extension WorkInfoViewController {
 }
 
 extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    fileprivate func handleImageUploadError(_ error: Error) {
+//        Catch error and return it in an alert dialog
+        let alert = UIAlertController(title: "Image upload failed", message: "An error occured while uploading you image", preferredStyle: .alert)
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                print(error.localizedDescription)
+            } )
+        )
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
             dismiss(animated: true)
@@ -110,6 +122,16 @@ extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationC
                 imageView.trailingAnchor.constraint(equalTo: self.companyLogoView.trailingAnchor, constant: 0).isActive = true
             }
             self.companyImage = image
+            let storageService = StorageService()
+            storageService.uploadImage(image: image) { (url, error) in
+                if let error = error {
+                    self.handleImageUploadError(error)
+                } else {
+                    var contact = ContactCreationManager.manager.contact.value
+                    contact.companyLogo = url
+                    ContactCreationManager.manager.contact.accept(contact)
+                }
+            }
         }
     }
 }
