@@ -136,32 +136,32 @@ class ConfirmDetailsViewController: UIViewController {
     func populateWithContactData() {
         let contact:Contact = ContactCreationManager.manager.contact.value
         
-        cardNameLabel.text = contact.fullName
-        cardJobTitleLabel.text = contact.jobTitle
-        nameTextLabel.text = contact.fullName
-        if contact.phoneNumber.count >= 1 {
-            phoneTextLabel.text = contact.phoneNumber[0].number
-            phoneNumberTypeLabel.text = contact.phoneNumber[0].type?.rawValue
+        cardNameLabel.text = contact.name.fullName
+        cardJobTitleLabel.text = contact.business.role
+        nameTextLabel.text = contact.name.fullName
+        if contact.phoneNumbers.count >= 1 {
+            phoneTextLabel.text = contact.phoneNumbers[0].number
+            phoneNumberTypeLabel.text = contact.phoneNumbers[0].type?.rawValue
         }
         
-        if !contact.emailAddress.isEmpty {
-            emailTextLabel.text = contact.emailAddress[0].address
-            emailTypeLabel.text = contact.emailAddress[0].type
+        if !contact.emailAddresses.isEmpty {
+            emailTextLabel.text = contact.emailAddresses[0].address
+            emailTypeLabel.text = contact.emailAddresses[0].type.rawValue
         }
         
-        workInfoTextLabel.text = contact.companyName
-        jobTitleLabel.text = contact.jobTitle
-        socialMediaStackView.configure(with: contact.socialMedia)
-        workLocationTextLabel.text = contact.companyLocation
+        workInfoTextLabel.text = contact.business.companyName
+        jobTitleLabel.text = contact.business.role
+        socialMediaStackView.configure(with: contact.socialMediaProfiles)
+        workLocationTextLabel.text = contact.business.companyLocation
 //        let contactArray = contact.fullName?.components(separatedBy: " ")
-        if contact.lastName != "" && contact.firstName! != "" {
-            nameInitialsLabel.text = "\(contact.firstName!.prefix(1))\(contact.lastName!.prefix(1))"
+        if contact.name.lastName != "" && contact.name.firstName! != "" {
+            nameInitialsLabel.text = "\(contact.name.firstName!.prefix(1))\(contact.name.lastName!.prefix(1))"
         }
-        else if contact.firstName == "" && contact.lastName != "" {
-            nameInitialsLabel.text = "\(contact.lastName!.prefix(2))"
+        else if contact.name.firstName == "" && contact.name.lastName != "" {
+            nameInitialsLabel.text = "\(contact.name.lastName!.prefix(2))"
         }
-        else if contact.lastName == "" && contact.firstName != "" {
-            nameInitialsLabel.text = "\(contact.firstName!.prefix(2))"
+        else if contact.name.lastName == "" && contact.name.firstName != "" {
+            nameInitialsLabel.text = "\(contact.name.firstName!.prefix(2))"
         } else {
             nameInitialsLabel.text = "ZZ"
         }

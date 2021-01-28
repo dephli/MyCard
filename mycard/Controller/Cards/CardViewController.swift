@@ -22,12 +22,14 @@ class CardViewController: UIViewController {
     }
     
     var contacts: [Contact] = [
-        Contact(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: "", image: "", occupation: "Architect", organization: "Accra Builders", phoneNumber: [
-                    PhoneNumber(type: .mobile, number: "02444445543")], emailAddress: [
-            Email(type: "Personal", address: "John@example.com")
-                ], socialMedia: [
-                    SocialMedia(link: "@john", type: .twitter)
-                ], companyName: "Accra Architecs", jobTitle: "Lead Architect", companyLocation: "Cantonments, Accra")
+        Contact(name: Name(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: ""), profilePicUrl: "", occupation: "Architect", organization: "Accra Builders", phoneNumbers: [PhoneNumber(type: .home, number: "02444445543")], emailAddresses: [
+                    Email(type: .Personal, address: "John@example.com")], socialMediaProfiles: [SocialMedia(link: "Johh Kuffuor", type: .linkedin)], business: Business(role: "Lead Architect", companyName: "Accra Builders", companyLocation: "Cantonments, Accra", companyLogo: ""))
+//        Contact(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: "", profilePicUrl: "", occupation: "Architect", organization: "Accra Builders", phoneNumbers: [
+//                    PhoneNumber(type: .mobile, number: "02444445543")], emailAddresses: [
+//            Email(type: "Personal", address: "John@example.com")
+//                ], socialMediaProfiles: [
+//                    SocialMedia(link: "@john", type: .twitter)
+//                ], companyName: "Accra Architecs", jobTitle: "Lead Architect", companyLocation: "Cantonments, Accra")
     ]
 
     override func viewDidLoad() {
@@ -140,7 +142,7 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCellIdentifier, for: indexPath) as! ContactsCell
         cell.selectionStyle = .none
         let contact = contacts[indexPath.row]
-        cell.nameLabel.text = contact.fullName
+        cell.nameLabel.text = contact.name.fullName
         cell.descriptionLabel.text = contact.occupation
         cell.organizationLabel.text = contact.organization
         

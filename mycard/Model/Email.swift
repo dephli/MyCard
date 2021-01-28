@@ -7,7 +7,13 @@
 
 import Foundation
 
+enum EmailType: String, Codable {
+    case Personal
+    case Work
+    case Other
+}
+
 struct Email: Codable {
-    var type: String
+    var type: EmailType
     var address: String
 }
