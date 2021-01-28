@@ -11,8 +11,18 @@ import RxCocoa
 class ContactCreationManager {
     private init (){}
     
-    let contact: BehaviorRelay<Contact> = BehaviorRelay(value: Contact(name: Name(
-    prefix: nil, fullName: nil, firstName: nil, middleName: nil, lastName: nil, suffix: nil), profilePicUrl: nil, occupation: "", organization: "", phoneNumbers: [], emailAddresses: [], socialMediaProfiles: [], businessInfo: BusinessInfo(role: "", companyName: "", companyLocation: "", companyLogo: nil)))
+    let contact: BehaviorRelay<Contact> =
+        BehaviorRelay(value:
+                        Contact(name:
+                                    Name( prefix: nil, fullName: nil, firstName: nil, middleName: nil, lastName: nil, suffix: nil),
+                                profilePicUrl: nil,
+                                occupation: "",
+                                organization: "",
+                                phoneNumbers: [],
+                                emailAddresses: [],
+                                socialMediaProfiles: [],
+                                businessInfo:
+                                    BusinessInfo(role: "", companyName: "", companyLocation: "", companyLogo: nil), note: nil))
     
     static let manager = ContactCreationManager()
     

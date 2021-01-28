@@ -69,7 +69,7 @@ class SocialMediaViewController: UIViewController {
         }
         
         if twitterAccountTextfield.text != "" {
-            accounts.append(SocialMedia(link: twitterLabel.text!, type: .Twitter))
+            accounts.append(SocialMedia(link: twitterAccountTextfield.text!, type: .Twitter))
         }
         
         if instagramAccountTextfield.text != "" {
