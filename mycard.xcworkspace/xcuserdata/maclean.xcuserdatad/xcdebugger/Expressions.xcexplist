@@ -30,13 +30,13 @@
          contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
+               value = "keychainService.token">
+            </PersistentString>
+            <PersistentString
                value = "userDefaults.bool(forKey: &quot;hasPreviousAuth&quot;)">
             </PersistentString>
             <PersistentString
                value = "App.keychain![&quot;token&quot;]">
-            </PersistentString>
-            <PersistentString
-               value = "keychainService.token">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -88,6 +88,9 @@
          <PersistentStrings>
             <PersistentString
                value = "linkedinAccountTextfield=&quot;&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "twitterAccountTextfield.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

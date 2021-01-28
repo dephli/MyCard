@@ -61,7 +61,6 @@ class ConfirmDetailsViewController: UIViewController {
         nameInitialsLabel.textColor = randomColor
         nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         cardJobTitleLabel.style(with: K.TextStyles.subTitle)
-        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: UIColor(named: K.Colors.mcBlue)!.cgColor)])
         
@@ -87,9 +86,11 @@ class ConfirmDetailsViewController: UIViewController {
         setupUI()
         
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleCardDrag))
+        self.dismissKey()
         
         gesture.direction = .down
         cardView.addGestureRecognizer(gesture)
+        noteTextField.delegate = self
         
         populateWithContactData()
         
@@ -167,16 +168,32 @@ class ConfirmDetailsViewController: UIViewController {
         } else {
             nameInitialsLabel.text = "ZZ"
         }
+        
     }
     
     
     @IBAction func createCardButtonPressed(_ sender: Any) {
-        let contact = ContactCreationManager.manager.contact.value
+        var contact = ContactCreationManager.manager.contact.value
+        contact.note = noteTextField.text
         do {
             let result = try db.collection(K.Firestore.collectionName).addDocument(from: contact)
             print(result)
+            self.navigationController?.popToRootViewController(animated: true)
+            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+
         } catch {
             print(error.localizedDescription)
         }
+        
+    }
+}
+
+extension ConfirmDetailsViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
     }
 }
