@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class EmailListStackView: UIStackView {
-    let emailTypes = ["Personal", "Work", "Other"]
+    let emailTypes: [EmailType] = [.Personal, .Work, .Other]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
     func configure(with emails: [Email]) {
@@ -33,7 +33,7 @@ class EmailListStackView: UIStackView {
                         let isHidden = emails.count > 1 ? false : true
                         
                         let textField = self.setupTextField(with: emails[i].address, at: i)
-                        let numberTypeTextfield = self.pickerTextfield(at: i, text: emails[i].type)
+                        let numberTypeTextfield = self.pickerTextfield(at: i, text: emails[i].type.rawValue)
                         numberTypeTextfield.inputView = pickerView
                         let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
                         stackView.addArrangedSubview(textField)
@@ -162,7 +162,7 @@ extension EmailListStackView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return emailTypes[row ]
+        return emailTypes[row].rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

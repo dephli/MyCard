@@ -88,7 +88,7 @@ class PersonalInfoViewController: UIViewController {
         PhoneNumberManager.manager.append(with: PhoneNumber(type: .home, number: ""))
     }
     @IBAction func addEmailPressed(_ sender: Any) {
-        EmailManager.manager.append(with: Email(type: "Personal", address: ""))
+        EmailManager.manager.append(with: Email(type: .Personal, address: ""))
     }
     @IBAction func socialMediaButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
@@ -218,7 +218,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINaviga
                 self.handleImageUploadError(error)
             } else {
                 var contact = ContactCreationManager.manager.contact.value
-                contact.image = url
+                contact.profilePicUrl = url
                 ContactCreationManager.manager.contact.accept(contact)
             }
         }
@@ -258,16 +258,16 @@ extension PersonalInfoViewController {
     fileprivate func saveProfileInfo() {
         var contact: Contact = ContactCreationManager.manager.contact.value
         if fullNameTextField.text != "" {
-            contact.fullName = fullNameTextField.text
+            contact.name.fullName = fullNameTextField.text
         }
-        contact.firstName = firstNameTextField.text!
-        contact.lastName = lastNameTextField.text!
-        contact.middleName = middleNameTextField.text!
-        contact.prefix = prefixTextField.text!
-        contact.suffix = suffixTextField.text!
-        contact.phoneNumber = PhoneNumberManager.manager.list.value
-        contact.emailAddress = EmailManager.manager.list.value
-        contact.socialMedia = SocialMediaManger.manager.getAll
+        contact.name.firstName = firstNameTextField.text!
+        contact.name.lastName = lastNameTextField.text!
+        contact.name.middleName = middleNameTextField.text!
+        contact.name.prefix = prefixTextField.text!
+        contact.name.suffix = suffixTextField.text!
+        contact.phoneNumbers = PhoneNumberManager.manager.list.value
+        contact.emailAddresses = EmailManager.manager.list.value
+        contact.socialMediaProfiles = SocialMediaManger.manager.getAll
 
         ContactCreationManager.manager.contact.accept(contact)
     }
