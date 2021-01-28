@@ -59,7 +59,7 @@
 		82B696B5257C12C0005AFE62 /* mycardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696B4257C12C0005AFE62 /* mycardTests.swift */; };
 		82B696C0257C12C0005AFE62 /* mycardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696BF257C12C0005AFE62 /* mycardUITests.swift */; };
 		82B7B3F425C23D7B009F24F1 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B3F325C23D7B009F24F1 /* Name.swift */; };
-		82B7B3F925C23D95009F24F1 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B3F825C23D95009F24F1 /* Business.swift */; };
+		82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B3F825C23D95009F24F1 /* BusinessInfo.swift */; };
 		82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B40025C24426009F24F1 /* FirestoreService.swift */; };
 		82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */; };
 		82BED3D3257EF6B300F8E96E /* Cards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82BED3D2257EF6B300F8E96E /* Cards.storyboard */; };
@@ -160,7 +160,7 @@
 		82B696BF257C12C0005AFE62 /* mycardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mycardUITests.swift; sourceTree = "<group>"; };
 		82B696C1257C12C0005AFE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82B7B3F325C23D7B009F24F1 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
-		82B7B3F825C23D95009F24F1 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		82B7B3F825C23D95009F24F1 /* BusinessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInfo.swift; sourceTree = "<group>"; };
 		82B7B40025C24426009F24F1 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		82BED3D2257EF6B300F8E96E /* Cards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cards.storyboard; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 		82C4374F257C42C600CF945F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82B7B3F825C23D95009F24F1 /* Business.swift */,
+				82B7B3F825C23D95009F24F1 /* BusinessInfo.swift */,
 				82B7B3F325C23D7B009F24F1 /* Name.swift */,
 				820F5B4E258050B00077174E /* Contact.swift */,
 				829728F22582893B00C99E33 /* UserAuth.swift */,
@@ -694,7 +694,7 @@
 				825F1601257D64A900A3E103 /* VerifyNumberViewController.swift in Sources */,
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,
 				8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */,
-				82B7B3F925C23D95009F24F1 /* Business.swift in Sources */,
+				82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */,
 				82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */,
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,

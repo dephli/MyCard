@@ -23,7 +23,7 @@ class CardViewController: UIViewController {
     
     var contacts: [Contact] = [
         Contact(name: Name(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: ""), profilePicUrl: "", occupation: "Architect", organization: "Accra Builders", phoneNumbers: [PhoneNumber(type: .Home, number: "02444445543")], emailAddresses: [
-                    Email(type: .Personal, address: "John@example.com")], socialMediaProfiles: [SocialMedia(link: "Johh Kuffuor", type: .LinkedIn)], business: Business(role: "Lead Architect", companyName: "Accra Builders", companyLocation: "Cantonments, Accra", companyLogo: ""))
+                    Email(type: .Personal, address: "John@example.com")], socialMediaProfiles: [SocialMedia(link: "Johh Kuffuor", type: .LinkedIn)], businessInfo: BusinessInfo(role: "Lead Architect", companyName: "Accra Builders", companyLocation: "Cantonments, Accra", companyLogo: ""))
 //        Contact(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: "", profilePicUrl: "", occupation: "Architect", organization: "Accra Builders", phoneNumbers: [
 //                    PhoneNumber(type: .mobile, number: "02444445543")], emailAddresses: [
 //            Email(type: "Personal", address: "John@example.com")

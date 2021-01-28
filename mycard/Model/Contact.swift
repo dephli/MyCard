@@ -18,5 +18,5 @@ struct Contact: Codable, Identifiable {
     var phoneNumbers: [PhoneNumber]
     var emailAddresses: [Email]
     var socialMediaProfiles: [SocialMedia]
-    var business: Business
+    var businessInfo: BusinessInfo
 }

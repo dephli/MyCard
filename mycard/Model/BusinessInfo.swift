@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Business: Codable {
+struct BusinessInfo: Codable {
     var role: String
     var companyName: String
     var companyLocation: String

@@ -65,9 +65,9 @@ class WorkInfoViewController: UIViewController {
     
     @IBAction func continueButtonPressed(_ sender: Any) {
         var contact: Contact = ContactCreationManager.manager.contact.value
-        contact.business.companyName = companyNameTextField.text!
-        contact.business.role = jobTitleTextField.text!
-        contact.business.companyLocation = workLocationTextField.text!
+        contact.businessInfo.companyName = companyNameTextField.text!
+        contact.businessInfo.role = jobTitleTextField.text!
+        contact.businessInfo.companyLocation = workLocationTextField.text!
         
         ContactCreationManager.manager.contact.accept(contact)
         performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
@@ -128,7 +128,7 @@ extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationC
                     self.handleImageUploadError(error)
                 } else {
                     var contact = ContactCreationManager.manager.contact.value
-                    contact.business.companyLogo = url
+                    contact.businessInfo.companyLogo = url
                     ContactCreationManager.manager.contact.accept(contact)
                 }
             }
