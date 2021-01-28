@@ -8,13 +8,13 @@
 import Foundation
 
 enum PhoneNumberType: String, Codable {
-    case home
-    case mobile
-    case work
-    case other
+    case Home
+    case Mobile
+    case Work
+    case Other
 }
 
 struct PhoneNumber: Codable {
-    var type: PhoneNumberType?
+    var type: PhoneNumberType
     var number: String?
 }

@@ -85,7 +85,7 @@ class PersonalInfoViewController: UIViewController {
     }
     
     @IBAction func addNewPhonePressed(_ sender: Any) {
-        PhoneNumberManager.manager.append(with: PhoneNumber(type: .home, number: ""))
+        PhoneNumberManager.manager.append(with: PhoneNumber(type: .Home, number: ""))
     }
     @IBAction func addEmailPressed(_ sender: Any) {
         EmailManager.manager.append(with: Email(type: .Personal, address: ""))
