@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class PhoneListStackView: UIStackView {
-    let numberTypes: [PhoneNumberType] = [.home, .mobile, .work, .other]
+    let numberTypes: [PhoneNumberType] = [.Home, .Mobile, .Work, .Other]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
     func configure(with numbers: [PhoneNumber]) {

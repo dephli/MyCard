@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 enum SocialMediaType:String, Codable {
-    case facebook
-    case twitter
-    case linkedin
-    case instagram
+    case Facebook
+    case Twitter
+    case LinkedIn
+    case Instagram
 }
 
 struct SocialMedia: Codable, Equatable, Hashable {

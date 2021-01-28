@@ -65,19 +65,19 @@ class SocialMediaViewController: UIViewController {
         var accounts: [SocialMedia] = []
         
         if facebookTextfield.text != "" {
-            accounts.append(SocialMedia(link: facebookTextfield.text!, type: .facebook))
+            accounts.append(SocialMedia(link: facebookTextfield.text!, type: .Facebook))
         }
         
         if twitterAccountTextfield.text != "" {
-            accounts.append(SocialMedia(link: twitterLabel.text!, type: .twitter))
+            accounts.append(SocialMedia(link: twitterLabel.text!, type: .Twitter))
         }
         
         if instagramAccountTextfield.text != "" {
-            accounts.append(SocialMedia(link: instagramAccountTextfield.text!, type: .instagram))
+            accounts.append(SocialMedia(link: instagramAccountTextfield.text!, type: .Instagram))
         }
         
         if linkedinAccountTextfield.text != "" {
-            accounts.append(SocialMedia(link: linkedinAccountTextfield.text!, type: .linkedin))
+            accounts.append(SocialMedia(link: linkedinAccountTextfield.text!, type: .LinkedIn))
         }
         SocialMediaManger.manager.replace(with: accounts)
         
@@ -151,7 +151,7 @@ extension SocialMediaViewController {
 extension SocialMediaViewController {
     fileprivate func populateTextFields() {
         if let linkedIn = socialMediaList.first(where: { (socialMedia) -> Bool in
-            return socialMedia.type == .linkedin
+            return socialMedia.type == .LinkedIn
         }) {
             linkedinAccountTextfield.text = linkedIn.link
             linkedinButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
@@ -161,7 +161,7 @@ extension SocialMediaViewController {
         }
         
         if let twitter = socialMediaList.first(where: { (socialMedia) -> Bool in
-            return socialMedia.type == .twitter
+            return socialMedia.type == .Twitter
         }) {
             twitterAccountTextfield.text = twitter.link
             twitterButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
@@ -170,7 +170,7 @@ extension SocialMediaViewController {
         }
         
         if let instagram = socialMediaList.first(where: { (socialMedia) -> Bool in
-            return socialMedia.type == .instagram
+            return socialMedia.type == .Instagram
         }) {
             instagramAccountTextfield.text = instagram.link
             instagramButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
@@ -179,7 +179,7 @@ extension SocialMediaViewController {
         }
         
         if let facebook = socialMediaList.first(where: { (socialMedia) -> Bool in
-            return socialMedia.type == .facebook
+            return socialMedia.type == .Facebook
         }) {
             facebookTextfield.text = facebook.link
             facebookButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
