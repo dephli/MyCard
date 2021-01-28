@@ -10,7 +10,7 @@ target 'mycard' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
-  
+  pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
   #pods for rxswift
   pod 'RxSwift'
   pod 'RxCocoa'

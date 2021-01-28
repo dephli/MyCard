@@ -33,7 +33,7 @@ class PhoneListStackView: UIStackView {
                 let isHidden = numbers.count > 1 ? false : true
                 
                 let textField = self.setupTextField(with: numbers[i].number, at: i)
-                let numberTypeTextfield = self.setupButton(at: i, text: numbers[i].type?.rawValue)
+                let numberTypeTextfield = self.setupButton(at: i, text: numbers[i].type.rawValue)
                 numberTypeTextfield.inputView = pickerView
                 let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
                 stackView.addArrangedSubview(textField)

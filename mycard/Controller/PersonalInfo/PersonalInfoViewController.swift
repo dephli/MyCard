@@ -212,7 +212,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINaviga
         DispatchQueue.main.async {
             self.avatarImageView.image = image
         }
-        let storageService = StorageService()
+        let storageService = DataStorageService()
         storageService.uploadImage(image: image) { (url, error) in
             if let error = error {
                 self.handleImageUploadError(error)

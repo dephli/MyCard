@@ -122,7 +122,7 @@ extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationC
                 imageView.trailingAnchor.constraint(equalTo: self.companyLogoView.trailingAnchor, constant: 0).isActive = true
             }
             self.companyImage = image
-            let storageService = StorageService()
+            let storageService = DataStorageService()
             storageService.uploadImage(image: image) { (url, error) in
                 if let error = error {
                     self.handleImageUploadError(error)
