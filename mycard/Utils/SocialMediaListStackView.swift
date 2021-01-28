@@ -40,7 +40,7 @@ class SocialMediaListStackView: UIStackView {
     ]
     
     func createImageView(type: String) -> UIImageView {
-        let image = UIImageView(image: accountImageMap[type])
+        let image = UIImageView(image: accountImageMap[type.lowercased()])
         image.widthAnchor.constraint(equalToConstant: 24).isActive = true
         image.heightAnchor.constraint(equalToConstant: 24).isActive = true
         return image

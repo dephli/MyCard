@@ -76,4 +76,8 @@ struct K {
         static let instagram = "instagram"
         static let linkedin = "linkedin"
     }
+    
+    struct Firestore {
+        static let collectionName = "cards"
+    }
 }

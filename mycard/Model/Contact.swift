@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-struct Contact: Codable {
+struct Contact: Codable, Identifiable {
+    @DocumentID var id: String?
     var name: Name
     var profilePicUrl: String?
     var occupation: String
@@ -15,5 +18,5 @@ struct Contact: Codable {
     var phoneNumbers: [PhoneNumber]
     var emailAddresses: [Email]
     var socialMediaProfiles: [SocialMedia]
-    var business: Business
+    var businessInfo: BusinessInfo
 }

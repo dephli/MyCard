@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ConfirmDetailsViewController: UIViewController {
 
@@ -42,6 +43,8 @@ class ConfirmDetailsViewController: UIViewController {
     
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var contactSummaryView: UIView!
+    
+    let db = Firestore.firestore()
     
     
     var cardImage: UIImage?
@@ -137,11 +140,11 @@ class ConfirmDetailsViewController: UIViewController {
         let contact:Contact = ContactCreationManager.manager.contact.value
         
         cardNameLabel.text = contact.name.fullName
-        cardJobTitleLabel.text = contact.business.role
+        cardJobTitleLabel.text = contact.businessInfo.role
         nameTextLabel.text = contact.name.fullName
         if contact.phoneNumbers.count >= 1 {
             phoneTextLabel.text = contact.phoneNumbers[0].number
-            phoneNumberTypeLabel.text = contact.phoneNumbers[0].type?.rawValue
+            phoneNumberTypeLabel.text = contact.phoneNumbers[0].type.rawValue
         }
         
         if !contact.emailAddresses.isEmpty {
@@ -149,11 +152,10 @@ class ConfirmDetailsViewController: UIViewController {
             emailTypeLabel.text = contact.emailAddresses[0].type.rawValue
         }
         
-        workInfoTextLabel.text = contact.business.companyName
-        jobTitleLabel.text = contact.business.role
+        workInfoTextLabel.text = contact.businessInfo.companyName
+        jobTitleLabel.text = contact.businessInfo.role
         socialMediaStackView.configure(with: contact.socialMediaProfiles)
-        workLocationTextLabel.text = contact.business.companyLocation
-//        let contactArray = contact.fullName?.components(separatedBy: " ")
+        workLocationTextLabel.text = contact.businessInfo.companyLocation
         if contact.name.lastName != "" && contact.name.firstName! != "" {
             nameInitialsLabel.text = "\(contact.name.firstName!.prefix(1))\(contact.name.lastName!.prefix(1))"
         }
@@ -164,6 +166,17 @@ class ConfirmDetailsViewController: UIViewController {
             nameInitialsLabel.text = "\(contact.name.firstName!.prefix(2))"
         } else {
             nameInitialsLabel.text = "ZZ"
+        }
+    }
+    
+    
+    @IBAction func createCardButtonPressed(_ sender: Any) {
+        let contact = ContactCreationManager.manager.contact.value
+        do {
+            let result = try db.collection(K.Firestore.collectionName).addDocument(from: contact)
+            print(result)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

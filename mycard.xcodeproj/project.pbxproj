@@ -15,7 +15,7 @@
 		8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214E62E2590329B0054A345 /* ConfirmDetailsViewController.swift */; };
 		8214E634259047D10054A345 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214E633259047D10054A345 /* UIColorExtension.swift */; };
 		821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821590362588207D00A9F679 /* SocialMediaViewController.swift */; };
-		821603A625BF908500C8BCC3 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821603A525BF908500C8BCC3 /* StorageService.swift */; };
+		821603A625BF908500C8BCC3 /* DataStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821603A525BF908500C8BCC3 /* DataStorageService.swift */; };
 		82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82455941257D1123003DCB4C /* SetupCardViewController.swift */; };
 		825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B59257E54F900201A01 /* UITextFieldExtension.swift */; };
 		825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */; };
@@ -59,7 +59,8 @@
 		82B696B5257C12C0005AFE62 /* mycardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696B4257C12C0005AFE62 /* mycardTests.swift */; };
 		82B696C0257C12C0005AFE62 /* mycardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696BF257C12C0005AFE62 /* mycardUITests.swift */; };
 		82B7B3F425C23D7B009F24F1 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B3F325C23D7B009F24F1 /* Name.swift */; };
-		82B7B3F925C23D95009F24F1 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B3F825C23D95009F24F1 /* Business.swift */; };
+		82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B3F825C23D95009F24F1 /* BusinessInfo.swift */; };
+		82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B7B40025C24426009F24F1 /* FirestoreService.swift */; };
 		82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */; };
 		82BED3D3257EF6B300F8E96E /* Cards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82BED3D2257EF6B300F8E96E /* Cards.storyboard */; };
 		82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3D8257EF6EB00F8E96E /* CardViewController.swift */; };
@@ -108,7 +109,7 @@
 		8214E62E2590329B0054A345 /* ConfirmDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDetailsViewController.swift; sourceTree = "<group>"; };
 		8214E633259047D10054A345 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		821590362588207D00A9F679 /* SocialMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaViewController.swift; sourceTree = "<group>"; };
-		821603A525BF908500C8BCC3 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		821603A525BF908500C8BCC3 /* DataStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageService.swift; sourceTree = "<group>"; };
 		82455941257D1123003DCB4C /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
 		825A4B59257E54F900201A01 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
@@ -159,7 +160,8 @@
 		82B696BF257C12C0005AFE62 /* mycardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mycardUITests.swift; sourceTree = "<group>"; };
 		82B696C1257C12C0005AFE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82B7B3F325C23D7B009F24F1 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
-		82B7B3F825C23D95009F24F1 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		82B7B3F825C23D95009F24F1 /* BusinessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessInfo.swift; sourceTree = "<group>"; };
+		82B7B40025C24426009F24F1 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		82BED3CD257EDB4200F8E96E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		82BED3D2257EF6B300F8E96E /* Cards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cards.storyboard; sourceTree = "<group>"; };
 		82BED3D8257EF6EB00F8E96E /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +295,8 @@
 				829728FA258289B900C99E33 /* AuthService.swift */,
 				825FC34025866CA200FAA8E8 /* KeyChainService.swift */,
 				8285225125A53F3300D5C950 /* ImagePickerService.swift */,
-				821603A525BF908500C8BCC3 /* StorageService.swift */,
+				821603A525BF908500C8BCC3 /* DataStorageService.swift */,
+				82B7B40025C24426009F24F1 /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -398,7 +401,7 @@
 		82C4374F257C42C600CF945F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82B7B3F825C23D95009F24F1 /* Business.swift */,
+				82B7B3F825C23D95009F24F1 /* BusinessInfo.swift */,
 				82B7B3F325C23D7B009F24F1 /* Name.swift */,
 				820F5B4E258050B00077174E /* Contact.swift */,
 				829728F22582893B00C99E33 /* UserAuth.swift */,
@@ -669,6 +672,7 @@
 				82C4375E257C515100CF945F /* Constants.swift in Sources */,
 				829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */,
 				820F5B4F258050B00077174E /* Contact.swift in Sources */,
+				82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */,
 				827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */,
 				82BED3F0257EFE1A00F8E96E /* TabBarController.swift in Sources */,
 				827354472588CEE800236797 /* SocialMedia.swift in Sources */,
@@ -690,7 +694,7 @@
 				825F1601257D64A900A3E103 /* VerifyNumberViewController.swift in Sources */,
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,
 				8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */,
-				82B7B3F925C23D95009F24F1 /* Business.swift in Sources */,
+				82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */,
 				82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */,
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,
@@ -710,7 +714,7 @@
 				82AD90E925879ECF0014B96E /* EmailListStackView.swift in Sources */,
 				82AD90E425879E7E0014B96E /* UIStackViewExtension.swift in Sources */,
 				82C43763257C5F8000CF945F /* ToolBelt.swift in Sources */,
-				821603A625BF908500C8BCC3 /* StorageService.swift in Sources */,
+				821603A625BF908500C8BCC3 /* DataStorageService.swift in Sources */,
 				829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */,
 				82B696A0257C12BD005AFE62 /* SceneDelegate.swift in Sources */,
 				825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */,
