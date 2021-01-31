@@ -8,6 +8,10 @@
 import Foundation
 import FirebaseStorage
 
+protocol DataStorageDelegate {
+    func uploadImage(image: UIImage, onUploadComplete: @escaping(String?, Error?) -> Void)
+}
+
 class DataStorageService {
     func uploadImage(image: UIImage, onUploadComplete: @escaping(String?, Error?) -> Void) {
         guard let data: Data = image.jpegData(compressionQuality: 1) else {

@@ -20,7 +20,7 @@ class SocialMediaListStackView: UIStackView {
                 innerStack.spacing = 16
                 
                 let image = self.createImageView(type: account.type.rawValue)
-                let label = self.createLabel(text: account.link)
+                let label = self.createLabel(text: account.usernameOrUrl)
                 let button = self.createButton()
 
                 innerStack.addArrangedSubview(image)

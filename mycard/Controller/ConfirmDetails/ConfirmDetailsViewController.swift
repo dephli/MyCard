@@ -156,7 +156,7 @@ class ConfirmDetailsViewController: UIViewController {
         workInfoTextLabel.text = contact.businessInfo.companyName
         jobTitleLabel.text = contact.businessInfo.role
         socialMediaStackView.configure(with: contact.socialMediaProfiles)
-        workLocationTextLabel.text = contact.businessInfo.companyLocation
+        workLocationTextLabel.text = contact.businessInfo.companyAddress
         if contact.name.lastName != "" && contact.name.firstName! != "" {
             nameInitialsLabel.text = "\(contact.name.firstName!.prefix(1))\(contact.name.lastName!.prefix(1))"
         }
@@ -175,16 +175,15 @@ class ConfirmDetailsViewController: UIViewController {
     @IBAction func createCardButtonPressed(_ sender: Any) {
         var contact = ContactCreationManager.manager.contact.value
         contact.note = noteTextField.text
-        do {
-            let result = try db.collection(K.Firestore.collectionName).addDocument(from: contact)
-            print(result)
-            self.navigationController?.popToRootViewController(animated: true)
-            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-
-        } catch {
-            print(error.localizedDescription)
+        FirestoreService().createContact(with: contact) { (error, contact) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print(contact!)
+                self.navigationController?.popToRootViewController(animated: true)
+                self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+            }
         }
-        
     }
 }
 

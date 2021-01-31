@@ -35,6 +35,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Mycard app camera usage</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MyCard needs access to your photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Light.ttf</string>
@@ -84,7 +86,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>MyCard needs access to your photos</string>
 </dict>
 </plist>

@@ -20,12 +20,15 @@ class SignupViewController: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var backButtonTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dismissKey()
-
+        
+        nameTextField.becomeFirstResponder()
+        phoneNumberTextField.delegate = self
         signupLabel.style(with: K.TextStyles.heading1)
         phoneNumberTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         nameTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
@@ -44,23 +47,25 @@ class SignupViewController: UIViewController {
         super.viewDidAppear(animated)
 
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("hello")
-    }
-    
 
     
+    fileprivate func authenticateUser() {
+        if phoneNumberTextField.text!.isValid(.phoneNumber) {
+            let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text, uid: nil)
+            UserAuthManager.auth.phoneNumberAuth(with: user) { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)
+                }
+            }
+        } else {
+            warningLabel.text = "Please enter a valid phone number"
+        }
+    }
     
     @IBAction func signupButtonPressed(_ sender: UIButton) {
-        let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text, uid: nil)
-        UserAuth.auth.phoneNumberAuth(with: user) { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)
-            }
-        }
+        authenticateUser()
     }
     @IBAction func backButtonPressed(_ sender: Any) {
 
@@ -73,5 +78,12 @@ class SignupViewController: UIViewController {
         }
 
         
+    }
+}
+
+extension SignupViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        authenticateUser()
+        return true
     }
 }

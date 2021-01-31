@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AZ2-QV-1p8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -128,7 +129,7 @@
                                     <constraint firstAttribute="height" constant="48" id="J0F-yR-Ex2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numbersAndPunctuation" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.0"/>
@@ -154,7 +155,7 @@
                                     <constraint firstAttribute="height" constant="48" id="AH5-06-dbQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" smartInsertDeleteType="yes" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="tel"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.0"/>
@@ -208,23 +209,22 @@
                                     <action selector="backButtonPressed:" destination="AZ2-QV-1p8" eventType="touchUpInside" id="dSG-hq-fla"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzz-S6-bWp">
-                                <rect key="frame" x="158" y="716" width="98" height="31"/>
-                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                <state key="normal" title="Resend Code">
-                                    <color key="titleColor" name="MC Blue"/>
-                                </state>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b0-kj-LCh">
+                                <rect key="frame" x="24" y="275" width="366" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" red="0.60592025520000004" green="0.11053956299999999" blue="0.1215394065" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pA9-5H-44x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="808-Sb-0WE"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="kUH-3S-uEt" secondAttribute="trailing" constant="24" id="8GE-qQ-oBb"/>
-                            <constraint firstItem="Lzz-S6-bWp" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="9na-X5-cm0"/>
                             <constraint firstItem="xeH-IV-cau" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="EnY-dm-qru"/>
-                            <constraint firstItem="xeH-IV-cau" firstAttribute="top" secondItem="Lzz-S6-bWp" secondAttribute="bottom" constant="43" id="S0A-5N-O73"/>
+                            <constraint firstItem="2b0-kj-LCh" firstAttribute="leading" secondItem="kUH-3S-uEt" secondAttribute="leading" id="L3g-lE-45X"/>
                             <constraint firstItem="kUH-3S-uEt" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="Tb8-Ma-PY3"/>
+                            <constraint firstItem="2b0-kj-LCh" firstAttribute="trailing" secondItem="kUH-3S-uEt" secondAttribute="trailing" id="V0N-Xk-U7Y"/>
                             <constraint firstItem="xeH-IV-cau" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="VBH-wr-F3I"/>
                             <constraint firstItem="lBr-zY-SV0" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="bSJ-wL-h5D"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="COS-Pp-g3z" secondAttribute="trailing" constant="24" id="dOh-xP-KpI"/>
@@ -234,6 +234,7 @@
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="top" secondItem="lBr-zY-SV0" secondAttribute="bottom" constant="36" id="gAz-06-F34"/>
                             <constraint firstItem="Co6-6U-W71" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="heb-g0-qeU"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="bottom" secondItem="xeH-IV-cau" secondAttribute="bottom" constant="24" id="l7C-c7-Nlw"/>
+                            <constraint firstItem="2b0-kj-LCh" firstAttribute="top" secondItem="kUH-3S-uEt" secondAttribute="bottom" constant="24" id="psr-vS-wRC"/>
                             <constraint firstItem="lBr-zY-SV0" firstAttribute="top" secondItem="pA9-5H-44x" secondAttribute="top" constant="38" id="tP0-C6-FxY"/>
                             <constraint firstItem="kUH-3S-uEt" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="xQ8-qk-OoZ"/>
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="xWD-qn-dfU"/>
@@ -247,6 +248,7 @@
                         <outlet property="phoneNumberTextField" destination="kUH-3S-uEt" id="dgh-uX-sYt"/>
                         <outlet property="signupButton" destination="xeH-IV-cau" id="guC-Up-U6c"/>
                         <outlet property="signupLabel" destination="lBr-zY-SV0" id="zu4-rj-yRz"/>
+                        <outlet property="warningLabel" destination="2b0-kj-LCh" id="LUm-lG-0hh"/>
                         <segue destination="90I-YX-6Vb" kind="show" identifier="SignupToVerifyPhoneNumber" id="Z4k-Zf-eJs"/>
                     </connections>
                 </viewController>
@@ -275,7 +277,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Pj5-Mi-dGi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afX-LB-QOQ">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
@@ -314,6 +316,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzz-S6-bWp">
+                                <rect key="frame" x="158" y="717" width="98" height="31"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                <state key="normal" title="Resend Code">
+                                    <color key="titleColor" name="MC Blue"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H4A-Rp-put"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,10 +334,12 @@
                             <constraint firstItem="0lQ-My-8rA" firstAttribute="trailing" secondItem="H4A-Rp-put" secondAttribute="trailing" id="USE-Pf-irU"/>
                             <constraint firstItem="H4A-Rp-put" firstAttribute="trailing" secondItem="afX-LB-QOQ" secondAttribute="trailing" constant="24" id="Wh5-Rb-U8m"/>
                             <constraint firstItem="qOD-RV-oFX" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="X6B-BF-FTt"/>
+                            <constraint firstItem="Lzz-S6-bWp" firstAttribute="centerX" secondItem="IWB-fe-fwI" secondAttribute="centerX" id="ZYS-cB-CF4"/>
                             <constraint firstItem="0lQ-My-8rA" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" id="azG-4e-Gai"/>
                             <constraint firstItem="H4A-Rp-put" firstAttribute="trailing" secondItem="qOD-RV-oFX" secondAttribute="trailing" constant="62" id="dGS-Xe-iyy"/>
                             <constraint firstItem="bJl-jY-0nL" firstAttribute="top" secondItem="P2I-Ie-VDW" secondAttribute="bottom" constant="16" id="f0w-ww-mDm"/>
                             <constraint firstItem="P2I-Ie-VDW" firstAttribute="top" secondItem="0lQ-My-8rA" secondAttribute="bottom" id="isP-A8-tWt"/>
+                            <constraint firstItem="afX-LB-QOQ" firstAttribute="top" secondItem="Lzz-S6-bWp" secondAttribute="bottom" constant="42" id="l1O-Sc-EvM"/>
                             <constraint firstItem="P2I-Ie-VDW" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="moX-gF-ysM"/>
                             <constraint firstItem="qOD-RV-oFX" firstAttribute="top" secondItem="bJl-jY-0nL" secondAttribute="bottom" constant="32" id="osd-ll-Ao2"/>
                             <constraint firstItem="H4A-Rp-put" firstAttribute="bottom" secondItem="afX-LB-QOQ" secondAttribute="bottom" constant="24" id="tVR-lo-gIf"/>

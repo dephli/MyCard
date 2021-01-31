@@ -52,7 +52,8 @@ class PersonalInfoViewController: UIViewController {
     var keyboardHeight: Float?
     
     let prefixTypes = ["mr", "ms", "mrs", "dr"]
-    let suffixes = ["phd", "ccna", "obe", "sr", "jr", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "snr"]
+//    this can be updated to get the data from cloud storage
+    let suffixes = ["phd", "ccna", "obe", "sr", "jr", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "snr", "jnr"]
     var userDefinedPrefixType: [String] = []
     var previousPrefix = ""
     var previousFirstName = ""
@@ -67,7 +68,7 @@ class PersonalInfoViewController: UIViewController {
 
         nameSetup()
         
-            userDefinedPrefixType = prefixTypes
+        userDefinedPrefixType = prefixTypes
         
         view.viewOfType(type: UITextField.self) { (textfield) in
             textfield.delegate = self
@@ -195,6 +196,7 @@ extension PersonalInfoViewController {
     }
 }
 
+//MARK: - Handle image picking and upload
 extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
     fileprivate func handleImageUploadError(_ error: Error) {
         let alert = UIAlertController(title: "Image upload failed", message: "An error occured while uploading you image", preferredStyle: .alert)
@@ -225,7 +227,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINaviga
         
     }
 }
-
+//MARK: - move textfields up when keyboard appears
 extension PersonalInfoViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -253,7 +255,7 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     
     
 }
-
+//MARK: - Save profile info to contact creation manager
 extension PersonalInfoViewController {
     fileprivate func saveProfileInfo() {
         var contact: Contact = ContactCreationManager.manager.contact.value
@@ -273,7 +275,7 @@ extension PersonalInfoViewController {
     }
 }
 
-
+//MARK: - Distribute Names
 extension PersonalInfoViewController {
     fileprivate func distributeNames(_ textfield: UITextField) {
 

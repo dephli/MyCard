@@ -22,8 +22,8 @@ class CardViewController: UIViewController {
     }
     
     var contacts: [Contact] = [
-        Contact(name: Name(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: ""), profilePicUrl: "", occupation: "Architect", organization: "Accra Builders", phoneNumbers: [PhoneNumber(type: .Home, number: "02444445543")], emailAddresses: [
-                    Email(type: .Personal, address: "John@example.com")], socialMediaProfiles: [SocialMedia(link: "Johh Kuffuor", type: .LinkedIn)], businessInfo: BusinessInfo(role: "Lead Architect", companyName: "Accra Builders", companyLocation: "Cantonments, Accra", companyLogo: ""))
+        Contact(name: Name(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: ""), profilePicUrl: "", phoneNumbers: [PhoneNumber(type: .Home, number: "02444445543")], emailAddresses: [
+                    Email(type: .Personal, address: "John@example.com")], socialMediaProfiles: [SocialMedia(usernameOrUrl: "Johh Kuffuor", type: .LinkedIn)], businessInfo: BusinessInfo(role: "Lead Architect", companyName: "Accra Builders", companyAddress: "Cantonments, Accra", companyLogo: ""))
 //        Contact(prefix: "Mr", fullName: "Mr John Agyekum Kuffuor", firstName: "John", middleName: "Agyekum", lastName: "Kuffuor", suffix: "", profilePicUrl: "", occupation: "Architect", organization: "Accra Builders", phoneNumbers: [
 //                    PhoneNumber(type: .mobile, number: "02444445543")], emailAddresses: [
 //            Email(type: "Personal", address: "John@example.com")
@@ -143,8 +143,8 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         let contact = contacts[indexPath.row]
         cell.nameLabel.text = contact.name.fullName
-        cell.descriptionLabel.text = contact.occupation
-        cell.organizationLabel.text = contact.organization
+        cell.descriptionLabel.text = contact.businessInfo.role
+        cell.organizationLabel.text = contact.businessInfo.companyName
         
         return cell
     }
@@ -177,9 +177,9 @@ extension CardViewController: UISearchControllerDelegate {
 
 extension CardViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            searchBar.showsScopeBar = false
-            self.searchStackView.isHidden = false
-            self.searchStackViewHeightConstraint.constant = 48
+        searchBar.showsScopeBar = false
+        self.searchStackView.isHidden = false
+        self.searchStackViewHeightConstraint.constant = 48
         navigationItem.searchController = nil
     }
 }

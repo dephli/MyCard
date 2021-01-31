@@ -10,6 +10,6 @@ import Foundation
 struct BusinessInfo: Codable {
     var role: String
     var companyName: String
-    var companyLocation: String
+    var companyAddress: String
     var companyLogo: String?
 }

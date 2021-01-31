@@ -9,11 +9,14 @@ import Foundation
 import Firebase
 import KeychainAccess
 
-struct AuthService {
-    
+protocol AuthServiceDelegate {
+    func register(phoneNumber: String, onActionComplete: @escaping (Error?) -> Void)
+    func submitVerificationCode(code: String, onActionComplete: @escaping (User?, Error?) -> Void)
+}
+
+struct AuthService: AuthServiceDelegate {
     
 
-    
     func register(phoneNumber: String, onActionComplete: @escaping (Error?) -> Void) {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationId, error) in
             if let error = error {
@@ -44,7 +47,8 @@ struct AuthService {
                     var keychainService = KeychainService()
                     keychainService.token = token
                     UserDefaults.standard.setValue(true, forKey: "hasPreviousAuth")
-                    onActionComplete(nil, nil)
+                    let user = User(name: result?.user.displayName, phoneNumber: result?.user.phoneNumber, uid: result?.user.uid)
+                    onActionComplete(user, nil)
                 })
             }
     
