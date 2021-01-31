@@ -27,6 +27,8 @@ class WorkInfoViewController: UIViewController {
     let imagePicker = UIImagePickerController()
     var companyImage: UIImage?
     var keyboardHeight: Float?
+    var contact: Contact = ContactCreationManager.manager.contact.value
+    
     
     fileprivate func keyboardNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
@@ -64,10 +66,10 @@ class WorkInfoViewController: UIViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        var contact: Contact = ContactCreationManager.manager.contact.value
         contact.businessInfo.companyName = companyNameTextField.text!
         contact.businessInfo.role = jobTitleTextField.text!
-        contact.businessInfo.companyLocation = workLocationTextField.text!
+        contact.businessInfo.companyAddress = workLocationTextField.text!
+//        contact.businessInfo.companyLogo =
         
         ContactCreationManager.manager.contact.accept(contact)
         performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
@@ -89,6 +91,10 @@ extension WorkInfoViewController {
         workInfoSectionLabel.style(with: K.TextStyles.subTitle)
         workLocationLabel.style(with: K.TextStyles.subTitle)
         infoLabel.style(with: K.TextStyles.subTitleBlue)
+        
+        workLocationTextField.text = contact.businessInfo.companyAddress
+        companyNameTextField.text = contact.businessInfo.companyName
+        jobTitleTextField.text = contact.businessInfo.role
         
     }
 }
@@ -127,9 +133,9 @@ extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationC
                 if let error = error {
                     self.handleImageUploadError(error)
                 } else {
-                    var contact = ContactCreationManager.manager.contact.value
-                    contact.businessInfo.companyLogo = url
-                    ContactCreationManager.manager.contact.accept(contact)
+                    print(url!)
+                    self.contact.businessInfo.companyLogo = url
+                    ContactCreationManager.manager.contact.accept(self.contact)
                 }
             }
         }

@@ -348,7 +348,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rh-mi-Avx">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-l1-0ZF">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="office" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-l1-0ZF">
                                                                 <rect key="frame" x="8" y="8" width="24" height="24"/>
                                                                 <color key="tintColor" name="MC White"/>
                                                                 <constraints>
@@ -716,6 +716,7 @@
         <image name="location" width="24" height="24"/>
         <image name="mail" width="24" height="24"/>
         <image name="notes" width="24" height="24"/>
+        <image name="office" width="24" height="24"/>
         <image name="phone" width="24" height="24"/>
         <image name="user light" width="24" height="24"/>
         <namedColor name="MC Black">

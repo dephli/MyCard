@@ -17,11 +17,11 @@ class SetupCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.dismissKey()
         descriptionLabel.style(with: K.TextStyles.heading1)
         setupLabel.style(with: K.TextStyles.subTitle)
         self.hero.isEnabled = true
         arrowButton.hero.id = "arrowButton"
-        
     }
     
     @objc

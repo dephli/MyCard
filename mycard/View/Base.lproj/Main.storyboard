@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfz-n6-Aaq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-Yg-e2V">
-                                <rect key="frame" x="24" y="124" width="366" height="40"/>
+                                <rect key="frame" x="24" y="100" width="366" height="40"/>
                                 <string key="text">A quick taste of what's 
 in store for you.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -27,13 +28,13 @@ in store for you.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Set up your personal card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-EA-tQp">
-                                <rect key="frame" x="24" y="180" width="366" height="21"/>
+                                <rect key="frame" x="24" y="156" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MC card doodle" translatesAutoresizingMaskIntoConstraints="NO" id="S5K-VN-XbQ">
-                                <rect key="frame" x="110" y="241" width="194" height="431"/>
+                                <rect key="frame" x="110" y="217" width="194" height="455"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H97-RS-scI">
                                 <rect key="frame" x="179" y="712" width="56" height="56"/>
@@ -110,7 +111,7 @@ in store for you.</string>
                             <constraint firstItem="S5K-VN-XbQ" firstAttribute="top" secondItem="fdC-EA-tQp" secondAttribute="bottom" constant="40" id="aOd-zd-y3f"/>
                             <constraint firstItem="H97-RS-scI" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="imd-lh-R5K"/>
                             <constraint firstItem="fdC-EA-tQp" firstAttribute="leading" secondItem="QjD-JB-tzP" secondAttribute="leading" constant="24" id="let-1s-Hta"/>
-                            <constraint firstItem="YrV-Yg-e2V" firstAttribute="top" secondItem="ZfK-G2-MSs" secondAttribute="topMargin" constant="80" id="nAh-qd-cui"/>
+                            <constraint firstItem="YrV-Yg-e2V" firstAttribute="top" secondItem="ZfK-G2-MSs" secondAttribute="topMargin" constant="56" id="nAh-qd-cui"/>
                             <constraint firstAttribute="bottom" secondItem="ceo-Gf-bTa" secondAttribute="bottom" constant="48" id="oy4-uy-9WS"/>
                             <constraint firstItem="fdC-EA-tQp" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="rAZ-CP-oQe"/>
                             <constraint firstItem="S5K-VN-XbQ" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="uBT-6S-jYj"/>

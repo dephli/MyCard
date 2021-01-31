@@ -78,6 +78,7 @@ struct K {
     }
     
     struct Firestore {
-        static let collectionName = "cards"
+        static let cardsCollectionName = "cards"
+        static let usersCollectionName = "users"
     }
 }

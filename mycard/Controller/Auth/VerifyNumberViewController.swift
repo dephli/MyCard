@@ -32,7 +32,7 @@ class VerifyNumberViewController: UIViewController {
 
     @IBAction func verifyButtonPressed(_ sender: Any) {
         let code = codeTextField.text!
-        UserAuth.auth.submitCode(with: code) { (error) in
+        UserAuthManager.auth.submitCode(with: code) { (error) in
             if let error = error {
                 print(error)
             }
