@@ -23,6 +23,10 @@ struct K {
         static let mcWhite = "MC White"
     }
     
+    struct ViewIdentifiers {
+        static let cardsTabBarController = "TabBarController"
+    }
+    
     struct TextStyles {
         static let heading1 = TextStyle(style: .extraLarge, color: .black, emphasis: .regular, alignment: .left, lineSpacing: 2)
         static let subTitle = TextStyle(style: .small, color: .black60, emphasis: .regular, alignment: .left, lineSpacing: 1.2)

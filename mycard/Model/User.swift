@@ -8,9 +8,9 @@
 import Foundation
 import RxSwift
 
-struct User {
-    let name: String?
-    let phoneNumber: String?
-    let uid: String?
+struct User: Codable {
+    var name: String?
+    var phoneNumber: String?
+    var uid: String?
 
 }

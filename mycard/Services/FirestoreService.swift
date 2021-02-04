@@ -16,7 +16,17 @@ class FirestoreService {
         do {
             let result = try db.collection(K.Firestore.cardsCollectionName).addDocument(from: contact)
             result.getDocument { (documentSnapshot, error) in
-                let contact = try? documentSnapshot?.data(as: Contact.self)
+                guard let snapshot = documentSnapshot else {
+                    return onActionComplete(error, nil)
+                }
+                
+                let contact = try? snapshot.data(as: Contact.self)
+                
+                self.addContactToUser(uid: AuthService.uid, contactId: contact!.id!) {
+                    if let error = $0 {
+                        onActionComplete(error, nil)
+                    }
+                }
                 return onActionComplete(nil, contact)
             }
 
@@ -36,6 +46,33 @@ class FirestoreService {
         } catch {
             return onActionComplete(error)
         }
+    }
+    
+    func addContactToUser(uid: String, contactId: String, onActionComplete: @escaping(Error?) -> Void) {
+        let userRef = db.collection(K.Firestore.usersCollectionName)
+        let contactRef = db.collection(K.Firestore.cardsCollectionName).document(contactId)
+        
+        
+        userRef.document(uid).updateData([
+            "contactCards": FieldValue.arrayUnion([contactRef])
+        ]) {
+            if let error = $0 {
+                return onActionComplete(error)
+            }
+            return onActionComplete(nil)
+        }
+    }
+    
+    func getAllContacts(uid: String, onActionComplete: @escaping(Error?, [Contact]?) -> Void) {
+        let contactRef = db.collection(K.Firestore.cardsCollectionName)
+        contactRef.getDocuments { (snapshot, error) in
+            
+            let contacts = snapshot?.documents.compactMap({ (document) -> Contact? in
+                return try? document.data(as: Contact.self)
+            })
+            onActionComplete(nil, contacts)
+        }
+
     }
 
 }
