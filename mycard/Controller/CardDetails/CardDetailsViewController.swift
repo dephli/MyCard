@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardDetailsViewController: UIViewController {
+class CardDetailsViewController: UIViewController{
     
     @IBOutlet weak var nameInitialsLabel: UILabel!
     @IBOutlet weak var nameInitialsView: UIView!
@@ -30,6 +30,8 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var cardViewFaceIndicator1: UIView!
     @IBOutlet weak var cardViewFaceIndicator2: UIView!
     
+    @IBOutlet weak var cardNameLabel: UILabel!
+    @IBOutlet weak var cardRoleLabel: UILabel!
     @IBOutlet weak var socialMediaStackView: SocialMediaListStackView!
     @IBOutlet weak var socialMediaStackViewHeightConstraint: NSLayoutConstraint!
     
@@ -48,12 +50,13 @@ class CardDetailsViewController: UIViewController {
     
     fileprivate func setupUI() {
         socialMediaStackViewHeightConstraint.isActive = false
-        socialMediaStackView.configure(with: [])
+        socialMediaStackView.configure(with: contact?.socialMediaProfiles ?? [])
         customNavigationBar.shadowImage = UIImage()
         let randomColor = UIColor.random
         nameInitialsView.backgroundColor = randomColor
         nameInitialsView.alpha = 0.1
         nameInitialsLabel.textColor = randomColor
+        noteTextField.delegate = self
         
         phoneButtonLabel.style(with: K.TextStyles.captionBlack60)
         mailButtonLabel.style(with: K.TextStyles.captionBlack60)
@@ -61,10 +64,10 @@ class CardDetailsViewController: UIViewController {
         
         nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         jobTitleLabel.style(with: K.TextStyles.subTitle)
-        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
+        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: UIColor(named: K.Colors.mcBlue)!.cgColor)])
-        
+
         phoneLabel.style(with: K.TextStyles.subTitle)
         nameLabel.style(with: K.TextStyles.subTitle)
         noteLabel.style(with: K.TextStyles.subTitle)
@@ -87,6 +90,16 @@ class CardDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        nameTextLabel.text = contact?.name.fullName
+        cardNameLabel.text = contact?.name.fullName
+        cardRoleLabel.text = contact?.businessInfo.role ?? ""
+        workInfoTextLabel.text = contact?.businessInfo.companyName ?? ""
+        workPositionTextLabel.text = contact?.businessInfo.role ?? ""
+        workLocationTextLabel.text = contact?.businessInfo.companyAddress ?? ""
+        
+        noteTextField.text = contact?.note
+        self.dismissKey()
         
         
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleCardDrag))
@@ -155,18 +168,9 @@ class CardDetailsViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
         alertController.view.tintColor = .black
     }
-  
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
 
 //MARK: - ActionSheet Actions
 extension CardDetailsViewController {
@@ -233,5 +237,15 @@ extension CardDetailsViewController {
         self.present(alert, animated: true, completion: nil)
         alert.view.tintColor = .black
         
+    }
+}
+
+extension CardDetailsViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
     }
 }

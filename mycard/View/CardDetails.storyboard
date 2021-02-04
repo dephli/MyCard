@@ -577,18 +577,23 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bex-Cn-tUM">
                                                         <rect key="frame" x="56" y="0.0" width="318" height="72.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="754" text="NOTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o99-IQ-GBe">
-                                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="754" ambiguous="YES" text="NOTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o99-IQ-GBe">
+                                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="16.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksy-Cb-cJH">
-                                                                <rect key="frame" x="0.0" y="24.5" width="318" height="48"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksy-Cb-cJH">
+                                                                <rect key="frame" x="0.0" y="20.5" width="318" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="UEJ-Oh-xbN"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Jh-Gi-ZqO">
+                                                                <rect key="frame" x="0.0" y="72.5" width="32" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -698,6 +703,8 @@
                     </view>
                     <size key="freeformSize" width="414" height="1136"/>
                     <connections>
+                        <outlet property="cardNameLabel" destination="8gQ-LL-pGY" id="u5i-FG-CBo"/>
+                        <outlet property="cardRoleLabel" destination="aWI-xr-jMg" id="W2w-NQ-sr4"/>
                         <outlet property="cardView" destination="ISd-bk-rTQ" id="G27-LU-el2"/>
                         <outlet property="cardViewFaceIndicator1" destination="P6E-86-eK1" id="iyU-Kd-CYe"/>
                         <outlet property="cardViewFaceIndicator2" destination="gM9-dE-81p" id="MqU-HL-gka"/>

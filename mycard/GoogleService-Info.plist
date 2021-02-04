@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>520843605324-4212465dqv65s69j2v1d2o4cj7457l3j.apps.googleusercontent.com</string>
+	<string>520843605324-q5hovkuih7f5h1t50b74aatq6mgva5b4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.520843605324-4212465dqv65s69j2v1d2o4cj7457l3j</string>
+	<string>com.googleusercontent.apps.520843605324-q5hovkuih7f5h1t50b74aatq6mgva5b4</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>520843605324-0c9sjv41gr8q6dl851f8hevitqinnlph.apps.googleusercontent.com</string>
+	<string>520843605324-vr5vvbnfic0cu609u1f3rub04tpo1p3p.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDnqk0QvIPY_qnkjhwnj813ehzUzPf7wnY</string>
+	<string>AIzaSyDuYtKEAkQiPlaewO5sPC3Gr5USFZpMAjE</string>
 	<key>GCM_SENDER_ID</key>
 	<string>520843605324</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.space-jonin.mycard</string>
+	<string>com.spaceandjonin.mycard</string>
 	<key>PROJECT_ID</key>
 	<string>my-card-a7ec2</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:520843605324:ios:dab10a75ed7debdd910be9</string>
+	<string>1:520843605324:ios:b8bf382e7f605852910be9</string>
 	<key>DATABASE_URL</key>
 	<string>https://my-card-a7ec2.firebaseio.com</string>
 </dict>

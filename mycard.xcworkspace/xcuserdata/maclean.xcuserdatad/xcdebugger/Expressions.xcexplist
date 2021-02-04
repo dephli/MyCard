@@ -3,10 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "CardDetailsViewController.viewDidLoad():CardDetailsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "contact">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in AuthService.submitVerificationCode(code:onActionComplete:):AuthService.swift">
          <PersistentStrings>
             <PersistentString
                value = "keychainService.token">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ContactsCell.name.didset:ContactsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,13 +46,13 @@
          contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "keychainService.token">
+               value = "App.keychain![&quot;token&quot;]">
             </PersistentString>
             <PersistentString
                value = "userDefaults.bool(forKey: &quot;hasPreviousAuth&quot;)">
             </PersistentString>
             <PersistentString
-               value = "App.keychain![&quot;token&quot;]">
+               value = "keychainService.token">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -45,6 +61,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ContactsCell.awakeFromNib():ContactsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "nameLabel.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -66,6 +90,17 @@
                value = "self.profileButtonToSocialMediaStackViewConstraint">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ContactsCell.profilePicUrl.didset:ContactsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "profilePicUrl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in FirestoreService.getAllContacts(uid:onActionComplete:):FirestoreService.swift">
       </ContextState>
       <ContextState
          contextName = "SocialMediaManger.replace(with:):SocialMediaManger.swift">
@@ -101,6 +136,9 @@
                value = "KeychainService().token">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CardViewController.tableView(_:cellForRowAt:):CardViewController.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in closure #1 in StorageService.uploadImage(image:onUploadComplete:):StorageService.swift">
