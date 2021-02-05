@@ -102,9 +102,8 @@ class CardDetailsViewController: UIViewController{
         self.dismissKey()
         
         
-        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleCardDrag))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleCardDrag))
         
-        gesture.direction = .down
         cardView.addGestureRecognizer(gesture)
         
     }

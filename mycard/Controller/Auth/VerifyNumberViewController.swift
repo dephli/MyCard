@@ -21,6 +21,7 @@ class VerifyNumberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dismissKey()
         uiSetup()
     }
     

@@ -10,7 +10,7 @@ import Security
 import KeychainAccess
 
 struct KeychainService {
-    let keychain = Keychain(service: "com.space-jonin.mycard")
+    let keychain = Keychain(service: "com.spaceandjonin.MyCard")
     
     var token: String? {
         get {

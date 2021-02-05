@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -111,7 +111,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="centerX" secondItem="hlt-fv-nNk" secondAttribute="centerX" id="6TF-WD-dta"/>
                                     <constraint firstItem="r0d-Lc-Btp" firstAttribute="leading" secondItem="hlt-fv-nNk" secondAttribute="leading" constant="32" id="HXs-B9-Mzi"/>
@@ -125,7 +125,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Fd-hO-hg1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QLI-Fm-IYt" secondAttribute="bottom" id="96Q-UN-bAS"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="leading" secondItem="5Fd-hO-hg1" secondAttribute="leading" id="9SV-rr-zwP"/>
@@ -194,7 +194,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rhn-ag-boP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="Rhn-ag-boP" firstAttribute="bottom" secondItem="qav-1G-ZvU" secondAttribute="bottom" constant="72" id="HUu-Db-mvE"/>
                             <constraint firstItem="OZN-XK-oYm" firstAttribute="leading" secondItem="Rhn-ag-boP" secondAttribute="leading" constant="16" id="ibW-yN-q6u"/>
@@ -241,8 +241,5 @@
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

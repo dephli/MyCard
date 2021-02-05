@@ -33,9 +33,9 @@
 		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
 		827354472588CEE800236797 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354462588CEE800236797 /* SocialMedia.swift */; };
 		8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273544B2588CFDA00236797 /* SocialMediaManger.swift */; };
-		827853DC25CC042D00652F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 827853DB25CC042D00652F9B /* GoogleService-Info.plist */; };
 		827853E425CC324200652F9B /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827853E325CC324200652F9B /* UIImageViewExtension.swift */; };
 		827853E925CC32B200652F9B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827853E825CC32B200652F9B /* Networking.swift */; };
+		8278540225CCB4D000652F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8278540125CCB4D000652F9B /* GoogleService-Info.plist */; };
 		8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285225125A53F3300D5C950 /* ImagePickerService.swift */; };
 		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
 		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
@@ -129,9 +129,9 @@
 		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
 		827354462588CEE800236797 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		8273544B2588CFDA00236797 /* SocialMediaManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaManger.swift; sourceTree = "<group>"; };
-		827853DB25CC042D00652F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		827853E325CC324200652F9B /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		827853E825CC32B200652F9B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		8278540125CCB4D000652F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8285225125A53F3300D5C950 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
 		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
 		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 				82B696A6257C12C0005AFE62 /* Assets.xcassets */,
 				82B696A8257C12C0005AFE62 /* LaunchScreen.storyboard */,
 				82B696AB257C12C0005AFE62 /* Info.plist */,
-				827853DB25CC042D00652F9B /* GoogleService-Info.plist */,
+				8278540125CCB4D000652F9B /* GoogleService-Info.plist */,
 			);
 			path = mycard;
 			sourceTree = "<group>";
@@ -600,7 +600,7 @@
 				82BED3D3257EF6B300F8E96E /* Cards.storyboard in Resources */,
 				82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */,
 				82C4378C257CFFB500CF945F /* Inter-Bold.ttf in Resources */,
-				827853DC25CC042D00652F9B /* GoogleService-Info.plist in Resources */,
+				8278540225CCB4D000652F9B /* GoogleService-Info.plist in Resources */,
 				82C43786257CFF9B00CF945F /* Inter-Regular.ttf in Resources */,
 				82097D41259B4270000CB955 /* CardDetails.storyboard in Resources */,
 				82C43787257CFF9B00CF945F /* Inter-Medium.ttf in Resources */,
@@ -906,13 +906,14 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QB9BGV3HLP;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.mycard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.MyCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -929,13 +930,14 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QB9BGV3HLP;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.mycard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.MyCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

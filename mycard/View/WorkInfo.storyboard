@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pi2-Ui-4pk">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -28,6 +28,8 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCb-Yg-gu6" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" name="MC White"/>
+                                <color key="barTintColor" name="MC White"/>
                                 <items>
                                     <navigationItem id="b3f-Ku-GCE">
                                         <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="Fny-n0-Bcr">
@@ -183,7 +185,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="MC White"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="144" id="RfZ-j3-Ihw"/>
                                                     <constraint firstItem="OUI-oc-WDe" firstAttribute="centerX" secondItem="ZYA-9O-TDY" secondAttribute="centerX" id="mTG-04-QyK"/>
@@ -225,7 +227,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="MC White"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ZYA-9O-TDY" secondAttribute="trailing" constant="16" id="1fT-dJ-Jzu"/>
                                             <constraint firstItem="iGy-Yv-LS4" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="6as-2N-fiI"/>
@@ -264,6 +266,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="MC White"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="c6e-wv-FAZ" secondAttribute="bottom" id="Bzt-UI-lZK"/>
                                     <constraint firstItem="c6e-wv-FAZ" firstAttribute="leading" secondItem="Ccy-Td-AG1" secondAttribute="leading" id="Zgi-jt-WWw"/>

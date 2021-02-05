@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AZ2-QV-1p8">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -83,7 +82,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ezK-KC-oGd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="kcy-qV-92l" firstAttribute="centerX" secondItem="qbJ-w5-zyg" secondAttribute="centerX" id="4th-NY-drl"/>
                             <constraint firstItem="gcI-W6-NaS" firstAttribute="leading" secondItem="ezK-KC-oGd" secondAttribute="leading" constant="24" id="A8T-9y-2Zp"/>
@@ -119,7 +118,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBr-zY-SV0">
                                 <rect key="frame" x="24" y="82" width="53.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MC Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COS-Pp-g3z">
@@ -217,7 +216,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pA9-5H-44x"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="808-Sb-0WE"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="kUH-3S-uEt" secondAttribute="trailing" constant="24" id="8GE-qQ-oBb"/>
@@ -277,7 +276,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Pj5-Mi-dGi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="one-time-code"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="tel"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afX-LB-QOQ">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
@@ -298,8 +297,9 @@
                             </button>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lQ-My-8rA" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="MC White"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" name="MC White"/>
                                 <items>
                                     <navigationItem id="Bkh-g8-ieH">
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="zxO-8I-6SO">
@@ -325,7 +325,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H4A-Rp-put"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="afX-LB-QOQ" firstAttribute="leading" secondItem="H4A-Rp-put" secondAttribute="leading" constant="24" id="IsL-MQ-3jY"/>
                             <constraint firstItem="afX-LB-QOQ" firstAttribute="centerX" secondItem="IWB-fe-fwI" secondAttribute="centerX" id="Lpc-aZ-MrC"/>
@@ -389,8 +389,5 @@
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

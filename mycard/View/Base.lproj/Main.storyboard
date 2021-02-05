@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfz-n6-Aaq">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -99,7 +98,7 @@ in store for you.</string>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QjD-JB-tzP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="ceo-Gf-bTa" firstAttribute="top" secondItem="H97-RS-scI" secondAttribute="bottom" constant="32" id="6E3-OE-YOG"/>
                             <constraint firstItem="YrV-Yg-e2V" firstAttribute="leading" secondItem="QjD-JB-tzP" secondAttribute="leading" constant="24" id="Afo-Pk-KEN"/>
@@ -157,11 +156,11 @@ in store for you.</string>
             <objects>
                 <viewController storyboardIdentifier="StartScreenViewController" id="BYZ-38-t0r" customClass="StartScreenViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="MC network doodle" translatesAutoresizingMaskIntoConstraints="NO" id="TJo-45-kgR">
-                                <rect key="frame" x="69" y="78" width="276" height="426"/>
+                                <rect key="frame" x="69" y="122" width="276" height="470"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="0.0"/>
@@ -169,7 +168,7 @@ in store for you.</string>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PC4-KL-Px7">
-                                <rect key="frame" x="24" y="617" width="56" height="56"/>
+                                <rect key="frame" x="24" y="705" width="56" height="56"/>
                                 <color key="backgroundColor" name="MC Blue"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <constraints>
@@ -204,7 +203,7 @@ in store for you.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-zD-adm">
-                                <rect key="frame" x="24" y="552" width="366" height="41"/>
+                                <rect key="frame" x="24" y="640" width="366" height="41"/>
                                 <string key="text">Your network in one 
 place</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
@@ -214,7 +213,7 @@ place</string>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="TJo-45-kgR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="78" id="05b-iT-hXa"/>
                             <constraint firstItem="0Hq-zD-adm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="60V-lQ-o8L"/>
@@ -238,6 +237,7 @@ place</string>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="dwI-QT-ByY"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="infoLabel" destination="0Hq-zD-adm" id="5ce-2L-ynR"/>
                         <outlet property="nextButton" destination="PC4-KL-Px7" id="ejS-Gj-4Or"/>
@@ -255,8 +255,8 @@ place</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="arrow.backward" catalog="system" backIndicatorTransitionMaskImage="arrow.backward" id="AJy-Mm-8O8">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="MC White"/>
+                        <color key="tintColor" name="MC White"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -285,8 +285,8 @@ place</string>
         <namedColor name="MC Blue 40">
             <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
