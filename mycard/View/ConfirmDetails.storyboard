@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LkL-cD-wFF">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="8oJ-FB-3dE">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="8oJ-FB-3dE">
                                 <rect key="frame" x="0.0" y="88" width="414" height="978"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-Li-6E2">
@@ -84,7 +84,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="MC White"/>
                                                         <constraints>
                                                             <constraint firstItem="Ocj-QO-e88" firstAttribute="top" secondItem="txm-4b-OJn" secondAttribute="top" constant="20" id="0nY-Ex-VFt"/>
                                                             <constraint firstItem="Lzn-aa-vQN" firstAttribute="centerX" secondItem="Ocj-QO-e88" secondAttribute="centerX" id="1pp-xG-P8M"/>
@@ -102,7 +102,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="MC White"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="txm-4b-OJn" secondAttribute="trailing" id="Bu1-pl-7Fi"/>
                                                     <constraint firstItem="txm-4b-OJn" firstAttribute="top" secondItem="d8D-cg-ZOV" secondAttribute="top" id="NG6-04-LJo"/>
@@ -556,7 +556,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="MC White"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="Edj-wm-afS"/>
                                                     <constraint firstItem="QJy-tM-bsy" firstAttribute="centerY" secondItem="06D-NA-PFs" secondAttribute="centerY" id="XTF-2j-yns"/>

@@ -50,8 +50,8 @@ class SignupViewController: UIViewController {
 
     
     fileprivate func authenticateUser() {
-        if phoneNumberTextField.text!.isValid(.phoneNumber) {
-            let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text, uid: nil)
+        if phoneNumberTextField.text!.trimmingCharacters(in: .whitespaces).isValid(.phoneNumber) {
+            let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text?.trimmingCharacters(in: .whitespaces), uid: nil)
             UserAuthManager.auth.phoneNumberAuth(with: user) { (error) in
                 if let error = error {
                     print(error.localizedDescription)

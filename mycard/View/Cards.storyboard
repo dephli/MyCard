@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="war-fk-8Jl">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,8 +22,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="CXb-6H-MLX">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <color key="tintColor" name="MC Blue"/>
+                        <color key="barTintColor" name="MC White"/>
                         <color key="selectedImageTintColor" name="MC Blue"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
@@ -57,7 +57,9 @@
         <scene sceneID="EY0-OY-BMQ">
             <objects>
                 <navigationController modalTransitionStyle="crossDissolve" id="JbX-bx-uTx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET"/>
+                    <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET">
+                        <color key="badgeColor" name="MC White"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -90,7 +92,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
                                 <rect key="frame" x="24" y="108" width="366" height="579"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="MC White"/>
+                                <color key="tintColor" name="MC White"/>
+                                <color key="sectionIndexBackgroundColor" name="MC White"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H85-pB-znW">
                                 <rect key="frame" x="334" y="607" width="56" height="56"/>
@@ -164,7 +168,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="155-iA-Vsi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="3HG-Rq-F2r"/>
                             <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="4ei-a6-rui"/>
@@ -236,7 +240,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Ee0-p6-uow"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                     </view>
                     <navigationItem key="navigationItem" id="f0k-sa-4tZ"/>
                 </viewController>
@@ -268,8 +272,5 @@
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

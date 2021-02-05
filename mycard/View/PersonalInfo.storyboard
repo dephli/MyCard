@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CHm-Rj-w6x">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,6 +28,7 @@
                             <navigationBar contentMode="scaleToFill" verticalHuggingPriority="251" backIndicatorImage="xmark" catalog="system" backIndicatorTransitionMaskImage="xmark" translatesAutoresizingMaskIntoConstraints="NO" id="dMR-Ie-Gyu" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="tintColor" name="MC Black"/>
+                                <color key="barTintColor" name="MC White"/>
                                 <items>
                                     <navigationItem id="o11-mU-d2e">
                                         <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="GjO-Ul-rE8">
@@ -89,7 +89,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRq-DW-shb">
                                                 <rect key="frame" x="16" y="202" width="47.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23U-aW-1ZS">
@@ -102,7 +102,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-8U-WmB">
                                                 <rect key="frame" x="16" y="648.5" width="57.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhu-O4-CHb">
@@ -133,8 +133,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlG-1n-B4m">
                                                 <rect key="frame" x="16" y="778.5" width="48.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" name="MC Black"/>
+                                                <color key="highlightedColor" name="MC Black"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibv-QA-ZIS">
                                                 <rect key="frame" x="374" y="778.5" width="24" height="24"/>
@@ -164,7 +164,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIAL MEDIA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhC-ER-A5v">
                                                 <rect key="frame" x="16" y="908.5" width="115" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Utf-jM-id0">
@@ -213,6 +213,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="EOa-vL-aQW"/>
                                                                 </constraints>
+                                                                <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="given-name"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -230,6 +231,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="Qxs-Ni-KF7"/>
                                                                 </constraints>
+                                                                <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="additional-name"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -247,6 +249,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="1Pr-2R-whO"/>
                                                                 </constraints>
+                                                                <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="family-name"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -264,6 +267,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="EGO-pP-3Lg"/>
                                                                 </constraints>
+                                                                <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="honorifix-suffix"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -359,7 +363,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="MC White"/>
                                         <constraints>
                                             <constraint firstItem="87U-iH-wdx" firstAttribute="top" secondItem="yud-z4-I77" secondAttribute="bottom" constant="32" id="0XK-Y9-0sO"/>
                                             <constraint firstItem="HRq-DW-shb" firstAttribute="top" secondItem="fYQ-GV-2it" secondAttribute="bottom" constant="27" id="4Jx-yG-vpP"/>
@@ -428,7 +432,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5qb-87-rve"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="dMR-Ie-Gyu" firstAttribute="top" secondItem="5qb-87-rve" secondAttribute="top" id="6xf-GX-8fw"/>
                             <constraint firstItem="dMR-Ie-Gyu" firstAttribute="trailing" secondItem="5qb-87-rve" secondAttribute="trailing" id="8Xr-8T-KaS"/>
@@ -509,7 +513,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="LinkedIn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3G2-3w-Jcy">
                                                 <rect key="frame" x="34" y="0.0" width="292" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjg-Sv-BbC">
@@ -560,7 +564,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP0-N6-GFe">
                                                 <rect key="frame" x="34" y="0.0" width="292" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YB-JY-eKS">
@@ -642,7 +646,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkA-zs-fxg">
                                                 <rect key="frame" x="34" y="0.0" width="292" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an0-9f-4BE">
@@ -700,7 +704,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqH-12-Pee">
                                                 <rect key="frame" x="34" y="0.0" width="292" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHP-1d-K7z">
@@ -737,7 +741,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2ZM-60-grn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="w7s-nc-S2T" firstAttribute="leading" secondItem="2ZM-60-grn" secondAttribute="leading" constant="24" id="0Zc-eE-4d3"/>
                             <constraint firstItem="eIY-EI-Y1V" firstAttribute="centerX" secondItem="28a-oe-f3s" secondAttribute="centerX" id="0v7-tE-xCE"/>
@@ -827,11 +831,11 @@
         <namedColor name="MC Blue">
             <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="MC white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

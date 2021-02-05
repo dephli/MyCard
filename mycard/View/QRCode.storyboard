@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pn3-KR-aXe">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -82,7 +83,7 @@
                                 <subviews>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZS-nr-956">
                                         <rect key="frame" x="24" y="26" width="40" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="MC White"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3K1-tM-4X4"/>
                                             <constraint firstAttribute="width" constant="40" id="5gW-3T-0Sw"/>
@@ -96,7 +97,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8G-gM-ph2">
                                         <rect key="frame" x="34.5" y="36.5" width="19" height="19"/>
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="MC Black"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" name="MC Black 40"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -112,7 +113,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. John Agyekum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htd-46-WCB">
                                                 <rect key="frame" x="0.0" y="0.0" width="254" height="19"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senior Content Analyst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF2-h5-hR1">
@@ -128,7 +129,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="MC White"/>
                                 <constraints>
                                     <constraint firstItem="EaF-AV-gYd" firstAttribute="leading" secondItem="iZS-nr-956" secondAttribute="trailing" constant="16" id="Btm-gY-Z5j"/>
                                     <constraint firstItem="Q8G-gM-ph2" firstAttribute="centerY" secondItem="iZS-nr-956" secondAttribute="centerY" id="DnY-vk-5xt"/>
@@ -210,6 +211,9 @@
         <image name="MC icon" width="136" height="136"/>
         <image name="share" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="MC Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="MC Black 40">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -222,9 +226,6 @@
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
