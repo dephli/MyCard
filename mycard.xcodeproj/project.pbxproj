@@ -77,6 +77,9 @@
 		82C43788257CFF9B00CF945F /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C43785257CFF9B00CF945F /* Inter-SemiBold.ttf */; };
 		82C4378C257CFFB500CF945F /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82C43782257CFF8E00CF945F /* Inter-Bold.ttf */; };
 		82D176AF25B76F22005155C2 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D176AE25B76F22005155C2 /* AccountInfoViewController.swift */; };
+		82EA557125CDFD21000BE90A /* UIVIewAcitivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */; };
+		82EA557925CE0043000BE90A /* UIViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA557825CE0043000BE90A /* UIViewAlert.swift */; };
+		82EA557E25CE35B2000BE90A /* KeyboardNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA557D25CE35B2000BE90A /* KeyboardNotifications.swift */; };
 		82EB8292259D44420098399A /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82EB8291259D44420098399A /* QRCode.storyboard */; };
 		82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB8297259D447F0098399A /* QRCodeViewController.swift */; };
 		82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB82A2259D47920098399A /* UIVIewExtension.swift */; };
@@ -180,6 +183,9 @@
 		82C43784257CFF9B00CF945F /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		82C43785257CFF9B00CF945F /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		82D176AE25B76F22005155C2 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewAcitivityIndicator.swift; sourceTree = "<group>"; };
+		82EA557825CE0043000BE90A /* UIViewAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAlert.swift; sourceTree = "<group>"; };
+		82EA557D25CE35B2000BE90A /* KeyboardNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifications.swift; sourceTree = "<group>"; };
 		82EB8291259D44420098399A /* QRCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
 		82EB8297259D447F0098399A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		82EB82A2259D47920098399A /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
@@ -452,6 +458,9 @@
 				825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */,
 				82AD90E825879ECF0014B96E /* EmailListStackView.swift */,
 				827354412588BAC100236797 /* SocialMediaListStackView.swift */,
+				82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */,
+				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
+				82EA557D25CE35B2000BE90A /* KeyboardNotifications.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -672,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82D176AF25B76F22005155C2 /* AccountInfoViewController.swift in Sources */,
+				82EA557925CE0043000BE90A /* UIViewAlert.swift in Sources */,
 				825FC3942586E18000FAA8E8 /* PhoneListStackView.swift in Sources */,
 				82097D47259B4321000CB955 /* CardDetailsViewController.swift in Sources */,
 				825FC2BB258645D100FAA8E8 /* User.swift in Sources */,
@@ -684,6 +694,7 @@
 				827354472588CEE800236797 /* SocialMedia.swift in Sources */,
 				8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
+				82EA557125CDFD21000BE90A /* UIVIewAcitivityIndicator.swift in Sources */,
 				82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */,
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
 				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
@@ -712,6 +723,7 @@
 				825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */,
 				8214E634259047D10054A345 /* UIColorExtension.swift in Sources */,
 				820F5B4A258037480077174E /* CustomNavigationBar.swift in Sources */,
+				82EA557E25CE35B2000BE90A /* KeyboardNotifications.swift in Sources */,
 				82B7B3F425C23D7B009F24F1 /* Name.swift in Sources */,
 				825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */,
 				82B6969E257C12BD005AFE62 /* AppDelegate.swift in Sources */,

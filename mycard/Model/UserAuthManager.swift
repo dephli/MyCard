@@ -27,7 +27,7 @@ struct UserAuthManager {
     
     func phoneNumberAuth(with user: User, onActionComplete: @escaping (Error?) -> Void) {
         if let phoneNumber = user.phoneNumber {
-            authService.register(phoneNumber: "+233\(phoneNumber)") { (error) in
+            authService.register(phoneNumber: phoneNumber) { (error) in
                 if let error = error {
                     onActionComplete(error)
                     return

@@ -128,7 +128,7 @@
                                     <constraint firstAttribute="height" constant="48" id="J0F-yR-Ex2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="next" smartInsertDeleteType="yes" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.0"/>
@@ -276,7 +276,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Pj5-Mi-dGi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" textContentType="one-time-code"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afX-LB-QOQ">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
@@ -313,7 +313,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Verify Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2I-Ie-VDW">
                                 <rect key="frame" x="24" y="88" width="163" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MC Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzz-S6-bWp">
@@ -322,6 +322,9 @@
                                 <state key="normal" title="Resend Code">
                                     <color key="titleColor" name="MC Blue"/>
                                 </state>
+                                <connections>
+                                    <action selector="resendCode:" destination="90I-YX-6Vb" eventType="touchUpInside" id="2i9-xL-Q6C"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H4A-Rp-put"/>
@@ -353,6 +356,7 @@
                         <outlet property="customNavigationBar" destination="0lQ-My-8rA" id="YIu-Kt-PES"/>
                         <outlet property="promptLabel" destination="bJl-jY-0nL" id="ByY-Wy-r11"/>
                         <outlet property="verifyNumberLabel" destination="P2I-Ie-VDW" id="yaI-IH-sNX"/>
+                        <outlet property="verifyPhoneNumberButton" destination="afX-LB-QOQ" id="AiP-Ip-EYz"/>
                         <segue destination="r7C-eF-oux" kind="show" identifier="verifyNumberToCards" id="53f-jF-M6V"/>
                     </connections>
                 </viewController>
