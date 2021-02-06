@@ -53,7 +53,6 @@ class ConfirmDetailsViewController: UIViewController {
     
     fileprivate func setupUI() {
         socialMediaStackViewHeightConstraint.isActive = false
-//        socialMediaStackView.configure(with: [])
         customNavigationBar.shadowImage = UIImage()
         let randomColor = UIColor.random
         nameInitialsView.backgroundColor = randomColor
@@ -80,6 +79,15 @@ class ConfirmDetailsViewController: UIViewController {
         workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
     }
     
+    fileprivate func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,12 +96,30 @@ class ConfirmDetailsViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleCardDrag))
         self.dismissKey()
         
-//        gesture.direction = .down
         cardView.addGestureRecognizer(gesture)
         noteTextField.delegate = self
         
         populateWithContactData()
+        registerKeyboardNotifications()
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillShowNotification)
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillHideNotification)
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillChangeFrameNotification)
+    }
+    
+    @objc func keyboardWillChange(_ notification: Notification) {
+        guard let keyboardRectangle = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            self.view.frame.origin.y = -keyboardRectangle.height
+        } else {
+            self.view.frame.origin.y = 0
+        }
     }
     
     @objc func handleCardDrag() {

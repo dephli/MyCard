@@ -13,7 +13,10 @@ class CardViewController: UIViewController {
     @IBOutlet weak var searchStackView: UIStackView!
     @IBOutlet weak var searchStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardTableView: UITableView!
+    @IBOutlet weak var cardTableContainerView: UIView!
     @IBOutlet weak var floatiingButtonConstraints: NSLayoutConstraint!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    var aView: UIView?
     
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -25,11 +28,13 @@ class CardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.showCardLoadingIndicator()
         FirestoreService().getAllContacts(uid: AuthService.uid) { (error, contacts) in
             if let error = error {
-                print(error.localizedDescription)
+                self.removeCardLoadingIndicator()
+                self.alert(title: "Unable to load cards", message: error.localizedDescription)
             }
+            self.removeCardLoadingIndicator()
             self.contacts = contacts!
             DispatchQueue.main.async {
                 self.cardTableView.reloadData()
@@ -57,6 +62,17 @@ class CardViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
         searchView.addGestureRecognizer(gestureRecognizer)
 
+    }
+    
+    func showCardLoadingIndicator() {
+        loadingIndicator.startAnimating()
+        loadingIndicator.isHidden = false
+        
+    }
+    
+    func removeCardLoadingIndicator() -> Void {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

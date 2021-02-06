@@ -96,6 +96,10 @@
                                 <color key="tintColor" name="MC White"/>
                                 <color key="sectionIndexBackgroundColor" name="MC White"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="g4X-NZ-8b9">
+                                <rect key="frame" x="24" y="321" width="366" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H85-pB-znW">
                                 <rect key="frame" x="334" y="607" width="56" height="56"/>
                                 <color key="backgroundColor" name="MC Blue"/>
@@ -178,6 +182,7 @@
                             <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="MBb-Z4-45a"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="BTI-5V-EUJ" secondAttribute="trailing" constant="24" id="cuI-aN-CrR"/>
+                            <constraint firstItem="g4X-NZ-8b9" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="200" id="fNC-cx-7mI"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="H85-pB-znW" secondAttribute="bottom" constant="24" id="zZY-cF-waI"/>
                         </constraints>
                     </view>
@@ -185,6 +190,7 @@
                     <connections>
                         <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
                         <outlet property="floatiingButtonConstraints" destination="zZY-cF-waI" id="aJF-e0-liS"/>
+                        <outlet property="loadingIndicator" destination="g4X-NZ-8b9" id="3x3-wq-7lo"/>
                         <outlet property="searchStackView" destination="BTI-5V-EUJ" id="Thw-QM-IcS"/>
                         <outlet property="searchStackViewHeightConstraint" destination="qlB-bn-nzw" id="QNP-1h-dPT"/>
                         <outlet property="searchView" destination="LKc-oY-adW" id="QJB-4x-mZ3"/>

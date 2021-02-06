@@ -12,6 +12,7 @@ class VerifyNumberViewController: UIViewController {
     @IBOutlet weak var verifyNumberLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var codeTextField: OneTimeTextField!
+    @IBOutlet weak var verifyPhoneNumberButton: UIButton!
     
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     override func viewWillAppear(_ animated: Bool) {
@@ -23,23 +24,43 @@ class VerifyNumberViewController: UIViewController {
         super.viewDidLoad()
         self.dismissKey()
         uiSetup()
+        codeTextField.becomeFirstResponder()
+        codeTextField.delegate = self
+        self.verifyPhoneNumberButton.isEnabled = false
+        
+        NotificationCenter.default.addObserver( self,selector:#selector(self.keyboardDidShow), name: OneTimeTextField.textDidChangeNotification, object: codeTextField)
     }
     
+    
+    @objc func keyboardDidShow(notifcation: NSNotification) {
+     if codeTextField.text?.count == 6 {
+        verifyPhoneNumberButton.isEnabled = true
+        verifyButtonPressed(verifyPhoneNumberButton!)
+        
+     } else {
+        verifyPhoneNumberButton.isEnabled = false
+        
+     }
+        
+    }
 
+    @IBAction func resendCode(_ sender: Any) {
+        
+    }
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func verifyButtonPressed(_ sender: Any) {
         let code = codeTextField.text!
         UserAuthManager.auth.submitCode(with: code) { (error) in
             if let error = error {
-                print(error)
+                self.alert(title: "Error authenticating", message: error.localizedDescription)
+            } else {
+                self.setRootViewController()
+                self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
             }
-            
-            self.setRootViewController()
-            self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
         }
     }
     
@@ -48,8 +69,6 @@ class VerifyNumberViewController: UIViewController {
         let tabController = storyboard.instantiateViewController(identifier: K.ViewIdentifiers.cardsTabBarController) as TabBarController
         UIApplication.shared.windows.first?.rootViewController = tabController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-        
-        
     }
 
     
@@ -62,3 +81,13 @@ class VerifyNumberViewController: UIViewController {
     }
 }
 
+
+extension VerifyNumberViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if codeTextField.text!.trimmingCharacters(in: .whitespaces).count == 6 {
+            verifyPhoneNumberButton.isEnabled = true
+        } else {
+            verifyPhoneNumberButton.isEnabled = false
+        }
+    }
+}

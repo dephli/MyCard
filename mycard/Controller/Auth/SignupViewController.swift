@@ -34,7 +34,6 @@ class SignupViewController: UIViewController {
         nameTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         signupButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
         backButtonTopConstraint.constant = -5
-
     }
 
     
@@ -50,19 +49,27 @@ class SignupViewController: UIViewController {
 
     
     fileprivate func authenticateUser() {
-        if phoneNumberTextField.text!.trimmingCharacters(in: .whitespaces).isValid(.phoneNumber) {
+        let phoneNumberText = phoneNumberTextField.text!.replacingOccurrences(of: " ", with: "")
+        if phoneNumberText.isValid(.phoneNumber) {
+            self.showActivityIndicator()
             let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text?.trimmingCharacters(in: .whitespaces), uid: nil)
             UserAuthManager.auth.phoneNumberAuth(with: user) { (error) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    self.removeActivityIndicator()
+                    self.alert(title: "Error authenticating", message: error.localizedDescription)
+
                 } else {
                     self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)
+                    self.removeActivityIndicator()
                 }
             }
         } else {
             warningLabel.text = "Please enter a valid phone number"
         }
     }
+    
+    
+    
     
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         authenticateUser()
@@ -79,6 +86,10 @@ class SignupViewController: UIViewController {
 
         
     }
+    
+    
+    
+    
 }
 
 extension SignupViewController: UITextFieldDelegate {

@@ -42,11 +42,14 @@ class CardDetailsViewController: UIViewController{
     @IBOutlet weak var workPositionTextLabel: UILabel!
     @IBOutlet weak var workLocationTextLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var contactSummaryView: UIView!
     let imageView = UIImageView(image: UIImage(named: "nasa"))
     
     var isOpen = false
+    
+    var notepoint: CGPoint?
     
     fileprivate func setupUI() {
         socialMediaStackViewHeightConstraint.isActive = false
@@ -87,6 +90,14 @@ class CardDetailsViewController: UIViewController{
     
     var contact: Contact?
 
+    fileprivate func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -97,6 +108,8 @@ class CardDetailsViewController: UIViewController{
         workInfoTextLabel.text = contact?.businessInfo.companyName ?? ""
         workPositionTextLabel.text = contact?.businessInfo.role ?? ""
         workLocationTextLabel.text = contact?.businessInfo.companyAddress ?? ""
+        registerKeyboardNotifications()
+
         
         noteTextField.text = contact?.note
         self.dismissKey()
@@ -107,6 +120,13 @@ class CardDetailsViewController: UIViewController{
         cardView.addGestureRecognizer(gesture)
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillShowNotification)
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillHideNotification)
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillChangeFrameNotification)
+    }
+
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
         let transition = CATransition()
@@ -149,6 +169,18 @@ class CardDetailsViewController: UIViewController{
                 UIView.transition(with: cardView, duration: 0.3, options: .transitionFlipFromBottom, animations: nil, completion: nil)
 
             }
+        }
+    }
+    
+    @objc func keyboardWillChange(_ notification: Notification) {
+        guard let keyboardRectangle = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            self.view.frame.origin.y = -keyboardRectangle.height
+        } else {
+            self.view.frame.origin.y = 0
         }
     }
     
@@ -195,7 +227,7 @@ extension CardDetailsViewController {
         image = UIImage(named: "scan card qr")
         let viewAction = UIAlertAction(title: "View card QR", style: .default) { (action) in
             let storyBoard = UIStoryboard(name: "QRCode", bundle: nil)
-            let qrCodeViewController = storyBoard.instantiateViewController(identifier: "QRCodeViewController") as! QRCodeViewController            
+            let qrCodeViewController = storyBoard.instantiateViewController(identifier: "QRCodeViewController") as! QRCodeViewController
             self.present(qrCodeViewController, animated: true, completion: nil)
             
             
@@ -225,13 +257,10 @@ extension CardDetailsViewController {
         
         let alert = UIAlertController(title: nil, message: nil,
               preferredStyle: .actionSheet)
+        let actions = [editAction, addAction, viewAction, exportAction, deleteAction, cancelAction]
+        
+        for action in actions { alert.addAction(action)}
 
-        alert.addAction(editAction)
-        alert.addAction(addAction)
-        alert.addAction(viewAction)
-        alert.addAction(exportAction)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
         alert.view.tintColor = .black
@@ -247,4 +276,5 @@ extension CardDetailsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
     }
+    
 }

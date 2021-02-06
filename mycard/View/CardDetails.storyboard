@@ -722,6 +722,7 @@
                         <outlet property="phoneButtonLabel" destination="rp4-7I-h32" id="dTe-V8-dhk"/>
                         <outlet property="phoneLabel" destination="rdD-Kh-brf" id="x7d-wg-J6e"/>
                         <outlet property="phoneTextLabel" destination="BbG-3G-fam" id="lFz-cN-7vM"/>
+                        <outlet property="scrollView" destination="xRn-Xk-lLe" id="YRn-3q-31n"/>
                         <outlet property="socialMediaLabel" destination="ttM-eq-BsA" id="gh8-E0-F6a"/>
                         <outlet property="socialMediaStackView" destination="6uD-Fd-Q9W" id="Qng-yD-oKz"/>
                         <outlet property="socialMediaStackViewHeightConstraint" destination="2x6-2J-dXP" id="T2q-L1-WhL"/>
