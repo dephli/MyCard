@@ -37,6 +37,7 @@
 		827853E925CC32B200652F9B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827853E825CC32B200652F9B /* Networking.swift */; };
 		8278540225CCB4D000652F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8278540125CCB4D000652F9B /* GoogleService-Info.plist */; };
 		8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285225125A53F3300D5C950 /* ImagePickerService.swift */; };
+		8285BDFC25CF0F58008F771E /* ContactCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */; };
 		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
 		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
 		8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C924258F6AF100D3FA58 /* Camera.storyboard */; };
@@ -136,6 +137,7 @@
 		827853E825CC32B200652F9B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8278540125CCB4D000652F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8285225125A53F3300D5C950 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
+		8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
 		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
 		8293C924258F6AF100D3FA58 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				8214E62025902DF80054A345 /* ConfirmDetails.storyboard */,
 				82097D40259B4270000CB955 /* CardDetails.storyboard */,
 				82EB8291259D44420098399A /* QRCode.storyboard */,
+				8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				82B7B3F425C23D7B009F24F1 /* Name.swift in Sources */,
 				825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */,
 				82B6969E257C12BD005AFE62 /* AppDelegate.swift in Sources */,
+				8285BDFC25CF0F58008F771E /* ContactCardCollectionViewCell.swift in Sources */,
 				82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */,
 				829728F32582893B00C99E33 /* UserAuthManager.swift in Sources */,
 				82BED3E1257EF6F900F8E96E /* ProfileViewController.swift in Sources */,
@@ -918,7 +922,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -942,7 +946,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

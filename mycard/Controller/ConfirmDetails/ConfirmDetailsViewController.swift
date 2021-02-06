@@ -199,13 +199,16 @@ class ConfirmDetailsViewController: UIViewController {
     
     
     @IBAction func createCardButtonPressed(_ sender: Any) {
+        self.showActivityIndicator()
         var contact = ContactCreationManager.manager.contact.value
+        
         contact.note = noteTextField.text
+        
         FirestoreService().createContact(with: contact) { (error, contact) in
             if let error = error {
-                print(error.localizedDescription)
+                self.alert(title: "Could not create card", message: error.localizedDescription)
             } else {
-                print(contact!)
+                self.removeActivityIndicator()
                 self.navigationController?.popToRootViewController(animated: true)
                 self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
             }
