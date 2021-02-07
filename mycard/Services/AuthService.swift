@@ -55,6 +55,7 @@ struct AuthService: AuthServiceDelegate {
         }
     }
     
+    
     func updateName(with name: String, onActionComplete: @escaping (User?, Error?) -> Void) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
