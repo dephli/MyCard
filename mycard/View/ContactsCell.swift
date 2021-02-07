@@ -22,7 +22,7 @@ class ContactsCell: UITableViewCell {
             nameInitialsLabel.textColor = randomColor
             nameInitialsContainerView.backgroundColor = randomColor
             nameInitialsContainerView.alpha = 0.2
-            nameInitialsLabel.text = String((name?.prefix(2))!)
+            nameInitialsLabel.text = String((name?.prefix(2)) ?? "")
         }
     }
     

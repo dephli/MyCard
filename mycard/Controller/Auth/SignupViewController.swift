@@ -29,6 +29,9 @@ class SignupViewController: UIViewController {
     
     let contryPickerController = CountryPickerController()
     
+    var countryCode: String?
+    var phoneNumberText: String?
+    
     @IBOutlet weak var countryPickerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,7 @@ class SignupViewController: UIViewController {
         
         let country = CountryManager.shared.currentCountry
         countryImageView.image = country?.flag
+        countryCode = country?.dialingCode
         
         countryImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(countryImageViewTapped)))
     }
@@ -62,7 +66,7 @@ class SignupViewController: UIViewController {
     
     fileprivate func authenticateUser() {
         self.showActivityIndicator()
-        let user = User(name: nameTextField.text, phoneNumber: phoneNumberTextField.text?.trimmingCharacters(in: .whitespaces), uid: nil)
+        let user = User(name: nameTextField.text, phoneNumber: phoneNumberText, uid: nil)
         UserAuthManager.auth.phoneNumberAuth(with: user) { (error) in
             if let error = error {
                 self.removeActivityIndicator()
@@ -77,8 +81,9 @@ class SignupViewController: UIViewController {
     
     fileprivate func showVerificationModal () {
         
-        let phoneNumberText = phoneNumberTextField.text!.replacingOccurrences(of: " ", with: "")
-        if phoneNumberText.isValid(.phoneNumber) {
+        phoneNumberText = "\(countryCode!)\(phoneNumberTextField.text!.replacingOccurrences(of: " ", with: ""))"
+        
+        if phoneNumberText!.isValid(.phoneNumber) {
             verifyModal = UIView()
             verifyModal?.translatesAutoresizingMaskIntoConstraints = false
             
@@ -112,7 +117,7 @@ class SignupViewController: UIViewController {
             confirmTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
             
             let promptLabel = UILabel()
-            promptLabel.attributedText = "Is \(phoneNumberTextField!.text ?? "") the number you \nwant to sign up with?".withBoldText(text: "\(phoneNumberTextField!.text ?? "")", font: UIFont(name: "Inter", size: 16))
+            promptLabel.attributedText = "Is \(phoneNumberText ?? "") the number you \nwant to sign up with?".withBoldText(text: "\(phoneNumberText ?? "")", font: UIFont(name: "Inter", size: 16))
             contentView.addSubview(promptLabel)
             promptLabel.translatesAutoresizingMaskIntoConstraints = false
             promptLabel.numberOfLines = 2
@@ -152,7 +157,8 @@ class SignupViewController: UIViewController {
     
     func showCountryPicker() {
         let countryController = CountryPickerWithSectionViewController.presentController(on: self) { (country: Country) in
-          self.countryImageView.image = country.flag
+            self.countryImageView.image = country.flag
+            self.countryCode = country.dialingCode
         }
         // can customize the countryPicker here e.g font and color
         countryController.detailColor = UIColor.red
@@ -160,7 +166,6 @@ class SignupViewController: UIViewController {
     }
     
     @objc func countryImageViewTapped(_ notification: NSNotification) {
-        print("helwo")
         showCountryPicker()
     }
     
@@ -195,6 +200,12 @@ class SignupViewController: UIViewController {
 }
 
 extension SignupViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        phoneNumberText = "\(countryCode!)\(phoneNumberTextField.text!)"
+        if phoneNumberText!.isValid(.phoneNumber) {
+            warningLabel.text = ""
+        }
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         authenticateUser()
         return true
