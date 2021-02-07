@@ -39,6 +39,16 @@ struct UserAuthManager {
 
     }
     
+    func resendtoken(onActionComplete: @escaping (Error?) -> Void) -> Void{
+        self.phoneNumberAuth(with: self.user.value) { (error) in
+            if let error = error {
+                return onActionComplete(error)
+            } else {
+                return onActionComplete(nil)
+            }
+        }
+    }
+    
     func submitCode(with code: String, onActionComplete: @escaping (Error?) -> Void) {
         authService.submitVerificationCode(code: code) { (authUser, error) in
             if let error = error {
@@ -74,9 +84,5 @@ struct UserAuthManager {
             }
         }
     }
-    
-//    func createOrUpdateUserReference(with user: User) {
-//        let db = Firestore.collection(<#T##self: Firestore##Firestore#>)
-//
-//    }
+
 }

@@ -49,7 +49,11 @@ class VerifyNumberViewController: UIViewController {
     }
 
     @IBAction func resendCode(_ sender: Any) {
-        
+        UserAuthManager.auth.resendtoken { (error) in
+            if let error = error {
+                self.alert(title: "Error", message: error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
