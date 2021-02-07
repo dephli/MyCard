@@ -63,20 +63,17 @@ class ConfirmDetailsViewController: UIViewController {
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: UIColor(named: K.Colors.mcBlue)!.cgColor)])
         
-        phoneLabel.style(with: K.TextStyles.subTitle)
-        nameLabel.style(with: K.TextStyles.subTitle)
-        noteLabel.style(with: K.TextStyles.subTitle)
-        workInfoLabel.style(with: K.TextStyles.subTitle)
-        workLocationLabel.style(with: K.TextStyles.subTitle)
-        emailAddressLabel.style(with: K.TextStyles.subTitle)
-        socialMediaLabel.style(with: K.TextStyles.subTitle)
-
+        let subTitles = [phoneLabel, nameLabel, noteLabel, workInfoLabel, workLocationLabel, emailAddressLabel, socialMediaLabel]
         
-        nameTextLabel.style(with: K.TextStyles.bodyBlack)
-        phoneTextLabel.style(with: K.TextStyles.bodyBlack)
-        emailTextLabel.style(with: K.TextStyles.bodyBlack)
-        workInfoTextLabel.style(with: K.TextStyles.bodyBlack)
-        workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
+        for label in subTitles {
+            label?.style(with: K.TextStyles.subTitle)
+        }
+        
+        let textLabels = [nameTextLabel, phoneTextLabel, emailTextLabel, workInfoTextLabel, workLocationTextLabel]
+        
+        for label in textLabels {
+            label?.style(with: K.TextStyles.bodyBlack)
+        }
     }
     
     fileprivate func registerKeyboardNotifications() {
