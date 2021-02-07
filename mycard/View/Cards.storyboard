@@ -146,6 +146,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="J1A-AP-irY"/>
                                             <constraint firstItem="pXP-7y-DQe" firstAttribute="top" secondItem="LKc-oY-adW" secondAttribute="top" id="NSm-1b-UPh"/>
                                             <constraint firstItem="pXP-7y-DQe" firstAttribute="leading" secondItem="LKc-oY-adW" secondAttribute="leading" constant="16" id="Oep-0m-79Z"/>
                                             <constraint firstAttribute="trailing" secondItem="pXP-7y-DQe" secondAttribute="trailing" id="QDb-ct-uMp"/>
@@ -193,7 +194,7 @@
                         <outlet property="floatiingButtonConstraints" destination="zZY-cF-waI" id="aJF-e0-liS"/>
                         <outlet property="loadingIndicator" destination="g4X-NZ-8b9" id="3x3-wq-7lo"/>
                         <outlet property="searchStackView" destination="BTI-5V-EUJ" id="Thw-QM-IcS"/>
-                        <outlet property="searchStackViewHeightConstraint" destination="qlB-bn-nzw" id="QNP-1h-dPT"/>
+                        <outlet property="searchStackViewTopConstraint" destination="4ei-a6-rui" id="Cww-wB-6rN"/>
                         <outlet property="searchView" destination="LKc-oY-adW" id="QJB-4x-mZ3"/>
                         <segue destination="6H9-H6-S1g" kind="showDetail" identifier="CardsToCardDetails" animates="NO" id="Ki3-ol-g6J"/>
                     </connections>
