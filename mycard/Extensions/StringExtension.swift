@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     
@@ -35,5 +36,17 @@ extension String {
         }
         
         return NSPredicate(format: format, regex).evaluate(with: self)
+    }
+    
+    func withBoldText(text: String, font: UIFont? = nil) -> NSAttributedString {
+        let _font = font ?? UIFont.systemFont(ofSize: 14, weight: .regular)
+        let fullString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: _font])
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
+        let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: _font.pointSize)]
+        let range = (self as NSString).range(of: text)
+        fullString.addAttributes(boldFontAttribute, range: range)
+        fullString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, fullString.length))
+        return fullString
     }
 }

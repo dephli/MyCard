@@ -20,6 +20,10 @@ target 'mycard' do
   
   #pod for hero animation
   pod 'Hero'
+  
+  
+  #country picker
+  pod 'SKCountryPicker'
 
 #  target 'mycardTests' do
 #    inherit! :search_paths

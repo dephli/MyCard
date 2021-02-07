@@ -29,6 +29,7 @@ struct K {
     
     struct TextStyles {
         static let heading1 = TextStyle(style: .extraLarge, color: .black, emphasis: .regular, alignment: .left, lineSpacing: 2)
+        static let heading3 = TextStyle(style: .large, color: .black, emphasis: .semibold, alignment: .left, lineSpacing: 2)
         static let subTitle = TextStyle(style: .small, color: .black60, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
         static let subTitleBlue = TextStyle(style: .small, color: .primary, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
         static let bodyBlack40 = TextStyle(style: .normal, color: .black40, emphasis: .regular, alignment: .left, lineSpacing: 1.2)
