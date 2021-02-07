@@ -701,6 +701,7 @@
                         <outlet property="contactSummaryView" destination="vQ9-WJ-lyF" id="uwQ-sD-d1u"/>
                         <outlet property="customNavigationBar" destination="g69-dP-opz" id="lCJ-dF-bfZ"/>
                         <outlet property="emailAddressLabel" destination="d06-lz-NhG" id="nW0-ir-9me"/>
+                        <outlet property="emailContainerHeightConstraint" destination="2Nx-mg-FDq" id="JYO-cx-5xe"/>
                         <outlet property="emailStackView" destination="Pto-K6-AJ1" id="qhg-gs-eym"/>
                         <outlet property="jobTitleLabel" destination="aWI-xr-jMg" id="hd0-so-l4V"/>
                         <outlet property="locationButtonLabel" destination="fYL-Si-U0g" id="WCz-00-wfg"/>
@@ -713,6 +714,7 @@
                         <outlet property="noteTextField" destination="ksy-Cb-cJH" id="NhK-s5-F14"/>
                         <outlet property="phoneButtonLabel" destination="rp4-7I-h32" id="dTe-V8-dhk"/>
                         <outlet property="phoneLabel" destination="rdD-Kh-brf" id="x7d-wg-J6e"/>
+                        <outlet property="phoneNumberContainerHeightConstraint" destination="PCP-IV-wTM" id="inC-TI-H3h"/>
                         <outlet property="phoneNumberStackView" destination="Zxa-dU-Rxs" id="hz5-dB-S0D"/>
                         <outlet property="scrollView" destination="xRn-Xk-lLe" id="YRn-3q-31n"/>
                         <outlet property="socialMediaLabel" destination="ttM-eq-BsA" id="gh8-E0-F6a"/>

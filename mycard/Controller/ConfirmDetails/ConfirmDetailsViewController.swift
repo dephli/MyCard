@@ -24,8 +24,9 @@ class ConfirmDetailsViewController: UIViewController {
     @IBOutlet weak var socialMediaLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var phoneNumberTypeLabel: UILabel!
+    @IBOutlet weak var phoneNumberStackView: DetailsMultiPhoneEmailStackView!
     
+    @IBOutlet weak var emailStackView: DetailsMultiPhoneEmailStackView!
     
     @IBOutlet weak var cardViewFaceIndicator1: UIView!
     @IBOutlet weak var cardViewFaceIndicator2: UIView!
@@ -34,15 +35,18 @@ class ConfirmDetailsViewController: UIViewController {
     @IBOutlet weak var socialMediaStackViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var nameTextLabel: UILabel!
-    @IBOutlet weak var phoneTextLabel: UILabel!
-    @IBOutlet weak var emailTextLabel: UILabel!
-    @IBOutlet weak var emailTypeLabel: UILabel!
+
     @IBOutlet weak var workInfoTextLabel: UILabel!
     @IBOutlet weak var workLocationTextLabel: UILabel!
     @IBOutlet weak var jobTitleLabel: UILabel!
     
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var contactSummaryView: UIView!
+    
+    @IBOutlet weak var phoneNumberStackViewHeightContraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var emailStackViewHeightConstraint: NSLayoutConstraint!
+    
     
     let db = Firestore.firestore()
     
@@ -52,6 +56,8 @@ class ConfirmDetailsViewController: UIViewController {
     var isOpen = false
     
     fileprivate func setupUI() {
+        phoneNumberStackViewHeightContraint.isActive = false
+        emailStackViewHeightConstraint.isActive = false
         socialMediaStackViewHeightConstraint.isActive = false
         customNavigationBar.shadowImage = UIImage()
         let randomColor = UIColor.random
@@ -69,11 +75,12 @@ class ConfirmDetailsViewController: UIViewController {
             label?.style(with: K.TextStyles.subTitle)
         }
         
-        let textLabels = [nameTextLabel, phoneTextLabel, emailTextLabel, workInfoTextLabel, workLocationTextLabel]
+        let textLabels = [nameTextLabel, workInfoTextLabel, workLocationTextLabel]
         
         for label in textLabels {
             label?.style(with: K.TextStyles.bodyBlack)
         }
+
     }
     
     fileprivate func registerKeyboardNotifications() {
@@ -165,15 +172,7 @@ class ConfirmDetailsViewController: UIViewController {
         cardNameLabel.text = contact.name.fullName
         cardJobTitleLabel.text = contact.businessInfo.role
         nameTextLabel.text = contact.name.fullName
-        if contact.phoneNumbers.count >= 1 {
-            phoneTextLabel.text = contact.phoneNumbers[0].number
-            phoneNumberTypeLabel.text = contact.phoneNumbers[0].type.rawValue
-        }
-        
-        if !contact.emailAddresses.isEmpty {
-            emailTextLabel.text = contact.emailAddresses[0].address
-            emailTypeLabel.text = contact.emailAddresses[0].type.rawValue
-        }
+
         
         workInfoTextLabel.text = contact.businessInfo.companyName
         jobTitleLabel.text = contact.businessInfo.role
@@ -191,6 +190,8 @@ class ConfirmDetailsViewController: UIViewController {
             nameInitialsLabel.text = "ZZ"
         }
         
+        phoneNumberStackView.configure(with: contact.phoneNumbers)
+        emailStackView.configure(with: contact.emailAddresses)
     }
     
     

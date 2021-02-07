@@ -38,6 +38,7 @@
 		8278540225CCB4D000652F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8278540125CCB4D000652F9B /* GoogleService-Info.plist */; };
 		8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285225125A53F3300D5C950 /* ImagePickerService.swift */; };
 		8285BDFC25CF0F58008F771E /* ContactCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */; };
+		828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */; };
 		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
 		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
 		8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C924258F6AF100D3FA58 /* Camera.storyboard */; };
@@ -138,6 +139,7 @@
 		8278540125CCB4D000652F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8285225125A53F3300D5C950 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
 		8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMultiPhoneEmailStackView.swift; sourceTree = "<group>"; };
 		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
 		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
 		8293C924258F6AF100D3FA58 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */,
 				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
 				82EA557D25CE35B2000BE90A /* KeyboardNotifications.swift */,
+				828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				827354472588CEE800236797 /* SocialMedia.swift in Sources */,
 				8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
+				828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */,
 				82EA557125CDFD21000BE90A /* UIVIewAcitivityIndicator.swift in Sources */,
 				82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */,
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,

@@ -65,7 +65,7 @@ class FirestoreService {
     
     func getAllContacts(uid: String, onActionComplete: @escaping(Error?, [Contact]?) -> Void) {
         let contactRef = db.collection(K.Firestore.cardsCollectionName)
-        contactRef.getDocuments { (snapshot, error) in
+        contactRef.addSnapshotListener { (snapshot, error) in
             
             let contacts = snapshot?.documents.compactMap({ (document) -> Contact? in
                 return try? document.data(as: Contact.self)
