@@ -23,6 +23,8 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var backButtonTopConstraint: NSLayoutConstraint!
     
+    var verifyModal: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dismissKey()
@@ -68,12 +70,92 @@ class SignupViewController: UIViewController {
         }
     }
     
+    fileprivate func showVerificationModal () {
+        verifyModal = UIView()
+        verifyModal?.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        self.view.addSubview(verifyModal!)
+        
+        verifyModal?.backgroundColor = UIColor(named: K.Colors.mcBlack40)
+        verifyModal?.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+        verifyModal?.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+        verifyModal?.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+        verifyModal?.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        
+        let contentView = UIView()
+        verifyModal?.addSubview(contentView)
+        
+        contentView.heightAnchor.constraint(equalToConstant: 192).isActive = true
+        contentView.backgroundColor = UIColor(named: K.Colors.mcWhite)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.cornerRadius = 8
+
+        contentView.rightAnchor.constraint(equalTo: verifyModal!.rightAnchor, constant: -16).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: verifyModal!.leadingAnchor, constant: 16).isActive = true
+        contentView.centerYAnchor.constraint(equalTo: verifyModal!.centerYAnchor).isActive = true
+        
+        let confirmTextLabel = UILabel()
+        confirmTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        confirmTextLabel.text = "Confirm your number"
+        confirmTextLabel.style(with: K.TextStyles.heading3)
+        contentView.addSubview(confirmTextLabel)
+        confirmTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        confirmTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
+        
+        let promptLabel = UILabel()
+        promptLabel.attributedText = "Is \(phoneNumberTextField!.text ?? "") the number you \nwant to sign up with?".withBoldText(text: "\(phoneNumberTextField!.text ?? "")", font: UIFont(name: "Inter", size: 16))
+        contentView.addSubview(promptLabel)
+        promptLabel.translatesAutoresizingMaskIntoConstraints = false
+        promptLabel.numberOfLines = 2
+        promptLabel.lineBreakMode = .byWordWrapping
+        promptLabel.leadingAnchor.constraint(equalTo: confirmTextLabel.leadingAnchor, constant: 0).isActive = true
+        promptLabel.topAnchor.constraint(equalTo: confirmTextLabel.bottomAnchor, constant: 16).isActive = true
+        promptLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
+        
+        let yesButton = UIButton()
+        yesButton.setTitle("Yes", for: .normal)
+        yesButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
+        
+        
+        let noButton = UIButton()
+        noButton.setTitle("Go back", for: .normal)
+        noButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
+        
+        contentView.addSubview(yesButton)
+        contentView.addSubview(noButton)
+        
+        yesButton.translatesAutoresizingMaskIntoConstraints = false
+        yesButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -28).isActive = true
+        yesButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -28).isActive = true
+        
+        noButton.translatesAutoresizingMaskIntoConstraints = false
+        noButton.rightAnchor.constraint(equalTo: yesButton.leftAnchor, constant: -32).isActive = true
+        noButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -28).isActive = true
+        
+        yesButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onYesButtonTapped)))
+        noButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onNoButtonTapped)))
+        
+        
+    }
+    
+    @objc func onYesButtonTapped(_ notification: NSNotification) {
+        verifyModal?.removeFromSuperview()
+        authenticateUser()
+    }
+    
+    @objc func onNoButtonTapped(_ notification: NSNotification) {
+        verifyModal?.removeFromSuperview()
+    }
+    
+    
     
     
     
     @IBAction func signupButtonPressed(_ sender: UIButton) {
-        authenticateUser()
+        showVerificationModal()
     }
+    
     @IBAction func backButtonPressed(_ sender: Any) {
 
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
@@ -98,3 +180,13 @@ extension SignupViewController: UITextFieldDelegate {
         return true
     }
 }
+
+extension String {
+func withBoldText(text: String, font: UIFont? = nil) -> NSAttributedString {
+  let _font = font ?? UIFont.systemFont(ofSize: 14, weight: .regular)
+  let fullString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: _font])
+  let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: _font.pointSize)]
+  let range = (self as NSString).range(of: text)
+  fullString.addAttributes(boldFontAttribute, range: range)
+  return fullString
+}}

@@ -15,6 +15,9 @@ class VerifyNumberViewController: UIViewController {
     @IBOutlet weak var verifyPhoneNumberButton: UIButton!
     
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
+    
+    var verifyModal: UIView?
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
@@ -31,6 +34,7 @@ class VerifyNumberViewController: UIViewController {
         NotificationCenter.default.addObserver( self,selector:#selector(self.keyboardDidShow), name: OneTimeTextField.textDidChangeNotification, object: codeTextField)
     }
     
+
     
     @objc func keyboardDidShow(notifcation: NSNotification) {
      if codeTextField.text?.count == 6 {
