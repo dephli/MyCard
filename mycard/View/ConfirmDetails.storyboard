@@ -253,19 +253,15 @@
                                                                 <color key="textColor" name="MC Black 60"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0242583061" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzt-PD-xgP">
-                                                                <rect key="frame" x="0.0" y="24.5" width="99.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="MC Black"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD7-gq-m3u">
-                                                                <rect key="frame" x="0.0" y="49" width="51" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="MC Yellow"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="o7n-IZ-cF0" customClass="DetailsMultiPhoneEmailStackView" customModule="mycard" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="326" height="45"/>
+                                                            </stackView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="o7n-IZ-cF0" firstAttribute="top" secondItem="ggS-xq-rxR" secondAttribute="bottom" constant="4" id="1Ve-SB-uMc"/>
+                                                            <constraint firstItem="o7n-IZ-cF0" firstAttribute="leading" secondItem="I0q-ld-daD" secondAttribute="leading" id="7kY-1G-5pI"/>
+                                                            <constraint firstAttribute="trailing" secondItem="o7n-IZ-cF0" secondAttribute="trailing" id="NpR-Eb-uZL"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -316,24 +312,15 @@
                                                                 <color key="textColor" name="MC Black 60"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-lA-OWS">
-                                                                <rect key="frame" x="0.0" y="24.5" width="262" height="45"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="josephmacleanarhin@outlook.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjE-4d-8OR">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="262" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" name="MC Black"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMM-BC-Mjf">
-                                                                        <rect key="frame" x="0.0" y="24.5" width="66" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" name="MC Green"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-lA-OWS" customClass="DetailsMultiPhoneEmailStackView" customModule="mycard" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="326" height="45"/>
                                                             </stackView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="ScI-lA-OWS" firstAttribute="leading" secondItem="8pE-37-1vO" secondAttribute="leading" id="chz-A8-MRR"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ScI-lA-OWS" secondAttribute="trailing" id="crl-MF-POL"/>
+                                                            <constraint firstItem="ScI-lA-OWS" firstAttribute="top" secondItem="Q3L-zi-5kP" secondAttribute="bottom" constant="4" id="yyK-yc-dGf"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -690,8 +677,8 @@
                         <outlet property="contactSummaryView" destination="txm-4b-OJn" id="lZb-jX-AeD"/>
                         <outlet property="customNavigationBar" destination="9RY-gO-xT0" id="ejq-gP-DiX"/>
                         <outlet property="emailAddressLabel" destination="Q3L-zi-5kP" id="CEE-gF-Avz"/>
-                        <outlet property="emailTextLabel" destination="MjE-4d-8OR" id="kb8-gh-bjt"/>
-                        <outlet property="emailTypeLabel" destination="hMM-BC-Mjf" id="mrC-Vi-dqL"/>
+                        <outlet property="emailStackView" destination="ScI-lA-OWS" id="lUg-S7-kir"/>
+                        <outlet property="emailStackViewHeightConstraint" destination="fre-Ib-QSl" id="iLu-3p-cjI"/>
                         <outlet property="jobTitleLabel" destination="TAt-iS-JOG" id="4ab-4p-GAE"/>
                         <outlet property="nameInitialsLabel" destination="Lzn-aa-vQN" id="5IW-ri-fjo"/>
                         <outlet property="nameInitialsView" destination="Ocj-QO-e88" id="Mf4-vz-cRo"/>
@@ -700,8 +687,8 @@
                         <outlet property="noteLabel" destination="QIt-Lw-5ue" id="Aoh-ST-BhU"/>
                         <outlet property="noteTextField" destination="RtW-33-qkT" id="OhH-Nn-Plt"/>
                         <outlet property="phoneLabel" destination="ggS-xq-rxR" id="Bc1-br-FKF"/>
-                        <outlet property="phoneNumberTypeLabel" destination="JD7-gq-m3u" id="aqw-7e-PAH"/>
-                        <outlet property="phoneTextLabel" destination="Mzt-PD-xgP" id="Kqi-MY-XLr"/>
+                        <outlet property="phoneNumberStackView" destination="o7n-IZ-cF0" id="ERV-Zz-I8I"/>
+                        <outlet property="phoneNumberStackViewHeightContraint" destination="f6x-16-7HR" id="xiq-ps-IlK"/>
                         <outlet property="socialMediaLabel" destination="8An-ge-CdI" id="jXG-PI-E1v"/>
                         <outlet property="socialMediaStackView" destination="vPR-JA-jGi" id="NHe-c0-esY"/>
                         <outlet property="socialMediaStackViewHeightConstraint" destination="rS7-Z0-kqa" id="ikb-vJ-6KW"/>
@@ -745,14 +732,8 @@
         <namedColor name="MC Gray Light">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="MC Green">
-            <color red="0.16500000655651093" green="0.77999997138977051" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MC Yellow">
-            <color red="0.9649999737739563" green="0.65100002288818359" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

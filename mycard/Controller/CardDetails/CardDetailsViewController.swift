@@ -37,6 +37,9 @@ class CardDetailsViewController: UIViewController{
     
     @IBOutlet weak var phoneNumberStackView: DetailsMultiPhoneEmailStackView!
     
+    @IBOutlet weak var phoneNumberContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailContainerHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var emailStackView: DetailsMultiPhoneEmailStackView!
     
     @IBOutlet weak var nameTextLabel: UILabel!
@@ -47,13 +50,15 @@ class CardDetailsViewController: UIViewController{
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var contactSummaryView: UIView!
-    let imageView = UIImageView(image: UIImage(named: "nasa"))
+    let imageView = UIImageView()
     
     var isOpen = false
     
     var notepoint: CGPoint?
     
     fileprivate func setupUI() {
+        phoneNumberContainerHeightConstraint.isActive = false
+        emailContainerHeightConstraint.isActive = false
         socialMediaStackViewHeightConstraint.isActive = false
         socialMediaStackView.configure(with: contact?.socialMediaProfiles ?? [])
         customNavigationBar.shadowImage = UIImage()
@@ -86,6 +91,8 @@ class CardDetailsViewController: UIViewController{
         workInfoTextLabel.style(with: K.TextStyles.bodyBlack)
         workPositionTextLabel.style(with: K.TextStyles.bodyBlack)
         workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
+        
+        imageView.loadThumbnail(urlSting: contact?.businessInfo.companyLogo ?? "")
     }
     
     var contact: Contact?
@@ -161,6 +168,7 @@ class CardDetailsViewController: UIViewController{
                 imageView.layer.cornerRadius = 8
                 imageView.contentMode = .scaleAspectFill
                 imageView.clipsToBounds = true
+                
                 cardView.addSubview(imageView)
                 imageView.translatesAutoresizingMaskIntoConstraints = false
                 imageView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 0).isActive = true
@@ -278,67 +286,4 @@ extension CardDetailsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
     }
-    
-}
-
-
-
-
-
-class DetailsMultiPhoneEmailStackView: UIStackView {
-    
-    let colorCodes = [
-        "Mobile": K.Colors.Blue,
-        "Home": K.Colors.Yellow,
-        "Work": K.Colors.Green,
-        "Other": K.Colors.Green,
-        "Personal": K.Colors.Blue,
-    ]
-    
-    func configure(with data: [Any]) {
-        self.spacing = 16
-        for item in data {
-            let stackView = UIStackView()
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .vertical
-            stackView.alignment = .leading
-            stackView.spacing = 4
-            let titleLabel = self.titleLabel()
-            let subtitleLabel = self.subTitleLabel()
-            
-            if let phoneNumber = item as? PhoneNumber {
-                titleLabel.text = phoneNumber.number
-                subtitleLabel.text = phoneNumber.type.rawValue
-                subtitleLabel.textColor = colorCodes[phoneNumber.type.rawValue]!
-
-            }
-            
-            if let email = item as? Email {
-                titleLabel.text = email.address
-                subtitleLabel.text = email.type.rawValue
-                subtitleLabel.textColor = self.colorCodes[email.type.rawValue]!
-            }
-
-            stackView.addArrangedSubview(titleLabel)
-            stackView.addArrangedSubview(subtitleLabel)
-            self.addArrangedSubview(stackView)
-        }
-        
-        
-    }
-    
-    func titleLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.style(with: K.TextStyles.bodyBlack)
-        return label
-    }
-    
-    func subTitleLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.style(with: K.TextStyles.captionBlack60)
-        return label
-    }
-    
 }
