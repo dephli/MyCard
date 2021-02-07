@@ -6,14 +6,14 @@
 //
 
 import Foundation
-
+import UIKit
 struct K {
     
     static let contactCell = "ContactsCell"
     static let contactCellIdentifier = "ContactsReusableCell"
     
     
-    struct Colors {
+    struct ColorString {
         static let mcBlue = "MC Blue"
         static let mcBlack = "MC Black"
         static let mcBlack10 = "MC Black 10"
@@ -21,6 +21,23 @@ struct K {
         static let mcBlack5 = "MC Black 5"
         static let mcBlack60 = "MC Black 60"
         static let mcWhite = "MC White"
+        static let mcYellow = "MC Yellow"
+        static let mcGreen = "MC Green"
+        static let mcWine = "MC Wine"
+    }
+    
+    struct Colors {
+        static let Blue = UIColor(named: ColorString.mcBlue)
+        static let Black = UIColor(named: ColorString.mcBlack)
+        static let Black5 = UIColor(named: ColorString.mcBlack5)
+        static let Black10 = UIColor(named: ColorString.mcBlack10)
+        static let Black40 = UIColor(named: ColorString.mcBlack40)
+        static let Black60 = UIColor(named: ColorString.mcBlack60)
+        static let White = UIColor(named: ColorString.mcWhite)
+        static let Yellow = UIColor(named: ColorString.mcYellow)
+        static let Green = UIColor(named: ColorString.mcGreen)
+        static let Wine = UIColor(named: ColorString.mcWine)
+        
     }
     
     struct ViewIdentifiers {
@@ -65,7 +82,7 @@ struct K {
         static let passNameNotification = "passNameNotification"
     }
 
-    struct Images {
+    struct ImageString {
         static let facebook = "socials facebook"
         static let twitter = "socials twitter"
         static let instagram = "socials instagram"
@@ -73,6 +90,16 @@ struct K {
         static let chevron_right = "chevron right"
         static let minus = "minus"
         static let plus = "plus"
+    }
+    
+    struct Images {
+        static let facebook = UIImage(named: ImageString.facebook)
+        static let twitter = UIImage(named: ImageString.twitter)
+        static let instagram = UIImage(named: ImageString.instagram)
+        static let linkedin = UIImage(named: ImageString.linkedin)
+        static let chevron_right = UIImage(named: ImageString.chevron_right)
+        static let minus = UIImage(systemName: ImageString.minus)
+        static let plus = UIImage(systemName: ImageString.plus)
     }
     
     struct SocialMedia {

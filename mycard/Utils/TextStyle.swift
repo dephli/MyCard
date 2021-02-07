@@ -69,17 +69,17 @@ extension TextStyle {
         
         switch color {
         case .white:
-            baseColor = UIColor(named: K.Colors.mcWhite)!
+            baseColor = K.Colors.White!
         case .primary:
-            baseColor = UIColor(named: K.Colors.mcBlue)!
+            baseColor = K.Colors.Blue!
         case .black:
-            baseColor = UIColor(named: K.Colors.mcBlack)!
+            baseColor = K.Colors.Black!
         case .black5:
-            baseColor = UIColor(named: K.Colors.mcBlack5)!
+            baseColor = K.Colors.Black5!
         case .black60:
-            baseColor = UIColor(named: K.Colors.mcBlack60)!
+            baseColor = K.Colors.Black60!
         case .black40:
-            baseColor = UIColor(named: K.Colors.mcBlack40)!
+            baseColor = K.Colors.Black40!
         }
 
 

@@ -15,7 +15,7 @@ fileprivate var aView: UIView?
 extension UIViewController {
     func showActivityIndicator() {
         aView = UIView(frame: self.view.bounds)
-        aView?.backgroundColor = UIColor(named: K.Colors.mcBlack10)
+        aView?.backgroundColor = K.Colors.Black10
         aView?.alpha = 0.5
         
         

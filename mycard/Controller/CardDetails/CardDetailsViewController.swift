@@ -35,9 +35,11 @@ class CardDetailsViewController: UIViewController{
     @IBOutlet weak var socialMediaStackView: SocialMediaListStackView!
     @IBOutlet weak var socialMediaStackViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var phoneNumberStackView: DetailsMultiPhoneEmailStackView!
+    
+    @IBOutlet weak var emailStackView: DetailsMultiPhoneEmailStackView!
+    
     @IBOutlet weak var nameTextLabel: UILabel!
-    @IBOutlet weak var phoneTextLabel: UILabel!
-    @IBOutlet weak var emailTextLabel: UILabel!
     @IBOutlet weak var workInfoTextLabel: UILabel!
     @IBOutlet weak var workPositionTextLabel: UILabel!
     @IBOutlet weak var workLocationTextLabel: UILabel!
@@ -67,9 +69,9 @@ class CardDetailsViewController: UIViewController{
         
         nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         jobTitleLabel.style(with: K.TextStyles.subTitle)
-        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
+        noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
-                                                                    NSAttributedString.Key.foregroundColor: UIColor(cgColor: UIColor(named: K.Colors.mcBlue)!.cgColor)])
+                                                                    NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)])
 
         phoneLabel.style(with: K.TextStyles.subTitle)
         nameLabel.style(with: K.TextStyles.subTitle)
@@ -81,8 +83,6 @@ class CardDetailsViewController: UIViewController{
 
         
         nameTextLabel.style(with: K.TextStyles.bodyBlack)
-        phoneTextLabel.style(with: K.TextStyles.bodyBlack)
-        emailTextLabel.style(with: K.TextStyles.bodyBlack)
         workInfoTextLabel.style(with: K.TextStyles.bodyBlack)
         workPositionTextLabel.style(with: K.TextStyles.bodyBlack)
         workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
@@ -118,6 +118,8 @@ class CardDetailsViewController: UIViewController{
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleCardDrag))
         
         cardView.addGestureRecognizer(gesture)
+        phoneNumberStackView.configure(with: contact?.phoneNumbers ?? [])
+        emailStackView.configure(with: contact?.emailAddresses ?? [])
         
     }
     
@@ -145,15 +147,15 @@ class CardDetailsViewController: UIViewController{
                 isOpen.toggle()
                 cardView.addSubview(contactSummaryView)
                 UIView.transition(with: cardView, duration: 0.3, options: .transitionFlipFromBottom, animations: nil, completion: nil)
-                cardViewFaceIndicator1.backgroundColor = UIColor(named: K.Colors.mcBlack)
-                cardViewFaceIndicator2.backgroundColor = UIColor(named: K.Colors.mcBlack10)
+                cardViewFaceIndicator1.backgroundColor = K.Colors.Black
+                cardViewFaceIndicator2.backgroundColor = K.Colors.Black10
                 
             } else {
                 
                 isOpen.toggle()
                 
-                cardViewFaceIndicator2.backgroundColor = UIColor(named: K.Colors.mcBlack)
-                cardViewFaceIndicator1.backgroundColor = UIColor(named: K.Colors.mcBlack10)
+                cardViewFaceIndicator2.backgroundColor = K.Colors.Black
+                cardViewFaceIndicator1.backgroundColor = K.Colors.Black10
 
                 
                 imageView.layer.cornerRadius = 8
@@ -208,7 +210,7 @@ extension CardDetailsViewController {
     
     @IBAction func moreButtonPressed(_ sender: Any) {
         var image = UIImage(named: "edit")
-        image?.withTintColor(UIColor(named: K.Colors.mcBlack)!)
+        image?.withTintColor(K.Colors.Black!)
         let editAction = UIAlertAction(
             title: "Edit Card", style: .default) { (action) in
         }
@@ -270,11 +272,73 @@ extension CardDetailsViewController {
 
 extension CardDetailsViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
+        noteTextField.bottomBorder(color: K.Colors.Blue!, width: 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        noteTextField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
+        noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
+    }
+    
+}
+
+
+
+
+
+class DetailsMultiPhoneEmailStackView: UIStackView {
+    
+    let colorCodes = [
+        "Mobile": K.Colors.Blue,
+        "Home": K.Colors.Yellow,
+        "Work": K.Colors.Green,
+        "Other": K.Colors.Green,
+        "Personal": K.Colors.Blue,
+    ]
+    
+    func configure(with data: [Any]) {
+        self.spacing = 16
+        for item in data {
+            let stackView = UIStackView()
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .vertical
+            stackView.alignment = .leading
+            stackView.spacing = 4
+            let titleLabel = self.titleLabel()
+            let subtitleLabel = self.subTitleLabel()
+            
+            if let phoneNumber = item as? PhoneNumber {
+                titleLabel.text = phoneNumber.number
+                subtitleLabel.text = phoneNumber.type.rawValue
+                subtitleLabel.textColor = colorCodes[phoneNumber.type.rawValue]!
+
+            }
+            
+            if let email = item as? Email {
+                titleLabel.text = email.address
+                subtitleLabel.text = email.type.rawValue
+                subtitleLabel.textColor = self.colorCodes[email.type.rawValue]!
+            }
+
+            stackView.addArrangedSubview(titleLabel)
+            stackView.addArrangedSubview(subtitleLabel)
+            self.addArrangedSubview(stackView)
+        }
+        
+        
+    }
+    
+    func titleLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.style(with: K.TextStyles.bodyBlack)
+        return label
+    }
+    
+    func subTitleLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.style(with: K.TextStyles.captionBlack60)
+        return label
     }
     
 }

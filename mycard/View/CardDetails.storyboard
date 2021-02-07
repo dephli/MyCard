@@ -87,7 +87,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASt-bA-w5d">
-                                                                <rect key="frame" x="173.5" y="30.5" width="19" height="19"/>
+                                                                <rect key="frame" x="173" y="30.5" width="20.5" height="19.5"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
@@ -100,13 +100,13 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. John Agyekum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gQ-LL-pGY">
-                                                                <rect key="frame" x="116.5" y="72" width="133.5" height="19"/>
+                                                                <rect key="frame" x="112" y="72" width="142" height="19.5"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senior Content Analyst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWI-xr-jMg">
-                                                                <rect key="frame" x="96" y="95" width="174.5" height="20.5"/>
+                                                                <rect key="frame" x="96" y="95.5" width="174.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
@@ -266,7 +266,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zbO-LQ-AlU">
-                                                        <rect key="frame" x="56" y="0.0" width="318" height="63"/>
+                                                        <rect key="frame" x="56" y="0.0" width="318" height="69.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdD-Kh-brf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="57.5" height="20.5"/>
@@ -274,19 +274,15 @@
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0242583061" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbG-3G-fam">
-                                                                <rect key="frame" x="0.0" y="24.5" width="99.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="MC Black"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDa-By-int">
-                                                                <rect key="frame" x="0.0" y="49" width="36.5" height="14"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
-                                                                <color key="textColor" name="MC Yellow"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Zxa-dU-Rxs" customClass="DetailsMultiPhoneEmailStackView" customModule="mycard" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="318" height="45"/>
+                                                            </stackView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="Zxa-dU-Rxs" secondAttribute="trailing" id="1Hm-dk-0kt"/>
+                                                            <constraint firstItem="Zxa-dU-Rxs" firstAttribute="leading" secondItem="zbO-LQ-AlU" secondAttribute="leading" id="6F1-t8-FdW"/>
+                                                            <constraint firstItem="Zxa-dU-Rxs" firstAttribute="top" secondItem="rdD-Kh-brf" secondAttribute="bottom" constant="4" id="Q8I-Jv-3F3"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -449,7 +445,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tdI-lD-8oa">
-                                                        <rect key="frame" x="56" y="0.0" width="318" height="63"/>
+                                                        <rect key="frame" x="56" y="0.0" width="318" height="69.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="EMAIL ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d06-lz-NhG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="20.5"/>
@@ -457,19 +453,15 @@
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="josephmacleanarhin@outlook.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ6-VL-8mb">
-                                                                <rect key="frame" x="0.0" y="24.5" width="262" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="MC Black"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg8-S0-440">
-                                                                <rect key="frame" x="0.0" y="49" width="47" height="14"/>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
-                                                                <color key="textColor" name="MC Green"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Pto-K6-AJ1" customClass="DetailsMultiPhoneEmailStackView" customModule="mycard" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="318" height="45"/>
+                                                            </stackView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="Pto-K6-AJ1" firstAttribute="top" secondItem="d06-lz-NhG" secondAttribute="bottom" constant="4" id="1Fb-tR-Zyc"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Pto-K6-AJ1" secondAttribute="trailing" id="UfA-nW-2DL"/>
+                                                            <constraint firstItem="Pto-K6-AJ1" firstAttribute="leading" secondItem="tdI-lD-8oa" secondAttribute="leading" id="h8S-aC-9Ww"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -709,7 +701,7 @@
                         <outlet property="contactSummaryView" destination="vQ9-WJ-lyF" id="uwQ-sD-d1u"/>
                         <outlet property="customNavigationBar" destination="g69-dP-opz" id="lCJ-dF-bfZ"/>
                         <outlet property="emailAddressLabel" destination="d06-lz-NhG" id="nW0-ir-9me"/>
-                        <outlet property="emailTextLabel" destination="nJ6-VL-8mb" id="YQj-tY-aSl"/>
+                        <outlet property="emailStackView" destination="Pto-K6-AJ1" id="qhg-gs-eym"/>
                         <outlet property="jobTitleLabel" destination="aWI-xr-jMg" id="hd0-so-l4V"/>
                         <outlet property="locationButtonLabel" destination="fYL-Si-U0g" id="WCz-00-wfg"/>
                         <outlet property="mailButtonLabel" destination="RwS-tv-ENf" id="ZgZ-tw-Of4"/>
@@ -721,7 +713,7 @@
                         <outlet property="noteTextField" destination="ksy-Cb-cJH" id="NhK-s5-F14"/>
                         <outlet property="phoneButtonLabel" destination="rp4-7I-h32" id="dTe-V8-dhk"/>
                         <outlet property="phoneLabel" destination="rdD-Kh-brf" id="x7d-wg-J6e"/>
-                        <outlet property="phoneTextLabel" destination="BbG-3G-fam" id="lFz-cN-7vM"/>
+                        <outlet property="phoneNumberStackView" destination="Zxa-dU-Rxs" id="hz5-dB-S0D"/>
                         <outlet property="scrollView" destination="xRn-Xk-lLe" id="YRn-3q-31n"/>
                         <outlet property="socialMediaLabel" destination="ttM-eq-BsA" id="gh8-E0-F6a"/>
                         <outlet property="socialMediaStackView" destination="6uD-Fd-Q9W" id="Qng-yD-oKz"/>
@@ -768,14 +760,8 @@
         <namedColor name="MC Gray Light">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="MC Green">
-            <color red="0.16500000655651093" green="0.77999997138977051" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MC Yellow">
-            <color red="0.9649999737739563" green="0.65100002288818359" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

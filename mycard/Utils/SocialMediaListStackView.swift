@@ -33,10 +33,10 @@ class SocialMediaListStackView: UIStackView {
     }
     
     let accountImageMap: [String: UIImage] = [
-        K.SocialMedia.facebook: UIImage(named: K.Images.facebook)!,
-        K.SocialMedia.instagram: UIImage(named: K.Images.instagram)!,
-        K.SocialMedia.linkedin: UIImage(named: K.Images.linkedin)!,
-        K.SocialMedia.twitter: UIImage(named: K.Images.twitter)!
+        K.SocialMedia.facebook: K.Images.facebook!,
+        K.SocialMedia.instagram: K.Images.instagram!,
+        K.SocialMedia.linkedin: K.Images.linkedin!,
+        K.SocialMedia.twitter: K.Images.twitter!
     ]
     
     func createImageView(type: String) -> UIImageView {
@@ -48,7 +48,7 @@ class SocialMediaListStackView: UIStackView {
     
     func createButton() -> UIButton {
         let button = UIButton()
-        let buttonImage = UIImage(named: K.Images.chevron_right)
+        let buttonImage = K.Images.chevron_right
         button.setImage(buttonImage, for: .normal)
         button.widthAnchor.constraint(equalToConstant: 24).isActive = true
         return button

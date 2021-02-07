@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class PhoneListStackView: UIStackView {
-    let numberTypes: [PhoneNumberType] = [.Home, .Mobile, .Work, .Other]
+    let numberTypes: [PhoneNumberType] = [.Mobile, .Home, .Work, .Other]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
     func configure(with numbers: [PhoneNumber]) {
@@ -104,7 +104,7 @@ extension PhoneListStackView {
         numberTypePicker.heightAnchor.constraint(equalToConstant: 48).isActive = true
         numberTypePicker.layer.cornerRadius = 8
         numberTypePicker.tintColor = .black
-        numberTypePicker.borderColor = UIColor(named: K.Colors.mcBlack10)
+        numberTypePicker.borderColor = K.Colors.Black10
         numberTypePicker.leftPadding = 16
         numberTypePicker.rightPadding = 16
         numberTypePicker.tintColor = .clear
