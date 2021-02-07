@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -33,19 +34,19 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastly, set up your  account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1Q-RV-mEz">
-                                <rect key="frame" x="24" y="88" width="202" height="56"/>
+                                <rect key="frame" x="24" y="88" width="214.5" height="58.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep all your cards in one place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWS-6a-iVv">
-                                <rect key="frame" x="24" y="160" width="200.5" height="17"/>
+                                <rect key="frame" x="24" y="162.5" width="209.5" height="17"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                 <color key="textColor" name="MC Black 60"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business card" translatesAutoresizingMaskIntoConstraints="NO" id="kcy-qV-92l">
-                                <rect key="frame" x="163" y="238.5" width="88" height="84"/>
+                                <rect key="frame" x="163" y="241" width="88" height="84"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcU-Rj-S3u">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
@@ -66,7 +67,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-W6-NaS">
-                                <rect key="frame" x="24" y="362.5" width="366" height="56"/>
+                                <rect key="frame" x="24" y="365" width="366" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="9Jy-HT-lDB"/>
                                 </constraints>
@@ -116,13 +117,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBr-zY-SV0">
-                                <rect key="frame" x="24" y="82" width="53.5" height="21"/>
+                                <rect key="frame" x="24" y="82" width="53.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="MC Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COS-Pp-g3z">
-                                <rect key="frame" x="24" y="139" width="366" height="48"/>
+                                <rect key="frame" x="24" y="138.5" width="366" height="48"/>
                                 <color key="backgroundColor" name="MC Black 5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="J0F-yR-Ex2"/>
@@ -147,35 +148,71 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUH-3S-uEt">
-                                <rect key="frame" x="24" y="203" width="366" height="48"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-Xn-qTJ">
+                                <rect key="frame" x="24" y="202.5" width="366" height="48"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-ud-Atl">
+                                        <rect key="frame" x="8" y="0.0" width="358" height="48"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GH.png" translatesAutoresizingMaskIntoConstraints="NO" id="67k-SQ-64F">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="PjJ-dy-fk2"/>
+                                                    <constraint firstAttribute="height" constant="48" id="YSQ-3p-AdP"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAq-MZ-ZD6">
+                                                <rect key="frame" x="32" y="0.0" width="24" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="9kk-tv-icE"/>
+                                                    <constraint firstAttribute="height" constant="48" id="a7y-Cq-4hS"/>
+                                                </constraints>
+                                                <state key="normal" image="chevron down"/>
+                                                <connections>
+                                                    <action selector="countryButtonPressed:" destination="AZ2-QV-1p8" eventType="touchUpInside" id="xO5-wL-oxd"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUH-3S-uEt">
+                                                <rect key="frame" x="64" y="0.0" width="294" height="48"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="AH5-06-dbQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="tel"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="MC Black 5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="xPadding">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" name="MC Black 5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="AH5-06-dbQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="7pi-ud-Atl" secondAttribute="bottom" id="LdD-bT-fxA"/>
+                                    <constraint firstItem="7pi-ud-Atl" firstAttribute="top" secondItem="9X0-Xn-qTJ" secondAttribute="top" id="NWr-aR-maa"/>
+                                    <constraint firstItem="7pi-ud-Atl" firstAttribute="leading" secondItem="9X0-Xn-qTJ" secondAttribute="leading" constant="8" id="Zww-mP-gQ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="7pi-ud-Atl" secondAttribute="trailing" id="h5Y-So-QBM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="tel"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="MC Black 5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="xPadding">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-IV-cau">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
                                 <color key="backgroundColor" name="MC Blue"/>
@@ -219,23 +256,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="808-Sb-0WE"/>
-                            <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="kUH-3S-uEt" secondAttribute="trailing" constant="24" id="8GE-qQ-oBb"/>
+                            <constraint firstItem="9X0-Xn-qTJ" firstAttribute="top" secondItem="COS-Pp-g3z" secondAttribute="bottom" constant="16" id="8Eo-cm-qF0"/>
+                            <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="9X0-Xn-qTJ" secondAttribute="trailing" constant="24" id="Eco-eK-S5u"/>
                             <constraint firstItem="xeH-IV-cau" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="EnY-dm-qru"/>
-                            <constraint firstItem="2b0-kj-LCh" firstAttribute="leading" secondItem="kUH-3S-uEt" secondAttribute="leading" id="L3g-lE-45X"/>
-                            <constraint firstItem="kUH-3S-uEt" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="Tb8-Ma-PY3"/>
-                            <constraint firstItem="2b0-kj-LCh" firstAttribute="trailing" secondItem="kUH-3S-uEt" secondAttribute="trailing" id="V0N-Xk-U7Y"/>
+                            <constraint firstItem="9X0-Xn-qTJ" firstAttribute="leading" secondItem="COS-Pp-g3z" secondAttribute="leading" id="NtA-3K-zMJ"/>
                             <constraint firstItem="xeH-IV-cau" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="VBH-wr-F3I"/>
                             <constraint firstItem="lBr-zY-SV0" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="bSJ-wL-h5D"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="COS-Pp-g3z" secondAttribute="trailing" constant="24" id="dOh-xP-KpI"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="trailing" secondItem="xeH-IV-cau" secondAttribute="trailing" constant="24" id="dW9-LM-iJd"/>
                             <constraint firstItem="Co6-6U-W71" firstAttribute="top" secondItem="pA9-5H-44x" secondAttribute="top" id="eBI-eT-v5O"/>
-                            <constraint firstItem="kUH-3S-uEt" firstAttribute="top" secondItem="COS-Pp-g3z" secondAttribute="bottom" constant="16" id="fWI-QP-pmP"/>
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="top" secondItem="lBr-zY-SV0" secondAttribute="bottom" constant="36" id="gAz-06-F34"/>
+                            <constraint firstItem="9X0-Xn-qTJ" firstAttribute="trailing" secondItem="2b0-kj-LCh" secondAttribute="trailing" id="gjb-gM-3ST"/>
                             <constraint firstItem="Co6-6U-W71" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="heb-g0-qeU"/>
                             <constraint firstItem="pA9-5H-44x" firstAttribute="bottom" secondItem="xeH-IV-cau" secondAttribute="bottom" constant="24" id="l7C-c7-Nlw"/>
-                            <constraint firstItem="2b0-kj-LCh" firstAttribute="top" secondItem="kUH-3S-uEt" secondAttribute="bottom" constant="24" id="psr-vS-wRC"/>
+                            <constraint firstItem="2b0-kj-LCh" firstAttribute="top" secondItem="9X0-Xn-qTJ" secondAttribute="bottom" constant="24.5" id="ooO-Yo-Igb"/>
+                            <constraint firstItem="9X0-Xn-qTJ" firstAttribute="leading" secondItem="2b0-kj-LCh" secondAttribute="leading" id="sSX-FR-h3r"/>
                             <constraint firstItem="lBr-zY-SV0" firstAttribute="top" secondItem="pA9-5H-44x" secondAttribute="top" constant="38" id="tP0-C6-FxY"/>
-                            <constraint firstItem="kUH-3S-uEt" firstAttribute="centerX" secondItem="YWr-Me-PMO" secondAttribute="centerX" id="xQ8-qk-OoZ"/>
                             <constraint firstItem="COS-Pp-g3z" firstAttribute="leading" secondItem="pA9-5H-44x" secondAttribute="leading" constant="24" id="xWD-qn-dfU"/>
                         </constraints>
                     </view>
@@ -243,6 +279,8 @@
                     <connections>
                         <outlet property="backButton" destination="Co6-6U-W71" id="Eom-LR-TP7"/>
                         <outlet property="backButtonTopConstraint" destination="eBI-eT-v5O" id="ehq-e6-46I"/>
+                        <outlet property="countryImageView" destination="67k-SQ-64F" id="PRF-AT-4S3"/>
+                        <outlet property="countryPickerButton" destination="uAq-MZ-ZD6" id="sMs-mQ-BhH"/>
                         <outlet property="nameTextField" destination="COS-Pp-g3z" id="8wz-uk-NCq"/>
                         <outlet property="phoneNumberTextField" destination="kUH-3S-uEt" id="dgh-uX-sYt"/>
                         <outlet property="signupButton" destination="xeH-IV-cau" id="guC-Up-U6c"/>
@@ -253,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zL2-MS-S4S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="-423"/>
+            <point key="canvasLocation" x="2889.8550724637685" y="-423.21428571428572"/>
         </scene>
         <!--Verify Number View Controller-->
         <scene sceneID="IhG-4p-EsX">
@@ -317,7 +355,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzz-S6-bWp">
-                                <rect key="frame" x="158" y="717" width="98" height="31"/>
+                                <rect key="frame" x="156" y="716" width="102" height="32"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                 <state key="normal" title="Resend Code">
                                     <color key="titleColor" name="MC Blue"/>
@@ -376,8 +414,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GH.png" width="256" height="170.5"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="business card" width="88" height="84"/>
+        <image name="chevron down" width="10" height="6"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
