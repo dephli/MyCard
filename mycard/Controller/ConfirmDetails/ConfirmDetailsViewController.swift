@@ -61,22 +61,19 @@ class ConfirmDetailsViewController: UIViewController {
         nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         cardJobTitleLabel.style(with: K.TextStyles.subTitle)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
-                                                                    NSAttributedString.Key.foregroundColor: UIColor(cgColor: UIColor(named: K.Colors.mcBlue)!.cgColor)])
+                                                                    NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)])
         
-        phoneLabel.style(with: K.TextStyles.subTitle)
-        nameLabel.style(with: K.TextStyles.subTitle)
-        noteLabel.style(with: K.TextStyles.subTitle)
-        workInfoLabel.style(with: K.TextStyles.subTitle)
-        workLocationLabel.style(with: K.TextStyles.subTitle)
-        emailAddressLabel.style(with: K.TextStyles.subTitle)
-        socialMediaLabel.style(with: K.TextStyles.subTitle)
-
+        let subTitles = [phoneLabel, nameLabel, noteLabel, workInfoLabel, workLocationLabel, emailAddressLabel, socialMediaLabel]
         
-        nameTextLabel.style(with: K.TextStyles.bodyBlack)
-        phoneTextLabel.style(with: K.TextStyles.bodyBlack)
-        emailTextLabel.style(with: K.TextStyles.bodyBlack)
-        workInfoTextLabel.style(with: K.TextStyles.bodyBlack)
-        workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
+        for label in subTitles {
+            label?.style(with: K.TextStyles.subTitle)
+        }
+        
+        let textLabels = [nameTextLabel, phoneTextLabel, emailTextLabel, workInfoTextLabel, workLocationTextLabel]
+        
+        for label in textLabels {
+            label?.style(with: K.TextStyles.bodyBlack)
+        }
     }
     
     fileprivate func registerKeyboardNotifications() {
@@ -131,16 +128,15 @@ class ConfirmDetailsViewController: UIViewController {
                     isOpen.toggle()
                     cardView.addSubview(contactSummaryView)
                     UIView.transition(with: cardView, duration: 0.3, options: .transitionFlipFromBottom, animations: nil, completion: nil)
-                    cardViewFaceIndicator1.backgroundColor = UIColor(named: K.Colors.mcBlack)
-                    cardViewFaceIndicator2.backgroundColor = UIColor(named: K.Colors.mcBlack10)
+                    cardViewFaceIndicator1.backgroundColor = K.Colors.Black
+                    cardViewFaceIndicator2.backgroundColor = K.Colors.Black10
                     
                 } else {
                     
                     isOpen.toggle()
                     
-                    cardViewFaceIndicator2.backgroundColor = UIColor(named: K.Colors.mcBlack)
-                    cardViewFaceIndicator1.backgroundColor = UIColor(named: K.Colors.mcBlack10)
-
+                    cardViewFaceIndicator2.backgroundColor = K.Colors.Black
+                    cardViewFaceIndicator1.backgroundColor = K.Colors.Black10
                     
                     imageView.layer.cornerRadius = 8
                     imageView.contentMode = .scaleAspectFill
@@ -218,10 +214,10 @@ class ConfirmDetailsViewController: UIViewController {
 
 extension ConfirmDetailsViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.bottomBorder(color: UIColor(named: K.Colors.mcBlue)!, width: 1)
+        textField.bottomBorder(color: K.Colors.Blue!, width: 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.bottomBorder(color: UIColor(named: K.Colors.mcWhite)!, width: 1)
+        textField.bottomBorder(color: K.Colors.White!, width: 1)
     }
 }

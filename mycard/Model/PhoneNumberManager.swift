@@ -13,7 +13,7 @@ struct PhoneNumberManager {
     private init () {}
     static let manager = PhoneNumberManager()
     
-    var list: BehaviorRelay<[PhoneNumber]> = BehaviorRelay(value: [PhoneNumber(type: .Home, number: "")])
+    var list: BehaviorRelay<[PhoneNumber]> = BehaviorRelay(value: [PhoneNumber(type: .Mobile, number: "")])
     
     func append(with number: PhoneNumber) {
         let phoneList = list.value

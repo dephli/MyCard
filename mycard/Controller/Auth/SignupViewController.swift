@@ -90,7 +90,7 @@ class SignupViewController: UIViewController {
             
             self.view.addSubview(verifyModal!)
             
-            verifyModal?.backgroundColor = UIColor(named: K.Colors.mcBlack40)
+            verifyModal?.backgroundColor = K.Colors.Black40
             verifyModal?.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
             verifyModal?.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
             verifyModal?.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
@@ -100,7 +100,7 @@ class SignupViewController: UIViewController {
             verifyModal?.addSubview(contentView)
             
             contentView.heightAnchor.constraint(equalToConstant: 192).isActive = true
-            contentView.backgroundColor = UIColor(named: K.Colors.mcWhite)
+            contentView.backgroundColor = K.Colors.White
             contentView.translatesAutoresizingMaskIntoConstraints = false
             contentView.cornerRadius = 8
             

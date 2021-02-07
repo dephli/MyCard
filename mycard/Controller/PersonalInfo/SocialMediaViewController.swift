@@ -93,10 +93,10 @@ extension SocialMediaViewController {
             let image: UIImage
             if self.linkedinAccountTextfield.isHidden {
                 self.linkedinAccountTextfield.show()
-                image = UIImage(systemName: K.Images.minus)!
+                image = K.Images.minus!
             } else {
                 self.linkedinAccountTextfield.hide()
-                image = UIImage(systemName: K.Images.plus)!
+                image = K.Images.plus!
             }
             sender.setImage(image, for: .normal)
         })
@@ -107,10 +107,10 @@ extension SocialMediaViewController {
             let image: UIImage
             if self.facebookTextfield.isHidden {
                 self.facebookTextfield.show()
-                image = UIImage(systemName: K.Images.minus)!
+                image = K.Images.minus!
             } else {
                 self.facebookTextfield.hide()
-                image = UIImage(systemName: K.Images.plus)!
+                image = K.Images.plus!
             }
             sender.setImage(image, for: .normal)
         })
@@ -121,10 +121,10 @@ extension SocialMediaViewController {
             let image: UIImage
             if self.twitterAccountTextfield.isHidden {
                 self.twitterAccountTextfield.show()
-                image = UIImage(systemName: K.Images.minus)!
+                image = K.Images.minus!
             } else {
                 self.twitterAccountTextfield.hide()
-                image = UIImage(systemName: K.Images.plus)!
+                image = K.Images.plus!
             }
             sender.setImage(image, for: .normal)
         })
@@ -135,10 +135,10 @@ extension SocialMediaViewController {
             let image: UIImage
             if self.instagramAccountTextfield.isHidden {
                 self.instagramAccountTextfield.show()
-                image = UIImage(systemName: K.Images.minus)!
+                image = K.Images.minus!
             } else {
                 self.instagramAccountTextfield.hide()
-                image = UIImage(systemName: K.Images.plus)!
+                image = K.Images.plus!
             }
             
             sender.setImage(image, for: .normal)
@@ -154,7 +154,7 @@ extension SocialMediaViewController {
             return socialMedia.type == .LinkedIn
         }) {
             linkedinAccountTextfield.text = linkedIn.usernameOrUrl
-            linkedinButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+            linkedinButton.setImage(K.Images.minus, for: .normal)
             
         } else {
             linkedinAccountTextfield.hide()
@@ -164,7 +164,7 @@ extension SocialMediaViewController {
             return socialMedia.type == .Twitter
         }) {
             twitterAccountTextfield.text = twitter.usernameOrUrl
-            twitterButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+            twitterButton.setImage(K.Images.minus, for: .normal)
         } else {
             twitterAccountTextfield.hide()
         }
@@ -173,7 +173,7 @@ extension SocialMediaViewController {
             return socialMedia.type == .Instagram
         }) {
             instagramAccountTextfield.text = instagram.usernameOrUrl
-            instagramButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+            instagramButton.setImage(K.Images.minus, for: .normal)
         } else {
             instagramAccountTextfield.hide()
         }
@@ -182,7 +182,7 @@ extension SocialMediaViewController {
             return socialMedia.type == .Facebook
         }) {
             facebookTextfield.text = facebook.usernameOrUrl
-            facebookButton.setImage(UIImage(systemName: K.Images.minus), for: .normal)
+            facebookButton.setImage(K.Images.minus, for: .normal)
         } else {
             facebookTextfield.hide()
         }

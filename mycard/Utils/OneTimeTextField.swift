@@ -64,7 +64,7 @@ class OneTimeTextField: UITextField {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.style(with: K.TextStyles.bodyBlack60)
-            label.backgroundColor = UIColor(named: K.Colors.mcBlack5)
+            label.backgroundColor = K.Colors.Black5
             label.layer.cornerRadius = 8
             label.layer.masksToBounds = true
             label.isUserInteractionEnabled = true

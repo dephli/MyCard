@@ -111,7 +111,7 @@ extension EmailListStackView {
         numberTypePicker.heightAnchor.constraint(equalToConstant: 48).isActive = true
         numberTypePicker.layer.cornerRadius = 8
         numberTypePicker.tintColor = .clear
-        numberTypePicker.borderColor = UIColor(named: K.Colors.mcBlack10)
+        numberTypePicker.borderColor = K.Colors.Black10
         numberTypePicker.leftPadding = 16
         numberTypePicker.rightPadding = 16
         numberTypePicker.text = text ?? ""

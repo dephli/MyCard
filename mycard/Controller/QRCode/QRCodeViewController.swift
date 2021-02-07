@@ -18,7 +18,7 @@ class QRCodeViewController: UIViewController {
     var filter: CIFilter!
     
     fileprivate func qrCodeSetup() {
-        view.setGradientBackground( colorTop: UIColor(named: K.Colors.mcBlue)!, colorBottom: UIColor(named: "MC Wine")!)
+        view.setGradientBackground( colorTop: K.Colors.Blue!, colorBottom: K.Colors.Wine!)
         let text = "https://www.josephmacleanarhin@outlook.com"
         let data = text.data(using: .ascii, allowLossyConversion: false)
         
