@@ -11,7 +11,8 @@ class CardViewController: UIViewController {
     
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchStackView: UIStackView!
-    @IBOutlet weak var searchStackViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var searchStackViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardTableView: UITableView!
     @IBOutlet weak var cardTableContainerView: UIView!
     @IBOutlet weak var floatiingButtonConstraints: NSLayoutConstraint!
@@ -101,8 +102,14 @@ class CardViewController: UIViewController {
             self.searchController.searchBar.borderColor = .red
             self.searchController.searchBar.searchBarStyle = .minimal
             self.searchStackView.isHidden = true
-            self.searchStackViewHeightConstraint.constant = 0
             self.searchController.searchBar.showsScopeBar = true
+
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.searchStackViewTopConstraint.constant = -500
+                    self.view.layoutIfNeeded()
+                }
+            }
 
         }
     }
@@ -200,9 +207,15 @@ extension CardViewController: UISearchControllerDelegate {
 
 extension CardViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsScopeBar = false
-        self.searchStackView.isHidden = false
-        self.searchStackViewHeightConstraint.constant = 48
-        navigationItem.searchController = nil
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                self.searchStackViewTopConstraint.constant = 8
+                searchBar.showsScopeBar = false
+                self.searchStackView.isHidden = false
+                self.navigationItem.searchController = nil
+
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }

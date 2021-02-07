@@ -49,10 +49,13 @@ class VerifyNumberViewController: UIViewController {
     }
 
     @IBAction func resendCode(_ sender: Any) {
+        self.showActivityIndicator()
         UserAuthManager.auth.resendtoken { (error) in
             if let error = error {
+                self.removeActivityIndicator()
                 self.alert(title: "Error", message: error.localizedDescription)
             }
+            self.removeActivityIndicator()
         }
     }
     
@@ -61,11 +64,14 @@ class VerifyNumberViewController: UIViewController {
     }
 
     @IBAction func verifyButtonPressed(_ sender: Any) {
+        self.showActivityIndicator()
         let code = codeTextField.text!
         UserAuthManager.auth.submitCode(with: code) { (error) in
             if let error = error {
+                self.removeActivityIndicator()
                 self.alert(title: "Error authenticating", message: error.localizedDescription)
             } else {
+                self.removeActivityIndicator()
                 self.setRootViewController()
                 self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
             }
