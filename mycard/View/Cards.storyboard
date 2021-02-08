@@ -139,6 +139,9 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXP-7y-DQe">
                                                 <rect key="frame" x="16" y="0.0" width="304" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Ilk-lD-UdB"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                 <color key="textColor" name="MC Black 40"/>
                                                 <nil key="highlightedColor"/>

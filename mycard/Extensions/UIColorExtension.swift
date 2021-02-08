@@ -14,7 +14,7 @@ extension UIColor {
     }
     
     static var randomFaded: UIColor {
-        return .init(hue: .random(in: 0...1), saturation: 1, brightness: 1, alpha: 0.5)
+        return .init(hue: .random(in: 0...1), saturation: 1, brightness: 1, alpha: 0.2)
     }
 }
 
