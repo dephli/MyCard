@@ -164,18 +164,19 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCellIdentifier, for: indexPath) as! ContactsCell
         cell.selectionStyle = .none
         let contact = contacts[indexPath.row]
-        cell.nameLabel.text = contact.name.fullName
-        cell.descriptionLabel.text = contact.businessInfo.role
-        cell.organizationLabel.text = contact.businessInfo.companyName
-        cell.name = contact.name.fullName
-        if contact.profilePicUrl != nil{
-            let imageView = UIImageView()
-            imageView.loadThumbnail(urlSting: contact.profilePicUrl!)
-            cell.avatarImageView = imageView
-        } else {
-            cell.avatarImageView = nil
-        }
-        
+        cell.contact = contact
+//        cell.nameLabel.text = contact.name.fullName
+//        cell.descriptionLabel.text = contact.businessInfo.role
+//        cell.organizationLabel.text = contact.businessInfo.companyName
+//        cell.name = contact.name.fullName
+//        if contact.profilePicUrl != nil{
+//            let imageView = UIImageView()
+//            imageView.loadThumbnail(urlSting: contact.profilePicUrl!)
+//            cell.avatarImageView = imageView
+//        } else {
+//            cell.avatarImageView = nil
+//        }
+//
         return cell
     }
     

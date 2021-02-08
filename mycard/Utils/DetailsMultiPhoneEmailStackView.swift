@@ -19,7 +19,7 @@ class DetailsMultiPhoneEmailStackView: UIStackView {
     ]
     
     func configure(with data: [Any]) {
-        self.spacing = 16
+        self.spacing = 8
         for item in data {
             let stackView = UIStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
