@@ -12,5 +12,6 @@ struct User: Codable {
     var name: String?
     var phoneNumber: String?
     var uid: String?
+    var contactCards: [Contact]?
 
 }

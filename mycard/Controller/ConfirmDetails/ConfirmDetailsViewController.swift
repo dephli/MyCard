@@ -201,7 +201,7 @@ class ConfirmDetailsViewController: UIViewController {
         
         contact.note = noteTextField.text
         
-        FirestoreService().createContact(with: contact) { (error, contact) in
+        FirestoreService().createContact(with: contact) { (error) in
             if let error = error {
                 self.alert(title: "Could not create card", message: error.localizedDescription)
             } else {
