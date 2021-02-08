@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
         <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
@@ -61,11 +64,12 @@
                     <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET">
                         <color key="badgeColor" name="MC White"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="MC White"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
@@ -92,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
-                                <rect key="frame" x="24" y="108" width="366" height="579"/>
+                                <rect key="frame" x="24" y="64" width="366" height="579"/>
                                 <color key="backgroundColor" name="MC White"/>
                                 <color key="tintColor" name="MC White"/>
                                 <color key="sectionIndexBackgroundColor" name="MC White"/>
@@ -101,38 +105,8 @@
                                 <rect key="frame" x="24" y="321" width="366" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H85-pB-znW">
-                                <rect key="frame" x="334" y="607" width="56" height="56"/>
-                                <color key="backgroundColor" name="MC Blue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ezR-yl-unX"/>
-                                    <constraint firstAttribute="width" constant="56" id="f7n-UY-2ds"/>
-                                </constraints>
-                                <color key="tintColor" name="MC White"/>
-                                <state key="normal" image="add card"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="28"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" name="MC Blue 40"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="3cY-qt-pzE" kind="showDetail" id="azC-UC-UkX"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTI-5V-EUJ">
-                                <rect key="frame" x="24" y="52" width="366" height="48"/>
+                                <rect key="frame" x="24" y="8" width="366" height="48"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-oY-adW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
@@ -166,38 +140,104 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="MC Black 5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="qlB-bn-nzw"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mig-5N-Egc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nci-zl-Ves">
+                                        <rect key="frame" x="83.000000000000014" y="207" width="248.33333333333337" height="229.33333333333337"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty cards doodle" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-qr-GG9">
+                                                <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="168"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-Yr-Dhf">
+                                                <rect key="frame" x="0.0" y="184" width="248.33333333333334" height="45.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s get something going here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-gp-pEm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                                                        <color key="textColor" name="MC Black 40"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start adding some cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05x-Fr-JhA">
+                                                        <rect key="frame" x="47" y="29" width="154.33333333333334" height="16.333333333333329"/>
+                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                        <color key="textColor" name="MC Black 40"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="MC White"/>
+                                <constraints>
+                                    <constraint firstItem="nci-zl-Ves" firstAttribute="centerX" secondItem="Mig-5N-Egc" secondAttribute="centerX" id="Qya-8x-KmG"/>
+                                    <constraint firstItem="nci-zl-Ves" firstAttribute="centerY" secondItem="Mig-5N-Egc" secondAttribute="centerY" id="lxr-zE-aQH"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-BQ-8Gx">
+                                <rect key="frame" x="334" y="563" width="56" height="56"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="2i6-uu-4ql"/>
+                                    <constraint firstAttribute="width" constant="56" id="qry-5S-sDU"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" image="add card"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="MC Blue 40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="3cY-qt-pzE" kind="presentation" id="dSc-nj-7MS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="155-iA-Vsi"/>
                         <color key="backgroundColor" name="MC White"/>
                         <constraints>
-                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="3HG-Rq-F2r"/>
-                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="4ei-a6-rui"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="aLp-BQ-8Gx" secondAttribute="trailing" constant="24" id="1ob-gp-fbk"/>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="7wd-kv-6dn"/>
                             <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="9D4-pb-Th0"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="H85-pB-znW" secondAttribute="trailing" constant="24" id="D1L-ms-vs7"/>
+                            <constraint firstItem="Mig-5N-Egc" firstAttribute="leading" secondItem="Gqs-O2-oAD" secondAttribute="leading" id="BmA-uD-sSL"/>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="trailing" secondItem="g4X-NZ-8b9" secondAttribute="trailing" id="E6x-ej-N2C"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="Mig-5N-Egc" secondAttribute="trailing" id="F6L-ye-jmZ"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" constant="24" id="GTi-ap-pNJ"/>
-                            <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="MBb-Z4-45a"/>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="g4X-NZ-8b9" secondAttribute="leading" id="JMV-Ym-fzV"/>
+                            <constraint firstItem="Mig-5N-Egc" firstAttribute="bottom" secondItem="155-iA-Vsi" secondAttribute="bottom" id="N3f-Ky-ghW"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="BTI-5V-EUJ" secondAttribute="trailing" constant="24" id="cuI-aN-CrR"/>
-                            <constraint firstItem="g4X-NZ-8b9" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="200" id="fNC-cx-7mI"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="H85-pB-znW" secondAttribute="bottom" constant="24" id="zZY-cF-waI"/>
+                            <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="dSB-Gc-QbD"/>
+                            <constraint firstItem="Mig-5N-Egc" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="iV7-xB-5hJ"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="uYd-Ub-S6q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="m0U-ej-1un"/>
                     <connections>
                         <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
-                        <outlet property="floatiingButtonConstraints" destination="zZY-cF-waI" id="aJF-e0-liS"/>
+                        <outlet property="emptyCardsView" destination="Mig-5N-Egc" id="pAd-ap-MKk"/>
+                        <outlet property="floatiingButtonConstraints" destination="uYd-Ub-S6q" id="WD8-GF-JYy"/>
                         <outlet property="loadingIndicator" destination="g4X-NZ-8b9" id="3x3-wq-7lo"/>
                         <outlet property="searchStackView" destination="BTI-5V-EUJ" id="Thw-QM-IcS"/>
-                        <outlet property="searchStackViewTopConstraint" destination="4ei-a6-rui" id="Cww-wB-6rN"/>
+                        <outlet property="searchStackViewTopConstraint" destination="7wd-kv-6dn" id="JzP-da-AXQ"/>
                         <outlet property="searchView" destination="LKc-oY-adW" id="QJB-4x-mZ3"/>
                         <segue destination="6H9-H6-S1g" kind="showDetail" identifier="CardsToCardDetails" animates="NO" id="Ki3-ol-g6J"/>
                     </connections>
@@ -312,6 +352,7 @@
     <resources>
         <image name="add card" width="24" height="24"/>
         <image name="cards" width="20" height="16"/>
+        <image name="empty cards doodle" width="168" height="168"/>
         <image name="sort" width="24" height="24"/>
         <image name="user" width="16" height="18"/>
         <namedColor name="MC Black 10">

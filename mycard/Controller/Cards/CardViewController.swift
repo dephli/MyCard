@@ -14,7 +14,8 @@ class CardViewController: UIViewController {
     
     @IBOutlet weak var searchStackViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardTableView: UITableView!
-    @IBOutlet weak var cardTableContainerView: UIView!
+    
+    @IBOutlet weak var emptyCardsView: UIView!
     @IBOutlet weak var floatiingButtonConstraints: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var aView: UIView?
@@ -36,7 +37,23 @@ class CardViewController: UIViewController {
                 self.alert(title: "Unable to load cards", message: error.localizedDescription)
             }
             self.removeCardLoadingIndicator()
-            self.contacts = contacts!
+            self.contacts = contacts ?? []
+            if contacts == nil || contacts?.isEmpty == true {
+                self.emptyCardsView.isHidden = false
+            } else {
+                self.emptyCardsView.isHidden = true
+            }
+            
+//            if contacts?.isEmpty == false {
+//                self.emptyCardsView.isHidden = true
+//            } else {
+//
+//            }
+//            if contacts?.isEmpty == true {
+//                self.emptyCardsView.isHidden = true
+//            } else {
+//                self.emptyCardsView.isHidden = false
+//            }
             DispatchQueue.main.async {
                 self.cardTableView.reloadData()
             }
@@ -93,20 +110,17 @@ class CardViewController: UIViewController {
 
             textfield.backgroundColor = .clear
             textfield.font = font
-            textfield.heightAnchor.constraint(equalToConstant: 48).isActive = true
             
             self.searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font : font!], for: .normal)
-            self.searchController.searchBar.heightAnchor.constraint(equalToConstant: 48).isActive = true
             self.searchController.searchBar.setShowsScope(true, animated: true)
             self.searchController.searchBar.becomeFirstResponder()
             self.searchController.searchBar.borderColor = .red
             self.searchController.searchBar.searchBarStyle = .minimal
-            self.searchStackView.isHidden = true
             self.searchController.searchBar.showsScopeBar = true
 
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
-                    self.searchStackViewTopConstraint.constant = -500
+                    self.searchStackViewTopConstraint.constant = -48
                     self.view.layoutIfNeeded()
                 }
             }
@@ -165,18 +179,6 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         let contact = contacts[indexPath.row]
         cell.contact = contact
-//        cell.nameLabel.text = contact.name.fullName
-//        cell.descriptionLabel.text = contact.businessInfo.role
-//        cell.organizationLabel.text = contact.businessInfo.companyName
-//        cell.name = contact.name.fullName
-//        if contact.profilePicUrl != nil{
-//            let imageView = UIImageView()
-//            imageView.loadThumbnail(urlSting: contact.profilePicUrl!)
-//            cell.avatarImageView = imageView
-//        } else {
-//            cell.avatarImageView = nil
-//        }
-//
         return cell
     }
     
@@ -212,7 +214,6 @@ extension CardViewController: UISearchBarDelegate {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
                 self.searchStackViewTopConstraint.constant = 8
                 searchBar.showsScopeBar = false
-                self.searchStackView.isHidden = false
                 self.navigationItem.searchController = nil
 
                 self.view.layoutIfNeeded()
