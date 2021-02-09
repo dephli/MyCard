@@ -64,7 +64,7 @@
                     <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET">
                         <color key="badgeColor" name="MC White"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
-                                <rect key="frame" x="24" y="64" width="366" height="579"/>
+                                <rect key="frame" x="24" y="108" width="366" height="579"/>
                                 <color key="backgroundColor" name="MC White"/>
                                 <color key="tintColor" name="MC White"/>
                                 <color key="sectionIndexBackgroundColor" name="MC White"/>
@@ -106,7 +106,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTI-5V-EUJ">
-                                <rect key="frame" x="24" y="8" width="366" height="48"/>
+                                <rect key="frame" x="24" y="52" width="366" height="48"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-oY-adW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
@@ -147,7 +147,7 @@
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mig-5N-Egc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nci-zl-Ves">
                                         <rect key="frame" x="83.000000000000014" y="207" width="248.33333333333337" height="229.33333333333337"/>
@@ -182,7 +182,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-BQ-8Gx">
-                                <rect key="frame" x="334" y="563" width="56" height="56"/>
+                                <rect key="frame" x="334" y="607" width="56" height="56"/>
                                 <color key="backgroundColor" name="MC Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="2i6-uu-4ql"/>

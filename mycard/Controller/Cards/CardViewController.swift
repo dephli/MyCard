@@ -28,6 +28,22 @@ class CardViewController: UIViewController {
     
     var contacts: [Contact] = []
 
+    fileprivate func setupSearchController() {
+        //        set up searchcontroller
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for card"
+        searchController.searchBar.scopeButtonTitles = [
+            "All", "Name", "Company", "Role"
+        ]
+        searchController.searchBar.showsScopeBar = false
+        searchController.searchBar.searchBarStyle = .minimal
+        
+        searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showCardLoadingIndicator()
@@ -54,6 +70,7 @@ class CardViewController: UIViewController {
 //            } else {
 //                self.emptyCardsView.isHidden = false
 //            }
+            
             DispatchQueue.main.async {
                 self.cardTableView.reloadData()
             }
@@ -63,19 +80,6 @@ class CardViewController: UIViewController {
         cardTableView.dataSource = self
         cardTableView.delegate = self
         
-//        set up searchcontroller
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for card"
-        searchController.searchBar.scopeButtonTitles = [
-            "All", "Name", "Company", "Role"
-        ]
-        searchController.searchBar.showsScopeBar = false
-        searchController.searchBar.searchBarStyle = .minimal
-
-        searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
-
         cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
         searchView.addGestureRecognizer(gestureRecognizer)
@@ -100,6 +104,7 @@ class CardViewController: UIViewController {
     }
     
     @objc func handleSearchFieldTapped() {
+        setupSearchController()
         let textfield = searchController.searchBar.searchTextField
         navigationItem.searchController = searchController
         searchController.isActive = true
@@ -121,6 +126,7 @@ class CardViewController: UIViewController {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
                     self.searchStackViewTopConstraint.constant = -48
+                    self.searchStackView.alpha = 0
                     self.view.layoutIfNeeded()
                 }
             }
@@ -206,18 +212,23 @@ extension CardViewController: UISearchControllerDelegate {
     func didPresentSearchController(_ searchController: UISearchController) {
         print("hello world")
     }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                self.searchStackViewTopConstraint.constant = 8
+                self.searchStackView.alpha = 1
+            }
+        }
+
+    }
 }
 
 extension CardViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
-                self.searchStackViewTopConstraint.constant = 8
-                searchBar.showsScopeBar = false
-                self.navigationItem.searchController = nil
-
-                self.view.layoutIfNeeded()
-            }
+        searchController.dismiss(animated: true) {
+            self.navigationItem.searchController = nil
         }
     }
 }
