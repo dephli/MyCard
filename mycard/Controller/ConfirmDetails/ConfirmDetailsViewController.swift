@@ -69,10 +69,18 @@ class ConfirmDetailsViewController: UIViewController {
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)])
         
-        let subTitles = [phoneLabel, nameLabel, noteLabel, workInfoLabel, workLocationLabel, emailAddressLabel, socialMediaLabel]
+        let titleLabels = [
+            phoneLabel,
+            nameLabel,
+            noteLabel,
+            workInfoLabel,
+            workLocationLabel,
+            emailAddressLabel,
+            socialMediaLabel,
+        ]
         
-        for label in subTitles {
-            label?.style(with: K.TextStyles.subTitle)
+        for label in titleLabels {
+            label?.style(with: K.TextStyles.captionBlack60)
         }
         
         let textLabels = [nameTextLabel, workInfoTextLabel, workLocationTextLabel]

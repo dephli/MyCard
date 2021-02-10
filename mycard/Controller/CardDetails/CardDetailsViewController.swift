@@ -72,19 +72,25 @@ class CardDetailsViewController: UIViewController{
         mailButtonLabel.style(with: K.TextStyles.captionBlack60)
         locationButtonLabel.style(with: K.TextStyles.captionBlack60)
         
-        nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         jobTitleLabel.style(with: K.TextStyles.subTitle)
+        
         noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)])
 
-        phoneLabel.style(with: K.TextStyles.subTitle)
-        nameLabel.style(with: K.TextStyles.subTitle)
-        noteLabel.style(with: K.TextStyles.subTitle)
-        workInfoLabel.style(with: K.TextStyles.subTitle)
-        workLocationLabel.style(with: K.TextStyles.subTitle)
-        emailAddressLabel.style(with: K.TextStyles.subTitle)
-        socialMediaLabel.style(with: K.TextStyles.subTitle)
+        let titleLabels = [
+            phoneLabel,
+            nameLabel,
+            noteLabel,
+            workInfoLabel,
+            workLocationLabel,
+            emailAddressLabel,
+            socialMediaLabel,
+        ]
+        
+        for label in titleLabels {
+            label?.style(with: K.TextStyles.captionBlack60)
+        }
 
         
         nameTextLabel.style(with: K.TextStyles.bodyBlack)

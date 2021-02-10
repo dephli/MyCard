@@ -14,6 +14,7 @@ class CardViewController: UIViewController {
     
     @IBOutlet weak var searchStackViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardTableView: UITableView!
+    @IBOutlet weak var searchTextLabel: UILabel!
     
     @IBOutlet weak var emptyCardsView: UIView!
     @IBOutlet weak var floatiingButtonConstraints: NSLayoutConstraint!
@@ -27,9 +28,21 @@ class CardViewController: UIViewController {
     }
     
     var contacts: [Contact] = []
+    var filteredContacts: [Contact] = []
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+        let searchBarScopeIsFiltering =
+          searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive &&
+          (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
 
     fileprivate func setupSearchController() {
         //        set up searchcontroller
+        searchController.searchBar.alpha = 1
         searchController.delegate = self
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -40,7 +53,6 @@ class CardViewController: UIViewController {
         ]
         searchController.searchBar.showsScopeBar = false
         searchController.searchBar.searchBarStyle = .minimal
-        
         searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
         definesPresentationContext = true
     }
@@ -72,7 +84,7 @@ class CardViewController: UIViewController {
 //
         cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
-        searchView.addGestureRecognizer(gestureRecognizer)
+        searchTextLabel.addGestureRecognizer(gestureRecognizer)
 
     }
     
@@ -118,13 +130,70 @@ class CardViewController: UIViewController {
                     self.searchStackViewTopConstraint.constant = -48
                     self.searchStackView.alpha = 0
                     self.view.layoutIfNeeded()
+                    self.searchController.searchBar.becomeFirstResponder()
+                    self.searchController.isActive = true
                 }
 
         }
     }
     
     
+    func uiSetup() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+        let label = UILabel()
+        label.style(with: K.TextStyles.heading1)
+        label.text = "Cards";
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CardDetailsViewController {
+            destination.contact = contacts[(cardTableView.indexPathForSelectedRow?.row)!]
+        }
+    }
+    
+    func filterContentForSearcn(_ searchText: String, category: String?) {
+
+        if let category = category {
+            switch category.lowercased() {
+            case "name":
+                filteredContacts = contacts.filter({ (contact: Contact) -> Bool in
+                    return (contact.name.fullName?.lowercased().contains(searchText.lowercased()))!
+                })
+            case "company":
+                filteredContacts = contacts.filter({ (contact: Contact) -> Bool in
+                    return (contact.businessInfo.companyName.lowercased().contains(searchText.lowercased()))
+                })
+            case "role":
+                filteredContacts = contacts.filter({ (contact) -> Bool in
+                    return contact.businessInfo.role.lowercased().contains(searchText.lowercased())
+                })
+            default:
+                filteredContacts = contacts.filter({ (contact) -> Bool in
+                    return contact.businessInfo.role.lowercased().contains(searchText.lowercased()) ||
+                        (contact.businessInfo.companyName.lowercased().contains(searchText.lowercased())) ||
+                        (contact.name.fullName?.lowercased().contains(searchText.lowercased()))!
+                    
+                })
+            }
+        } else {
+            filteredContacts = contacts.filter({ (contact) -> Bool in
+                return contact.businessInfo.role.lowercased().contains(searchText.lowercased()) ||
+                    (contact.businessInfo.companyName.lowercased().contains(searchText.lowercased())) ||
+                    (contact.name.fullName?.lowercased().contains(searchText.lowercased()))!
+                
+            })
+
+        }
+        
+        cardTableView.reloadData()
+        
+    }
+}
+
+//MARK: - OBJC functions
+extension CardViewController {
     @objc
     func handleKeyboard(keyboardShowNotification notification: Notification) {
         if let userInfo = notification.userInfo,
@@ -145,26 +214,14 @@ class CardViewController: UIViewController {
             self.floatiingButtonConstraints.constant = 24
         }
     }
-    
-    
-    func uiSetup() {
-        navigationController?.navigationBar.shadowImage = UIImage()
-        let label = UILabel()
-        label.style(with: K.TextStyles.heading1)
-        label.text = "Cards";
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? CardDetailsViewController {
-            destination.contact = contacts[(cardTableView.indexPathForSelectedRow?.row)!]
-        }
-    }
 }
 
+//MARK: - Tableview Datasource and delegate
 extension CardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredContacts.count
+        }
         return contacts.count
     }
     
@@ -172,7 +229,12 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCellIdentifier, for: indexPath) as! ContactsCell
         cell.selectionStyle = .none
-        let contact = contacts[indexPath.row]
+        let contact: Contact
+        if isFiltering {
+            contact = filteredContacts[indexPath.row]
+        } else {
+            contact = contacts[indexPath.row]
+        }
         cell.contact = contact
         return cell
     }
@@ -193,17 +255,20 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CardViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        let searchBar = searchController.searchBar
+        let selectedScopeIndex = searchBar.selectedScopeButtonIndex
+        filterContentForSearcn(searchBar.text!, category: searchBar.scopeButtonTitles![selectedScopeIndex])
     }
 }
 
 extension CardViewController: UISearchControllerDelegate {
     func didPresentSearchController(_ searchController: UISearchController) {
-        print("hello world")
-        self.searchController.searchBar.becomeFirstResponder()
-        searchController.searchBar.becomeFirstResponder()
+//        self.searchController.searchBar.becomeFirstResponder()
     }
-    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        self.navigationItem.searchController = nil
+
+    }
     func didDismissSearchController(_ searchController: UISearchController) {
         
         DispatchQueue.main.async {
@@ -218,8 +283,17 @@ extension CardViewController: UISearchControllerDelegate {
 
 extension CardViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchController.dismiss(animated: true) {
-            self.navigationItem.searchController = nil
+        UIView.animate(withDuration: 0.2) {
+            self.navigationItem.searchController?.searchBar.alpha = 0
+        } completion: { (isComplete) in
+            self.searchController.dismiss(animated: true) {
+            }
         }
+
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearcn(searchBar.text!, category: searchBar.scopeButtonTitles![selectedScope])
     }
 }
