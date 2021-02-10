@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -92,15 +93,9 @@
             <objects>
                 <viewController storyboardIdentifier="CardViewController" modalTransitionStyle="crossDissolve" id="k24-77-c8G" customClass="CardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gqs-O2-oAD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
-                                <rect key="frame" x="24" y="108" width="366" height="579"/>
-                                <color key="backgroundColor" name="MC White"/>
-                                <color key="tintColor" name="MC White"/>
-                                <color key="sectionIndexBackgroundColor" name="MC White"/>
-                            </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="g4X-NZ-8b9">
                                 <rect key="frame" x="24" y="321" width="366" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -108,33 +103,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTI-5V-EUJ">
                                 <rect key="frame" x="24" y="52" width="366" height="48"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-oY-adW">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbP-VT-Gj9">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXP-7y-DQe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-7n-gTY">
                                                 <rect key="frame" x="16" y="0.0" width="304" height="48"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="Ilk-lD-UdB"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                 <color key="textColor" name="MC Black 40"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="J1A-AP-irY"/>
-                                            <constraint firstItem="pXP-7y-DQe" firstAttribute="top" secondItem="LKc-oY-adW" secondAttribute="top" id="NSm-1b-UPh"/>
-                                            <constraint firstItem="pXP-7y-DQe" firstAttribute="leading" secondItem="LKc-oY-adW" secondAttribute="leading" constant="16" id="Oep-0m-79Z"/>
-                                            <constraint firstAttribute="trailing" secondItem="pXP-7y-DQe" secondAttribute="trailing" id="QDb-ct-uMp"/>
-                                            <constraint firstAttribute="bottom" secondItem="pXP-7y-DQe" secondAttribute="bottom" id="QEz-mC-SlO"/>
+                                            <constraint firstItem="Dgz-7n-gTY" firstAttribute="leading" secondItem="gbP-VT-Gj9" secondAttribute="leading" constant="16" id="8fI-m4-qkq"/>
+                                            <constraint firstItem="Dgz-7n-gTY" firstAttribute="top" secondItem="gbP-VT-Gj9" secondAttribute="top" id="Mu2-C0-ina"/>
+                                            <constraint firstAttribute="trailing" secondItem="Dgz-7n-gTY" secondAttribute="trailing" id="Mw7-zJ-AhB"/>
+                                            <constraint firstAttribute="bottom" secondItem="Dgz-7n-gTY" secondAttribute="bottom" id="W3x-iv-okb"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFq-Sj-k3t">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDf-aA-kYM">
                                         <rect key="frame" x="320" y="0.0" width="46" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="ERk-BF-afT"/>
-                                            <constraint firstAttribute="width" constant="46" id="vbZ-n6-n42"/>
+                                            <constraint firstAttribute="width" constant="46" id="HnL-Ab-eXe"/>
+                                            <constraint firstAttribute="height" constant="48" id="VuF-hj-2J1"/>
                                         </constraints>
                                         <state key="normal" image="sort"/>
                                     </button>
@@ -146,26 +137,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-dL-sDm">
+                                <rect key="frame" x="24" y="108" width="366" height="571"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mig-5N-Egc">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nci-zl-Ves">
-                                        <rect key="frame" x="83.000000000000014" y="207" width="248.33333333333337" height="229.33333333333337"/>
+                                        <rect key="frame" x="74.333333333333343" y="206" width="265.33333333333326" height="231"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty cards doodle" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-qr-GG9">
-                                                <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="168"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="265.33333333333331" height="168"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-Yr-Dhf">
-                                                <rect key="frame" x="0.0" y="184" width="248.33333333333334" height="45.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="184" width="265.33333333333331" height="47"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s get something going here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-gp-pEm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="265.33333333333331" height="22"/>
                                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                                                         <color key="textColor" name="MC Black 40"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start adding some cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05x-Fr-JhA">
-                                                        <rect key="frame" x="47" y="29" width="154.33333333333334" height="16.333333333333329"/>
+                                                        <rect key="frame" x="51.333333333333357" y="30" width="162.66666666666663" height="17"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                         <color key="textColor" name="MC Black 40"/>
                                                         <nil key="highlightedColor"/>
@@ -216,29 +211,34 @@
                         <color key="backgroundColor" name="MC White"/>
                         <constraints>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="aLp-BQ-8Gx" secondAttribute="trailing" constant="24" id="1ob-gp-fbk"/>
-                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="7wd-kv-6dn"/>
-                            <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="9D4-pb-Th0"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="leading" secondItem="Gqs-O2-oAD" secondAttribute="leading" id="BmA-uD-sSL"/>
-                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="trailing" secondItem="g4X-NZ-8b9" secondAttribute="trailing" id="E6x-ej-N2C"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="MQQ-dL-sDm" secondAttribute="trailing" constant="24" id="Dh3-Dc-cYm"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="Mig-5N-Egc" secondAttribute="trailing" id="F6L-ye-jmZ"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" constant="24" id="GTi-ap-pNJ"/>
-                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="g4X-NZ-8b9" secondAttribute="leading" id="JMV-Ym-fzV"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="MQQ-dL-sDm" secondAttribute="bottom" constant="8" id="LkG-nb-UNu"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="bottom" secondItem="155-iA-Vsi" secondAttribute="bottom" id="N3f-Ky-ghW"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
-                            <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="dSB-Gc-QbD"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="BTI-5V-EUJ" secondAttribute="trailing" constant="24" id="SnY-IJ-4Dx"/>
+                            <constraint firstItem="MQQ-dL-sDm" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="Vmv-LP-0Vf"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="iV7-xB-5hJ"/>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="jEj-Bn-HhR"/>
+                            <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="nKl-5X-19d"/>
+                            <constraint firstItem="MQQ-dL-sDm" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="qwR-zn-5w2"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="uYd-Ub-S6q"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="g4X-NZ-8b9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="m0U-ej-1un"/>
                     <connections>
-                        <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
+                        <outlet property="cardTableView" destination="MQQ-dL-sDm" id="6Ho-tO-Hft"/>
                         <outlet property="emptyCardsView" destination="Mig-5N-Egc" id="pAd-ap-MKk"/>
                         <outlet property="floatiingButtonConstraints" destination="uYd-Ub-S6q" id="WD8-GF-JYy"/>
                         <outlet property="loadingIndicator" destination="g4X-NZ-8b9" id="3x3-wq-7lo"/>
                         <outlet property="searchStackView" destination="BTI-5V-EUJ" id="Thw-QM-IcS"/>
-                        <outlet property="searchStackViewTopConstraint" destination="7wd-kv-6dn" id="JzP-da-AXQ"/>
-                        <outlet property="searchView" destination="LKc-oY-adW" id="QJB-4x-mZ3"/>
+                        <outlet property="searchStackViewTopConstraint" destination="nKl-5X-19d" id="bC5-Zm-6NO"/>
+                        <outlet property="searchView" destination="BTI-5V-EUJ" id="9e8-gH-9oy"/>
                         <segue destination="6H9-H6-S1g" kind="showDetail" identifier="CardsToCardDetails" animates="NO" id="Ki3-ol-g6J"/>
                     </connections>
                 </viewController>
@@ -288,7 +288,7 @@
             <objects>
                 <viewController id="44q-Dm-qKS" customClass="ProfileViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sJG-et-bDh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cop-mE-pNE">
@@ -373,5 +373,8 @@
         <namedColor name="MC White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

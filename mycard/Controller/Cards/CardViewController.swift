@@ -42,6 +42,7 @@ class CardViewController: UIViewController {
         searchController.searchBar.searchBarStyle = .minimal
         
         searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
+        definesPresentationContext = true
     }
     
     override func viewDidLoad() {
@@ -59,18 +60,7 @@ class CardViewController: UIViewController {
             } else {
                 self.emptyCardsView.isHidden = true
             }
-            
-//            if contacts?.isEmpty == false {
-//                self.emptyCardsView.isHidden = true
-//            } else {
-//
-//            }
-//            if contacts?.isEmpty == true {
-//                self.emptyCardsView.isHidden = true
-//            } else {
-//                self.emptyCardsView.isHidden = false
-//            }
-            
+
             DispatchQueue.main.async {
                 self.cardTableView.reloadData()
             }
@@ -79,7 +69,7 @@ class CardViewController: UIViewController {
         uiSetup()
         cardTableView.dataSource = self
         cardTableView.delegate = self
-        
+//
         cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
         searchView.addGestureRecognizer(gestureRecognizer)
@@ -87,14 +77,14 @@ class CardViewController: UIViewController {
     }
     
     func showCardLoadingIndicator() {
-        loadingIndicator.startAnimating()
-        loadingIndicator.isHidden = false
+//        loadingIndicator.startAnimating()
+//        loadingIndicator.isHidden = false
         
     }
     
     func removeCardLoadingIndicator() -> Void {
-        loadingIndicator.stopAnimating()
-        loadingIndicator.isHidden = true
+//        loadingIndicator.stopAnimating()
+//        loadingIndicator.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -118,18 +108,17 @@ class CardViewController: UIViewController {
             
             self.searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font : font!], for: .normal)
             self.searchController.searchBar.setShowsScope(true, animated: true)
-            self.searchController.searchBar.becomeFirstResponder()
+            self.searchController.isActive = true
+
             self.searchController.searchBar.borderColor = .red
             self.searchController.searchBar.searchBarStyle = .minimal
             self.searchController.searchBar.showsScopeBar = true
 
-            DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
                     self.searchStackViewTopConstraint.constant = -48
                     self.searchStackView.alpha = 0
                     self.view.layoutIfNeeded()
                 }
-            }
 
         }
     }
@@ -211,6 +200,8 @@ extension CardViewController: UISearchResultsUpdating {
 extension CardViewController: UISearchControllerDelegate {
     func didPresentSearchController(_ searchController: UISearchController) {
         print("hello world")
+        self.searchController.searchBar.becomeFirstResponder()
+        searchController.searchBar.becomeFirstResponder()
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {

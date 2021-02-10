@@ -926,7 +926,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -950,7 +950,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
