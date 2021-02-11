@@ -75,9 +75,12 @@ struct AuthService: AuthServiceDelegate {
         })
     }
     
-    static var uid: String {
+    static var uid: String? {
         get {
-            return Auth.auth().currentUser!.uid
+            if (Auth.auth().currentUser != nil) {
+                return Auth.auth().currentUser!.uid
+            }
+            return nil
         }
     }
 }

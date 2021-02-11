@@ -13,7 +13,7 @@ class FirestoreService {
 
 
     func createContact(with contact:Contact, onActionComplete: @escaping (Error?) -> Void) {
-        let docRef = db.collection(K.Firestore.usersCollectionName).document(AuthService.uid)
+        let docRef = db.collection(K.Firestore.usersCollectionName).document(AuthService.uid!)
         
 
         let encoder = Firestore.Encoder()

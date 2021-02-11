@@ -8,7 +8,12 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    enum Section {
+        case main
+    }
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    
+    var dataSource: UICollectionViewDiffableDataSource<Section, Int>?
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
@@ -19,6 +24,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         mainCollectionView.collectionViewLayout = configureLayout()
+        configureDataSource()
     }
     
     
@@ -35,6 +41,22 @@ class ProfileViewController: UIViewController {
         
         return UICollectionViewCompositionalLayout(section: section)
         
+    }
+    
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Int>(
+            collectionView: self.mainCollectionView, cellProvider: { (collectionView, indexPath, number) -> UICollectionViewCell? in
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContactCardCollectionViewCell.reuseIdentifier, for: indexPath) as? ContactCardCollectionViewCell else {
+                    fatalError("Cannot create new cell")
+                }
+                cell.label.text = number.description
+                return cell
+            })
+        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+        initialSnapshot.appendSections([.main])
+        initialSnapshot.appendItems(Array(1...100), toSection: .main)
+        
+        dataSource?.apply(initialSnapshot, animatingDifferences: false)
     }
 
 }

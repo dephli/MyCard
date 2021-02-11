@@ -31,7 +31,11 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showCardLoadingIndicator()
-        FirestoreService().getAllContacts(uid: AuthService.uid) { (error, contacts) in
+        guard let uid = AuthService.uid else {
+            self.alert(title: "Error", message: "Inactive user. login again")
+            return
+        }
+        FirestoreService().getAllContacts(uid: uid) { (error, contacts) in
             if let error = error {
                 self.removeCardLoadingIndicator()
                 self.alert(title: "Unable to load cards", message: error.localizedDescription)
