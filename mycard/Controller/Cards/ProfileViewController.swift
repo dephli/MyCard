@@ -8,55 +8,73 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    enum Section {
-        case main
-    }
-    @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var cardCountLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var headerStackView: UIView!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var profileCardCollectionView: UICollectionView!
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, Int>?
+    @IBOutlet weak var contentView: UIScrollView!
     
+    var topViewOffset: CGFloat?
+    var cardsArray = [
+    "Space & Jonin", "Microsoft", "Apple", "Netflix", "Google"
+    ]
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
-//        tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        mainCollectionView.collectionViewLayout = configureLayout()
-        configureDataSource()
-    }
-    
-    
-    func configureLayout() -> UICollectionViewCompositionalLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        scrollView.delegate = self
+        nameLabel.style(with: K.TextStyles.heading1)
+        cardCountLabel.style(with: K.TextStyles.captionBlack60)
+        topViewOffset = headerStackView.frame.origin.y
+//        profileCardCollectionView.isPagingEnabled = true
         
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(44.0))
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        
-        return UICollectionViewCompositionalLayout(section: section)
+        profileCardCollectionView.delegate = self
+        profileCardCollectionView.dataSource = self
         
     }
     
-    func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Int>(
-            collectionView: self.mainCollectionView, cellProvider: { (collectionView, indexPath, number) -> UICollectionViewCell? in
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContactCardCollectionViewCell.reuseIdentifier, for: indexPath) as? ContactCardCollectionViewCell else {
-                    fatalError("Cannot create new cell")
-                }
-                cell.label.text = number.description
-                return cell
-            })
-        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Int>()
-        initialSnapshot.appendSections([.main])
-        initialSnapshot.appendItems(Array(1...100), toSection: .main)
-        
-        dataSource?.apply(initialSnapshot, animatingDifferences: false)
-    }
-
+    var lastContentOffset: CGFloat?
 }
+
+extension ProfileViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if lastContentOffset != nil {
+            if (self.lastContentOffset! > scrollView.contentOffset.x) {
+                
+            } else if (self.lastContentOffset! < scrollView.contentOffset.x) {
+                
+            } else {
+                var headerFrame = headerStackView.frame
+                headerFrame.origin.y = CGFloat(max(topViewOffset!, scrollView.contentOffset.y))
+                headerStackView.frame = headerFrame
+            }
+        }
+        self.lastContentOffset = scrollView.contentOffset.x;
+        
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cardsArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonalCardCollectionViewCell.reuseIdentifier, for: indexPath) as? PersonalCardCollectionViewCell else {
+            fatalError("Cannot create new cell")
+        }
+        
+        cell.companyNameLabel.text = cardsArray[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+

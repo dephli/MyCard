@@ -28,6 +28,7 @@
 		825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3822586BDED00FAA8E8 /* PhoneNumber.swift */; };
 		825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */; };
 		825FC3942586E18000FAA8E8 /* PhoneListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */; };
+		8263ED6025D93DD70000E77C /* ContactDetailsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */; };
 		82647AF925AE127A0091D104 /* ContactCreationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647AF825AE127A0091D104 /* ContactCreationManager.swift */; };
 		82647B0125AE47F20091D104 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647B0025AE47F20091D104 /* StringExtension.swift */; };
 		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
@@ -37,7 +38,7 @@
 		827853E925CC32B200652F9B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827853E825CC32B200652F9B /* Networking.swift */; };
 		8278540225CCB4D000652F9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8278540125CCB4D000652F9B /* GoogleService-Info.plist */; };
 		8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285225125A53F3300D5C950 /* ImagePickerService.swift */; };
-		8285BDFC25CF0F58008F771E /* ContactCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */; };
+		8285BDFC25CF0F58008F771E /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285BDFB25CF0F58008F771E /* NumberCell.swift */; };
 		828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */; };
 		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
 		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
@@ -87,6 +88,8 @@
 		82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB82A2259D47920098399A /* UIVIewExtension.swift */; };
 		82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0AA062580719200F1DFFC /* ContactsCell.swift */; };
 		82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F0AA072580719200F1DFFC /* ContactsCell.xib */; };
+		82F8D35C25D879A400C49D8C /* PersonalCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8D35A25D879A400C49D8C /* PersonalCardCollectionViewCell.swift */; };
+		82F8D35D25D879A400C49D8C /* PersonalCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F8D35B25D879A400C49D8C /* PersonalCardCollectionViewCell.xib */; };
 		FE8895A1A19FB6C5C59B4ECD /* Pods_mycard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +132,7 @@
 		825FC3822586BDED00FAA8E8 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberManager.swift; sourceTree = "<group>"; };
 		825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListStackView.swift; sourceTree = "<group>"; };
+		8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsStackView.swift; sourceTree = "<group>"; };
 		82647AF825AE127A0091D104 /* ContactCreationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCreationManager.swift; sourceTree = "<group>"; };
 		82647B0025AE47F20091D104 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
@@ -138,7 +142,7 @@
 		827853E825CC32B200652F9B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8278540125CCB4D000652F9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8285225125A53F3300D5C950 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
-		8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		8285BDFB25CF0F58008F771E /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
 		828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMultiPhoneEmailStackView.swift; sourceTree = "<group>"; };
 		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
 		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 		82EB82A2259D47920098399A /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		82F0AA062580719200F1DFFC /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		82F0AA072580719200F1DFFC /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
+		82F8D35A25D879A400C49D8C /* PersonalCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		82F8D35B25D879A400C49D8C /* PersonalCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		8CA3228599EE86A84A48B245 /* Pods-mycard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.release.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.release.xcconfig"; sourceTree = "<group>"; };
 		BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mycard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1FA86754D109944863536B /* Pods-mycard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.debug.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -410,7 +416,8 @@
 				8214E62025902DF80054A345 /* ConfirmDetails.storyboard */,
 				82097D40259B4270000CB955 /* CardDetails.storyboard */,
 				82EB8291259D44420098399A /* QRCode.storyboard */,
-				8285BDFB25CF0F58008F771E /* ContactCardCollectionViewCell.swift */,
+				8285BDFB25CF0F58008F771E /* NumberCell.swift */,
+				82F8D35B25D879A400C49D8C /* PersonalCardCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -446,6 +453,7 @@
 				82BED3D7257EF6D700F8E96E /* Cards */,
 				825F15F4257D607300A3E103 /* Auth */,
 				8214E62625902E4A0054A345 /* Start */,
+				82F8D36125D879C100C49D8C /* ProfileInfo */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -467,6 +475,7 @@
 				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
 				82EA557D25CE35B2000BE90A /* KeyboardNotifications.swift */,
 				828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */,
+				8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -488,6 +497,14 @@
 				82EB8297259D447F0098399A /* QRCodeViewController.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		82F8D36125D879C100C49D8C /* ProfileInfo */ = {
+			isa = PBXGroup;
+			children = (
+				82F8D35A25D879A400C49D8C /* PersonalCardCollectionViewCell.swift */,
+			);
+			path = ProfileInfo;
 			sourceTree = "<group>";
 		};
 		CCD0CF5D6060AA7AD4F15112 /* Frameworks */ = {
@@ -607,6 +624,7 @@
 				8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */,
 				8214E62125902DF80054A345 /* ConfirmDetails.storyboard in Resources */,
 				82C43788257CFF9B00CF945F /* Inter-SemiBold.ttf in Resources */,
+				82F8D35D25D879A400C49D8C /* PersonalCardCollectionViewCell.xib in Resources */,
 				8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */,
 				82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */,
 				82B696AA257C12C0005AFE62 /* LaunchScreen.storyboard in Resources */,
@@ -693,6 +711,7 @@
 				825FC2BB258645D100FAA8E8 /* User.swift in Sources */,
 				82C4375E257C515100CF945F /* Constants.swift in Sources */,
 				829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */,
+				8263ED6025D93DD70000E77C /* ContactDetailsStackView.swift in Sources */,
 				820F5B4F258050B00077174E /* Contact.swift in Sources */,
 				82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */,
 				827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */,
@@ -712,6 +731,7 @@
 				82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */,
 				825F15F6257D609400A3E103 /* SignupViewController.swift in Sources */,
 				825FC34125866CA200FAA8E8 /* KeyChainService.swift in Sources */,
+				82F8D35C25D879A400C49D8C /* PersonalCardCollectionViewCell.swift in Sources */,
 				8293C92B258F6B3300D3FA58 /* CaptureImageViewController.swift in Sources */,
 				825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */,
 				82647AF925AE127A0091D104 /* ContactCreationManager.swift in Sources */,
@@ -734,7 +754,7 @@
 				82B7B3F425C23D7B009F24F1 /* Name.swift in Sources */,
 				825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */,
 				82B6969E257C12BD005AFE62 /* AppDelegate.swift in Sources */,
-				8285BDFC25CF0F58008F771E /* ContactCardCollectionViewCell.swift in Sources */,
+				8285BDFC25CF0F58008F771E /* NumberCell.swift in Sources */,
 				82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */,
 				829728F32582893B00C99E33 /* UserAuthManager.swift in Sources */,
 				82BED3E1257EF6F900F8E96E /* ProfileViewController.swift in Sources */,

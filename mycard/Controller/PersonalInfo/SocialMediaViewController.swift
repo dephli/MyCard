@@ -37,23 +37,24 @@ class SocialMediaViewController: UIViewController {
     let socialMediaList = SocialMediaManger.manager.getAll
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    fileprivate func addTextStyles() {
         socialsLabel.style(with: K.TextStyles.heading1)
         linkedinLabel.style(with: K.TextStyles.bodyBlack60)
         facebookLabel.style(with: K.TextStyles.bodyBlack60)
         instagramLabel.style(with: K.TextStyles.bodyBlack60)
         twitterLabel.style(with: K.TextStyles.bodyBlack60)
         
-
+        
         linkedinAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
         facebookTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
         twitterAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
         instagramAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
         doneButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
-        
-        
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addTextStyles()
         populateTextFields()
         self.dismissKey()
 

@@ -73,13 +73,17 @@ class PersonalInfoViewController: UIViewController {
         view.viewOfType(type: UITextField.self) { (textfield) in
             textfield.delegate = self
         }
-        
+        disableStackViewConstraints()
+    }
+    
+    func disableStackViewConstraints() {
         fullNameTextField.becomeFirstResponder()
         phoneNumbersStackViewHeightConstraint.isActive = false
         emailListStackviewHeightConstraint.isActive = false
         socialMediaListStackViewHeightConstraint.isActive = false
         profileButtonToSocialMediaLabelConstraint?.isActive = false
         profileButtonToSocialMediaStackViewConstraint?.isActive = false
+        
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

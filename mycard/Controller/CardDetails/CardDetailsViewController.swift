@@ -14,14 +14,8 @@ class CardDetailsViewController: UIViewController{
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var customNavigationBar: UINavigationBar!
     @IBOutlet weak var cardView: UIView!
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailAddressLabel: UILabel!
-    @IBOutlet weak var workInfoLabel: UILabel!
-    @IBOutlet weak var workLocationLabel: UILabel!
-    @IBOutlet weak var socialMediaLabel: UILabel!
-    @IBOutlet weak var noteLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var detailsStackView: ContactDetailsStackView!
+    @IBOutlet weak var detailsStackViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var phoneButtonLabel: UILabel!
     @IBOutlet weak var mailButtonLabel: UILabel!
@@ -30,23 +24,9 @@ class CardDetailsViewController: UIViewController{
     @IBOutlet weak var cardViewFaceIndicator1: UIView!
     @IBOutlet weak var cardViewFaceIndicator2: UIView!
     
+    @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardRoleLabel: UILabel!
-    @IBOutlet weak var socialMediaStackView: SocialMediaListStackView!
-    @IBOutlet weak var socialMediaStackViewHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var phoneNumberStackView: DetailsMultiPhoneEmailStackView!
-    
-    @IBOutlet weak var phoneNumberContainerHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var emailContainerHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var emailStackView: DetailsMultiPhoneEmailStackView!
-    
-    @IBOutlet weak var nameTextLabel: UILabel!
-    @IBOutlet weak var workInfoTextLabel: UILabel!
-    @IBOutlet weak var workPositionTextLabel: UILabel!
-    @IBOutlet weak var workLocationTextLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var contactSummaryView: UIView!
@@ -57,10 +37,6 @@ class CardDetailsViewController: UIViewController{
     var notepoint: CGPoint?
     
     fileprivate func setupUI() {
-        phoneNumberContainerHeightConstraint.isActive = false
-        emailContainerHeightConstraint.isActive = false
-        socialMediaStackViewHeightConstraint.isActive = false
-        socialMediaStackView.configure(with: contact?.socialMediaProfiles ?? [])
         customNavigationBar.shadowImage = UIImage()
         let randomColor = UIColor.random
         nameInitialsView.backgroundColor = randomColor
@@ -72,26 +48,12 @@ class CardDetailsViewController: UIViewController{
         mailButtonLabel.style(with: K.TextStyles.captionBlack60)
         locationButtonLabel.style(with: K.TextStyles.captionBlack60)
         
-        nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
-        jobTitleLabel.style(with: K.TextStyles.subTitle)
+        noteLabel.style(with: K.TextStyles.captionBlack60)
+        
         noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)])
 
-        phoneLabel.style(with: K.TextStyles.subTitle)
-        nameLabel.style(with: K.TextStyles.subTitle)
-        noteLabel.style(with: K.TextStyles.subTitle)
-        workInfoLabel.style(with: K.TextStyles.subTitle)
-        workLocationLabel.style(with: K.TextStyles.subTitle)
-        emailAddressLabel.style(with: K.TextStyles.subTitle)
-        socialMediaLabel.style(with: K.TextStyles.subTitle)
-
-        
-        nameTextLabel.style(with: K.TextStyles.bodyBlack)
-        workInfoTextLabel.style(with: K.TextStyles.bodyBlack)
-        workPositionTextLabel.style(with: K.TextStyles.bodyBlack)
-        workLocationTextLabel.style(with: K.TextStyles.bodyBlack)
-        
         imageView.loadThumbnail(urlSting: contact?.businessInfo.companyLogo ?? "")
     }
     
@@ -105,28 +67,26 @@ class CardDetailsViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    fileprivate func populateViewsWithData() {
+        cardNameLabel.text = contact?.name.fullName
+        cardRoleLabel.text = contact?.businessInfo.role ?? ""
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
-        nameTextLabel.text = contact?.name.fullName
-        cardNameLabel.text = contact?.name.fullName
-        cardRoleLabel.text = contact?.businessInfo.role ?? ""
-        workInfoTextLabel.text = contact?.businessInfo.companyName ?? ""
-        workPositionTextLabel.text = contact?.businessInfo.role ?? ""
-        workLocationTextLabel.text = contact?.businessInfo.companyAddress ?? ""
+        populateViewsWithData()
         registerKeyboardNotifications()
-
-        
-        noteTextField.text = contact?.note
         self.dismissKey()
         
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleCardDrag))
         
         cardView.addGestureRecognizer(gesture)
-        phoneNumberStackView.configure(with: contact?.phoneNumbers ?? [])
-        emailStackView.configure(with: contact?.emailAddresses ?? [])
+        detailsStackViewHeightConstraint.isActive = false
+        detailsStackView.configure(contact: contact)
         
     }
     

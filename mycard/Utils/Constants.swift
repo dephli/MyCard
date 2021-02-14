@@ -88,8 +88,17 @@ struct K {
         static let instagram = "socials instagram"
         static let linkedin = "socials linkedin"
         static let chevron_right = "chevron right"
+        static let user_light = "user light"
+        static let mail = "mail"
+        static let location = "location"
+        static let office = "office"
+        
+//        system images
         static let minus = "minus"
         static let plus = "plus"
+        static let phone = "phone"
+        
+        
     }
     
     struct Images {
@@ -98,8 +107,17 @@ struct K {
         static let instagram = UIImage(named: ImageString.instagram)
         static let linkedin = UIImage(named: ImageString.linkedin)
         static let chevron_right = UIImage(named: ImageString.chevron_right)
+        static let user_light = UIImage(named: ImageString.user_light)
+        static let mail = UIImage(named: ImageString.mail)
+        static let location = UIImage(named: ImageString.location)
+        static let office = UIImage(named: ImageString.office)
+        static let phone = UIImage(named: ImageString.phone)
+        
+        
+//        system images
         static let minus = UIImage(systemName: ImageString.minus)
         static let plus = UIImage(systemName: ImageString.plus)
+
     }
     
     struct SocialMedia {
@@ -112,5 +130,6 @@ struct K {
     struct Firestore {
         static let cardsCollectionName = "cards"
         static let usersCollectionName = "users"
+        static let addedCardsCollectionName = "addedCards"
     }
 }

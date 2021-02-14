@@ -28,9 +28,41 @@ class CardViewController: UIViewController {
     
     var contacts: [Contact] = []
 
+    fileprivate func setupSearchController() {
+        //        set up searchcontroller
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for card"
+        searchController.searchBar.scopeButtonTitles = [
+            "All", "Name", "Company", "Role"
+        ]
+        searchController.searchBar.showsScopeBar = false
+        searchController.searchBar.searchBarStyle = .minimal
+        
+        searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
+    }
+    
+    fileprivate func setupCardTableView() {
+        cardTableView.dataSource = self
+        cardTableView.delegate = self
+        cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showCardLoadingIndicator()
+        getAllContacts()
+        self.dismissKey()
+        uiSetup()
+        setupSearchController()
+        setupCardTableView()
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
+        searchView.addGestureRecognizer(gestureRecognizer)
+
+    }
+    
+    func getAllContacts() {
         guard let uid = AuthService.uid else {
             self.alert(title: "Error", message: "Inactive user. login again")
             return
@@ -47,43 +79,11 @@ class CardViewController: UIViewController {
             } else {
                 self.emptyCardsView.isHidden = true
             }
-            
-//            if contacts?.isEmpty == false {
-//                self.emptyCardsView.isHidden = true
-//            } else {
-//
-//            }
-//            if contacts?.isEmpty == true {
-//                self.emptyCardsView.isHidden = true
-//            } else {
-//                self.emptyCardsView.isHidden = false
-//            }
+
             DispatchQueue.main.async {
                 self.cardTableView.reloadData()
             }
         }
-        self.dismissKey()
-        uiSetup()
-        cardTableView.dataSource = self
-        cardTableView.delegate = self
-        
-//        set up searchcontroller
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for card"
-        searchController.searchBar.scopeButtonTitles = [
-            "All", "Name", "Company", "Role"
-        ]
-        searchController.searchBar.showsScopeBar = false
-        searchController.searchBar.searchBarStyle = .minimal
-
-        searchController.searchBar.setScopeBarButtonBackgroundImage(UIImage(named: "scope button selected"), for: .selected)
-
-        cardTableView.register(UINib(nibName: K.contactCell, bundle: nil), forCellReuseIdentifier: K.contactCellIdentifier)
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSearchFieldTapped))
-        searchView.addGestureRecognizer(gestureRecognizer)
-
     }
     
     func showCardLoadingIndicator() {

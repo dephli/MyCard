@@ -17,20 +17,28 @@ class FirestoreService {
         
 
         let encoder = Firestore.Encoder()
-        let data = try? encoder.encode(contact)
+//        let data = try? encoder.encode(contact)
 
-        let updateData = FieldValue.arrayUnion([data as Any])
+//        let updateData = FieldValue.arrayUnion([data as Any])
         
-        docRef.updateData([
-            "contactCards": updateData
-        ]) { error in
-                if let error = error {
-                    onActionComplete(error)
-                    return
-                }
-                onActionComplete(nil)
-                return
-            }
+        
+        _ = try? docRef.collection(K.Firestore.addedCardsCollectionName).addDocument(from: contact, encoder: encoder) { (error) in
+            return onActionComplete(error)
+        }
+        
+        return onActionComplete(nil)
+        
+        
+//        docRef.updateData([
+//            "contactCards": updateData
+//        ]) { error in
+//                if let error = error {
+//                    onActionComplete(error)
+//                    return
+//                }
+//                onActionComplete(nil)
+//                return
+//            }
         
     }
     
@@ -61,15 +69,21 @@ class FirestoreService {
     }
     
     func getAllContacts(uid: String, onActionComplete: @escaping(Error?, [Contact]?) -> Void) {
-        let docRef = db.collection(K.Firestore.usersCollectionName).document(uid)
+        let docRef = db.collection(K.Firestore.usersCollectionName).document(uid).collection(K.Firestore.addedCardsCollectionName)
         
         docRef.addSnapshotListener { (snapshot, error) in
             if let error = error {
                 onActionComplete(error, nil)
                 return
             }
-            let user = try? snapshot?.data(as: User.self)
-            let contacts = user?.contactCards
+            
+            guard let data = snapshot?.documents else {
+                return
+            }
+            
+            let contacts = data.compactMap { (document) -> Contact in
+                return try! document.data(as: Contact.self)!
+            }
             onActionComplete(nil, contacts)
         }
     }

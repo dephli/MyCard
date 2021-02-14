@@ -16,38 +16,19 @@ class ConfirmDetailsViewController: UIViewController {
     @IBOutlet weak var customNavigationBar: UINavigationBar!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardNameLabel: UILabel!
+    @IBOutlet weak var contactDetailsStackView: ContactDetailsStackView!
+    @IBOutlet weak var contactDetailsStackViewHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailAddressLabel: UILabel!
-    @IBOutlet weak var workInfoLabel: UILabel!
-    @IBOutlet weak var workLocationLabel: UILabel!
-    @IBOutlet weak var socialMediaLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var phoneNumberStackView: DetailsMultiPhoneEmailStackView!
-    
-    @IBOutlet weak var emailStackView: DetailsMultiPhoneEmailStackView!
     
     @IBOutlet weak var cardViewFaceIndicator1: UIView!
     @IBOutlet weak var cardViewFaceIndicator2: UIView!
     
-    @IBOutlet weak var socialMediaStackView: SocialMediaListStackView!
-    @IBOutlet weak var socialMediaStackViewHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var nameTextLabel: UILabel!
-
-    @IBOutlet weak var workInfoTextLabel: UILabel!
-    @IBOutlet weak var workLocationTextLabel: UILabel!
-    @IBOutlet weak var jobTitleLabel: UILabel!
     
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var contactSummaryView: UIView!
     
-    @IBOutlet weak var phoneNumberStackViewHeightContraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var emailStackViewHeightConstraint: NSLayoutConstraint!
-    
-    
+
     let db = Firestore.firestore()
     
     
@@ -56,31 +37,15 @@ class ConfirmDetailsViewController: UIViewController {
     var isOpen = false
     
     fileprivate func setupUI() {
-        phoneNumberStackViewHeightContraint.isActive = false
-        emailStackViewHeightConstraint.isActive = false
-        socialMediaStackViewHeightConstraint.isActive = false
+        contactDetailsStackViewHeightConstraint.isActive = false
         customNavigationBar.shadowImage = UIImage()
         let randomColor = UIColor.random
         nameInitialsView.backgroundColor = randomColor
         nameInitialsView.alpha = 0.1
         nameInitialsLabel.textColor = randomColor
-        nameLabel.style(with: K.TextStyles.bodyBlackSemiBold)
         cardJobTitleLabel.style(with: K.TextStyles.subTitle)
         noteTextField.attributedPlaceholder = NSAttributedString(string: noteTextField.placeholder!, attributes: [
                                                                     NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)])
-        
-        let subTitles = [phoneLabel, nameLabel, noteLabel, workInfoLabel, workLocationLabel, emailAddressLabel, socialMediaLabel]
-        
-        for label in subTitles {
-            label?.style(with: K.TextStyles.subTitle)
-        }
-        
-        let textLabels = [nameTextLabel, workInfoTextLabel, workLocationTextLabel]
-        
-        for label in textLabels {
-            label?.style(with: K.TextStyles.bodyBlack)
-        }
-
     }
     
     fileprivate func registerKeyboardNotifications() {
@@ -105,6 +70,8 @@ class ConfirmDetailsViewController: UIViewController {
         
         populateWithContactData()
         registerKeyboardNotifications()
+        
+        
         
     }
     
@@ -168,16 +135,9 @@ class ConfirmDetailsViewController: UIViewController {
     
     func populateWithContactData() {
         let contact:Contact = ContactCreationManager.manager.contact.value
-        
+        contactDetailsStackView.configure(contact: contact)
         cardNameLabel.text = contact.name.fullName
         cardJobTitleLabel.text = contact.businessInfo.role
-        nameTextLabel.text = contact.name.fullName
-
-        
-        workInfoTextLabel.text = contact.businessInfo.companyName
-        jobTitleLabel.text = contact.businessInfo.role
-        socialMediaStackView.configure(with: contact.socialMediaProfiles)
-        workLocationTextLabel.text = contact.businessInfo.companyAddress
         if contact.name.lastName != "" && contact.name.firstName! != "" {
             nameInitialsLabel.text = "\(contact.name.firstName!.prefix(1))\(contact.name.lastName!.prefix(1))"
         }
@@ -189,9 +149,6 @@ class ConfirmDetailsViewController: UIViewController {
         } else {
             nameInitialsLabel.text = "ZZ"
         }
-        
-        phoneNumberStackView.configure(with: contact.phoneNumbers)
-        emailStackView.configure(with: contact.emailAddresses)
     }
     
     
@@ -207,7 +164,7 @@ class ConfirmDetailsViewController: UIViewController {
             } else {
                 self.removeActivityIndicator()
                 self.navigationController?.popToRootViewController(animated: true)
-                self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
             }
         }
     }
