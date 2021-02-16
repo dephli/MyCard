@@ -75,6 +75,7 @@ struct K {
         static let capturePhotoToReviewPhoto = "CapturePhotoToReviewPhoto"
         static let cardsToCardDetails = "CardsToCardDetails"
         static let cameraToAuth = "CameratoAuth"
+        static let authToCards = "AuthToCards"
     }
 
     struct Notifications {

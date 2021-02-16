@@ -56,7 +56,6 @@ struct UserAuthManager {
                 return
             }
             
-            let name = self.user.value.name
             let uid = authUser?.uid
             var user = self.user.value
             user.uid = uid
@@ -67,22 +66,9 @@ struct UserAuthManager {
                     onActionComplete(error)
                 }
             }
-            self.setUserName(with: name!) { (error) in
-                if let error = error {
-                    onActionComplete(error)
-                }
-            }
-            
             onActionComplete(nil)
         }
     }
     
-    func setUserName(with name: String, onActionComplete: @escaping (Error?) -> Void) {
-        authService.updateName(with: name) { (user, error) in
-            if let error = error {
-                onActionComplete(error)
-            }
-        }
-    }
 
 }

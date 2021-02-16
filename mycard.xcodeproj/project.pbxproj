@@ -29,6 +29,7 @@
 		825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */; };
 		825FC3942586E18000FAA8E8 /* PhoneListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */; };
 		8263ED6025D93DD70000E77C /* ContactDetailsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */; };
+		8263ED6525DB3EDC0000E77C /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263ED6425DB3EDC0000E77C /* ProfileSetupViewController.swift */; };
 		82647AF925AE127A0091D104 /* ContactCreationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647AF825AE127A0091D104 /* ContactCreationManager.swift */; };
 		82647B0125AE47F20091D104 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647B0025AE47F20091D104 /* StringExtension.swift */; };
 		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
@@ -133,6 +134,7 @@
 		825FC3872586BE5000FAA8E8 /* PhoneNumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberManager.swift; sourceTree = "<group>"; };
 		825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListStackView.swift; sourceTree = "<group>"; };
 		8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsStackView.swift; sourceTree = "<group>"; };
+		8263ED6425DB3EDC0000E77C /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		82647AF825AE127A0091D104 /* ContactCreationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCreationManager.swift; sourceTree = "<group>"; };
 		82647B0025AE47F20091D104 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				825F15F5257D609400A3E103 /* SignupViewController.swift */,
 				825F1600257D64A900A3E103 /* VerifyNumberViewController.swift */,
 				82D176AE25B76F22005155C2 /* AccountInfoViewController.swift */,
+				8263ED6425DB3EDC0000E77C /* ProfileSetupViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				82BED3E1257EF6F900F8E96E /* ProfileViewController.swift in Sources */,
 				82AD90E925879ECF0014B96E /* EmailListStackView.swift in Sources */,
 				82AD90E425879E7E0014B96E /* UIStackViewExtension.swift in Sources */,
+				8263ED6525DB3EDC0000E77C /* ProfileSetupViewController.swift in Sources */,
 				82C43763257C5F8000CF945F /* ToolBelt.swift in Sources */,
 				821603A625BF908500C8BCC3 /* DataStorageService.swift in Sources */,
 				827853E425CC324200652F9B /* UIImageViewExtension.swift in Sources */,
