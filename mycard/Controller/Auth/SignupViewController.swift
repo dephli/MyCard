@@ -13,7 +13,7 @@ class SignupViewController: UIViewController {
     
     @IBOutlet weak var signupLabel: UILabel!
     
-    @IBOutlet weak var nameTextField: UITextField!
+
     
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
@@ -37,11 +37,9 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
         self.dismissKey()
         
-        nameTextField.becomeFirstResponder()
         phoneNumberTextField.delegate = self
         signupLabel.style(with: K.TextStyles.heading1)
         phoneNumberTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
-        nameTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         signupButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
         backButtonTopConstraint.constant = -5
         
@@ -66,8 +64,8 @@ class SignupViewController: UIViewController {
     
     fileprivate func authenticateUser() {
         self.showActivityIndicator()
-        let user = User(name: nameTextField.text, phoneNumber: phoneNumberText, uid: nil)
-        UserAuthManager.auth.phoneNumberAuth(with: user) { (error) in
+
+        UserAuthManager.auth.phoneNumberAuth(with: phoneNumberText ?? "") { (error) in
             if let error = error {
                 self.removeActivityIndicator()
                 self.alert(title: "Error authenticating", message: error.localizedDescription)

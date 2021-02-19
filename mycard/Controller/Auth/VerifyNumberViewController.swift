@@ -72,19 +72,11 @@ class VerifyNumberViewController: UIViewController {
                 self.alert(title: "Error authenticating", message: error.localizedDescription)
             } else {
                 self.removeActivityIndicator()
-                self.setRootViewController()
-                self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
+                self.performSegue(withIdentifier: K.Segues.verifyNumberToProfileSetup, sender: self)
             }
         }
     }
     
-    fileprivate func setRootViewController() {
-        let storyboard = UIStoryboard(name: "Cards", bundle: nil)
-        let tabController = storyboard.instantiateViewController(identifier: K.ViewIdentifiers.cardsTabBarController) as TabBarController
-        UIApplication.shared.windows.first?.rootViewController = tabController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-    }
-
     
     func uiSetup() {
         customNavigationBar.setup(backIndicatorImage: "arrow.forward")

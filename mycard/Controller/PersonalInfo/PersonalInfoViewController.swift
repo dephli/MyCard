@@ -202,26 +202,18 @@ extension PersonalInfoViewController {
 
 //MARK: - Handle image picking and upload
 extension PersonalInfoViewController: UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
-    fileprivate func handleImageUploadError(_ error: Error) {
-        let alert = UIAlertController(title: "Image upload failed", message: "An error occured while uploading you image", preferredStyle: .alert)
-        alert.addAction(
-            UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-                print(error.localizedDescription)
-            } )
-        )
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true, completion: nil)
         guard let image = info[.editedImage] as? UIImage else {return}
         DispatchQueue.main.async {
             self.avatarImageView.image = image
         }
-        let storageService = DataStorageService()
-        storageService.uploadImage(image: image) { (url, error) in
+        
+
+        DataStorageService().uploadImage(image: image) { (url, error) in
             if let error = error {
-                self.handleImageUploadError(error)
+                self.alert(title: "Image upload failed", message: error.localizedDescription)
+
             } else {
                 var contact = ContactCreationManager.manager.contact.value
                 contact.profilePicUrl = url

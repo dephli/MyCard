@@ -34,19 +34,19 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastly, set up your  account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1Q-RV-mEz">
-                                <rect key="frame" x="24" y="88" width="214.5" height="58.5"/>
+                                <rect key="frame" x="24" y="88" width="202" height="56"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep all your cards in one place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWS-6a-iVv">
-                                <rect key="frame" x="24" y="162.5" width="209.5" height="17"/>
+                                <rect key="frame" x="24" y="160" width="200.5" height="17"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                 <color key="textColor" name="MC Black 60"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business card" translatesAutoresizingMaskIntoConstraints="NO" id="kcy-qV-92l">
-                                <rect key="frame" x="163" y="241" width="88" height="84"/>
+                                <rect key="frame" x="163" y="238.5" width="88" height="84"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcU-Rj-S3u">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
@@ -67,7 +67,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-W6-NaS">
-                                <rect key="frame" x="24" y="365" width="366" height="56"/>
+                                <rect key="frame" x="24" y="362.5" width="366" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="9Jy-HT-lDB"/>
                                 </constraints>
@@ -307,7 +307,7 @@
                                 <color key="barTintColor" name="MC White"/>
                                 <items>
                                     <navigationItem id="Bkh-g8-ieH">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="zxO-8I-6SO">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="zxO-8I-6SO">
                                             <connections>
                                                 <action selector="onBackButtonPressed:" destination="90I-YX-6Vb" id="mtv-RR-Pj9"/>
                                             </connections>
@@ -322,7 +322,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzz-S6-bWp">
-                                <rect key="frame" x="156" y="716" width="102" height="32"/>
+                                <rect key="frame" x="158" y="717" width="98" height="31"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                 <state key="normal" title="Resend Code">
                                     <color key="titleColor" name="MC Blue"/>
@@ -362,7 +362,7 @@
                         <outlet property="promptLabel" destination="bJl-jY-0nL" id="ByY-Wy-r11"/>
                         <outlet property="verifyNumberLabel" destination="P2I-Ie-VDW" id="yaI-IH-sNX"/>
                         <outlet property="verifyPhoneNumberButton" destination="afX-LB-QOQ" id="AiP-Ip-EYz"/>
-                        <segue destination="Jfl-Bu-dof" kind="show" id="Tk9-TY-NSR"/>
+                        <segue destination="Jfl-Bu-dof" kind="show" identifier="VerifyNumberToProfileSetup" id="Tk9-TY-NSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urw-Xw-2NM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -372,7 +372,7 @@
         <!--Profile Setup View Controller-->
         <scene sceneID="3KE-Cy-kLd">
             <objects>
-                <viewController id="Jfl-Bu-dof" customClass="ProfileSetupViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Jfl-Bu-dof" customClass="ProfileSetupViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="us2-g3-cy7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,6 +444,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="letsGoButtonPressed:" destination="Jfl-Bu-dof" eventType="touchUpInside" id="Mkp-x6-jgq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4KT-oU-L2U"/>
@@ -466,7 +469,9 @@
                     <navigationItem key="navigationItem" id="BgV-BJ-uxJ"/>
                     <connections>
                         <outlet property="avatarImageView" destination="qbb-mf-Rj5" id="FAk-yP-Av9"/>
+                        <outlet property="fullNameTextField" destination="BVV-x3-H0Z" id="w0T-HS-bdi"/>
                         <outlet property="titleLabel" destination="vJw-bU-9gB" id="fnb-48-75n"/>
+                        <segue destination="r7C-eF-oux" kind="showDetail" identifier="AuthToCards" id="RVL-SD-EN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5KA-e6-qZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -490,6 +495,7 @@
         <image name="business card" width="88" height="84"/>
         <image name="camera" width="20" height="16"/>
         <image name="chevron down" width="10" height="6"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="profile placeholder" width="96" height="96"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

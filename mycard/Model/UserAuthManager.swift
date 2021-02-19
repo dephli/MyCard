@@ -19,28 +19,42 @@ struct UserAuthManager {
     static let auth = UserAuthManager()
 
     
-    var user: BehaviorRelay<User> = BehaviorRelay(value: User(name: nil, phoneNumber: nil, uid: nil))
+    var phoneNumber: BehaviorRelay<String> = BehaviorRelay(value:"")
 
     
     let authService = AuthService()
     
     
-    func phoneNumberAuth(with user: User, onActionComplete: @escaping (Error?) -> Void) {
-        if let phoneNumber = user.phoneNumber {
-            authService.register(phoneNumber: phoneNumber) { (error) in
+    func phoneNumberAuth(with phoneNumber: String, onActionComplete: @escaping (Error?) -> Void) {
+        authService.register(phoneNumber: phoneNumber) { (error) in
+            if let error = error {
+                onActionComplete(error)
+                return
+            }
+            self.phoneNumber.accept(phoneNumber)
+            onActionComplete(nil)
+        }
+    }
+    
+    func updateUser(with user: User, onActionComplete: @escaping (Error?) -> Void) -> Void {
+        authService.updateName(with: user.name ?? "") { (firebase_user, error) in
+            if let error = error {
+                return onActionComplete(error)
+            }
+            var new_user = user
+            new_user.phoneNumber = firebase_user?.phoneNumber
+
+            FirestoreService().createUser(with: new_user) { (error) in
                 if let error = error {
                     onActionComplete(error)
-                    return
                 }
-                self.user.accept(user)
-                onActionComplete(nil)
             }
+            return onActionComplete(nil)
         }
-
     }
     
     func resendtoken(onActionComplete: @escaping (Error?) -> Void) -> Void{
-        self.phoneNumberAuth(with: self.user.value) { (error) in
+        self.phoneNumberAuth(with: self.phoneNumber.value) { (error) in
             if let error = error {
                 return onActionComplete(error)
             } else {
@@ -56,19 +70,12 @@ struct UserAuthManager {
                 return
             }
             
-            let uid = authUser?.uid
-            var user = self.user.value
-            user.uid = uid
-            self.user.accept(user)
-            
-            FirestoreService().createUser(with: user) { (error) in
-                if let error = error {
-                    onActionComplete(error)
-                }
-            }
             onActionComplete(nil)
         }
     }
     
 
 }
+
+
+

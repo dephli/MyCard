@@ -33,7 +33,7 @@
                                 <items>
                                     <navigationItem id="a68-jy-tlR">
                                         <barButtonItem key="leftBarButtonItem" id="W7X-Hi-NeK">
-                                            <imageReference key="image" image="arrow.backward" catalog="system" renderingMode="original"/>
+                                            <imageReference key="image" image="chevron.backward" catalog="system" renderingMode="original"/>
                                             <inset key="imageInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <color key="tintColor" name="MC Black"/>
                                             <connections>
@@ -378,7 +378,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="location circular" width="40" height="40"/>
         <image name="mail circular" width="40" height="40"/>
         <image name="more vertical" width="24" height="24"/>

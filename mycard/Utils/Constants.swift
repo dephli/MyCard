@@ -11,6 +11,8 @@ struct K {
     
     static let contactCell = "ContactsCell"
     static let contactCellIdentifier = "ContactsReusableCell"
+    static let personalCardCell = "PersonalCardCollectionViewCell"
+    
     
     
     struct ColorString {
@@ -76,6 +78,7 @@ struct K {
         static let cardsToCardDetails = "CardsToCardDetails"
         static let cameraToAuth = "CameratoAuth"
         static let authToCards = "AuthToCards"
+        static let verifyNumberToProfileSetup = "VerifyNumberToProfileSetup"
     }
 
     struct Notifications {

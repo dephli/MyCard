@@ -17,28 +17,11 @@ class FirestoreService {
         
 
         let encoder = Firestore.Encoder()
-//        let data = try? encoder.encode(contact)
-
-//        let updateData = FieldValue.arrayUnion([data as Any])
-        
-        
         _ = try? docRef.collection(K.Firestore.addedCardsCollectionName).addDocument(from: contact, encoder: encoder) { (error) in
             return onActionComplete(error)
         }
         
         return onActionComplete(nil)
-        
-        
-//        docRef.updateData([
-//            "contactCards": updateData
-//        ]) { error in
-//                if let error = error {
-//                    onActionComplete(error)
-//                    return
-//                }
-//                onActionComplete(nil)
-//                return
-//            }
         
     }
     
@@ -46,7 +29,7 @@ class FirestoreService {
         let docRef = db.collection(K.Firestore.usersCollectionName)
         do {
             try
-                docRef.document(user.uid!).setData(from: user, merge: true)
+                docRef.document(AuthService.uid!).setData(from: user, merge: true)
             onActionComplete(nil)
             
         } catch {

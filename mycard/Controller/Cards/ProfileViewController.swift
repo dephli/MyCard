@@ -36,6 +36,8 @@ class ProfileViewController: UIViewController {
         
         profileCardCollectionView.delegate = self
         profileCardCollectionView.dataSource = self
+    
+        profileCardCollectionView.register(UINib(nibName: K.personalCardCell, bundle: nil), forCellWithReuseIdentifier: PersonalCardCollectionViewCell.reuseIdentifier)
         
     }
     
@@ -43,6 +45,7 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if lastContentOffset != nil {
             if (self.lastContentOffset! > scrollView.contentOffset.x) {
@@ -60,7 +63,9 @@ extension ProfileViewController: UIScrollViewDelegate {
     }
 }
 
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cardsArray.count
     }
@@ -70,11 +75,25 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             fatalError("Cannot create new cell")
         }
         
-        cell.companyNameLabel.text = cardsArray[indexPath.row]
+//        cell.companyNameLabel.text = cardsArray[indexPath.row]
         return cell
     }
-    
-    
+//
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+        return 10
+    }
+//
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let frameSize = collectionView.frame.size
+        return CGSize(width: frameSize.width - 10, height: frameSize.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    }
 }
 
 

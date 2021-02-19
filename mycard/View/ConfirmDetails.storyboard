@@ -59,7 +59,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzn-aa-vQN">
-                                                                <rect key="frame" x="173.5" y="30.5" width="19" height="19"/>
+                                                                <rect key="frame" x="173" y="30.5" width="20.5" height="19.5"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -310,7 +310,7 @@
                                 <color key="barTintColor" name="MC Gray Light"/>
                                 <items>
                                     <navigationItem id="5Zh-1x-cRK">
-                                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="mYg-Tr-B6S">
+                                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="mYg-Tr-B6S">
                                             <color key="tintColor" name="MC Black"/>
                                             <connections>
                                                 <action selector="backButtonPressed:" destination="LkL-cD-wFF" id="aLU-08-SKx"/>
@@ -357,7 +357,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="notes" width="24" height="24"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
