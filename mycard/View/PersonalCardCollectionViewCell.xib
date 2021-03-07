@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="swi-rB-3u2" customClass="PersonalCardCollectionViewCell" customModule="mycard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="344" height="191"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="aNV-QZ-omW">
+                <rect key="frame" x="0.0" y="0.0" width="344" height="191"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGh-4E-cfA">
+                        <rect key="frame" x="0.0" y="16" width="312" height="156"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hqC-Ee-Wt5">
+                                <rect key="frame" x="248" y="16" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="MTK-q6-oSJ"/>
+                                    <constraint firstAttribute="width" constant="48" id="XmH-za-bQw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG1-tA-aNt">
+                                <rect key="frame" x="16" y="16" width="216" height="19"/>
+                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdT-QG-WK3">
+                                <rect key="frame" x="16" y="35" width="216" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" name="MC Black 60"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="MC White"/>
+                        <constraints>
+                            <constraint firstItem="VG1-tA-aNt" firstAttribute="top" secondItem="IGh-4E-cfA" secondAttribute="top" constant="16" id="4Gg-Se-vpt"/>
+                            <constraint firstAttribute="trailing" secondItem="hqC-Ee-Wt5" secondAttribute="trailing" constant="16" id="BEc-iX-Zxj"/>
+                            <constraint firstItem="VG1-tA-aNt" firstAttribute="leading" secondItem="IGh-4E-cfA" secondAttribute="leading" constant="16" id="CAF-4Q-K8w"/>
+                            <constraint firstAttribute="width" constant="312" id="Hjt-Vy-uW8"/>
+                            <constraint firstAttribute="height" constant="156" id="JY7-B1-6rW"/>
+                            <constraint firstItem="hqC-Ee-Wt5" firstAttribute="leading" secondItem="VG1-tA-aNt" secondAttribute="trailing" constant="16" id="QdJ-jJ-qlH"/>
+                            <constraint firstItem="AdT-QG-WK3" firstAttribute="leading" secondItem="VG1-tA-aNt" secondAttribute="leading" id="lQv-MN-7O1"/>
+                            <constraint firstItem="AdT-QG-WK3" firstAttribute="top" secondItem="VG1-tA-aNt" secondAttribute="bottom" id="rqA-o0-4Pz"/>
+                            <constraint firstItem="hqC-Ee-Wt5" firstAttribute="top" secondItem="VG1-tA-aNt" secondAttribute="top" id="tEH-jY-WeZ"/>
+                            <constraint firstItem="AdT-QG-WK3" firstAttribute="trailing" secondItem="VG1-tA-aNt" secondAttribute="trailing" id="tUA-Nb-dB1"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="IGh-4E-cfA" secondAttribute="bottom" constant="16" id="Y80-gA-f3n"/>
+                    <constraint firstItem="IGh-4E-cfA" firstAttribute="leading" secondItem="aNV-QZ-omW" secondAttribute="leading" id="lGM-Q8-m0T"/>
+                    <constraint firstAttribute="trailing" secondItem="IGh-4E-cfA" secondAttribute="trailing" id="s90-25-yHC"/>
+                    <constraint firstItem="IGh-4E-cfA" firstAttribute="top" secondItem="aNV-QZ-omW" secondAttribute="top" constant="16" id="vOO-Gv-XLH"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                        <real key="value" value="16"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                        <size key="value" width="0.0" height="2"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <real key="value" value="8"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                        <color key="value" name="MC Black 50"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
+            </collectionViewCellContentView>
+            <size key="customSize" width="344" height="191"/>
+            <connections>
+                <outlet property="avatarImageView" destination="hqC-Ee-Wt5" id="2YE-CE-sqp"/>
+                <outlet property="companyName" destination="VG1-tA-aNt" id="emF-Z3-LZp"/>
+                <outlet property="role" destination="AdT-QG-WK3" id="gE4-vR-BQ2"/>
+            </connections>
+            <point key="canvasLocation" x="207.24637681159422" y="278.90625"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="profile placeholder" width="96" height="96"/>
+        <namedColor name="MC Black 50">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 60">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

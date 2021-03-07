@@ -1,0 +1,39 @@
+included:
+    - mycard
+excluded:
+    - mycard/AppDelegate.swift
+    - mycard/SceneDelegate.swift
+    - Pods
+
+
+disabled_rules:
+    - force_try
+    - force_cast
+    - identifier_name
+    - type_body_length
+    - type_name
+    - file_length
+
+#disabled_rules:
+#- trailing_whitespaceopt_in_rules:
+#- empty_count
+#- empty_stringexcluded:
+#- Carthage
+#- SwiftLint/Common/3rdPartyLibline_length:
+#    warning: 150
+#    error: 200
+#    ignores_function_declarations: true
+#    ignores_comments: true
+#    ignores_urls: truefunction_body_length:
+#    warning: 300
+#    error: 500function_parameter_count:
+#    warning: 6
+#    error: 8type_body_length:
+#    warning: 300
+#    error: 500file_length:
+#    warning: 1000
+#    error: 1500
+#    ignore_comment_only_lines: truecyclomatic_complexity:
+#    warning: 15
+#    error: 25reporter: "xcode"
+
