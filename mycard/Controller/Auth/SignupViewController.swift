@@ -21,6 +21,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var countryPickerButton: UIButton!
 
 // MARK: - Variables
+    private var viewModel = SignupViewModel()
     private var verifyModal: UIView?
     private let contryPickerController = CountryPickerController()
     private var countryCode: String?
@@ -63,9 +64,8 @@ class SignupViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if authFlowType == .changePhoneNumber {
-            let destinationController = segue.destination as? VerifyNumberViewController
-            destinationController?.authFlowType = authFlowType
+        if let destinationController = segue.destination as? VerifyNumberViewController {
+            destinationController.authFlowType = authFlowType ?? .authentication
         }
     }
 
@@ -91,16 +91,19 @@ class SignupViewController: UIViewController {
 // MARK: - Methods
     private func authenticateUser() {
         self.showActivityIndicator()
+        viewModel.bindErrorObject = handleErrorFunc
+        viewModel.bindSignupViewModelToController = handleSuccess
+        viewModel.authenticateUser(with: phoneNumberText ?? "")
+    }
 
-        UserManager.auth.phoneNumberAuth(with: phoneNumberText ?? "") { (error) in
-            self.removeActivityIndicator()
-            if let error = error {
-                self.alert(title: "Error authenticating", message: error.localizedDescription)
-
-            } else {
-                self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)
-            }
-        }
+    private func handleErrorFunc(error: Error) {
+        self.removeActivityIndicator()
+        self.alert(title: "Error", message: error.localizedDescription)
+    }
+    
+    private func handleSuccess() {
+        self.removeActivityIndicator()
+        self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)
     }
 
     private func showVerificationModal () {

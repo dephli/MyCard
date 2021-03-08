@@ -16,7 +16,8 @@ class VerifyNumberViewController: UIViewController {
     @IBOutlet weak var verifyPhoneNumberButton: UIButton!
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
 
-// MARK: - Variables
+// MARK: - Properties
+    let viewModel = VerifyNumberViewModel()
     var authFlowType: AuthFlowType?
     private var verifyModal: UIView?
 
@@ -28,6 +29,10 @@ class VerifyNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dismissKey()
+        viewModel.bindErrorObject = handleError
+        viewModel.bindVerifyPreNumberChange = verifyPhoneNumberForPreNumberChange
+        viewModel.bindVerifyRegularAuth = verifyPhoneNumberForRegularAuth
+        viewModel.bindVerifyPreNumberChange = verifyPhoneNumberForPreNumberChange
         uiSetup()
         codeTextField.becomeFirstResponder()
         codeTextField.delegate = self
@@ -68,17 +73,16 @@ class VerifyNumberViewController: UIViewController {
     @IBAction func verifyButtonPressed(_ sender: Any) {
         self.showActivityIndicator()
         let code = codeTextField.text!
-        if authFlowType == .changePhoneNumber {
-            verifyNumberForNumberChange(code)
-
-        } else if authFlowType == .confirmPhoneNumber {
-            verifyPhoneNumberForPreNumberChange(code)
-        } else {
-            verifyPhoneNumberForRegularAuth(code)
-        }
+        viewModel.submitCode(with: code, type: authFlowType!)
     }
 
 // MARK: - Methods
+
+    private func handleError(error: Error) {
+        self.removeActivityIndicator()
+        self.alert(title: "Error", message: error.localizedDescription)
+    }
+
     @objc private func keyboardDidShow(notifcation: NSNotification) {
      if codeTextField.text?.count == 6 {
         verifyPhoneNumberButton.isEnabled = true
@@ -90,43 +94,27 @@ class VerifyNumberViewController: UIViewController {
 
     }
 
-    private func verifyPhoneNumberForRegularAuth(_ code: String) {
-        UserManager.auth.submitCode(with: code) { (error) in
-            self.removeActivityIndicator()
-            if let error = error {
-                self.alert(title: "Verification Error", message: error.localizedDescription)
-            } else {
-                let username = AuthService.username
-                if username != nil && username?.trimmingCharacters(in: .whitespaces) != "" {
-                    self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
-                    self.setRootViewController()
-                } else {
-                    self.performSegue(withIdentifier: K.Segues.verifyNumberToProfileSetup, sender: self)
-                }
-            }
+    private func verifyPhoneNumberForRegularAuth() {
+        self.removeActivityIndicator()
+        let username = AuthService.username
+        if username != nil
+            && username?.trimmingCharacters(in: .whitespaces) != "" {
+            self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
+            self.setRootViewController()
+        } else {
+            self.performSegue(withIdentifier: K.Segues.verifyNumberToProfileSetup, sender: self)
         }
+
     }
 
-    private func verifyPhoneNumberForPreNumberChange(_ code: String) {
-        UserManager.auth.submitCode(with: code) { (error) in
-            self.removeActivityIndicator()
-            if let error = error {
-                self.alert(title: "Verification Error", message: error.localizedDescription)
-            } else {
-                self.performSegue(withIdentifier: K.Segues.verifyPhoneNumberToSignup, sender: self)
-
-            }
-        }
+    private func verifyPhoneNumberForPreNumberChange() {
+        self.removeActivityIndicator()
+        self.performSegue(withIdentifier: K.Segues.verifyPhoneNumberToSignup, sender: self)
     }
 
-    private func verifyNumberForNumberChange(_ code: String) {
-        UserManager.auth.updatePhoneNumber(verificationCode: code) { (error) in
-            if let error = error {
-                self.alert(title: "Verification Error", message: error.localizedDescription)
-            } else {
-                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-            }
-        }
+    private func verifyNumberForNumberChange() {
+        self.removeActivityIndicator()
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
     private func setRootViewController() {

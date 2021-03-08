@@ -26,11 +26,11 @@ class CardViewController: UIViewController {
 // MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
+        self.showActivityIndicator()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showActivityIndicator()
         cardTableView.isHidden = true
         emptyCardsView.isHidden = true
         getAllContacts()

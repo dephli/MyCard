@@ -25,7 +25,6 @@ class ProfileSetupViewController: UIViewController {
         fullNameTextField.becomeFirstResponder()
         fullNameTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         self.dismissKey()
-
     }
 
 // MARK: - Actions
@@ -53,7 +52,7 @@ class ProfileSetupViewController: UIViewController {
     }
 
 // MARK: - Methods
-    func setRootViewController() {
+    private func setRootViewController() {
         let storyboard = UIStoryboard(name: "Cards", bundle: nil)
         let tabController = storyboard.instantiateViewController(
             identifier: K.ViewIdentifiers.cardsTabBarController

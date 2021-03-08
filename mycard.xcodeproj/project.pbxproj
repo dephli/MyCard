@@ -16,6 +16,8 @@
 		8214E634259047D10054A345 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214E633259047D10054A345 /* UIColorExtension.swift */; };
 		821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821590362588207D00A9F679 /* SocialMediaViewController.swift */; };
 		821603A625BF908500C8BCC3 /* DataStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821603A525BF908500C8BCC3 /* DataStorageService.swift */; };
+		821AE45C25F65E2300C60EAE /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821AE45B25F65E2300C60EAE /* SignupViewModel.swift */; };
+		821AE46825F66F9D00C60EAE /* VerifyNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821AE46725F66F9D00C60EAE /* VerifyNumberViewModel.swift */; };
 		82354CC525DF495400C13A68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82354CC425DF495400C13A68 /* GoogleService-Info.plist */; };
 		82354CCA25DFEB0200C13A68 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */; };
 		82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82455941257D1123003DCB4C /* SetupCardViewController.swift */; };
@@ -126,6 +128,8 @@
 		8214E633259047D10054A345 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		821590362588207D00A9F679 /* SocialMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaViewController.swift; sourceTree = "<group>"; };
 		821603A525BF908500C8BCC3 /* DataStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageService.swift; sourceTree = "<group>"; };
+		821AE45B25F65E2300C60EAE /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		821AE46725F66F9D00C60EAE /* VerifyNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyNumberViewModel.swift; sourceTree = "<group>"; };
 		82354CC425DF495400C13A68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeNameViewController.swift; path = ../../../../../../../Documents/ChangeNameViewController.swift; sourceTree = "<group>"; };
 		82455941257D1123003DCB4C /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +290,23 @@
 			path = ConfirmDetails;
 			sourceTree = "<group>";
 		};
+		821AE45925F64DFF00C60EAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				821AE46325F66DBE00C60EAE /* Auth */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		821AE46325F66DBE00C60EAE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				821AE45B25F65E2300C60EAE /* SignupViewModel.swift */,
+				821AE46725F66F9D00C60EAE /* VerifyNumberViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		825A4B58257E54D900201A01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,11 +407,12 @@
 				82C43750257C42D000CF945F /* Controller */,
 				82C4374F257C42C600CF945F /* Model */,
 				82C4374E257C42BC00CF945F /* View */,
+				821AE45925F64DFF00C60EAE /* ViewModel */,
+				82B696AB257C12C0005AFE62 /* Info.plist */,
 				82B6969D257C12BD005AFE62 /* AppDelegate.swift */,
 				82B6969F257C12BD005AFE62 /* SceneDelegate.swift */,
 				82B696A6257C12C0005AFE62 /* Assets.xcassets */,
 				82B696A8257C12C0005AFE62 /* LaunchScreen.storyboard */,
-				82B696AB257C12C0005AFE62 /* Info.plist */,
 				82354CC425DF495400C13A68 /* GoogleService-Info.plist */,
 			);
 			path = mycard;
@@ -809,6 +831,7 @@
 				82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */,
 				827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */,
 				82BED3F0257EFE1A00F8E96E /* TabBarController.swift in Sources */,
+				821AE46825F66F9D00C60EAE /* VerifyNumberViewModel.swift in Sources */,
 				827354472588CEE800236797 /* SocialMedia.swift in Sources */,
 				8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
@@ -830,6 +853,7 @@
 				825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */,
 				82647AF925AE127A0091D104 /* CardManager.swift in Sources */,
 				825F1601257D64A900A3E103 /* VerifyNumberViewController.swift in Sources */,
+				821AE45C25F65E2300C60EAE /* SignupViewModel.swift in Sources */,
 				827853E925CC32B200652F9B /* Networking.swift in Sources */,
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,
 				8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */,
