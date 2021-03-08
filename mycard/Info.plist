@@ -39,10 +39,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>MyCrd app camera usage</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>MyCrd needs access to your photos</string>
 	<key>NSContactsUsageDescription</key>
 	<string>MyCrd needs access to your contacts to be able to export this contact</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MyCrd needs access to your photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Light.ttf</string>

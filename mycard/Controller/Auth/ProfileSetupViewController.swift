@@ -14,7 +14,7 @@ class ProfileSetupViewController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var fullNameTextField: UITextField!
 
-// MARK: - Variables
+// MARK: - Properties
     var profilePicUrl: String?
     let imagePicker = UIImagePickerController()
 

@@ -198,7 +198,7 @@ in store for you.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Lzh-RX-gxj" kind="presentation" id="AbL-eM-iox"/>
+                                    <segue destination="2we-T3-GYD" kind="presentation" id="I8U-XD-11f"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-zD-adm">
@@ -267,6 +267,9 @@ place</string>
             <point key="canvasLocation" x="750.72463768115949" y="85.714285714285708"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="I8U-XD-11f"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="MC card doodle" width="194" height="194"/>
         <image name="MC network doodle" width="276" height="268"/>

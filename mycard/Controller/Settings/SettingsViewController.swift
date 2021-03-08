@@ -9,14 +9,18 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-//MARK: - Outlets
+// MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var numberTextLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
 
-//MARK: - ViewController methods
+//MARK: - Properties
+    var profilePicUrl: String?
+    let imagePicker = UIImagePickerController()
+
+// MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         nameTextLabel.text = AuthService.username
@@ -50,8 +54,16 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-    
-//MARK: - Custom Methods
+
+    @IBAction func uploadImageButtonPressed(_ sender: Any){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true)
+        }
+    }
+    //MARK: - Custom Methods
     private func setRootViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let navController = storyboard
@@ -62,5 +74,39 @@ class SettingsViewController: UIViewController {
         }
         UIApplication.shared.windows.first?.rootViewController = navController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+}
+
+
+extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [
+                                UIImagePickerController.InfoKey: Any
+                                ]) {
+
+        dismiss(animated: true, completion: nil)
+        guard let image = info[.editedImage] as? UIImage else {return}
+
+        DispatchQueue.main.async {
+            self.avatarImage.image = image
+        }
+        self.showActivityIndicator()
+
+        DataStorageService.uploadImage(image: image, type: .profile) { (url, error) in
+            if let error = error {
+                self.removeActivityIndicator()
+                self.avatarImage.image = K.Images.profilePlaceholder
+                self.alert(title: "Image upload failed", message: error.localizedDescription)
+            } else {
+                let user = User(avatarImageUrl: url)
+                UserManager.auth.updateUser(with: user) { (error) in
+                    self.removeActivityIndicator()
+                    if let error = error {
+                        self.alert(title: "Image upload failed", message: error.localizedDescription)
+                    }
+                }
+            }
+        }
     }
 }

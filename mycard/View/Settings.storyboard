@@ -52,6 +52,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="uploadImageButtonPressed:" destination="phR-uh-jED" eventType="touchUpInside" id="r9m-sq-Dp8"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2U7-4T-hRc">
                                 <rect key="frame" x="16" y="204" width="382" height="44.5"/>

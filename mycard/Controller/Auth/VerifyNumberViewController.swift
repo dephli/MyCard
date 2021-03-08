@@ -95,7 +95,10 @@ class VerifyNumberViewController: UIViewController {
     }
 
     private func verifyPhoneNumberForRegularAuth() {
-        self.removeActivityIndicator()
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.removeActivityIndicator()
+        }
+
         let username = AuthService.username
         if username != nil
             && username?.trimmingCharacters(in: .whitespaces) != "" {

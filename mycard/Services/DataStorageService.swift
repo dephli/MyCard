@@ -16,6 +16,7 @@ class DataStorageService {
 
     enum UploadType {
         case profile
+        case network
         case companyLogo
         case other
     }
@@ -27,19 +28,19 @@ class DataStorageService {
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
         let storageReference = Storage.storage().reference()
-        let date = Date().timeIntervalSince1970
-
-        let random = Int.random(in: 10000000..<20000000)
 //        to generate unique id for image, use date + a random 8 digit number
         let imageRef: StorageReference?
 
         switch type {
         case .companyLogo:
-            imageRef = storageReference.child("images/companyLogos/\(date)\(random).jpg")
+            imageRef = storageReference.child("images/companyLogos/.jpg")
         case .profile:
-            imageRef = storageReference.child("images/profiles/\(date)\(random).jpg")
+            guard let uid = AuthService.uid else {return}
+            imageRef = storageReference.child("images/profiles/\(uid).jpg")
+        case .network:
+            imageRef = storageReference.child("images/myNetwork/")
         case .other:
-            imageRef = storageReference.child("images/images/\(date)\(random).jpg")
+            imageRef = storageReference.child("images/.jpg")
         }
 
         imageRef?.putData(data, metadata: metadata) { (_, error) in

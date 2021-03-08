@@ -26,7 +26,6 @@ class CardViewController: UIViewController {
 // MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
-        self.showActivityIndicator()
     }
 
     override func viewDidLoad() {
@@ -34,7 +33,7 @@ class CardViewController: UIViewController {
         cardTableView.isHidden = true
         emptyCardsView.isHidden = true
         getAllContacts()
-        self.dismissKey()
+        dismissKey()
         uiSetup()
         setupCardTableView()
     }
@@ -114,10 +113,13 @@ class CardViewController: UIViewController {
             return
         }
         FirestoreService.manager.getAllContacts(uid: uid) { (error) in
-            self.removeActivityIndicator()
+//            DispatchQueue.main.async {
+//                self.removeActivityIndicator()
+//            }
             if let error = error {
                 self.alert(title: "Unable to load cards", message: error.localizedDescription)
             }
+
             let contacts = CardManager.shared.createdContactCards
             self.contacts = contacts
             if contacts.isEmpty == true {
@@ -126,10 +128,10 @@ class CardViewController: UIViewController {
             } else {
                 self.emptyCardsView.isHidden = true
                 self.cardTableView.isHidden = false
-            }
+                DispatchQueue.main.async {
+                    self.cardTableView.reloadData()
+                }
 
-            DispatchQueue.main.async {
-                self.cardTableView.reloadData()
             }
         }
     }
