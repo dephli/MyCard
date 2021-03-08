@@ -205,7 +205,7 @@ class CardDetailsViewController: UIViewController {
 extension CardDetailsViewController {
 
     private func addContactToCardCreationmanager() {
-        let manager = CardManager.default
+        let manager = CardManager.shared
 
         manager.setContactType(type: .editContactCard)
         manager.setContact(with: contact ?? Contact(name: Name()))

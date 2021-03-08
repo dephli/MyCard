@@ -26,7 +26,7 @@ class WorkInfoViewController: UIViewController {
     var companyImage: UIImage?
     private var keyboardHeight: Float?
     private var contact: Contact? {
-        return CardManager.default.currentContact
+        return CardManager.shared.currentContact
     }
 
 // MARK: - ViewController methods
@@ -91,7 +91,7 @@ class WorkInfoViewController: UIViewController {
         businessInfo.companyAddress = workLocationTextField.text
         contact?.businessInfo = businessInfo
 
-        CardManager.default.setContact(with: contact!)
+        CardManager.shared.setContact(with: contact!)
 
     }
 

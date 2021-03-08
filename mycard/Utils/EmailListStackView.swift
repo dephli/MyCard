@@ -16,33 +16,53 @@ class EmailListStackView: UIStackView {
     func configure(with emails: [Email]) {
         let pickerView = UIPickerView()
 
+        self.axis = .vertical
         pickerView.delegate = self
         pickerView.dataSource = self
 
-                DispatchQueue.main.async {
-                    self.removeAllArrangedSubviews()
-                    for i in 0 ..< emails.count {
-                        self.spacing = 16
+        DispatchQueue.main.async {
+            self.removeAllArrangedSubviews()
+            for i in 0 ..< emails.count {
+                self.spacing = 16
 
-                        let stackView = UIStackView()
-                        stackView.translatesAutoresizingMaskIntoConstraints = false
-                        stackView.axis = .horizontal
-                        stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-                        stackView.spacing = 16
+                let stackView = UIStackView()
+                stackView.translatesAutoresizingMaskIntoConstraints = false
+                stackView.axis = .horizontal
+                stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+                stackView.spacing = 16
 
-                        let isHidden = emails.count > 1 ? false : true
+                let isHidden = emails.count > 1 ? false : true
 
-                        let textField = self.setupTextField(with: emails[i].address, at: i)
-                        let numberTypeTextfield = self.pickerTextfield(at: i, text: emails[i].type.rawValue.capitalized)
-                        numberTypeTextfield.inputView = pickerView
-                        let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
-                        stackView.addArrangedSubview(textField)
-                        stackView.addArrangedSubview(numberTypeTextfield)
-                        stackView.addArrangedSubview(minusButton)
-                        self.addArrangedSubview(stackView)
-                    }
-                }
+                let textField = self.setupTextField(with: emails[i].address, at: i)
+                let numberTypeTextfield = self.pickerTextfield(at: i, text: emails[i].type.rawValue.capitalized)
+                numberTypeTextfield.inputView = pickerView
+                let minusButton = self.setupMinusButton(at: i, isHidden: isHidden)
+                stackView.addArrangedSubview(textField)
+                stackView.addArrangedSubview(numberTypeTextfield)
+                stackView.addArrangedSubview(minusButton)
 
+                let outerStackView = UIStackView()
+                outerStackView.translatesAutoresizingMaskIntoConstraints = false
+                outerStackView.addArrangedSubview(stackView)
+                outerStackView.axis = .vertical
+                outerStackView.spacing = 8
+//                let label = self.createInvalidLabel()
+//                outerStackView.addArrangedSubview(label)
+
+                self.addArrangedSubview(outerStackView)
+            }
+        }
+    }
+
+    func createInvalidLabel() -> UILabel {
+        let label = UILabel()
+        DispatchQueue.main.async {
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.style(with: K.TextStyles.subTitleRed)
+            label.text = "Invalid email format"
+            label.textAlignment = .left
+        }
+        return label
     }
 
 }
@@ -52,7 +72,14 @@ extension EmailListStackView {
     @objc func textfieldDidChange(_ textfield: UITextField) {
         var list = EmailManager.manager.list.value
         list[textfield.tag].address = textfield.text!
-
+//        if textfield.text!.isValid(.email) {
+//            DispatchQueue.main.async {
+//                let view = self.arrangedSubviews[textfield.tag] as? UIStackView
+//                (view?.arrangedSubviews[1] as? UILabel)?.text = ""
+//                self.setNeedsLayout()
+//                self.layoutIfNeeded()
+//            }
+//        }
         EmailManager.manager.list.accept(list)
     }
 

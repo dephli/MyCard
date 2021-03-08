@@ -32,6 +32,7 @@ struct TextStyle {
         case black5
         case black40
         case black60
+        case red
     }
 
     enum Alignment {
@@ -79,7 +80,10 @@ extension TextStyle {
             baseColor = K.Colors.Black60!
         case .black40:
             baseColor = K.Colors.Black40!
+        case .red:
+            baseColor = K.Colors.Red!
         }
+        
 
         return baseColor.withAlphaComponent(opacity)
     }

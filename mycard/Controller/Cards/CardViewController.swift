@@ -88,7 +88,7 @@ class CardViewController: UIViewController {
     }
 
     @IBAction func createCardPressed(_ sender: Any) {
-        let manager = CardManager.default
+        let manager = CardManager.shared
         manager.setContactType(type: .createContactCard)
         manager.reset()
 
@@ -118,7 +118,7 @@ class CardViewController: UIViewController {
             if let error = error {
                 self.alert(title: "Unable to load cards", message: error.localizedDescription)
             }
-            let contacts = CardManager.default.createdContactCards
+            let contacts = CardManager.shared.createdContactCards
             self.contacts = contacts
             if contacts.isEmpty == true {
                 self.emptyCardsView.isHidden = false
@@ -138,7 +138,7 @@ class CardViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         let label = UILabel()
         label.style(with: K.TextStyles.heading1)
-        label.text = "Cards"
+        label.text = "My Network"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
 
     }

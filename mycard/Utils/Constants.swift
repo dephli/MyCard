@@ -31,6 +31,7 @@ struct K {
         static let mcYellow = "MC Yellow"
         static let mcGreen = "MC Green"
         static let mcWine = "MC Wine"
+        static let mcRed = "MC Red"
     }
 
     struct Colors {
@@ -44,6 +45,7 @@ struct K {
         static let Yellow = UIColor(named: ColorString.mcYellow)
         static let Green = UIColor(named: ColorString.mcGreen)
         static let Wine = UIColor(named: ColorString.mcWine)
+        static let Red = UIColor(named: ColorString.mcRed)
 
     }
 
@@ -145,6 +147,12 @@ struct K {
         static let captionWhite = TextStyle(
             style: .normal,
             color: .white,
+            emphasis: .regular,
+            alignment: .center,
+            lineSpacing: 1.2)
+        static let subTitleRed = TextStyle(
+            style: .small,
+            color: .red,
             emphasis: .regular,
             alignment: .center,
             lineSpacing: 1.2)

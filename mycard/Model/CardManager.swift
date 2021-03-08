@@ -11,7 +11,7 @@ import RxCocoa
 class CardManager {
     private init () {}
 
-    static let `default` = CardManager()
+    static let shared = CardManager()
 
     private let contact: BehaviorRelay<Contact> =
         BehaviorRelay(value: Contact(name: Name()))

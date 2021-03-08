@@ -72,7 +72,7 @@ class FirestoreService {
                 return try! document.data(as: Contact.self)!
             }
 
-            CardManager.default.setContactCards(with: contacts)
+            CardManager.shared.setContactCards(with: contacts)
             onActionComplete(nil)
         }
     }

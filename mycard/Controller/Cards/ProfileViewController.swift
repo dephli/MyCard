@@ -91,12 +91,13 @@ class ProfileViewController: UIViewController {
 
     }
 
+
 // MARK: - Actions
     @IBAction func editPressed(_ sender: Any) {
         let contact = self.personalCards![self.currentVisibleCard]
-        CardManager.default.setContactType(type: .editPersonalCard)
+        CardManager.shared.setContactType(type: .editPersonalCard)
 
-        CardManager.default.setContact(with: contact)
+        CardManager.shared.setContact(with: contact)
         SocialMediaManger.manager.list.accept( contact.socialMediaProfiles ?? [])
         if let phoneNumbers = contact.phoneNumbers {
             PhoneNumberManager.manager.list.accept(phoneNumbers)
@@ -112,7 +113,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func createCardPressed(_ sender: Any) {
-        let manager = CardManager.default
+        let manager = CardManager.shared
         manager.reset()
         manager.cleanContact()
         manager.setContactType(type: .createPersonalCard)

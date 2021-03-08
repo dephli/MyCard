@@ -10,7 +10,6 @@ import UIKit
 class ChangePhoneNumberViewController: UIViewController {
 
 // MARK: - Outlets
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
@@ -21,10 +20,7 @@ class ChangePhoneNumberViewController: UIViewController {
         titleLabel.style(with: K.TextStyles.heading1)
         titleLabel.textAlignment = .center
         subtitleLabel.style(with: K.TextStyles.subTitle)
-        navBar.shadowImage = UIImage()
         phoneNumberLabel.text = AuthService.phoneNumber
-
-        // Do any additional setup after loading the view.
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,10 +29,6 @@ class ChangePhoneNumberViewController: UIViewController {
     }
 
 // MARK: - Actions
-    @IBAction func backButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-
     @IBAction func nextButtonPressed(_ sender: Any) {
         self.showActivityIndicator()
         guard let phoneNumber = AuthService.phoneNumber else {

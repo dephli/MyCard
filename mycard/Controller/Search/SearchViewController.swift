@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
 
 //MARK: - Properties
     private var contacts: [Contact] {
-        return CardManager.default.createdContactCards
+        return CardManager.shared.createdContactCards
     }
     private var filteredContacts: [Contact] = []
     private let searchController = UISearchController(searchResultsController: nil)

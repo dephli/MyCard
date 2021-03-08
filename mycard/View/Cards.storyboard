@@ -58,11 +58,11 @@
             </objects>
             <point key="canvasLocation" x="3711" y="551"/>
         </scene>
-        <!--Cards-->
+        <!--My Network-->
         <scene sceneID="EY0-OY-BMQ">
             <objects>
                 <navigationController modalTransitionStyle="crossDissolve" id="JbX-bx-uTx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cards" image="cards" id="wYL-gP-zET">
+                    <tabBarItem key="tabBarItem" title="My Network" image="cards - stacked" id="wYL-gP-zET">
                         <color key="badgeColor" name="MC White"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="amO-cY-a4o" customClass="CustomNavigationBar" customModule="mycard" customModuleProvider="target">
@@ -187,22 +187,22 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nci-zl-Ves">
-                                        <rect key="frame" x="27.5" y="122" width="265.5" height="231"/>
+                                        <rect key="frame" x="36" y="123" width="248.5" height="229.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty cards doodle" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-qr-GG9">
-                                                <rect key="frame" x="0.0" y="0.0" width="265.5" height="168"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="248.5" height="168"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-Yr-Dhf">
-                                                <rect key="frame" x="0.0" y="184" width="265.5" height="47"/>
+                                                <rect key="frame" x="0.0" y="184" width="248.5" height="45.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s get something going here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-gp-pEm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265.5" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="248.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                                                         <color key="textColor" name="MC Black 40"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start adding some cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05x-Fr-JhA">
-                                                        <rect key="frame" x="51" y="30" width="163" height="17"/>
+                                                        <rect key="frame" x="47" y="29" width="154.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                         <color key="textColor" name="MC Black 40"/>
                                                         <nil key="highlightedColor"/>
@@ -236,11 +236,6 @@
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="iV7-xB-5hJ"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="uYd-Ub-S6q"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Mig-5N-Egc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="m0U-ej-1un"/>
                     <connections>
@@ -355,6 +350,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oJB-df-qm5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="MC White"/>
                     </navigationBar>
                     <connections>
                         <segue destination="44q-Dm-qKS" kind="relationship" relationship="rootViewController" id="qkh-OC-cDu"/>
@@ -373,7 +369,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juk-Yi-jJX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="455"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMT-Jv-Pkb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
@@ -655,7 +651,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f0k-sa-4tZ"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="avatarImageView" destination="tEb-sQ-QFO" id="qN2-Fy-M8p"/>
                         <outlet property="cardCountLabel" destination="nhc-5M-RrA" id="dIe-sx-XvH"/>
@@ -678,12 +673,12 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ki3-ol-g6J"/>
-        <segue reference="dSc-nj-7MS"/>
+        <segue reference="gNo-tn-aAd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add card" width="24" height="24"/>
         <image name="business-card-alt" width="150" height="150"/>
-        <image name="cards" width="20" height="16"/>
+        <image name="cards - stacked" width="24" height="24"/>
         <image name="empty cards doodle" width="168" height="168"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="no result found" width="218" height="76"/>

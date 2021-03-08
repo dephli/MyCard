@@ -27,9 +27,9 @@ class ConfirmDetailsViewController: UIViewController {
 // MARK: - Variables
     var cardImage: UIImage?
     private var contact: Contact? {
-        return CardManager.default.currentContact
+        return CardManager.shared.currentContact
     }
-    private let contactType = CardManager.default.currentContactType
+    private let contactType = CardManager.shared.currentContactType
     private var isOpen = false
 
 // MARK: - Viewcontroller methods
@@ -59,7 +59,7 @@ class ConfirmDetailsViewController: UIViewController {
 
     @IBAction func createCardButtonPressed(_ sender: Any) {
         self.showActivityIndicator()
-        var contact = CardManager.default.currentContact
+        var contact = CardManager.shared.currentContact
 
         contact.note = noteTextField.text
 
@@ -153,7 +153,7 @@ class ConfirmDetailsViewController: UIViewController {
                 self.alert(title: "Could not create card", message: error.localizedDescription)
             } else {
                 self.removeActivityIndicator()
-                CardManager.default.reset()
+                CardManager.shared.reset()
 
                 self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
             }
@@ -167,7 +167,7 @@ class ConfirmDetailsViewController: UIViewController {
                 self.alert(title: "Could not create card", message: error.localizedDescription)
             } else {
                 self.removeActivityIndicator()
-                CardManager.default.reset()
+                CardManager.shared.reset()
                 self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
             }
         }
@@ -179,7 +179,7 @@ class ConfirmDetailsViewController: UIViewController {
                 self.alert(title: "Could not edit card", message: error.localizedDescription)
             } else {
                 self.removeActivityIndicator()
-                CardManager.default.reset()
+                CardManager.shared.reset()
                 let rootViewController = self.view.window?.rootViewController
 
                 rootViewController?.dismiss(animated: true)
@@ -193,7 +193,7 @@ class ConfirmDetailsViewController: UIViewController {
                 self.alert(title: "Could not edit card", message: error.localizedDescription)
             } else {
                 self.removeActivityIndicator()
-                CardManager.default.reset()
+                CardManager.shared.reset()
                 let rootViewController = self.view.window?.rootViewController
                 rootViewController?.dismiss(animated: true, completion: nil)
 
