@@ -30,17 +30,22 @@ class DataStorageService {
         let storageReference = Storage.storage().reference()
 //        to generate unique id for image, use date + a random 8 digit number
         let imageRef: StorageReference?
+        
+        let date = Date().timeIntervalSince1970
 
+//        let random = Int.random(in: 10000000..<20000000)
+//        to generate unique id for image, use date + a random 8 digit number
+        guard let uid = AuthService.uid else {return}
         switch type {
         case .companyLogo:
-            imageRef = storageReference.child("images/companyLogos/.jpg")
+            imageRef = storageReference.child("images/companyLogos/\(uid)\(date).jpg")
         case .profile:
-            guard let uid = AuthService.uid else {return}
+
             imageRef = storageReference.child("images/profiles/\(uid).jpg")
         case .network:
-            imageRef = storageReference.child("images/myNetwork/")
+            imageRef = storageReference.child("images/profiles/\(uid)\(date).jpg")
         case .other:
-            imageRef = storageReference.child("images/.jpg")
+            imageRef = storageReference.child("images/\(uid)\(date).jpg")
         }
 
         imageRef?.putData(data, metadata: metadata) { (_, error) in

@@ -351,7 +351,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
             self.avatarImageView.image = image
         }
 
-        DataStorageService.uploadImage(image: image, type: .profile) { (url, error) in
+        DataStorageService.uploadImage(image: image, type: .network) { (url, error) in
             if let error = error {
                 self.alert(title: "Image upload failed", message: error.localizedDescription)
 
