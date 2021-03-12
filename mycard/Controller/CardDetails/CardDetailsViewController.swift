@@ -22,52 +22,99 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var locationButtonLabel: UILabel!
     @IBOutlet weak var cardViewFaceIndicator1: UIView!
     @IBOutlet weak var cardViewFaceIndicator2: UIView!
-    @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardRoleLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var noteTextField: UITextField!
+    @IBOutlet weak var noteTextField: UILabel!
     @IBOutlet weak var contactSummaryView: UIView!
+    @IBOutlet weak var noteView: UIView!
 
 // MARK: - Variables
     private let imageView = UIImageView()
     private var isOpen = false
     private var notepoint: CGPoint?
-    var contact: Contact?
     var contactImage: UIImage?
+    var viewModel: CardDetailsViewModel!
 
 // MARK: - Viewcontroller methods
+    override func viewWillAppear(_ animated: Bool) {
+        populateViewsWithData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.bindError = handleError
+        viewModel.bindTriggerEmailList = emailActionTriggered
+        viewModel.bindTriggerPhoneNumberList = phoneNumberActionTriggered
+        viewModel.bindCardDeleted = handleCardDeleted
         setupUI()
-        populateViewsWithData()
         self.dismissKey()
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleCardDrag))
-        cardView.addGestureRecognizer(gesture)
         detailsStackViewHeightConstraint.isActive = false
-        detailsStackView.configure(contact: contact)
-        setupContactDetails()
-        noteTextField.text = contact?.note
-        noteTextField.isEnabled = false
+        detailsStackView.configure(contact: viewModel.contact)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(notesViewTapped))
+        noteView.addGestureRecognizer(tapGestureRecognizer)
 
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(UIResponder.keyboardWillShowNotification)
-        NotificationCenter.default.removeObserver(UIResponder.keyboardWillHideNotification)
-        NotificationCenter.default.removeObserver(UIResponder.keyboardWillChangeFrameNotification)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is QRCodeViewController {
-            let cnContact = createContact()
+            let cnContact = viewModel.createCNContact()
             let vc = segue.destination as? QRCodeViewController
             vc!.cnContact = cnContact
-            vc!.contact = contact
+            vc!.contact = viewModel.contact
+        } else if segue.destination is NotesViewController {
+            let vc = segue.destination as! NotesViewController
+            vc.presentationController?.delegate = self
+            vc.viewModel = NotesViewModel()
         }
     }
 
-// MARK: - Methods
+// MARK: - Actions
+    @IBAction func phoneButtonPressed(_ sender: UIButton) {
+        viewModel.phoneAction()
+    }
+
+    @IBAction func mailButtonPressed(_ sender: UIButton) {
+        viewModel.mailAction()
+    }
+
+    func emailActionTriggered(emailAddresses: [Email]) {
+        let alertController = UIAlertController(title: "Select Email", message: "", preferredStyle: .actionSheet)
+
+        alertController.view.tintColor = .black
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+       emailAddresses.forEach {[self] (email: Email) in
+             let action = UIAlertAction(title: email.address, style: .default) { _ in
+                viewModel.openEmail(emailAddress: email.address)
+            }
+            alertController.addAction(action)
+        }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func phoneNumberActionTriggered(numbers: [PhoneNumber]) {
+        let alertController = UIAlertController(
+            title: "",
+            message: "",
+            preferredStyle: .actionSheet
+        )
+        alertController.view.tintColor = .black
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+       numbers.forEach { (phoneNumber: PhoneNumber) in
+        let action = UIAlertAction(title: phoneNumber.number, style: .default) { _ in
+                self.viewModel.callNumber(number: phoneNumber.number!)
+            }
+            alertController.addAction(action)
+        }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    // MARK: - Methods
 
     private func setupUI() {
         let share = UIBarButtonItem(
@@ -84,110 +131,43 @@ class CardDetailsViewController: UIViewController {
             action: #selector(moreButtonPressed))
         more.tintColor = .black
 
-        navigationItem.rightBarButtonItems = [more, share]
+        navigationItem.rightBarButtonItems = [more]
 
         let randomColor = UIColor.random
         nameInitialsView.backgroundColor = randomColor
         nameInitialsView.alpha = 0.1
         nameInitialsLabel.textColor = randomColor
-        noteTextField.delegate = self
 
         phoneButtonLabel.style(with: K.TextStyles.captionBlack60)
         mailButtonLabel.style(with: K.TextStyles.captionBlack60)
         locationButtonLabel.style(with: K.TextStyles.captionBlack60)
-
-        noteLabel.style(with: K.TextStyles.captionBlack60)
-
-        noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
-        noteTextField.attributedPlaceholder = NSAttributedString(
-            string: noteTextField.placeholder!,
-            attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor(cgColor: K.Colors.Blue!.cgColor)
-            ]
-        )
-
-        imageView.loadThumbnail(urlSting: contact?.businessInfo?.companyLogo ?? "")
-    }
-
-    private func setupContactDetails() {
-        if contact?.name != nil {
-            let firstName = contact?.name.firstName
-            let lastName = contact?.name.lastName
-            if firstName?.isEmpty == false && lastName?.isEmpty == false {
-                nameInitialsLabel.text = "\(contact!.name.firstName!.prefix(1))\(contact!.name.lastName!.prefix(1))"
-            } else if firstName?.isEmpty == false && lastName?.isEmpty == true {
-                nameInitialsLabel.text = "\(contact!.name.firstName!.prefix(2))"
-            } else if firstName?.isEmpty == true && lastName?.isEmpty == false {
-                nameInitialsLabel.text = "\(contact!.name.lastName!.prefix(2))"
-            }
-
-        }
+        imageView.loadThumbnail(urlSting: viewModel.contact.businessInfo?.companyLogo ?? "")
     }
 
     private func populateViewsWithData() {
-        cardNameLabel.text = contact?.name.fullName
-        cardRoleLabel.text = contact?.businessInfo?.role
-
+        cardNameLabel.text = viewModel.fullName
+        cardRoleLabel.text = viewModel.role
+        noteTextField.text = viewModel.note
+        noteTextField.textColor = viewModel.noteTextColor
+        nameInitialsLabel.text = viewModel.nameInitials
     }
 
-    @objc private func handleCardDrag() {
-        DispatchQueue.main.async { [self] in
-            if isOpen {
-                isOpen.toggle()
-                cardView.addSubview(contactSummaryView)
-                UIView.transition(
-                    with: cardView,
-                    duration: 0.3,
-                    options: .transitionFlipFromBottom,
-                    animations: nil,
-                    completion: nil)
-                cardViewFaceIndicator1.backgroundColor = K.Colors.Black
-                cardViewFaceIndicator2.backgroundColor = K.Colors.Black10
+    @objc private func notesViewTapped() {
+        CardManager.shared.setContactType(type: .editContactCard)
+        CardManager.shared.setContact(with: viewModel.contact)
+        performSegue(withIdentifier: K.Segues.cardDetailsToNotes, sender: self)
+    }
 
-            } else {
-
-                isOpen.toggle()
-                cardViewFaceIndicator2.backgroundColor = K.Colors.Black
-                cardViewFaceIndicator1.backgroundColor = K.Colors.Black10
-
-                imageView.layer.cornerRadius = 8
-                imageView.contentMode = .scaleAspectFill
-                imageView.clipsToBounds = true
-
-                cardView.addSubview(imageView)
-                imageView.translatesAutoresizingMaskIntoConstraints = false
-                imageView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 0).isActive = true
-                imageView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 0).isActive = true
-                imageView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0).isActive = true
-                imageView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0).isActive = true
-
-                UIView.transition(
-                    with: cardView,
-                    duration: 0.3,
-                    options: .transitionFlipFromBottom,
-                    animations: nil)
-
-            }
-        }
+    func handleError(error: Error) {
+        alert(title: "Oops", message: error.localizedDescription)
     }
 
     private func confirmDeletion() {
         let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { [self] (_) in
             self.showActivityIndicator()
-            FirestoreService.manager.deleteContactCard(contact: contact!) { (error) in
-                self.removeActivityIndicator()
-
-                if let error = error {
-                    self.alert(title: "Error", message: error.localizedDescription)
-                } else {
-                    self.dismiss(animated: true, completion: nil)
-                }
-
-            }
+            viewModel.deleteCard()
         }
-
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-
         let alertController = UIAlertController(
             title: "Delete Card",
             message: "Are you sure you want to delete this card?",
@@ -199,46 +179,50 @@ class CardDetailsViewController: UIViewController {
         alertController.view.tintColor = .black
     }
 
+    private func handleCardDeleted() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+
 }
 
 // MARK: - ActionSheet Actions
 extension CardDetailsViewController {
 
-    private func addContactToCardCreationmanager() {
-        let manager = CardManager.shared
-
-        manager.setContactType(type: .editContactCard)
-        manager.setContact(with: contact ?? Contact(name: Name()))
-        SocialMediaManger.manager.list.accept( contact?.socialMediaProfiles ?? [])
-        if let phoneNumbers = contact?.phoneNumbers {
-            PhoneNumberManager.manager.list.accept(phoneNumbers)
-        }
-        if let emails = contact?.emailAddresses {
-            EmailManager.manager.list.accept(emails)
-        }
-    }
+//    private func addContactToCardCreationmanager() {
+//        let manager = CardManager.shared
+//
+//        manager.setContactType(type: .editContactCard)
+//        manager.setContact(with: contact ?? Contact(name: Name()))
+//        SocialMediaManger.manager.list.accept( contact?.socialMediaProfiles ?? [])
+//        if let phoneNumbers = contact?.phoneNumbers {
+//            PhoneNumberManager.manager.list.accept(phoneNumbers)
+//        }
+//        if let emails = contact?.emailAddresses {
+//            EmailManager.manager.list.accept(emails)
+//        }
+//    }
 
     @objc private func shareButtonPressed() {
-        let cnContact = createContact()
+        let cnContact = viewModel.createCNContact()
 
         let fileManager = FileManager.default
         do {
-
-            let cacheDirectory = try? fileManager
+            let cacheDirectory = try fileManager
                 .url(
                     for: .cachesDirectory,
                     in: .userDomainMask,
                     appropriateFor: nil,
                     create: true)
 
-            let fileLocation = cacheDirectory?
-                .appendingPathComponent("\(CNContactFormatter().string(from: cnContact)!)").appendingPathExtension("vcf")
+            let fileLocation = cacheDirectory
+                .appendingPathComponent("\(CNContactFormatter().string(from: cnContact)!)")
+                .appendingPathExtension("vcf")
 
             let contactData = try CNContactVCardSerialization.data(with: [cnContact])
 
-            try contactData.write(to: (fileLocation?.absoluteURL)!, options: .atomicWrite)
+            try contactData.write(to: (fileLocation.absoluteURL), options: .atomicWrite)
 
-            let activityVc = UIActivityViewController(activityItems: [fileLocation!], applicationActivities: nil)
+            let activityVc = UIActivityViewController(activityItems: [fileLocation], applicationActivities: nil)
 
             present(activityVc, animated: true, completion: nil)
             self.modalPresentationStyle = .fullScreen
@@ -250,10 +234,9 @@ extension CardDetailsViewController {
     @objc private func moreButtonPressed() {
 //        Edit action
         var image = K.Images.edit
-
         let editAction = UIAlertAction(
             title: "Edit Card", style: .default) { [self] (_) in
-            addContactToCardCreationmanager()
+            viewModel!.addContactToCardManager()
             self.performSegue(withIdentifier: K.Segues.cardDetailsToPersonalInfo, sender: self)
         }
         editAction.setValue(image, forKey: "image")
@@ -261,11 +244,9 @@ extension CardDetailsViewController {
 
 //        Export to contacts action
         image = K.Images.contacts
-
         let addToContactsAction = UIAlertAction(
-            title: "Add to contacts", style: .default) { [self] (_) in
-            addToContacts()
-
+            title: "Export to Contacts", style: .default) { [self] (_) in
+            exportToContacts()
         }
         addToContactsAction.setValue(image, forKey: "image")
         addToContactsAction.setValue(0, forKey: "titleTextAlignment")
@@ -289,122 +270,40 @@ extension CardDetailsViewController {
         deleteAction.setValue(image, forKey: "image")
         deleteAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
 
+//        Cancel Action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
 
-        let alert = UIAlertController(title: nil, message: nil,
+        let alertController = UIAlertController(title: nil, message: nil,
               preferredStyle: .actionSheet)
-        let actions = [editAction, addToContactsAction, generateQRAction, deleteAction, cancelAction]
+        alertController.view.tintColor = .black
+        let actions = [editAction, addToContactsAction, deleteAction, cancelAction]
 
-        for action in actions { alert.addAction(action)}
-
-        self.present(alert, animated: true, completion: nil)
-        alert.view.tintColor = .black
-
+        for action in actions { alertController.addAction(action)}
+        self.present(alertController, animated: true, completion: nil)
     }
 
-    private func filteredPhoneNumbers(_ phoneContact: CNMutableContact) {
-        //        filter contact
-        if let phoneNumbers = contact?.phoneNumbers {
-
-            let phoneNumberMap = phoneNumbers.filter({ (phoneNumber) -> Bool in
-                return phoneNumber.number != ""
-            })
-            .map { (phoneNumber) -> CNLabeledValue<CNPhoneNumber> in
-                var contactPhoneNumber: Any?
-
-                if phoneNumber.type == .Home {
-                    contactPhoneNumber = CNLabeledValue(
-                        label: CNLabelHome,
-                        value: CNPhoneNumber(stringValue: phoneNumber.number ?? ""))
-                } else if phoneNumber.type == .Mobile {
-                    contactPhoneNumber = CNLabeledValue(
-                        label: CNLabelPhoneNumberMobile,
-                        value: CNPhoneNumber(stringValue: phoneNumber.number ?? ""))
-                } else if phoneNumber.type == .Work {
-                    contactPhoneNumber = CNLabeledValue(
-                        label: CNLabelWork,
-                        value: CNPhoneNumber(stringValue: phoneNumber.number ?? ""))
-                } else if phoneNumber.type == .Other {
-                    contactPhoneNumber = CNLabeledValue(
-                        label: CNLabelOther,
-                        value: CNPhoneNumber(stringValue: phoneNumber.number ?? ""))
-                }
-
-                return contactPhoneNumber as! CNLabeledValue<CNPhoneNumber>
-            }
-            if !phoneNumberMap.isEmpty {
-                phoneContact.phoneNumbers = phoneNumberMap
-            }
-        }
-    }
-
-    private func filteredEmails(_ phoneContact: CNMutableContact) {
-        //        filter emails
-        if let emails = contact?.emailAddresses {
-            let emailMap = emails.map { (email) -> CNLabeledValue<NSString> in
-                var contactEmail: Any?
-                if email.type == .Work {
-                    contactEmail = CNLabeledValue(label: CNLabelWork, value: email.address as NSString)
-                } else if email.type == .Personal {
-                    contactEmail = CNLabeledValue(label: CNLabelHome, value: email.address as NSString)
-                } else if email.type == .Other {
-                    contactEmail = CNLabeledValue(label: CNLabelOther, value: email.address as NSString)
-                }
-                return contactEmail as! CNLabeledValue<NSString>
-            }
-
-            phoneContact.emailAddresses = emailMap
-        }
-    }
-
-    private func createContact () -> CNMutableContact {
-        let phoneContact = CNMutableContact()
-//        CNContactVCardSerialization.data
-
-        phoneContact.familyName = contact?.name.lastName ?? ""
-        phoneContact.givenName = contact?.name.firstName ?? ""
-        phoneContact.jobTitle = contact?.businessInfo?.role ?? ""
-        phoneContact.note = contact?.note ?? ""
-        phoneContact.organizationName = contact?.businessInfo?.companyName ?? ""
-        phoneContact.note = contact?.note ?? ""
-
-        if let image = contactImage {
-            let imageData = image.jpegData(compressionQuality: 0.5)
-            phoneContact.imageData = imageData
-
-        }
-
-        filteredEmails(phoneContact)
-
-        filteredPhoneNumbers(phoneContact)
-
-        return phoneContact
-    }
-
-    private func addToContacts() {
+    private func exportToContacts() {
         let store = CNContactStore()
 
-        let phoneContact = createContact()
-
-        let saveRequest = CNSaveRequest()
-        saveRequest.add(phoneContact, toContainerWithIdentifier: nil)
-        do {
-            try store.execute(saveRequest)
-            self.alert(title: "Success", message: "Exported to contact successfully")
-
-        } catch {
-            self.alert(title: "Export failed", message: error.localizedDescription)
-        }
+        let phoneContact = viewModel.createCNContact()
+        let contactVc = CNContactViewController(forUnknownContact: phoneContact)
+        contactVc.contactStore = store
+        contactVc.delegate = self
+        contactVc.allowsActions = false
+        hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(contactVc, animated: true)
+        hidesBottomBarWhenPushed = false
     }
 }
 
-// MARK: - Textfield delegate
-extension CardDetailsViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        noteTextField.bottomBorder(color: K.Colors.Blue!, width: 1)
+extension CardDetailsViewController: CNContactViewControllerDelegate {
+    func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
+        navigationController?.popViewController(animated: true)
     }
+}
 
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        noteTextField.bottomBorder(color: K.Colors.White!, width: 1)
+extension CardDetailsViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        viewWillAppear(true)
     }
 }

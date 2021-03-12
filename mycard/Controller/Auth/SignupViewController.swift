@@ -100,7 +100,7 @@ class SignupViewController: UIViewController {
         self.removeActivityIndicator()
         self.alert(title: "Error", message: error.localizedDescription)
     }
-    
+
     private func handleSuccess() {
         self.removeActivityIndicator()
         self.performSegue(withIdentifier: K.Segues.signupToVerifyNumber, sender: self)

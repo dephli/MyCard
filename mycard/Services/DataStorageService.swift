@@ -30,7 +30,7 @@ class DataStorageService {
         let storageReference = Storage.storage().reference()
 //        to generate unique id for image, use date + a random 8 digit number
         let imageRef: StorageReference?
-        
+
         let date = Date().timeIntervalSince1970
 
 //        let random = Int.random(in: 10000000..<20000000)

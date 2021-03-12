@@ -11,7 +11,7 @@ import FirebaseFirestore
 class FirestoreService {
 
     let db = Firestore.firestore()
-    static var manager = FirestoreService()
+    static var shared = FirestoreService()
 
     private init() {}
 

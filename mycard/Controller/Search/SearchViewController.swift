@@ -9,11 +9,11 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-//MARK: - Outlets
+// MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emtpySearchView: UIView!
 
-//MARK: - Properties
+// MARK: - Properties
     private var contacts: [Contact] {
         return CardManager.shared.createdContactCards
     }
@@ -27,8 +27,8 @@ class SearchViewController: UIViewController {
 
         return searchController.isActive && (!isSearchBarEmpty || searchBarScopeISFiltering)
     }
-    
-//MARK: - ViewController methods
+
+// MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
         emtpySearchView.isHidden = true
@@ -46,11 +46,13 @@ class SearchViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailsViewController {
-            destination.contact = contacts[(tableView.indexPathForSelectedRow?.row)!]
+            let contact = contacts[(tableView.indexPathForSelectedRow?.row)!]
+            destination.viewModel = CardDetailsViewModel(contact: contact)
+            CardManager.shared.setContact(with: contact)
         }
     }
 
-//MARK: - Custom Methods
+// MARK: - Custom Methods
     private func setupSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -147,7 +149,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - Search bar delegate
+// MARK: - Search bar delegate
 extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar

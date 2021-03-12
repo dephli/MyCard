@@ -134,6 +134,10 @@ class PersonalInfoViewController: UIViewController,
         if segue.identifier == K.Segues.personalInfoToSocialMedia {
             self.removeKeyboardObservers()
             segue.destination.presentationController?.delegate = self
+        } else {
+            if let vc = segue.destination as? WorkInfoViewController {
+                vc.viewModel = WorkInfoViewModel()
+            }
         }
     }
 

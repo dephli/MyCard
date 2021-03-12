@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
         tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
 
-        FirestoreService.manager.getPersonalCards {(error, cards) in
+        FirestoreService.shared.getPersonalCards {(error, cards) in
             self.removeActivityIndicator()
             if let error = error {
                 self.alert(title: "Error Fetching Personal Cards", message: error.localizedDescription)
@@ -91,7 +91,6 @@ class ProfileViewController: UIViewController {
 
     }
 
-
 // MARK: - Actions
     @IBAction func editPressed(_ sender: Any) {
         let contact = self.personalCards![self.currentVisibleCard]
@@ -126,7 +125,7 @@ class ProfileViewController: UIViewController {
 
         let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { [self] (_) in
             self.showActivityIndicator()
-            FirestoreService.manager.deletePersonalCard(contact: contact) { (error) in
+            FirestoreService.shared.deletePersonalCard(contact: contact) { (error) in
                 self.removeActivityIndicator()
                 if let error = error {
                     self.alert(title: "Error", message: error.localizedDescription)
@@ -230,5 +229,3 @@ extension ProfileViewController: UICollectionViewDelegate,
         }
     }
 }
-
-

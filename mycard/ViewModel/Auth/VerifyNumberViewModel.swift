@@ -8,12 +8,12 @@
 import Foundation
 
 class VerifyNumberViewModel: NSObject {
-    
+
     var bindErrorObject: ((Error) -> Void)?
     var bindVerifyRegularAuth: (() -> Void)?
     var bindVerifyPreNumberChange: (() -> Void)?
     var bindVerifyPhoneNumberChange: (() -> Void)?
-    
+
     func submitCode(with code: String, type: AuthFlowType) {
         switch type {
         case .authentication:
@@ -24,7 +24,7 @@ class VerifyNumberViewModel: NSObject {
             verifyNumberChange(code)
         }
     }
-    
+
     private func verifyNumberChange(_ code: String) {
         UserManager.auth.updatePhoneNumber(verificationCode: code) { [self](error) in
             if let error = error {
@@ -45,7 +45,7 @@ class VerifyNumberViewModel: NSObject {
             }
         }
     }
-    
+
     private func verifyPreNumberChange(_ code: String) {
         UserManager.auth.submitCode(with: code) {[self] (error) in
             if let error = error {

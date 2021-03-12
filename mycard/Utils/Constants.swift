@@ -179,6 +179,8 @@ struct K {
         static let cardDetailsToPersonalInfo = "CardDetailsToPersonalInfo"
         static let cardDetailsToQR = "CardDetailsToQR"
         static let searchToCardDetails = "SearchToCardDetails"
+        static let confirmDetailsToNotes = "ConfirmDetailsToNotes"
+        static let cardDetailsToNotes = "CardDetailsToNotes"
     }
 
     struct Notifications {

@@ -47,7 +47,9 @@ class CardViewController: UIViewController {
             if let image = cell.avatarImageView.image {
                 destination.contactImage = image
             }
-            destination.contact = contacts[indexPath.row]
+            let contact = contacts[indexPath.row]
+            CardManager.shared.setContact(with: contact)
+            destination.viewModel = CardDetailsViewModel(contact: contact)
         }
     }
 
@@ -112,10 +114,7 @@ class CardViewController: UIViewController {
             self.alert(title: "Error", message: "Inactive user. login again")
             return
         }
-        FirestoreService.manager.getAllContacts(uid: uid) { (error) in
-//            DispatchQueue.main.async {
-//                self.removeActivityIndicator()
-//            }
+        FirestoreService.shared.getAllContacts(uid: uid) { (error) in
             if let error = error {
                 self.alert(title: "Unable to load cards", message: error.localizedDescription)
             }

@@ -83,7 +83,6 @@ extension TextStyle {
         case .red:
             baseColor = K.Colors.Red!
         }
-        
 
         return baseColor.withAlphaComponent(opacity)
     }
