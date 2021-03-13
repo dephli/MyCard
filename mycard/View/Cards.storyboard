@@ -427,13 +427,13 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2J-4L-cAx">
-                                                        <rect key="frame" x="16" y="60" width="110.5" height="28"/>
+                                                        <rect key="frame" x="16" y="60" width="116" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
                                                         <color key="textColor" name="MC Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgx-xY-Kta">
-                                                        <rect key="frame" x="16" y="92" width="40" height="14"/>
+                                                        <rect key="frame" x="16" y="93.5" width="42.5" height="15"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                                         <color key="textColor" name="MC Black 60"/>
                                                         <nil key="highlightedColor"/>
@@ -652,11 +652,11 @@
                         <outlet property="contactDetailsStackView" destination="eti-tB-b63" id="j9O-3x-Kqp"/>
                         <outlet property="contentView" destination="Juk-Yi-jJX" id="HUE-Qh-ZHC"/>
                         <outlet property="emptyCardsVIew" destination="piI-3y-Tur" id="jbB-xl-hoI"/>
-                        <outlet property="headerStackView" destination="MiD-Mr-VyH" id="S6W-rg-gI1"/>
+                        <outlet property="headerStackView" destination="asi-ue-5gP" id="hCr-Fd-7Ro"/>
                         <outlet property="nameLabel" destination="l2J-4L-cAx" id="RKg-QE-8hv"/>
                         <outlet property="profileCardCollectionView" destination="SEY-0d-IsE" id="tG8-gq-Pls"/>
                         <outlet property="scrollView" destination="Juk-Yi-jJX" id="lvG-vP-dca"/>
-                        <outlet property="topView" destination="asi-ue-5gP" id="GB6-0p-av8"/>
+                        <outlet property="topView" destination="8XX-cQ-SmM" id="z7c-6Y-xPL"/>
                         <segue destination="3cY-qt-pzE" kind="presentation" identifier="ProfileToCreateCard" id="qr0-sv-zZB"/>
                         <segue destination="6vB-V6-8fP" kind="show" identifier="ProfileToSettings" id="xV8-H2-3C1"/>
                     </connections>
