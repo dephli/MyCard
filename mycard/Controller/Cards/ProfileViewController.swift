@@ -11,17 +11,14 @@ import MSPeekCollectionViewDelegateImplementation
 class ProfileViewController: UIViewController {
 
 // MARK: - Outlets
-    @IBOutlet weak var nameLabel: UILabel!
+//    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var detailsHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardCountLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var headerStackView: UIView!
-    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var profileCardCollectionView: UICollectionView!
-    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emptyCardsVIew: UIView!
     @IBOutlet weak var contactDetailsStackView: ContactDetailsStackView!
-
-    @IBOutlet weak var contentView: UIScrollView!
 
 // MARK: - Variables
     private var topViewOffset: CGFloat?
@@ -34,26 +31,42 @@ class ProfileViewController: UIViewController {
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
-        navigationController?.navigationBar.isHidden = true
-        
-        let imageButton = UIImageView(image: K.Images.profilePlaceholder)
+
+        let avatarImageView = UIImageView(image: K.Images.profilePlaceholder)
+        avatarImageView.cornerRadius = 20
+        avatarImageView.clipsToBounds = true
+        if let avatarImageUrl = AuthService.avatarUrl {
+            avatarImageView.loadThumbnail(urlSting: avatarImageUrl)
+        }
+
         NSLayoutConstraint.activate([
-            imageButton.heightAnchor.constraint(equalToConstant: 40),
-            imageButton.widthAnchor.constraint(equalToConstant: 40)
+            avatarImageView.heightAnchor.constraint(equalToConstant: 40),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 40)
         ])
+
+        let settingsButton = UIBarButtonItem(
+            image: K.Images.gearShape,
+            style: .plain, target: self,
+            action: #selector(settingsButtonPressed))
+
+        let addButton = UIBarButtonItem(
+            image: K.Images.plus,
+            style: .plain,
+            target: self,
+            action: #selector(addButtonPressed))
+
         navigationController?.navigationBar.prefersLargeTitles = true
         let font = UIFont(name: "inter", size: 24)
         navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.font: font,
-            
+            NSAttributedString.Key.font: font!
+
         ]
-        self.title = "Joseph Maclean Arhin"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageButton)
-        
-        nameLabel.text = AuthService.username
-        if let avatarImageUrl = AuthService.avatarUrl {
-            self.avatarImageView.loadThumbnail(urlSting: avatarImageUrl)
-        }
+        navigationController?.hidesBarsOnSwipe = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = AuthService.username
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: avatarImageView)
+        navigationItem.rightBarButtonItems = [settingsButton, addButton]
+        navigationController?.navigationBar.tintColor = .black
     }
 
     override func viewDidLoad() {
@@ -62,15 +75,14 @@ class ProfileViewController: UIViewController {
         viewModel.bindError = handleError
         viewModel.bindFetchPersonalCardsSuccess = fetchCardsSuccessful
         viewModel.bindDeleteCardSuccess = deleteCardSuccessful
+        detailsHeightConstraint.isActive = false
         self.showActivityIndicator()
         emptyCardsVIew.isHidden = true
-        headerStackView.isHidden = true
+        headerView.isHidden = true
         scrollView.delegate = self
-        
-        nameLabel.style(with: K.TextStyles.heading1)
         cardCountLabel.style(with: K.TextStyles.captionBlack60)
         cardCountLabel.isHidden = true
-        topViewOffset = headerStackView.frame.origin.y
+        topViewOffset = headerView.frame.origin.y
         profileCardCollectionView.configureForPeekingBehavior(behavior: behavior)
         profileCardCollectionView.delegate = self
         profileCardCollectionView.dataSource = self
@@ -83,26 +95,23 @@ class ProfileViewController: UIViewController {
         )
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        navigationItem.title = nil
+        navigationController?.hidesBarsOnSwipe = false
+    }
+
 // MARK: - Actions
-    @IBAction func addButtonPressed(_ sender: Any) {
+    @objc func addButtonPressed() {
+        viewModel.createPersonalCard()
         performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
     }
 
-    @IBAction func settingsButtonPressed(_ sender: Any) {
+    @objc func settingsButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.profileToSettings, sender: self)
     }
     @IBAction func editPressed(_ sender: Any) {
         let contact = self.personalCards![self.currentVisibleCard]
-        CardManager.shared.setContactType(type: .editPersonalCard)
-
-        CardManager.shared.setContact(with: contact)
-        SocialMediaManger.manager.list.accept( contact.socialMediaProfiles ?? [])
-        if let phoneNumbers = contact.phoneNumbers {
-            PhoneNumberManager.manager.list.accept(phoneNumbers)
-        }
-        if let emails = contact.emailAddresses {
-            EmailManager.manager.list.accept(emails)
-        }
+        viewModel.editPersonalCard(contact: contact)
         self.performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
     }
 
@@ -112,10 +121,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func createCardPressed(_ sender: Any) {
-        let manager = CardManager.shared
-        manager.reset()
-        manager.cleanContact()
-        manager.setContactType(type: .createPersonalCard)
+        viewModel.createPersonalCard()
         self.performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
     }
 
@@ -124,10 +130,11 @@ class ProfileViewController: UIViewController {
         self.removeActivityIndicator()
         alert(title: "Oops", message: error.localizedDescription)
     }
-    
+
     private func deleteCardSuccessful() {
+        profileCardCollectionView.reloadData()
         self.removeActivityIndicator()
-        self.profileCardCollectionView.reloadData()
+//        self.profileCardCollectionView.reloadData()
     }
 
     private func fetchCardsSuccessful(cards: [Contact]) {
@@ -136,12 +143,12 @@ class ProfileViewController: UIViewController {
         self.personalCards = cards
         if cards.isEmpty == false {
             self.emptyCardsVIew.isHidden = true
-            self.headerStackView.isHidden = false
+            self.headerView.isHidden = false
             self.cardCountLabel.isHidden = false
             self.scrollView.isScrollEnabled = true
         } else {
             self.scrollView.isScrollEnabled = false
-            self.headerStackView.isHidden = true
+            self.headerView.isHidden = true
             self.emptyCardsVIew.isHidden = false
         }
         self.cardCountLabel.text = viewModel.cardCount
@@ -180,18 +187,13 @@ extension ProfileViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if lastContentOffset != nil {
-            if self.lastContentOffset! > scrollView.contentOffset.x {
-
-            } else if self.lastContentOffset! < scrollView.contentOffset.x {
-
-            } else {
-                var headerFrame = headerStackView.frame
-                headerFrame.origin.y = CGFloat(max(topViewOffset!, scrollView.contentOffset.y))
-                headerStackView.frame = headerFrame
+            if lastContentOffset == scrollView.contentOffset.x {
+                var headerFrame = headerView.frame
+                headerFrame.origin.y = CGFloat(max(topViewOffset!, scrollView.contentOffset.y + 48))
+                headerView.frame = headerFrame
             }
         }
         self.lastContentOffset = scrollView.contentOffset.x
-
     }
 }
 

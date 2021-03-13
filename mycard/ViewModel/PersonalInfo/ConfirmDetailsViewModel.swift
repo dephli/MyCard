@@ -12,7 +12,7 @@ import RxCocoa
 class ConfirmDetailsViewModel {
 
     var contact: Contact {
-        CardManager.shared.currentContact
+        CardManager.shared.currentEditableContact
     }
     let role: String
     let fullName: String
@@ -83,11 +83,12 @@ class ConfirmDetailsViewModel {
     }
 
     func editContactCard() {
-        FirestoreService.shared.editContactCard(contact: contact) { (_, error) in
+        FirestoreService.shared.editContactCard(contact: contact) { [self](_, error) in
             if let error = error {
-                self.bindError!(error)
+                bindError!(error)
             } else {
-                self.bindSaveSuccessful!()
+                CardManager.shared.currentContactDetails = contact
+                bindSaveSuccessful!()
             }
         }
     }

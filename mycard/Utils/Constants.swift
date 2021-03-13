@@ -240,6 +240,7 @@ struct K {
 //        system images
         static let minus = UIImage(systemName: ImageString.minus)
         static let plus = UIImage(systemName: ImageString.plus)
+        static let gearShape = UIImage(systemName: "gearshape")
 
     }
 

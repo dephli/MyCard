@@ -9,19 +9,27 @@ import Foundation
 
 class WorkInfoViewModel {
     var contact: Contact {
-        CardManager.shared.currentContact
+        CardManager.shared.currentEditableContact
     }
     var companyName = ""
     var role = ""
     var address = ""
+    var bindError: ((Error) -> Void)!
+    var bindSaveSuccessful: (() -> Void)!
+    var bindContinue: (() -> Void)!
+    var continueButtonTitle = "Continue"
+    let contactType = CardManager.shared.currentContactType
 
     init() {
         role = contact.businessInfo?.role ?? ""
         companyName = contact.businessInfo?.companyName ?? ""
         address = contact.businessInfo?.companyAddress ?? ""
+        if contactType == .editContactCard || contactType == .editPersonalCard {
+            continueButtonTitle = "Save"
+        }
     }
 
-    func saveCardData() {
+    func saveCurrentFlowData() {
         var contactCopy = contact
 
         if contact.businessInfo == nil {
@@ -35,6 +43,50 @@ class WorkInfoViewModel {
             contactCopy.businessInfo?.companyName = companyName
             contactCopy.businessInfo?.role = role
         }
-        CardManager.shared.setContact(with: contactCopy)
+        CardManager.shared.currentEditableContact = contactCopy
+    }
+
+    func saveCardData() {
+        saveCurrentFlowData()
+        if contactType == .editContactCard || contactType == .editPersonalCard {
+            saveCard()
+        } else {
+            bindContinue()
+        }
+
+    }
+
+    func saveCard() {
+        switch contactType {
+        case .editContactCard:
+            editContactCard()
+        case .editPersonalCard:
+            editPersonalCard()
+        default:
+            return
+        }
+    }
+
+    func editContactCard() {
+        FirestoreService.shared.editContactCard(contact: contact) { [self](_, error) in
+            if let error = error {
+                bindError!(error)
+            } else {
+                CardManager.shared.currentContactDetails = contact
+                CardManager.shared.reset()
+                bindSaveSuccessful!()
+            }
+        }
+    }
+
+    internal func editPersonalCard() {
+        FirestoreService.shared.editPersonalCard(contact: contact) { (_, error) in
+            if let error = error {
+                self.bindError!(error)
+            } else {
+                CardManager.shared.reset()
+                self.bindSaveSuccessful!()
+            }
+        }
     }
 }

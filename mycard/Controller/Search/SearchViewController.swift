@@ -52,8 +52,9 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailsViewController {
             let contact = contacts[(tableView.indexPathForSelectedRow?.row)!]
-            destination.viewModel = CardDetailsViewModel(contact: contact)
-            CardManager.shared.setContact(with: contact)
+            CardManager.shared.currentContactDetails = contact
+            CardManager.shared.currentEditableContact = contact
+            destination.viewModel = CardDetailsViewModel()
         }
     }
 

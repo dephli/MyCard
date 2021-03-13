@@ -49,7 +49,7 @@ class PersonalInfoViewController: UIViewController,
     let imagePicker = UIImagePickerController()
     var keyboardHeight: Float?
     var contact: Contact? {
-        return CardManager.shared.currentContact
+        return CardManager.shared.currentEditableContact
     }
     let disposeBag = DisposeBag()
 
@@ -187,6 +187,7 @@ class PersonalInfoViewController: UIViewController,
             alert(title: "Sorry",
                   message: "Please enter a valid name")
         } else {
+            self.setAllNames()
         saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
         }
@@ -367,7 +368,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
 //              create local contact as global contact is a get variable
                 var contact = self.contact
                 contact?.profilePicUrl = url
-                CardManager.shared.setContact(with: contact!)
+                CardManager.shared.currentEditableContact = contact!
             }
         }
 
@@ -405,7 +406,7 @@ extension PersonalInfoViewController {
         contact?.emailAddresses = EmailManager.manager.list.value
         contact?.socialMediaProfiles = SocialMediaManger.manager.getAll
 
-        CardManager.shared.setContact(with: contact!)
+        CardManager.shared.currentEditableContact = contact!
     }
 }
 

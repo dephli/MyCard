@@ -201,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="companyNameTextField" destination="iGy-Yv-LS4" id="L9u-PR-Dkv"/>
+                        <outlet property="continueButton" destination="90e-Os-jda" id="yd1-5n-abk"/>
                         <outlet property="continueButtonBottomConstraint" destination="eOt-Gl-GJF" id="do6-0H-1F2"/>
                         <outlet property="jobTitleTextField" destination="55L-9a-QWi" id="AB5-RY-M7L"/>
                         <outlet property="navigationBar" destination="GCb-Yg-gu6" id="tbs-wm-ej8"/>

@@ -11,10 +11,14 @@ import ContactsUI
 
 class CardDetailsViewModel {
     var contact: Contact {
-        CardManager.shared.currentContact
+        CardManager.shared.currentContactDetails
     }
-    let role: String
-    let fullName: String
+    var role: String {
+        contact.businessInfo?.role ?? ""
+    }
+    var fullName: String {
+        contact.name.fullName!
+    }
     var nameInitials = ""
     var noteTextColor = K.Colors.Black
     var bindError: ((Error) -> Void)?
@@ -23,7 +27,7 @@ class CardDetailsViewModel {
     var bindCardDeleted: (() -> Void)?
     var contactImage: UIImage?
     var note: String? {
-        let note = CardManager.shared.currentContact.note
+        let note = contact.note
         if note == nil || note == "" {
             noteTextColor = K.Colors.Blue
             return "Add a note"
@@ -33,11 +37,7 @@ class CardDetailsViewModel {
         }
     }
 
-    init(contact: Contact) {
-
-        fullName = contact.name.fullName ?? ""
-        role = contact.businessInfo?.role ?? ""
-
+    init() {
         self.setNameInitials()
     }
 
@@ -79,24 +79,9 @@ class CardDetailsViewModel {
         return phoneContact
     }
 
-    internal func createContact() {
-        FirestoreService.shared.createContact(with: contact) { (error) in
-            if let error = error {
-                self.bindError!(error)
-            } else {
-                CardManager.shared.reset()
-            }
-        }
-    }
-
-    internal func editPersonalCard() {
-        FirestoreService.shared.editPersonalCard(contact: contact) { (_, error) in
-            if let error = error {
-                self.bindError!(error)
-            } else {
-                CardManager.shared.reset()
-            }
-        }
+    internal func editNote() {
+        CardManager.shared.currentContactType = .editContactCard
+        CardManager.shared.currentEditableContact = contact
     }
 
     internal func deleteCard() {
@@ -247,9 +232,8 @@ class CardDetailsViewModel {
 
     func addContactToCardManager() {
         let manager = CardManager.shared
-
-        manager.setContactType(type: .editContactCard)
-        manager.setContact(with: contact )
+        manager.currentContactType = .editContactCard
+        manager.currentEditableContact = contact
         SocialMediaManger.manager.list.accept( contact.socialMediaProfiles ?? [])
         if let phoneNumbers = contact.phoneNumbers {
             PhoneNumberManager.manager.list.accept(phoneNumbers)

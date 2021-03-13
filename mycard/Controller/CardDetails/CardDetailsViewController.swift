@@ -38,6 +38,7 @@ class CardDetailsViewController: UIViewController {
 
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = false
         navigationController?.navigationBar.isHidden = false
         navigationItem.setHidesBackButton(false, animated: true)
         populateViewsWithData()
@@ -83,7 +84,11 @@ class CardDetailsViewController: UIViewController {
     }
 
     func emailActionTriggered(emailAddresses: [Email]) {
-        let alertController = UIAlertController(title: "SELECT EMAIL ADDRESS", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(
+            title: "SELECT EMAIL ADDRESS",
+            message: "",
+            preferredStyle: .actionSheet
+        )
 
         alertController.view.tintColor = .black
 
@@ -161,8 +166,7 @@ class CardDetailsViewController: UIViewController {
     }
 
     @objc private func notesViewTapped() {
-        CardManager.shared.setContactType(type: .editContactCard)
-        CardManager.shared.setContact(with: viewModel.contact)
+        viewModel.editNote()
         performSegue(withIdentifier: K.Segues.cardDetailsToNotes, sender: self)
     }
 

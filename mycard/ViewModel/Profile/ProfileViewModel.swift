@@ -37,6 +37,25 @@ class ProfileViewModel {
         }
     }
 
+    func editPersonalCard(contact: Contact) {
+        CardManager.shared.currentContactType = .editPersonalCard
+        CardManager.shared.currentEditableContact = contact
+
+        SocialMediaManger.manager.list.accept( contact.socialMediaProfiles ?? [])
+        if let phoneNumbers = contact.phoneNumbers {
+            PhoneNumberManager.manager.list.accept(phoneNumbers)
+        }
+        if let emails = contact.emailAddresses {
+            EmailManager.manager.list.accept(emails)
+        }
+    }
+
+    func createPersonalCard() {
+        let manager = CardManager.shared
+        manager.reset()
+        manager.currentContactType = .createPersonalCard
+    }
+
     func deletePersonalCard(contact: Contact) {
         FirestoreService.shared.deletePersonalCard(contact: contact) { (error) in
             if let error = error {

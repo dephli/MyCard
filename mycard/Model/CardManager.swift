@@ -16,46 +16,54 @@ class CardManager {
     private let contact: BehaviorRelay<Contact> =
         BehaviorRelay(value: Contact(name: Name()))
 
+    private let contactDetails: BehaviorRelay<Contact> = BehaviorRelay(value: Contact(name: Name()))
+
     private let contactType: BehaviorRelay<CardType> = BehaviorRelay(value: CardType.createContactCard)
 
     private let personalCards: BehaviorRelay<[Contact]> = BehaviorRelay(value: [])
 
     private let contactCards: BehaviorRelay<[Contact]> = BehaviorRelay(value: [])
 
-    func setContactType(type: CardType) {
-        contactType.accept(type)
-    }
-
-    func setContact(with c: Contact) {
-        contact.accept(c)
-    }
-
-    func setPersonalCards(with contacts: [Contact]) {
-        personalCards.accept(contacts)
-    }
-
-    func setContactCards(with contacts: [Contact]) {
-        contactCards.accept(contacts)
-    }
-
-    func cleanContact() {
-        contact.accept(Contact(name: Name()))
-    }
-
     var createdContactCards: [Contact] {
-        return contactCards.value
+        get {
+            return contactCards.value
+        }
+        set {
+            contactCards.accept(newValue)
+        }
     }
 
     var createdPersonalCards: [Contact] {
-        return contactCards.value
+        get {return contactCards.value}
+        set {personalCards.accept(newValue)}
+
     }
 
     var currentContactType: CardType {
-        return contactType.value
+        get {
+            return contactType.value
+        }
+        set {
+            contactType.accept(newValue)
+        }
     }
 
-    var currentContact: Contact {
-        return contact.value
+    var currentEditableContact: Contact {
+        get {
+            return contact.value
+        }
+        set {
+            contact.accept(newValue)
+        }
+    }
+
+    var currentContactDetails: Contact {
+        get {
+            return contactDetails.value
+        }
+        set {
+            contactDetails.accept(newValue)
+        }
     }
 
     func reset() {

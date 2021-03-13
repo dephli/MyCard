@@ -11,7 +11,7 @@ class NotesViewModel: NSObject {
 
     var bindNoteSaved: (() -> Void)?
     var bindError: ((Error?) -> Void)?
-    private var contact = CardManager.shared.currentContact
+    private var contact = CardManager.shared.currentEditableContact
     private var contactType = CardManager.shared.currentContactType
     var note: String {
         contact.note ?? ""
@@ -23,7 +23,7 @@ class NotesViewModel: NSObject {
                 if let error = error {
                     self.bindError!(error)
                 } else {
-                    CardManager.shared.setContact(with: contact!)
+                    CardManager.shared.currentEditableContact = contact!
                     self.bindNoteSaved!()
                 }
             }
@@ -32,7 +32,8 @@ class NotesViewModel: NSObject {
                 if let error = error {
                     self.bindError!(error)
                 } else {
-                    CardManager.shared.setContact(with: contact!)
+                    CardManager.shared.currentEditableContact = contact!
+                    CardManager.shared.currentContactDetails = contact!
                     self.bindNoteSaved!()
                 }
             }
@@ -49,7 +50,8 @@ class NotesViewModel: NSObject {
         if contact.id != nil {
             editContact()
         } else {
-            CardManager.shared.setContact(with: contact)
+            CardManager.shared.currentEditableContact = contact
+            CardManager.shared.currentContactDetails = contact
             self.bindNoteSaved!()
         }
     }

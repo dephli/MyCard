@@ -50,8 +50,8 @@ class CardViewController: UIViewController {
                 destination.contactImage = image
             }
             let contact = contacts[indexPath.row]
-            CardManager.shared.setContact(with: contact)
-            destination.viewModel = CardDetailsViewModel(contact: contact)
+            CardManager.shared.currentContactDetails = contact
+            destination.viewModel = CardDetailsViewModel()
         }
     }
 
@@ -92,7 +92,7 @@ class CardViewController: UIViewController {
 
     @IBAction func createCardPressed(_ sender: Any) {
         let manager = CardManager.shared
-        manager.setContactType(type: .createContactCard)
+        manager.currentContactType = .createContactCard
         manager.reset()
 
         self.performSegue(withIdentifier: K.Segues.cardsToCreateCard, sender: self)
