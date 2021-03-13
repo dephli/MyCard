@@ -19,8 +19,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileCardCollectionView: UICollectionView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emptyCardsVIew: UIView!
-    @IBOutlet weak var contactDetailsStackViewHeightConstraint: NSLayoutConstraint!
-
     @IBOutlet weak var contactDetailsStackView: ContactDetailsStackView!
 
     @IBOutlet weak var contentView: UIScrollView!
@@ -31,36 +29,27 @@ class ProfileViewController: UIViewController {
     private var currentVisibleCard = 0
     private var personalCards: [Contact]?
     private var behavior = MSCollectionViewPeekingBehavior()
+    var viewModel: ProfileViewModel!
 
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
-
-        FirestoreService.shared.getPersonalCards {(error, cards) in
-            self.removeActivityIndicator()
-            if let error = error {
-                self.alert(title: "Error Fetching Personal Cards", message: error.localizedDescription)
-            } else {
-                self.personalCards = cards
-                if cards?.isEmpty == false {
-                    self.emptyCardsVIew.isHidden = true
-                    self.headerStackView.isHidden = false
-                    self.cardCountLabel.isHidden = false
-                    self.scrollView.isScrollEnabled = true
-                } else {
-                    self.scrollView.isScrollEnabled = false
-                    self.headerStackView.isHidden = true
-                    self.emptyCardsVIew.isHidden = false
-                }
-                self.cardCountLabel.text = "\(cards!.count) cards"
-                self.profileCardCollectionView.reloadData()
-
-                if cards?.isEmpty == false {
-                    self.contactDetailsStackView.configure(contact: cards?[0])
-                }
-            }
-        }
+        
+        let imageButton = UIImageView(image: K.Images.profilePlaceholder)
+        NSLayoutConstraint.activate([
+            imageButton.heightAnchor.constraint(equalToConstant: 40),
+            imageButton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let font = UIFont(name: "inter", size: 24)
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.font: font,
+            
+        ]
+        self.title = "Joseph Maclean Arhin"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: imageButton)
+        
         nameLabel.text = AuthService.username
         if let avatarImageUrl = AuthService.avatarUrl {
             self.avatarImageView.loadThumbnail(urlSting: avatarImageUrl)
@@ -69,11 +58,15 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ProfileViewModel()
+        viewModel.bindError = handleError
+        viewModel.bindFetchPersonalCardsSuccess = fetchCardsSuccessful
+        viewModel.bindDeleteCardSuccess = deleteCardSuccessful
         self.showActivityIndicator()
         emptyCardsVIew.isHidden = true
         headerStackView.isHidden = true
-        contactDetailsStackViewHeightConstraint.isActive = false
         scrollView.delegate = self
+        
         nameLabel.style(with: K.TextStyles.heading1)
         cardCountLabel.style(with: K.TextStyles.captionBlack60)
         cardCountLabel.isHidden = true
@@ -88,10 +81,16 @@ class ProfileViewController: UIViewController {
                 bundle: nil),
             forCellWithReuseIdentifier: "Cell"
         )
-
     }
 
 // MARK: - Actions
+    @IBAction func addButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
+    }
+
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.Segues.profileToSettings, sender: self)
+    }
     @IBAction func editPressed(_ sender: Any) {
         let contact = self.personalCards![self.currentVisibleCard]
         CardManager.shared.setContactType(type: .editPersonalCard)
@@ -108,6 +107,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func deletePressed(_ sender: Any) {
+        scrollView.setContentOffset(.zero, animated: true)
         confirmDeletion()
     }
 
@@ -120,19 +120,45 @@ class ProfileViewController: UIViewController {
     }
 
 // MARK: - Methods
+    private func handleError(error: Error) {
+        self.removeActivityIndicator()
+        alert(title: "Oops", message: error.localizedDescription)
+    }
+    
+    private func deleteCardSuccessful() {
+        self.removeActivityIndicator()
+        self.profileCardCollectionView.reloadData()
+    }
+
+    private func fetchCardsSuccessful(cards: [Contact]) {
+        self.removeActivityIndicator()
+
+        self.personalCards = cards
+        if cards.isEmpty == false {
+            self.emptyCardsVIew.isHidden = true
+            self.headerStackView.isHidden = false
+            self.cardCountLabel.isHidden = false
+            self.scrollView.isScrollEnabled = true
+        } else {
+            self.scrollView.isScrollEnabled = false
+            self.headerStackView.isHidden = true
+            self.emptyCardsVIew.isHidden = false
+        }
+        self.cardCountLabel.text = viewModel.cardCount
+        self.profileCardCollectionView.reloadData()
+
+        if cards.isEmpty == false {
+            self.contactDetailsStackView.configure(contact: cards[0])
+        }
+
+    }
+
     private func confirmDeletion() {
         let contact = self.personalCards![self.currentVisibleCard]
 
         let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { [self] (_) in
             self.showActivityIndicator()
-            FirestoreService.shared.deletePersonalCard(contact: contact) { (error) in
-                self.removeActivityIndicator()
-                if let error = error {
-                    self.alert(title: "Error", message: error.localizedDescription)
-                } else {
-                    self.profileCardCollectionView.reloadData()
-                }
-            }
+            viewModel.deletePersonalCard(contact: contact)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

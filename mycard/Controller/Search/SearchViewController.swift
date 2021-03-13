@@ -44,6 +44,11 @@ class SearchViewController: UIViewController {
         setupSearchController()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.navigationBar.isHidden = false
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailsViewController {
             let contact = contacts[(tableView.indexPathForSelectedRow?.row)!]

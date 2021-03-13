@@ -365,6 +365,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dfS-wS-zeb"/>
                     <connections>
+                        <outlet property="nameLabel" destination="B8A-WB-Fcj" id="h0F-J1-uqF"/>
                         <outlet property="nameTextField" destination="Qqw-OQ-Ia2" id="uuI-D1-yPZ"/>
                     </connections>
                 </viewController>

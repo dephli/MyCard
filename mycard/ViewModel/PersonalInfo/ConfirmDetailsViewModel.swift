@@ -36,26 +36,27 @@ class ConfirmDetailsViewModel {
         fullName = contact.name.fullName ?? ""
         role = contact.businessInfo?.role ?? ""
 
-        nameInitials = self.setNameInitials(contact)
+        self.setNameInitials()
 
         if contactType == .editContactCard || contactType == .editPersonalCard {
             saveButtonTitle = "Edit card"
         }
     }
 
-    private func setNameInitials(_ contact: Contact) -> String {
-        var initials = ""
+    private func setNameInitials() {
         let firstName = contact.name.firstName?.trimmingCharacters(in: .whitespaces)
         let lastName = contact.name.lastName?.trimmingCharacters(in: .whitespaces)
-        if firstName?.isEmpty == false && lastName?.isEmpty == false {
-            initials = "\(contact.name.firstName!.prefix(1))\(contact.name.lastName!.prefix(1))"
-        } else if firstName?.isEmpty == false && lastName?.isEmpty == true {
-            initials = "\(contact.name.firstName!.prefix(2))"
-        } else if firstName?.isEmpty == true && lastName?.isEmpty == false {
-            initials = "\(contact.name.lastName!.prefix(2))"
-        }
+        if firstName != "" && lastName == "" {
+            nameInitials = "\(firstName!.prefix(1))"
 
-        return initials
+        } else if lastName != "" && firstName == "" {
+            nameInitials = "\(lastName!.prefix(1))"
+
+        } else if lastName != "" && firstName != "" {
+            nameInitials = "\(firstName!.prefix(1))\(lastName!.prefix(1))"
+        } else if firstName == "" && lastName == "" {
+            nameInitials = "\(contact.name.fullName!.prefix(1))"
+        }
     }
 
     func saveCard() {

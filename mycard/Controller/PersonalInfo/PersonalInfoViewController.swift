@@ -53,7 +53,7 @@ class PersonalInfoViewController: UIViewController,
     }
     let disposeBag = DisposeBag()
 
-    let prefixTypes = ["mr", "ms", "mrs", "dr"]
+    let prefixTypes = ["mr", "ms", "mrs", "dr", "adm", "capt", "chief", "cmdr", "col", "gov", "hon", "maj", "msgt", "prof", "rev"]
 //    this can be updated to get the data from cloud storage
     let suffixes = ["phd",
                     "ccna",
@@ -71,6 +71,7 @@ class PersonalInfoViewController: UIViewController,
                     "ix",
                     "x",
                     "snr",
+                    "madame",
                     "jnr"]
     var userDefinedPrefixType: [String] = []
     var previousPrefix = ""
@@ -179,9 +180,12 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        if fullNameTextField.text!.isEmpty {
-            alert(title: "Name cannot be empty",
-                  message: "Name is required to create a card")
+        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        let middleName = middleNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        if firstName.isEmpty && middleName.isEmpty && lastName.isEmpty {
+            alert(title: "Sorry",
+                  message: "Please enter a valid name")
         } else {
         saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
@@ -514,7 +518,7 @@ extension PersonalInfoViewController {
 
     private func splitFullname() {
 
-        let fullName = fullNameTextField.text!
+        let fullName = fullNameTextField.text!.trimmingCharacters(in: .whitespaces)
         if fullName.count > 1 {
 
             resetTextFieldContents()

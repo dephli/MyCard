@@ -38,6 +38,8 @@ class CardDetailsViewController: UIViewController {
 
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.setHidesBackButton(false, animated: true)
         populateViewsWithData()
     }
     override func viewDidLoad() {
@@ -49,7 +51,6 @@ class CardDetailsViewController: UIViewController {
         setupUI()
         self.dismissKey()
         detailsStackViewHeightConstraint.isActive = false
-        detailsStackView.configure(contact: viewModel.contact)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(notesViewTapped))
         noteView.addGestureRecognizer(tapGestureRecognizer)
 
@@ -77,8 +78,12 @@ class CardDetailsViewController: UIViewController {
         viewModel.mailAction()
     }
 
+    @IBAction func addressButtonPressed(_ sender: Any) {
+        viewModel.addressAction()
+    }
+
     func emailActionTriggered(emailAddresses: [Email]) {
-        let alertController = UIAlertController(title: "Select Email", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "SELECT EMAIL ADDRESS", message: "", preferredStyle: .actionSheet)
 
         alertController.view.tintColor = .black
 
@@ -88,6 +93,7 @@ class CardDetailsViewController: UIViewController {
              let action = UIAlertAction(title: email.address, style: .default) { _ in
                 viewModel.openEmail(emailAddress: email.address)
             }
+        action.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
             alertController.addAction(action)
         }
         alertController.addAction(cancelAction)
@@ -96,7 +102,7 @@ class CardDetailsViewController: UIViewController {
 
     func phoneNumberActionTriggered(numbers: [PhoneNumber]) {
         let alertController = UIAlertController(
-            title: "",
+            title: "SELECT PHONE NUMBER",
             message: "",
             preferredStyle: .actionSheet
         )
@@ -108,6 +114,7 @@ class CardDetailsViewController: UIViewController {
         let action = UIAlertAction(title: phoneNumber.number, style: .default) { _ in
                 self.viewModel.callNumber(number: phoneNumber.number!)
             }
+        action.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
             alertController.addAction(action)
         }
         alertController.addAction(cancelAction)
@@ -150,6 +157,7 @@ class CardDetailsViewController: UIViewController {
         noteTextField.text = viewModel.note
         noteTextField.textColor = viewModel.noteTextColor
         nameInitialsLabel.text = viewModel.nameInitials
+        detailsStackView.configure(contact: viewModel.contact)
     }
 
     @objc private func notesViewTapped() {
@@ -187,21 +195,6 @@ class CardDetailsViewController: UIViewController {
 
 // MARK: - ActionSheet Actions
 extension CardDetailsViewController {
-
-//    private func addContactToCardCreationmanager() {
-//        let manager = CardManager.shared
-//
-//        manager.setContactType(type: .editContactCard)
-//        manager.setContact(with: contact ?? Contact(name: Name()))
-//        SocialMediaManger.manager.list.accept( contact?.socialMediaProfiles ?? [])
-//        if let phoneNumbers = contact?.phoneNumbers {
-//            PhoneNumberManager.manager.list.accept(phoneNumbers)
-//        }
-//        if let emails = contact?.emailAddresses {
-//            EmailManager.manager.list.accept(emails)
-//        }
-//    }
-
     @objc private func shareButtonPressed() {
         let cnContact = viewModel.createCNContact()
 

@@ -35,7 +35,11 @@ class PersonalCardCollectionViewCell: UICollectionViewCell {
         if let url = contact?.profilePicUrl {
             avatarImageView.loadThumbnail(urlSting: url)
         } else {
-            avatarImageView.image = K.Images.profilePlaceholder
+            if AuthService.avatarUrl != nil {
+                avatarImageView.loadThumbnail(urlSting: AuthService.avatarUrl!)
+            } else {
+                avatarImageView.image = K.Images.profilePlaceholder
+            }
         }
     }
 

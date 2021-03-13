@@ -26,6 +26,8 @@ class CardViewController: UIViewController {
 // MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func viewDidLoad() {
@@ -137,10 +139,11 @@ class CardViewController: UIViewController {
 
     private func uiSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
-        let label = UILabel()
-        label.style(with: K.TextStyles.heading1)
-        label.text = "My Network"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        let imageView = UIImageView(image: K.Images.profilePlaceholder)
+//        let label = UILabel()
+//        label.style(with: K.TextStyles.heading1)
+//        label.text = "My Network"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: imageView)
 
     }
 }

@@ -204,6 +204,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pw8-Aq-Kw0">
                                                                 <rect key="frame" x="13" y="0.0" width="40" height="40"/>
                                                                 <state key="normal" image="location circular"/>
+                                                                <connections>
+                                                                    <action selector="addressButtonPressed:" destination="Y4x-DU-fz4" eventType="touchUpInside" id="ehp-aT-uNa"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYL-Si-U0g">
                                                                 <rect key="frame" x="0.0" y="48" width="65.5" height="20.5"/>

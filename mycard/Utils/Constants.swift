@@ -181,6 +181,7 @@ struct K {
         static let searchToCardDetails = "SearchToCardDetails"
         static let confirmDetailsToNotes = "ConfirmDetailsToNotes"
         static let cardDetailsToNotes = "CardDetailsToNotes"
+        static let profileToSettings = "ProfileToSettings"
     }
 
     struct Notifications {
