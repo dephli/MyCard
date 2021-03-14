@@ -309,6 +309,7 @@
                         <outlet property="contactSummaryView" destination="txm-4b-OJn" id="lZb-jX-AeD"/>
                         <outlet property="createButton" destination="QJy-tM-bsy" id="b90-Ud-GgL"/>
                         <outlet property="customNavigationBar" destination="9RY-gO-xT0" id="ejq-gP-DiX"/>
+                        <outlet property="dummyView" destination="dAg-sS-m8N" id="YVp-5o-V2G"/>
                         <outlet property="nameInitialsLabel" destination="Lzn-aa-vQN" id="5IW-ri-fjo"/>
                         <outlet property="nameInitialsView" destination="Ocj-QO-e88" id="Mf4-vz-cRo"/>
                         <outlet property="noteLabel" destination="QIt-Lw-5ue" id="Aoh-ST-BhU"/>

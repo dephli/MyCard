@@ -30,6 +30,7 @@ class ConfirmDetailsViewModel {
     var bindError: ((Error) -> Void)?
     var bindSaveSuccessful: (() -> Void)?
     var saveButtonTitle = "Create card"
+    var noteIsHidden = false
     private let contactType = CardManager.shared.currentContactType
 
     init(contact: Contact) {
@@ -40,6 +41,10 @@ class ConfirmDetailsViewModel {
 
         if contactType == .editContactCard || contactType == .editPersonalCard {
             saveButtonTitle = "Edit card"
+        }
+        
+        if contactType == .createPersonalCard {
+            noteIsHidden = true
         }
     }
 

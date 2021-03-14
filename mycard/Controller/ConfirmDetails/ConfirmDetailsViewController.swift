@@ -24,13 +24,20 @@ class ConfirmDetailsViewController: UIViewController {
     @IBOutlet weak var contactSummaryView: UIView!
     @IBOutlet weak var notesView: UIView!
     @IBOutlet weak var noteTextLabel: UILabel!
+    @IBOutlet weak var dummyView: UIView!
 
-// MARK: - Variables
-    var viewModel: ConfirmDetailsViewModel?
+    // MARK: - Variables
+    var viewModel: ConfirmDetailsViewModel!
 
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
         populateWithContactData()
+        
+        if viewModel.noteIsHidden {
+            notesView.isHidden = true
+            dummyView.topAnchor.constraint(equalTo: contactDetailsStackView.bottomAnchor, constant: 0).isActive = true
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -73,6 +80,7 @@ class ConfirmDetailsViewController: UIViewController {
         cardJobTitleLabel.style(with: K.TextStyles.subTitle)
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(notesViewTapped))
         notesView.addGestureRecognizer(gestureRecognizer)
+        
     }
 
     private func handleError(error: Error) {
