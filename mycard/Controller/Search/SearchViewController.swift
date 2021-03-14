@@ -56,7 +56,7 @@ class SearchViewController: UIViewController {
             }
             let contact = contacts[indexPath.row]
 
-            let selectedCellImage = (tableView.cellForRow(at:indexPath) as! ContactsCell).avatarImageView.image
+            let selectedCellImage = (tableView.cellForRow(at: indexPath) as! ContactsCell).avatarImageView.image
 
             CardManager.shared.currentContactDetails = contact
             CardManager.shared.currentEditableContact = contact

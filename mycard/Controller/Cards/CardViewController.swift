@@ -52,7 +52,7 @@ class CardViewController: UIViewController {
             }
             let cell = cardTableView.cellForRow(at: indexPath) as! ContactsCell
             let selectedCellImage = cell.avatarImageView.image
- 
+
             let contact = contacts[indexPath.row]
             CardManager.shared.currentContactDetails = contact
             destination.viewModel = CardDetailsViewModel(contactImage: selectedCellImage)
@@ -132,14 +132,14 @@ class CardViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: imageView)
 
     }
-    
+
     private func editContact(indexPath: IndexPath) {
         let contact = self.contacts[indexPath.row]
-        
+
         viewModel.editContact(contact: contact)
         self.performSegue(withIdentifier: K.Segues.cardsToCreateCard, sender: self)
     }
-    
+
     private func exportToContact(indexPath: IndexPath) {
         let store = CNContactStore()
         let contact = self.contacts[indexPath.row]
@@ -154,7 +154,7 @@ class CardViewController: UIViewController {
         navigationController?.pushViewController(contactVc, animated: true)
         hidesBottomBarWhenPushed = false
     }
-    
+
     private func deleteContact(indexPath: IndexPath) {
         let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { [self] (_) in
             let contact = contacts[indexPath.row]
@@ -226,5 +226,5 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension CardViewController: CNContactViewControllerDelegate {
-    
+
 }

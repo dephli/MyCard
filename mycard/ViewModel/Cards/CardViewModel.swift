@@ -34,7 +34,7 @@ class CardViewModel {
             bindContactsRetrievalSuccess()
         }
     }
-    
+
     internal func deleteCard(contact: Contact) {
         FirestoreService.shared.deleteContactCard(contact: contact) {[self] (error) in
             if let error = error {
@@ -44,7 +44,7 @@ class CardViewModel {
             }
         }
     }
-    
+
     internal func createCNContact(contact: Contact, contactImage: UIImage?) -> CNMutableContact {
         let phoneContact = CNMutableContact()
         phoneContact.familyName = contact.name.lastName ?? ""
@@ -66,7 +66,7 @@ class CardViewModel {
 
         return phoneContact
     }
-    
+
     private func filteredEmails(_ phoneContact: CNMutableContact, contact: Contact) {
         //        filter emails
         if let emails = contact.emailAddresses {
@@ -121,7 +121,7 @@ class CardViewModel {
             }
         }
     }
-    
+
     func editContact(contact: Contact) {
         let manager = CardManager.shared
         manager.currentContactType = .editContactCard

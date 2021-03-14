@@ -9,6 +9,7 @@ import UIKit
 
 class SocialMediaViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var socialsLabel: UILabel!
     @IBOutlet weak var linkedinLabel: UILabel!
     @IBOutlet weak var linkedinAccountTextfield: UITextField!
@@ -41,10 +42,10 @@ class SocialMediaViewController: UIViewController {
         twitterAccountTextfield.tag = 1
         instagramAccountTextfield.delegate = self
         twitterAccountTextfield.delegate = self
+        facebookTextfield.delegate = self
         self.dismissKey()
 
     }
-
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
         presentationController?.delegate?.presentationControllerDidDismiss?(presentationController!)
@@ -73,7 +74,7 @@ class SocialMediaViewController: UIViewController {
 
         dismiss(animated: true, completion: nil)
     }
-    
+
     fileprivate func addTextStyles() {
         socialsLabel.style(with: K.TextStyles.heading1)
         linkedinLabel.style(with: K.TextStyles.bodyBlack60)
@@ -194,19 +195,22 @@ extension SocialMediaViewController {
 
 extension SocialMediaViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        UIView.animate(withDuration: 0.2) {
-            if textField.tag == 0 {
-                self.view.frame.origin.y = -150
-            } else if textField.tag == 1 {
-                self.view.frame.origin.y = -100
-            }
+        if textField.tag == 0 || textField.tag == 1 {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 150), animated: true)
+        } else {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
+//        UIView.animate(withDuration: 0.2) {
+//            if textField.tag == 0 {
+//                self.view.frame.origin.y = -150
+//            } else if textField.tag == 1 {
+//                self.view.frame.origin.y = -100
+//            }
+//        }
         return true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.2) {
-            self.view.frame.origin.y = 0
-        }
+        scrollView.setContentOffset(CGPoint.zero, animated: true)
     }
 }

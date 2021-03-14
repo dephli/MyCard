@@ -53,26 +53,16 @@ class PersonalInfoViewController: UIViewController,
     }
     let disposeBag = DisposeBag()
 
-    let prefixTypes = ["mr", "ms", "mrs", "dr", "adm", "capt", "chief", "cmdr", "col", "gov", "hon", "maj", "msgt", "prof", "rev"]
+    let prefixTypes = [
+        "mr", "ms", "mrs", "dr", "adm", "capt",
+        "chief", "cmdr", "col", "gov", "hon",
+        "maj", "msgt", "prof", "rev"]
 //    this can be updated to get the data from cloud storage
-    let suffixes = ["phd",
-                    "ccna",
-                    "obe",
-                    "sr",
-                    "jr",
-                    "i",
-                    "ii",
-                    "iii",
-                    "iv",
-                    "v",
-                    "vi",
-                    "vii",
-                    "viii",
-                    "ix",
-                    "x",
-                    "snr",
-                    "madame",
-                    "jnr"]
+    let suffixes = [
+        "phd", "ccna", "obe", "sr", "jr",
+        "i", "ii", "iii", "iv", "v", "vi",
+        "vii", "viii", "ix", "x", "snr",
+        "madame", "jnr" ]
     var userDefinedPrefixType: [String] = []
     var previousPrefix = ""
     var previousFirstName = ""
@@ -180,9 +170,15 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
-        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
-        let middleName = middleNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        let firstName = firstNameTextField.text!
+            .trimmingCharacters(in: .whitespaces)
+            .trimmingCharacters(in: .decimalDigits)
+        let lastName = lastNameTextField.text!
+            .trimmingCharacters(in: .whitespaces)
+            .trimmingCharacters(in: .decimalDigits)
+        let middleName = middleNameTextField.text!
+            .trimmingCharacters(in: .whitespaces)
+            .trimmingCharacters(in: .decimalDigits)
         if firstName.isEmpty && middleName.isEmpty && lastName.isEmpty {
             alert(title: "Sorry",
                   message: "Please enter a valid name")

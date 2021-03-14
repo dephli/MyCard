@@ -125,14 +125,14 @@ class WorkInfoViewController: UIViewController {
 }
 
 // MARK: - Textfield delegates
-extension WorkInfoViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        var point = textField.convert(textField.frame.origin, to: self.scrollView)
-        point.x = 0.0
-        scrollView.setContentOffset(CGPoint(x: 0, y: 160), animated: true)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        scrollView.setContentOffset(CGPoint.zero, animated: true)
-    }
-}
+// extension WorkInfoViewController: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        var point = textField.convert(textField.frame.origin, to: self.scrollView)
+//        point.x = 0.0
+//        scrollView.setContentOffset(CGPoint(x: 0, y: 160), animated: true)
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+//        scrollView.setContentOffset(CGPoint.zero, animated: true)
+//    }
+// }
