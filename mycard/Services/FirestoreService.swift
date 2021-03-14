@@ -11,7 +11,7 @@ import FirebaseFirestore
 class FirestoreService {
 
     let db = Firestore.firestore()
-    static var manager = FirestoreService()
+    static var shared = FirestoreService()
 
     private init() {}
 
@@ -71,8 +71,7 @@ class FirestoreService {
             let contacts = data.compactMap { (document) -> Contact in
                 return try! document.data(as: Contact.self)!
             }
-
-            CardManager.shared.setContactCards(with: contacts)
+            CardManager.shared.createdContactCards = contacts
             onActionComplete(nil)
         }
     }

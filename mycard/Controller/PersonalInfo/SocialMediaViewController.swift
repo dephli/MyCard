@@ -33,24 +33,14 @@ class SocialMediaViewController: UIViewController {
 
     let socialMediaList = SocialMediaManger.manager.getAll
 
-    fileprivate func addTextStyles() {
-        socialsLabel.style(with: K.TextStyles.heading1)
-        linkedinLabel.style(with: K.TextStyles.bodyBlack60)
-        facebookLabel.style(with: K.TextStyles.bodyBlack60)
-        instagramLabel.style(with: K.TextStyles.bodyBlack60)
-        twitterLabel.style(with: K.TextStyles.bodyBlack60)
-
-        linkedinAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
-        facebookTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
-        twitterAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
-        instagramAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
-        doneButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         addTextStyles()
         populateTextFields()
+        instagramAccountTextfield.tag = 0
+        twitterAccountTextfield.tag = 1
+        instagramAccountTextfield.delegate = self
+        twitterAccountTextfield.delegate = self
         self.dismissKey()
 
     }
@@ -82,6 +72,20 @@ class SocialMediaViewController: UIViewController {
         SocialMediaManger.manager.replace(with: accounts)
 
         dismiss(animated: true, completion: nil)
+    }
+    
+    fileprivate func addTextStyles() {
+        socialsLabel.style(with: K.TextStyles.heading1)
+        linkedinLabel.style(with: K.TextStyles.bodyBlack60)
+        facebookLabel.style(with: K.TextStyles.bodyBlack60)
+        instagramLabel.style(with: K.TextStyles.bodyBlack60)
+        twitterLabel.style(with: K.TextStyles.bodyBlack60)
+
+        linkedinAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
+        facebookTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
+        twitterAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
+        instagramAccountTextfield.setTextStyle(with: K.TextStyles.bodyBlack60)
+        doneButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
     }
 }
 
@@ -186,4 +190,23 @@ extension SocialMediaViewController {
         }
     }
 
+}
+
+extension SocialMediaViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        UIView.animate(withDuration: 0.2) {
+            if textField.tag == 0 {
+                self.view.frame.origin.y = -150
+            } else if textField.tag == 1 {
+                self.view.frame.origin.y = -100
+            }
+        }
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.2) {
+            self.view.frame.origin.y = 0
+        }
+    }
 }

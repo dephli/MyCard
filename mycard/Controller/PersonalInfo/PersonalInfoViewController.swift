@@ -49,11 +49,11 @@ class PersonalInfoViewController: UIViewController,
     let imagePicker = UIImagePickerController()
     var keyboardHeight: Float?
     var contact: Contact? {
-        return CardManager.shared.currentContact
+        return CardManager.shared.currentEditableContact
     }
     let disposeBag = DisposeBag()
 
-    let prefixTypes = ["mr", "ms", "mrs", "dr"]
+    let prefixTypes = ["mr", "ms", "mrs", "dr", "adm", "capt", "chief", "cmdr", "col", "gov", "hon", "maj", "msgt", "prof", "rev"]
 //    this can be updated to get the data from cloud storage
     let suffixes = ["phd",
                     "ccna",
@@ -71,6 +71,7 @@ class PersonalInfoViewController: UIViewController,
                     "ix",
                     "x",
                     "snr",
+                    "madame",
                     "jnr"]
     var userDefinedPrefixType: [String] = []
     var previousPrefix = ""
@@ -134,6 +135,10 @@ class PersonalInfoViewController: UIViewController,
         if segue.identifier == K.Segues.personalInfoToSocialMedia {
             self.removeKeyboardObservers()
             segue.destination.presentationController?.delegate = self
+        } else {
+            if let vc = segue.destination as? WorkInfoViewController {
+                vc.viewModel = WorkInfoViewModel()
+            }
         }
     }
 
@@ -175,10 +180,14 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        if fullNameTextField.text!.isEmpty {
-            alert(title: "Name cannot be empty",
-                  message: "Name is required to create a card")
+        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        let middleName = middleNameTextField.text!.trimmingCharacters(in: .whitespaces).trimmingCharacters(in: .decimalDigits)
+        if firstName.isEmpty && middleName.isEmpty && lastName.isEmpty {
+            alert(title: "Sorry",
+                  message: "Please enter a valid name")
         } else {
+            self.setAllNames()
         saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
         }
@@ -351,7 +360,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
             self.avatarImageView.image = image
         }
 
-        DataStorageService.uploadImage(image: image, type: .profile) { (url, error) in
+        DataStorageService.uploadImage(image: image, type: .network) { (url, error) in
             if let error = error {
                 self.alert(title: "Image upload failed", message: error.localizedDescription)
 
@@ -359,7 +368,7 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
 //              create local contact as global contact is a get variable
                 var contact = self.contact
                 contact?.profilePicUrl = url
-                CardManager.shared.setContact(with: contact!)
+                CardManager.shared.currentEditableContact = contact!
             }
         }
 
@@ -397,7 +406,7 @@ extension PersonalInfoViewController {
         contact?.emailAddresses = EmailManager.manager.list.value
         contact?.socialMediaProfiles = SocialMediaManger.manager.getAll
 
-        CardManager.shared.setContact(with: contact!)
+        CardManager.shared.currentEditableContact = contact!
     }
 }
 
@@ -510,7 +519,7 @@ extension PersonalInfoViewController {
 
     private func splitFullname() {
 
-        let fullName = fullNameTextField.text!
+        let fullName = fullNameTextField.text!.trimmingCharacters(in: .whitespaces)
         if fullName.count > 1 {
 
             resetTextFieldContents()

@@ -13,7 +13,6 @@ class WorkInfoViewController: UIViewController {
     @IBOutlet weak var navigationBar: CustomNavigationBar!
     @IBOutlet weak var pageCountLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var workInfoSectionLabel: UILabel!
     @IBOutlet weak var workLocationLabel: UILabel!
     @IBOutlet weak var continueButtonBottomConstraint: NSLayoutConstraint!
@@ -21,43 +20,42 @@ class WorkInfoViewController: UIViewController {
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var workLocationTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var continueButton: UIButton!
 
 // MARK: - Variables
-    var companyImage: UIImage?
+    var viewModel: WorkInfoViewModel!
     private var keyboardHeight: Float?
     private var contact: Contact? {
-        return CardManager.shared.currentContact
+        return CardManager.shared.currentEditableContact
     }
 
 // MARK: - ViewController methods
+    override func viewWillAppear(_ animated: Bool) {
+        populateWithContact()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel.bindError = handleError
+        viewModel.bindSaveSuccessful = saveSuccessful
+        viewModel.bindContinue = continueToNextPage
         self.dismissKey()
         keyboardNotificationObservers()
-        populateWithContact()
-        view.viewOfType(type: UITextField.self) { (textfield) in
-            textfield.delegate = self
-        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationController = segue.destination as? ConfirmDetailsViewController
-        guard let cardImage = self.companyImage else {return}
-        destinationController!.cardImage = cardImage
-
+        let destinationController = segue.destination as! ConfirmDetailsViewController
+        destinationController.viewModel = ConfirmDetailsViewModel(contact: contact!)
     }
 
 // MARK: - Actions
     @IBAction func backBarButtonPressed(_ sender: Any) {
         saveCardData()
-
         dismiss(animated: true, completion: nil)
     }
 
     @IBAction func continueButtonPressed(_ sender: Any) {
         saveCardData()
-        performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
     }
 
 // MARK: - Custom methods
@@ -69,9 +67,9 @@ class WorkInfoViewController: UIViewController {
     }
 
     private func populateWithContact() {
-        workLocationTextField.text = contact?.businessInfo?.companyAddress
-        companyNameTextField.text = contact?.businessInfo?.companyName
-        jobTitleTextField.text = contact?.businessInfo?.role
+        workLocationTextField.text = viewModel.address
+        companyNameTextField.text = viewModel.companyName
+        jobTitleTextField.text = viewModel.role
     }
 
     private func setupUI() {
@@ -80,19 +78,27 @@ class WorkInfoViewController: UIViewController {
         pageCountLabel.style(with: K.TextStyles.subTitle)
         workInfoSectionLabel.style(with: K.TextStyles.subTitle)
         workLocationLabel.style(with: K.TextStyles.subTitle)
+        continueButton.setTitle(viewModel.continueButtonTitle, for: .normal)
 
     }
 
     private func saveCardData() {
-        var contact = self.contact
-        var businessInfo = BusinessInfo()
-        businessInfo.companyName = companyNameTextField.text
-        businessInfo.role = jobTitleTextField.text
-        businessInfo.companyAddress = workLocationTextField.text
-        contact?.businessInfo = businessInfo
+        viewModel.role = jobTitleTextField.text!
+        viewModel.companyName = companyNameTextField.text!
+        viewModel.address = workLocationTextField.text!
+        viewModel.saveCardData()
+    }
 
-        CardManager.shared.setContact(with: contact!)
+    private func handleError(error: Error) {
+        self.alert(title: "Error saving data", message: error.localizedDescription)
+    }
 
+    private func saveSuccessful() {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+
+    private func continueToNextPage() {
+        performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
     }
 
     private func keyboardNotificationObservers() {
@@ -104,62 +110,11 @@ class WorkInfoViewController: UIViewController {
     }
 }
 
-// MARK: - Image picker delegates
-extension WorkInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    fileprivate func handleImageUploadError(_ error: Error) {
-        let alert = UIAlertController(
-            title: "Image upload failed",
-            message: "An error occured while uploading you image",
-            preferredStyle: .alert)
-        alert.addAction(
-            UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-                print(error.localizedDescription)
-            })
-        )
-        self.present(alert, animated: true, completion: nil)
-    }
-
-//    func imagePickerController(_ picker: UIImagePickerController,
-//    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let image = info[.editedImage] as? UIImage {
-//            dismiss(animated: true)
-//            DispatchQueue.main.async {
-//                let imageView = UIImageView(image: image)
-//                imageView.layer.cornerRadius = 8
-//                imageView.contentMode = .scaleAspectFill
-//                imageView.clipsToBounds = true
-//                self.companyLogoView.addSubview(imageView)
-//                imageView.translatesAutoresizingMaskIntoConstraints = false
-//                imageView.topAnchor.constraint(equalTo: self.companyLogoView.topAnchor, constant: 0).isActive = true
-//                imageView.bottomAnchor.constraint(
-                    //    equalTo: self.companyLogoView.bottomAnchor, constant: 0).isActive = true
-//                imageView.leadingAnchor.constraint(
-//                    equalTo: self.companyLogoView.leadingAnchor, constant: 0).isActive = true
-//                imageView.trailingAnchor.constraint(
-//                    equalTo: self.companyLogoView.trailingAnchor, constant: 0).isActive = true
-//            }
-//            self.companyImage = image
-//            let storageService = DataStorageService()
-//            storageService.uploadImage(image: image, type: .CompanyLogos) { (url, error) in
-//                if let error = error {
-//                    self.handleImageUploadError(error)
-//                } else {
-//                    print(url!)
-//                    self.contact.businessInfo?.companyLogo = url
-//                    CardCreationManager.manager.contact.accept(self.contact)
-//                }
-//            }
-//        }
-//    }
-}
-
 // MARK: - Textfield delegates
 extension WorkInfoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         var point = textField.convert(textField.frame.origin, to: self.scrollView)
         point.x = 0.0
-
         scrollView.setContentOffset(CGPoint(x: 0, y: 160), animated: true)
     }
 

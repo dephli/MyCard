@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
+
 // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextLabel: UILabel!
@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var numberTextLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
 
-//MARK: - Properties
+// MARK: - Properties
     var profilePicUrl: String?
     let imagePicker = UIImagePickerController()
 
@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-//MARK: - Actions
+// MARK: - Actions
     @IBAction func logoutButtonPressed(_ sender: Any) {
         UserManager.auth.logout { (error) in
             if let error = error {
@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
-    @IBAction func uploadImageButtonPressed(_ sender: Any){
+    @IBAction func uploadImageButtonPressed(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
             present(imagePicker, animated: true)
         }
     }
-    //MARK: - Custom Methods
+    // MARK: - Custom Methods
     private func setRootViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let navController = storyboard
@@ -76,7 +76,6 @@ class SettingsViewController: UIViewController {
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }
-
 
 extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 

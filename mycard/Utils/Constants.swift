@@ -179,6 +179,9 @@ struct K {
         static let cardDetailsToPersonalInfo = "CardDetailsToPersonalInfo"
         static let cardDetailsToQR = "CardDetailsToQR"
         static let searchToCardDetails = "SearchToCardDetails"
+        static let confirmDetailsToNotes = "ConfirmDetailsToNotes"
+        static let cardDetailsToNotes = "CardDetailsToNotes"
+        static let profileToSettings = "ProfileToSettings"
     }
 
     struct Notifications {
@@ -237,6 +240,7 @@ struct K {
 //        system images
         static let minus = UIImage(systemName: ImageString.minus)
         static let plus = UIImage(systemName: ImageString.plus)
+        static let gearShape = UIImage(systemName: "gearshape")
 
     }
 

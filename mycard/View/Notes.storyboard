@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ofs-jx-Dfk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Notes View Controller-->
+        <scene sceneID="VZ6-M7-YnF">
+            <objects>
+                <viewController id="Ofs-jx-Dfk" customClass="NotesViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cyo-Cm-69Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-v9-siS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" name="MC White"/>
+                                <items>
+                                    <navigationItem title="Note" id="Rdk-UN-TXD">
+                                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="89n-Oe-M6S">
+                                            <color key="tintColor" name="MC Black"/>
+                                            <connections>
+                                                <action selector="closeButtonPressed:" destination="Ofs-jx-Dfk" id="WW8-kL-5TL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5gt-OU-6Sk">
+                                            <color key="tintColor" name="MC Black"/>
+                                            <connections>
+                                                <action selector="saveButtonPressed:" destination="Ofs-jx-Dfk" id="khP-fP-QLN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMd-8I-R70">
+                                <rect key="frame" x="24" y="112" width="366" height="19"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                <color key="textColor" name="MC Black 20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UZJ-re-hAa">
+                                <rect key="frame" x="24" y="112" width="366" height="726"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5vw-uG-hEf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UZJ-re-hAa" firstAttribute="top" secondItem="tPt-v9-siS" secondAttribute="bottom" constant="24" id="0n8-2b-eRJ"/>
+                            <constraint firstItem="5vw-uG-hEf" firstAttribute="trailing" secondItem="UZJ-re-hAa" secondAttribute="trailing" constant="24" id="Aek-5U-wJb"/>
+                            <constraint firstItem="UZJ-re-hAa" firstAttribute="leading" secondItem="5vw-uG-hEf" secondAttribute="leading" constant="24" id="ArM-hf-so8"/>
+                            <constraint firstItem="eMd-8I-R70" firstAttribute="leading" secondItem="5vw-uG-hEf" secondAttribute="leading" constant="24" id="Beh-cd-tjl"/>
+                            <constraint firstItem="5vw-uG-hEf" firstAttribute="trailing" secondItem="eMd-8I-R70" secondAttribute="trailing" constant="24" id="CXT-V5-qK6"/>
+                            <constraint firstItem="tPt-v9-siS" firstAttribute="leading" secondItem="Cyo-Cm-69Z" secondAttribute="leading" id="GH3-W4-bvZ"/>
+                            <constraint firstItem="eMd-8I-R70" firstAttribute="top" secondItem="UZJ-re-hAa" secondAttribute="top" id="HUY-Wx-7jJ"/>
+                            <constraint firstItem="5vw-uG-hEf" firstAttribute="bottom" secondItem="UZJ-re-hAa" secondAttribute="bottom" constant="24" id="JWY-Ic-0vb"/>
+                            <constraint firstItem="5vw-uG-hEf" firstAttribute="trailing" secondItem="tPt-v9-siS" secondAttribute="trailing" id="gQR-Yk-XAV"/>
+                            <constraint firstItem="tPt-v9-siS" firstAttribute="top" secondItem="5vw-uG-hEf" secondAttribute="top" id="zOu-3M-Czi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customNavigationBar" destination="tPt-v9-siS" id="bBX-Vy-ygS"/>
+                        <outlet property="notesTextView" destination="UZJ-re-hAa" id="VxN-S7-8Fz"/>
+                        <outlet property="placeholderLabel" destination="eMd-8I-R70" id="bxA-PC-oGc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4y-au-8c8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1181.1594202898552" y="106.47321428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="MC Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 20">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
