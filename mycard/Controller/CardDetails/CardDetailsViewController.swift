@@ -33,7 +33,6 @@ class CardDetailsViewController: UIViewController {
     private let imageView = UIImageView()
     private var isOpen = false
     private var notepoint: CGPoint?
-    var contactImage: UIImage?
     var viewModel: CardDetailsViewModel!
 
 // MARK: - Viewcontroller methods

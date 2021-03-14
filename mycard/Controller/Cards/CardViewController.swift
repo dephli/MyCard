@@ -51,12 +51,11 @@ class CardViewController: UIViewController {
                 return
             }
             let cell = cardTableView.cellForRow(at: indexPath) as! ContactsCell
-            if let image = cell.avatarImageView.image {
-                destination.contactImage = image
-            }
+            let selectedCellImage = cell.avatarImageView.image
+ 
             let contact = contacts[indexPath.row]
             CardManager.shared.currentContactDetails = contact
-            destination.viewModel = CardDetailsViewModel()
+            destination.viewModel = CardDetailsViewModel(contactImage: selectedCellImage)
         }
     }
 
@@ -188,7 +187,8 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
             for: indexPath) as? ContactsCell
         cell?.selectionStyle = .none
 
-        cell?.contact = contacts[indexPath.row]
+        let contact = contacts[indexPath.row]
+        cell?.viewModel = ContactsCellViewModel(contact: contact)
         return cell!
     }
 

@@ -51,10 +51,17 @@ class SearchViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailsViewController {
-            let contact = contacts[(tableView.indexPathForSelectedRow?.row)!]
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                return
+            }
+            let contact = contacts[indexPath.row]
+
+            let selectedCellImage = (tableView.cellForRow(at:indexPath) as! ContactsCell).avatarImageView.image
+
             CardManager.shared.currentContactDetails = contact
             CardManager.shared.currentEditableContact = contact
-            destination.viewModel = CardDetailsViewModel()
+            destination.viewModel = CardDetailsViewModel(contactImage: selectedCellImage)
+
         }
     }
 
@@ -144,7 +151,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             contact = contacts[indexPath.row]
         }
-        cell?.contact = contact
+        cell?.viewModel = ContactsCellViewModel(contact: contact!)
         return cell!
 
     }
