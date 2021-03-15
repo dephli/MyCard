@@ -431,6 +431,7 @@
                         <outlet property="middleNameTextField" destination="JGA-Aj-ygD" id="cxc-Xk-Q4W"/>
                         <outlet property="nameStackView" destination="Jiu-Fs-g1i" id="hk0-cR-vp8"/>
                         <outlet property="nameTitleLabel" destination="HRq-DW-shb" id="xwj-He-i6r"/>
+                        <outlet property="nextButton" destination="87U-iH-wdx" id="KnI-jZ-Azs"/>
                         <outlet property="pageCountLabel" destination="R5o-RI-AC8" id="ZLX-t2-bt6"/>
                         <outlet property="personalInfoLabel" destination="geE-PH-ZDh" id="TH4-4r-LPC"/>
                         <outlet property="phoneNumbersStackView" destination="XUP-FO-vxC" id="4Xq-bA-B87"/>

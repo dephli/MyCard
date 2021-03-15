@@ -9,9 +9,9 @@ import UIKit
 import RxSwift
 import FirebaseStorage
 
-class PersonalInfoViewController: UIViewController,
-                                  SocialMediaStackViewDelegate,
-                                  UIAdaptivePresentationControllerDelegate {
+class PersonalInfoViewController
+:UIViewController,
+ SocialMediaStackViewDelegate{
 
     // MARK: - Outlets
     @IBOutlet weak var pageCountLabel: UILabel!
@@ -39,7 +39,7 @@ class PersonalInfoViewController: UIViewController,
     @IBOutlet weak var profileButtonToSocialMediaLabelConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileButtonToSocialMediaStackViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var socialMediaButtonHeightConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var customNavBar: CustomNavigationBar!
 
     // MARK: - variables
@@ -100,7 +100,7 @@ class PersonalInfoViewController: UIViewController,
         uiSetup()
         nameSetup()
         userDefinedPrefixType = prefixTypes
-        view.viewOfType(type: UITextField.self) { (textfield) in
+        nameStackView.viewOfType(type: UITextField.self) { (textfield) in
             textfield.delegate = self
         }
         fullNameTextField.becomeFirstResponder()
@@ -110,6 +110,10 @@ class PersonalInfoViewController: UIViewController,
         }
         socialMediaListStackView.delegate = self
         disableStackViewConstraints()
+
+        if contact?.name.fullName == "" {
+            nextButton.isEnabled = false
+        }
 
     }
 
@@ -170,23 +174,9 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        let firstName = firstNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .decimalDigits)
-        let lastName = lastNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .decimalDigits)
-        let middleName = middleNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .decimalDigits)
-        if firstName.isEmpty && middleName.isEmpty && lastName.isEmpty {
-            alert(title: "Sorry",
-                  message: "Please enter a valid name")
-        } else {
-            self.setAllNames()
+        self.setAllNames()
         saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
-        }
     }
 
     @IBAction func bottomCaretButtonPressed(_ sender: UIButton) {
@@ -217,14 +207,8 @@ class PersonalInfoViewController: UIViewController,
 // MARK: - selector functions
 
     @objc func keyboardWillChange(_ notification: Notification) {
-//        guard let keyboardRectangle = notification
-//                .userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-//            return
-//        }
 
         if notification.name == UIResponder.keyboardWillShowNotification {
-//            using a fixed height and not keyboard height cos sometimes it pushes
-//            views out of the window
             self.view.frame.origin.y = -200
         } else {
             self.view.frame.origin.y = 0
@@ -273,8 +257,27 @@ class PersonalInfoViewController: UIViewController,
     func onArrowButtonPressed() {
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
+    
+    func verifyTextFields() {
+        let firstName = firstNameTextField.text!
+                   .trimmingCharacters(in: .whitespaces)
+                   .trimmingCharacters(in: .decimalDigits)
+        let lastName = lastNameTextField.text!
+           .trimmingCharacters(in: .whitespaces)
+           .trimmingCharacters(in: .decimalDigits)
+        let middleName = middleNameTextField.text!
+           .trimmingCharacters(in: .whitespaces)
+           .trimmingCharacters(in: .decimalDigits)
+        if firstName.isEmpty && middleName.isEmpty && lastName.isEmpty {
+           nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+    }
+}
 
-    // MARK: - delegate functions
+extension PersonalInfoViewController
+:UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         viewWillAppear(true)
     }
@@ -351,17 +354,19 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         dismiss(animated: true, completion: nil)
+        self.showActivityIndicator()
         guard let image = info[.editedImage] as? UIImage else {return}
-        DispatchQueue.main.async {
-            self.avatarImageView.image = image
-        }
-
         DataStorageService.uploadImage(image: image, type: .network) { (url, error) in
+            self.removeActivityIndicator()
             if let error = error {
                 self.alert(title: "Image upload failed", message: error.localizedDescription)
 
             } else {
 //              create local contact as global contact is a get variable
+                DispatchQueue.main.async {
+                    self.avatarImageView.image = image
+                }
+
                 var contact = self.contact
                 contact?.profilePicUrl = url
                 CardManager.shared.currentEditableContact = contact!
@@ -382,6 +387,11 @@ extension PersonalInfoViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         scrollView.setContentOffset(CGPoint.zero, animated: true)
+        distributeNames(textField)
+        verifyTextFields()
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
         distributeNames(textField)
     }
 

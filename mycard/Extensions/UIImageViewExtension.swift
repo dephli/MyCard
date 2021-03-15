@@ -28,13 +28,17 @@ extension UIImageView {
 
         Networking.downloadImage(url: url) { [weak self] result in
             guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                guard let imageToCache = UIImage(data: data) else { return }
-                imageCache.setObject(imageToCache, forKey: urlSting as AnyObject)
-                self.image = UIImage(data: data)
-            case .failure:
-                self.image = UIImage(named: "noImage")
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    guard let imageToCache = UIImage(data: data) else { return }
+                    imageCache.setObject(imageToCache, forKey: urlSting as AnyObject)
+                    self.image = UIImage(data: data)
+                case .failure:
+                    if self.tag != 1 {
+                        self.image = K.Images.brokenImage
+                    }
+                }
             }
         }
     }

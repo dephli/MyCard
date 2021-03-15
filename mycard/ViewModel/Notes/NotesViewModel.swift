@@ -23,16 +23,6 @@ class NotesViewModel: NSObject {
                 if let error = error {
                     self.bindError!(error)
                 } else {
-                    CardManager.shared.currentEditableContact = contact!
-                    self.bindNoteSaved!()
-                }
-            }
-        } else if contactType == .editPersonalCard {
-            FirestoreService.shared.editPersonalCard(contact: contact) { (contact, error) in
-                if let error = error {
-                    self.bindError!(error)
-                } else {
-                    CardManager.shared.currentEditableContact = contact!
                     CardManager.shared.currentContactDetails = contact!
                     self.bindNoteSaved!()
                 }

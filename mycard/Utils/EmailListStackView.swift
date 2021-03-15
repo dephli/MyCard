@@ -110,6 +110,7 @@ extension EmailListStackView {
         textfield.layer.cornerRadius = 8
         textfield.textContentType = .emailAddress
         textfield.keyboardType = .emailAddress
+        textfield.autocorrectionType = .no
         textfield.placeholder = "Email Address"
         textfield.autocapitalizationType = .none
         textfield.setTextStyle(with: K.TextStyles.bodyBlack40)
