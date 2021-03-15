@@ -82,9 +82,11 @@ class SearchViewController: UIViewController {
         searchController.searchBar
             .setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
 
-        let textfield = searchController.searchBar.searchTextField
-
-        textfield.setTextStyle(with: K.TextStyles.bodyBlack)
+        if #available(iOS 13.0, *) {
+            let textfield = searchController.searchBar.searchTextField
+            
+            textfield.setTextStyle(with: K.TextStyles.bodyBlack)
+        }
 
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()

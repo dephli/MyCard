@@ -48,7 +48,9 @@ class SocialMediaViewController: UIViewController {
     }
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
-        presentationController?.delegate?.presentationControllerDidDismiss?(presentationController!)
+        if #available(iOS 13.0, *) {
+            presentationController?.delegate?.presentationControllerDidDismiss?(presentationController!)
+        }
     }
 
     @IBAction func doneButtonPressed(_ sender: Any) {

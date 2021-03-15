@@ -25,7 +25,10 @@ extension UIViewController {
         innerView.centerXAnchor.constraint(equalTo: aView!.centerXAnchor).isActive = true
         innerView.backgroundColor = K.Colors.Black60
         innerView.layer.cornerRadius = 8
-        let ai = UIActivityIndicatorView(style: .large)
+        var ai = UIActivityIndicatorView(style: .white)
+        if #available(iOS 13.0, *) {
+            ai = UIActivityIndicatorView(style: .large)
+        }
         ai.translatesAutoresizingMaskIntoConstraints = false
         ai.startAnimating()
         ai.color = .white

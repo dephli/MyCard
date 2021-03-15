@@ -113,7 +113,7 @@
                                                     <constraint firstAttribute="height" constant="24" id="RX8-FW-pWr"/>
                                                 </constraints>
                                                 <color key="tintColor" name="MC Black"/>
-                                                <state key="normal" image="plus" catalog="system"/>
+                                                <state key="normal" image="add"/>
                                                 <connections>
                                                     <action selector="addNewPhonePressed:" destination="CHm-Rj-w6x" eventType="touchUpInside" id="Eyb-Vt-sDK"/>
                                                 </connections>
@@ -144,7 +144,7 @@
                                                     <constraint firstAttribute="width" constant="24" id="zhd-g4-D4V"/>
                                                 </constraints>
                                                 <color key="tintColor" name="MC Black"/>
-                                                <state key="normal" image="plus" catalog="system"/>
+                                                <state key="normal" image="add"/>
                                                 <connections>
                                                     <action selector="addEmailPressed:" destination="CHm-Rj-w6x" eventType="touchUpInside" id="BU7-ef-zJP"/>
                                                 </connections>
@@ -181,7 +181,7 @@
                                                                     <constraint firstAttribute="height" constant="48" id="FZo-Os-dzH"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="namePhonePad" textContentType="name"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -198,7 +198,7 @@
                                                                     <constraint firstAttribute="height" constant="48" id="0d7-Df-uDZ"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="honorifix-prefix"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" textContentType="honorifix-prefix"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -216,7 +216,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="namePhonePad" textContentType="name"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -234,7 +234,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="additional-name"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="namePhonePad" textContentType="additional-name"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -252,7 +252,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="namePhonePad" textContentType="family-name"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -270,7 +270,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="honorifix-suffix"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="namePhonePad" textContentType="honorifix-suffix"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -497,7 +497,7 @@
                                                                     <constraint firstAttribute="width" constant="24" id="sEg-Cn-lcT"/>
                                                                 </constraints>
                                                                 <color key="tintColor" name="MC Black"/>
-                                                                <state key="normal" title="Button" image="plus" catalog="system"/>
+                                                                <state key="normal" title="Button" image="add"/>
                                                                 <connections>
                                                                     <action selector="addLinkedinButtonPressed:" destination="f2D-ub-vkb" eventType="touchUpInside" id="pBC-9R-5Z9"/>
                                                                 </connections>
@@ -549,7 +549,7 @@
                                                                     <constraint firstAttribute="width" constant="24" id="lQa-M8-m1j"/>
                                                                 </constraints>
                                                                 <color key="tintColor" name="MC Black"/>
-                                                                <state key="normal" image="plus" catalog="system"/>
+                                                                <state key="normal" image="add"/>
                                                                 <connections>
                                                                     <action selector="addFacebookButtonPressed:" destination="f2D-ub-vkb" eventType="touchUpInside" id="V24-RJ-iWq"/>
                                                                 </connections>
@@ -608,7 +608,7 @@
                                                                     <constraint firstAttribute="height" constant="24" id="sZ9-mz-GXr"/>
                                                                 </constraints>
                                                                 <color key="tintColor" name="MC Black"/>
-                                                                <state key="normal" image="plus" catalog="system"/>
+                                                                <state key="normal" image="add"/>
                                                                 <connections>
                                                                     <action selector="addTwitterButtonPressed:" destination="f2D-ub-vkb" eventType="touchUpInside" id="whl-0k-kfA"/>
                                                                 </connections>
@@ -674,7 +674,7 @@
                                                                     <constraint firstAttribute="height" constant="24" id="rbx-Db-h8U"/>
                                                                 </constraints>
                                                                 <color key="tintColor" name="MC Black"/>
-                                                                <state key="normal" image="plus" catalog="system"/>
+                                                                <state key="normal" image="add"/>
                                                                 <connections>
                                                                     <action selector="addInstagramButtonPressed:" destination="f2D-ub-vkb" eventType="touchUpInside" id="PJq-wm-KKb"/>
                                                                 </connections>
@@ -823,10 +823,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="24" height="24"/>
         <image name="camera" width="20" height="16"/>
         <image name="chevron down" width="10" height="6"/>
         <image name="draggable bar" width="56" height="6"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="profile placeholder" width="96" height="96"/>
         <image name="socials facebook" width="24" height="24"/>
         <image name="socials instagram" width="24" height="24"/>

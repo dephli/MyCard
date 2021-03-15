@@ -77,11 +77,12 @@ extension PhoneListStackView {
         textfield.leftPadding = 16
         textfield.rightPadding = 16
         textfield.layer.cornerRadius = 8
-        textfield.textContentType = .name
-        textfield.keyboardType = .numberPad
+        textfield.textContentType = .telephoneNumber
+        textfield.keyboardType = .phonePad
         textfield.placeholder = "Phone Number"
         textfield.setTextStyle(with: K.TextStyles.bodyBlack40)
         textfield.tag = index
+        textfield.autocorrectionType = .no
         textfield.addTarget(self, action: #selector(textfieldDidChange(_:)), for: .editingDidEnd)
 
         if let text = text {
@@ -124,7 +125,7 @@ extension PhoneListStackView {
 
     func setupMinusButton(at index: Int, isHidden: Bool) -> UIButton {
         let minusButton = UIButton()
-        minusButton.setImage(UIImage(named: "remove"), for: .normal)
+        minusButton.setImage(K.Images.minus, for: .normal)
         minusButton.tintColor = .black
         minusButton.widthAnchor.constraint(equalToConstant: 16).isActive = true
         minusButton.tag = index

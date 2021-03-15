@@ -276,7 +276,7 @@ class PersonalInfoViewController: UIViewController,
 
     // MARK: - delegate functions
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        registerKeyboardNotifications()
+        viewWillAppear(true)
     }
 }
 

@@ -208,10 +208,9 @@ struct K {
         static let contacts = "contacts"
         static let share = "share"
         static let more = "more vertical"
-
-//        system images
-        static let minus = "minus"
-        static let plus = "plus"
+        static let minus = "remove"
+        static let plus = "add"
+        static let settings = "settings"
         static let phone = "phone"
 
     }
@@ -238,9 +237,9 @@ struct K {
         static let profilePlaceholder = UIImage(named: ImageString.profilePlaceholder)
 
 //        system images
-        static let minus = UIImage(systemName: ImageString.minus)
-        static let plus = UIImage(systemName: ImageString.plus)
-        static let gearShape = UIImage(systemName: "gearshape")
+        static let minus = UIImage(named: ImageString.minus)
+        static let plus = UIImage(named: ImageString.plus)
+        static let gearShape = UIImage(named: K.ImageString.settings)
 
     }
 

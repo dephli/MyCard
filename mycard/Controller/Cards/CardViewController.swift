@@ -196,6 +196,7 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: K.Segues.cardsToCardDetails, sender: self)
     }
 
+    @available(iOS 13.0, *)
     func tableView(_ tableView: UITableView,
                    contextMenuConfigurationForRowAt indexPath: IndexPath,
                    point: CGPoint)

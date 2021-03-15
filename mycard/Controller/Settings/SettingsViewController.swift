@@ -66,13 +66,26 @@ class SettingsViewController: UIViewController {
     // MARK: - Custom Methods
     private func setRootViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let navController = storyboard
-                .instantiateViewController(
-                    identifier: K.ViewIdentifiers.startScreenViewController
-                ) as? StartScreenViewController else {
-            return
+        if #available(iOS 13.0, *) {
+            guard let navController = storyboard
+                    .instantiateViewController(
+                        identifier: K.ViewIdentifiers.startScreenViewController
+                    ) as? StartScreenViewController else {
+                return
+            }
+            UIApplication.shared.windows.first?.rootViewController = navController
+        } else {
+            // Fallback on earlier versions
+            
+            guard let navController = storyboard
+                    .instantiateViewController(
+                        withIdentifier: K.ViewIdentifiers.startScreenViewController
+                    ) as? StartScreenViewController else {
+                return
+            }
+            UIApplication.shared.windows.first?.rootViewController = navController
         }
-        UIApplication.shared.windows.first?.rootViewController = navController
+
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

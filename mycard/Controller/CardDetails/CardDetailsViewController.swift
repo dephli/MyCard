@@ -249,7 +249,7 @@ extension CardDetailsViewController {
 
 //        Generate QR code action
         image = K.Images.scanQR
-        image?.withTintColor(.black)
+        
         let generateQRAction = UIAlertAction(
             title: "Generate QR Code", style: .default) { [self] (_) in
             self.performSegue(withIdentifier: K.Segues.cardDetailsToQR, sender: self)
