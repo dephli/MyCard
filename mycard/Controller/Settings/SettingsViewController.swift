@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController {
             UIApplication.shared.windows.first?.rootViewController = navController
         } else {
             // Fallback on earlier versions
-            
+
             guard let navController = storyboard
                     .instantiateViewController(
                         withIdentifier: K.ViewIdentifiers.startScreenViewController

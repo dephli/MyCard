@@ -48,7 +48,7 @@ class NotesViewController: UIViewController {
 // MARK: - Custom Methods
 
     func notesSaved() {
-        
+
         if #available(iOS 13.0, *) {
             self.presentationController?.delegate?.presentationControllerDidDismiss?(self.presentationController!)
         }
