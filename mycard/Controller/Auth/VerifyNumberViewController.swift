@@ -102,7 +102,6 @@ class VerifyNumberViewController: UIViewController {
         let username = AuthService.username
         if username != nil
             && username?.trimmingCharacters(in: .whitespaces) != "" {
-            self.performSegue(withIdentifier: K.Segues.verifyNumberToCards, sender: self)
             self.setRootViewController()
         } else {
             self.performSegue(withIdentifier: K.Segues.verifyNumberToProfileSetup, sender: self)

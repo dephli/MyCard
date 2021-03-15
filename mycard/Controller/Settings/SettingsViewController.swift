@@ -106,16 +106,16 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
         self.showActivityIndicator()
 
         DataStorageService.uploadImage(image: image, type: .profile) { (url, error) in
-            if let error = error {
+            if error != nil {
                 self.removeActivityIndicator()
                 self.avatarImage.image = K.Images.profilePlaceholder
-                self.alert(title: "Image upload failed", message: error.localizedDescription)
+                self.alert(title: "Image upload failed", message: "Could not upload image")
             } else {
                 let user = User(avatarImageUrl: url)
                 UserManager.auth.updateUser(with: user) { (error) in
                     self.removeActivityIndicator()
-                    if let error = error {
-                        self.alert(title: "Image upload failed", message: error.localizedDescription)
+                    if error != nil {
+                        self.alert(title: "Image upload failed", message: "Could not upload image")
                     }
                 }
             }

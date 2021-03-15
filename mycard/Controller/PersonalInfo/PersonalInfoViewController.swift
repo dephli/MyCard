@@ -10,8 +10,7 @@ import RxSwift
 import FirebaseStorage
 
 class PersonalInfoViewController: UIViewController,
-                                  SocialMediaStackViewDelegate,
-                                  UIAdaptivePresentationControllerDelegate {
+ SocialMediaStackViewDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var pageCountLabel: UILabel!
@@ -39,10 +38,12 @@ class PersonalInfoViewController: UIViewController,
     @IBOutlet weak var profileButtonToSocialMediaLabelConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileButtonToSocialMediaStackViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var socialMediaButtonHeightConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var customNavBar: CustomNavigationBar!
+    @IBOutlet weak var bottomCaretButton: UIButton!
 
     // MARK: - variables
+    var viewModel: PersonalInfoViewModel!
     let phoneNumberObservable = PhoneNumberManager.manager.list.asObservable()
     let socialMediaObservable =
         SocialMediaManger.manager.list.asObservable()
@@ -53,68 +54,34 @@ class PersonalInfoViewController: UIViewController,
     }
     let disposeBag = DisposeBag()
 
-    let prefixTypes = [
-        "mr", "ms", "mrs", "dr", "adm", "capt",
-        "chief", "cmdr", "col", "gov", "hon",
-        "maj", "msgt", "prof", "rev"]
-//    this can be updated to get the data from cloud storage
-    let suffixes = [
-        "phd", "ccna", "obe", "sr", "jr",
-        "i", "ii", "iii", "iv", "v", "vi",
-        "vii", "viii", "ix", "x", "snr",
-        "madame", "jnr" ]
-    var userDefinedPrefixType: [String] = []
-    var previousPrefix = ""
-    var previousFirstName = ""
-    var nameArray: [String] {
-        let names =  fullNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .components(separatedBy: " ")
-        let filteredNames = names.filter { (name) -> Bool in
-            return name.trimmingCharacters(in: .whitespaces) != ""
-        }
-        return filteredNames
-    }
-    var prefixAndFuncMap: [Int: () -> Void ] {
-        return [
-            1: prefixAndOneWord,
-            2: prefixAndTwoWords,
-            3: prefixAndThreeWords,
-            4: prefixAndFourWords
-        ]
-    }
-    var noPrefixAndFuncMap: [Int: () -> Void ] {
-        return [
-            1: noPrefixAndOneWord,
-            2: noPrefixAndTwoWords,
-            3: noPrefixAndThreeWords
-        ]
-    }
-
 // MARK: - ViewController methods
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = PersonalInfoViewModel()
 
         self.dismissKey()
         uiSetup()
         nameSetup()
-        userDefinedPrefixType = prefixTypes
-        view.viewOfType(type: UITextField.self) { (textfield) in
+        nameStackView.viewOfType(type: UITextField.self) { (textfield) in
             textfield.delegate = self
         }
         fullNameTextField.becomeFirstResponder()
-        fullNameTextField.text = contact?.name.fullName
-        if let avatarUrl = contact?.profilePicUrl {
+        if let avatarUrl = viewModel.avatarUrl {
             avatarImageView.loadThumbnail(urlSting: avatarUrl)
         }
         socialMediaListStackView.delegate = self
         disableStackViewConstraints()
 
+        if viewModel.fullName == "" {
+            nextButton.isEnabled = false
+        }
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         registerKeyboardNotifications()
+        populateWithData()
+        fullNameTextField.text = viewModel.fullName
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -139,25 +106,11 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func addNewPhonePressed(_ sender: Any) {
-        let phoneNumbers = PhoneNumberManager.manager.list.value
-
-//        you cannot add a phone number if any is empty
-        if !phoneNumbers.contains(where: { (phoneNumber) -> Bool in
-            return phoneNumber.number!.isEmpty
-        }) {
-            PhoneNumberManager.manager.append(with: PhoneNumber(type: .Home, number: ""))
-        }
+        viewModel.addNewPhoneNumber()
     }
 
     @IBAction func addEmailPressed(_ sender: Any) {
-        let emails = EmailManager.manager.list.value
-
-//        you cannot add another email if any is empty
-        if !emails.contains(where: { (email) -> Bool in
-            return email.address.isEmpty
-        }) {
-            EmailManager.manager.append(with: Email(type: .Personal, address: ""))
-        }
+        viewModel.addNewEmail()
     }
 
     @IBAction func socialMediaButtonPressed(_ sender: Any) {
@@ -170,23 +123,9 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
-        let firstName = firstNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .decimalDigits)
-        let lastName = lastNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .decimalDigits)
-        let middleName = middleNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .decimalDigits)
-        if firstName.isEmpty && middleName.isEmpty && lastName.isEmpty {
-            alert(title: "Sorry",
-                  message: "Please enter a valid name")
-        } else {
-            self.setAllNames()
+        self.setAllNames()
         saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToWorkInfo, sender: self)
-        }
     }
 
     @IBAction func bottomCaretButtonPressed(_ sender: UIButton) {
@@ -195,9 +134,14 @@ class PersonalInfoViewController: UIViewController,
         DispatchQueue.main.async {
                 self.nameStackView.arrangedSubviews[0].alpha = 0
 
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.3) {[self] in
+                if bottomCaretButton.transform == CGAffineTransform.identity {
+                    bottomCaretButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+                } else {
+                    bottomCaretButton.transform = CGAffineTransform(rotationAngle: 0)
+                }
                 for i in 0 ..< stackViewLength {
-                    let view = self.nameStackView.arrangedSubviews[i]
+                    let view = nameStackView.arrangedSubviews[i]
                     view.isHidden.toggle()
                     if i != 0 {
                         if view.alpha == 0 {
@@ -217,14 +161,8 @@ class PersonalInfoViewController: UIViewController,
 // MARK: - selector functions
 
     @objc func keyboardWillChange(_ notification: Notification) {
-//        guard let keyboardRectangle = notification
-//                .userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-//            return
-//        }
 
         if notification.name == UIResponder.keyboardWillShowNotification {
-//            using a fixed height and not keyboard height cos sometimes it pushes
-//            views out of the window
             self.view.frame.origin.y = -200
         } else {
             self.view.frame.origin.y = 0
@@ -274,7 +212,14 @@ class PersonalInfoViewController: UIViewController,
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
 
-    // MARK: - delegate functions
+    func verifyTextFields() {
+        populateViewModelNames()
+        viewModel.verifyTextFields()
+        nextButton.isEnabled = viewModel.nextButtonEnabled
+    }
+}
+
+extension PersonalInfoViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         viewWillAppear(true)
     }
@@ -282,8 +227,38 @@ class PersonalInfoViewController: UIViewController,
 
 // MARK: - UI Setup
 extension PersonalInfoViewController {
+    private func populateWithData() {
+        let constraintToLabel = socialMediaButton.topAnchor
+            .constraint(
+                equalTo: socialMediaLabel.bottomAnchor,
+                constant: 14)
+        let constraintToStackView = socialMediaButton.topAnchor
+            .constraint(
+                equalTo: socialMediaListStackView.bottomAnchor,
+                constant: 24)
+        socialMediaObservable.subscribe { [unowned self] accounts in
 
-    func uiSetup() {
+            constraintToLabel.isActive = viewModel.socialMediaIsEmpty
+
+            constraintToStackView.isActive = !viewModel.socialMediaIsEmpty
+
+            socialMediaListStackView.configure(with: viewModel.socialMedia, type: .creation)
+
+            socialMediaButtonHeightConstraint.constant = viewModel.socialMediaHeightConstraint
+            socialMediaButton.isHidden = viewModel.hideSocialMediaButton
+
+        }.disposed(by: disposeBag)
+
+        phoneNumberObservable.subscribe(onNext: { [unowned self] numbers in
+            phoneNumbersStackView.configure(with: numbers)
+        }).disposed(by: disposeBag)
+
+        EmailManager.manager.list.asObservable().subscribe { [unowned self] emails in
+            emailListStackView.configure(with: emails)
+        }.disposed(by: disposeBag)
+    }
+
+    private func uiSetup() {
         socialMediaButton.setTitle(with: K.TextStyles.bodyBlue, for: .normal)
         customNavBar.setup(backIndicatorImage: "xmark")
         personalInfoLabel.style(with: K.TextStyles.heading1)
@@ -293,41 +268,6 @@ extension PersonalInfoViewController {
 
         nameTitleLabel.style(with: K.TextStyles.captionBlack60)
         phoneTitleLabel.style(with: K.TextStyles.captionBlack60)
-
-        let constraintToLabel = socialMediaButton.topAnchor
-            .constraint(
-                equalTo: socialMediaLabel.bottomAnchor,
-                constant: 14)
-        let constraintToStackView = socialMediaButton.topAnchor
-            .constraint(
-                equalTo: socialMediaListStackView.bottomAnchor,
-                constant: 24)
-
-        phoneNumberObservable.subscribe(onNext: { [unowned self] numbers in
-            phoneNumbersStackView.configure(with: numbers)
-        }).disposed(by: disposeBag)
-
-        EmailManager.manager.list.asObservable().subscribe { [unowned self] emails in
-            emailListStackView.configure(with: emails)
-        }.disposed(by: disposeBag)
-
-        socialMediaObservable.subscribe { [unowned self] accounts in
-            let isEmpty = SocialMediaManger.manager.getAll.isEmpty
-            constraintToLabel.isActive = isEmpty
-
-            constraintToStackView.isActive = !isEmpty
-
-            socialMediaListStackView.configure(with: accounts.element ?? [], type: .creation)
-
-            if accounts.element?.count == 4 {
-                socialMediaButtonHeightConstraint.constant = 0
-                socialMediaButton.isHidden = true
-            } else {
-                socialMediaButton.isHidden = false
-                socialMediaButtonHeightConstraint.constant = 48
-            }
-        }.disposed(by: disposeBag)
-
     }
 
 }
@@ -351,17 +291,19 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         dismiss(animated: true, completion: nil)
+        self.showActivityIndicator()
         guard let image = info[.editedImage] as? UIImage else {return}
-        DispatchQueue.main.async {
-            self.avatarImageView.image = image
-        }
-
         DataStorageService.uploadImage(image: image, type: .network) { (url, error) in
+            self.removeActivityIndicator()
             if let error = error {
                 self.alert(title: "Image upload failed", message: error.localizedDescription)
 
             } else {
 //              create local contact as global contact is a get variable
+                DispatchQueue.main.async {
+                    self.avatarImageView.image = image
+                }
+
                 var contact = self.contact
                 contact?.profilePicUrl = url
                 CardManager.shared.currentEditableContact = contact!
@@ -382,6 +324,13 @@ extension PersonalInfoViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         scrollView.setContentOffset(CGPoint.zero, animated: true)
+        viewModel.fullName = fullNameTextField.text!
+        distributeNames(textField)
+        verifyTextFields()
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        viewModel.fullName = fullNameTextField.text!
         distributeNames(textField)
     }
 
@@ -389,20 +338,8 @@ extension PersonalInfoViewController: UITextFieldDelegate {
 // MARK: - Save profile info to contact creation manager
 extension PersonalInfoViewController {
     private func saveProfileInfo() {
-        var contact = self.contact
-        if fullNameTextField.text != "" {
-            contact?.name.fullName = fullNameTextField.text
-        }
-        contact?.name.firstName = firstNameTextField.text!
-        contact?.name.lastName = lastNameTextField.text!
-        contact?.name.middleName = middleNameTextField.text!
-        contact?.name.prefix = prefixTextField.text!
-        contact?.name.suffix = suffixTextField.text!
-        contact?.phoneNumbers = PhoneNumberManager.manager.list.value
-        contact?.emailAddresses = EmailManager.manager.list.value
-        contact?.socialMediaProfiles = SocialMediaManger.manager.getAll
-
-        CardManager.shared.currentEditableContact = contact!
+        populateViewModelNames()
+        viewModel.saveProfileInfo()
     }
 }
 
@@ -415,160 +352,33 @@ extension PersonalInfoViewController {
                 self.splitFullname()
             }
         } else {
-            DispatchQueue.main.async {
-                self.setAllNames()
-            }
-        }
-    }
-
-    private func prefixAndOneWord() {
-        prefixTextField.text = nameArray[0]
-    }
-
-    private func prefixAndTwoWords() {
-        lastNameTextField.text = nameArray[1]
-    }
-
-    private func prefixAndThreeWords() {
-        let containedText = nameArray[nameArray.count-1].trimmingCharacters(in: .punctuationCharacters).lowercased()
-
-        if suffixes.contains(containedText) {
-            suffixTextField.text = nameArray[nameArray.count - 1]
-            lastNameTextField.text = nameArray[nameArray.count-2]
-        } else {
-            firstNameTextField.text = nameArray[nameArray.count-2]
-            lastNameTextField.text = nameArray[nameArray.count-1]
-        }
-    }
-
-    private func prefixAndFourWords() {
-        let containedText = nameArray[nameArray.count-1].trimmingCharacters(in: .punctuationCharacters).lowercased()
-        if suffixes.contains(containedText) {
-            suffixTextField.text = nameArray[nameArray.count - 1]
-            lastNameTextField.text = nameArray[nameArray.count-2]
-            firstNameTextField.text = nameArray[nameArray.count-3]
-        } else {
-            lastNameTextField.text = nameArray[nameArray.count-1]
-            middleNameTextField.text = nameArray[nameArray.count-2]
-            firstNameTextField.text = nameArray[nameArray.count - 3]
-        }
-    }
-
-    private func prefixAndFiveOrMoreWords() {
-        let containedText = nameArray[nameArray.count-1].trimmingCharacters(in: .punctuationCharacters).lowercased()
-
-        if suffixes.contains(containedText) {
-            suffixTextField.text = nameArray[nameArray.count - 1]
-            lastNameTextField.text = nameArray[nameArray.count-2]
-            middleNameTextField.text = nameArray[nameArray.count-3]
-            firstNameTextField.text = nameArray[1..<nameArray.count-3].joined(separator: " ")
-        } else {
-            lastNameTextField.text = nameArray[nameArray.count-1]
-            middleNameTextField.text = nameArray[nameArray.count-2]
-            firstNameTextField.text = nameArray[1..<nameArray.count-2].joined(separator: " ")
-        }
-    }
-
-    private func noPrefixAndOneWord() {
-        firstNameTextField.text = nameArray[0]
-    }
-
-    private func noPrefixAndTwoWords() {
-        firstNameTextField.text = nameArray[0]
-        lastNameTextField.text = nameArray[1]
-    }
-
-    private func noPrefixAndThreeWords() {
-        let last = nameArray[nameArray.count - 1]
-
-        if suffixes.contains(last.lowercased().trimmingCharacters(in: .punctuationCharacters)) {
-            suffixTextField.text = last
-            lastNameTextField.text = nameArray[nameArray.count-2]
-            firstNameTextField.text = nameArray[nameArray.count-3]
-        } else {
-            lastNameTextField.text = last
-            middleNameTextField.text = nameArray[nameArray.count-2]
-            firstNameTextField.text = nameArray[0..<nameArray.count-2].joined(separator: " ")
-        }
-    }
-
-    private func noPrefixAndFourOrMoreWords() {
-        let last = nameArray[nameArray.count - 1]
-        if suffixes.contains(last.lowercased().trimmingCharacters(in: .punctuationCharacters)) {
-            suffixTextField.text = last
-            lastNameTextField.text = nameArray[nameArray.count-2]
-            middleNameTextField.text = nameArray[nameArray.count-3]
-            firstNameTextField.text = nameArray[0..<nameArray.count-3].joined(separator: " ")
-        } else {
-            lastNameTextField.text = last
-            middleNameTextField.text = nameArray[nameArray.count-2]
-            firstNameTextField.text = nameArray[0..<nameArray.count-2].joined(separator: " ")
-        }
-    }
-
-    private func resetTextFieldContents() {
-        //            resetTextFieldContents
-        for i in 1..<nameStackView.arrangedSubviews.count {
-            (nameStackView.arrangedSubviews[i] as? UITextField)?.text = ""
+            setAllNames()
         }
     }
 
     private func splitFullname() {
+        viewModel.splitFullname()
+        prefixTextField.text = viewModel.prefix
+        fullNameTextField.text = viewModel.fullName
+        firstNameTextField.text = viewModel.firstName
+        lastNameTextField.text = viewModel.lastName
+        middleNameTextField.text = viewModel.middleName
+        suffixTextField.text = viewModel.suffix
+    }
 
-        let fullName = fullNameTextField.text!.trimmingCharacters(in: .whitespaces)
-        if fullName.count > 1 {
-
-            resetTextFieldContents()
-
-            let first = nameArray[0].trimmingCharacters(in: .punctuationCharacters)
-
-            if prefixTypes.contains(first.trimmingCharacters(in: .punctuationCharacters).lowercased()) {
-                prefixTextField.text = first
-
-                if nameArray.count > 4 {
-                    prefixAndFiveOrMoreWords()
-                } else {
-                    guard let mapFunc = prefixAndFuncMap[nameArray.count] else { return  }
-                    mapFunc()
-                }
-
-            } else {
-                if nameArray.count > 3 {
-                    noPrefixAndFourOrMoreWords()
-                } else {
-                    guard let mapFunc = noPrefixAndFuncMap[nameArray.count] else { return }
-                    mapFunc()
-                }
-            }
-        } else {
-            resetTextFieldContents()
-        }
+    fileprivate func populateViewModelNames() {
+        viewModel.firstName = firstNameTextField.text
+        viewModel.lastName = lastNameTextField.text
+        viewModel.middleName = middleNameTextField.text
+        viewModel.prefix = prefixTextField.text
+        viewModel.suffix = suffixTextField.text
     }
 
     private func setAllNames() {
-        let prefixText = prefixTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .punctuationCharacters)
-        let firstNameText = firstNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .punctuationCharacters)
-        let middleNameText = middleNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .punctuationCharacters)
-        let lastNameText = lastNameTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .punctuationCharacters)
-        let suffixText = suffixTextField.text!
-            .trimmingCharacters(in: .whitespaces)
-            .trimmingCharacters(in: .punctuationCharacters)
-
-        let prefix = prefixText != "" ? "\(prefixText) " : ""
-        let firstName = firstNameText != "" ? "\(firstNameText) " : ""
-        let middleName = middleNameText != "" ? "\(middleNameText) " : ""
-        let lastName =  lastNameText != "" ? "\(lastNameText) " : ""
-        let suffix = suffixText != "" ? "\(suffixText) " : ""
-
-        fullNameTextField.text = "\(prefix)\(firstName)\(middleName)\(lastName)\(suffix)"
-
+        populateViewModelNames()
+        viewModel.setAllNames()
+        DispatchQueue.main.async {[self] in
+            fullNameTextField.text = viewModel.fullName
+        }
     }
 }

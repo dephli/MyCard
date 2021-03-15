@@ -39,9 +39,7 @@ extension UIViewController {
     }
 
     func removeActivityIndicator() {
-        DispatchQueue.main.async {
-            aView?.removeFromSuperview()
-            aView = nil
-        }
+        aView?.removeFromSuperview()
+        aView = nil
     }
 }

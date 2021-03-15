@@ -212,6 +212,7 @@ struct K {
         static let plus = "add"
         static let settings = "settings"
         static let phone = "phone"
+        static let brokenImage = "broken_image"
 
     }
 
@@ -240,6 +241,7 @@ struct K {
         static let minus = UIImage(named: ImageString.minus)
         static let plus = UIImage(named: ImageString.plus)
         static let gearShape = UIImage(named: K.ImageString.settings)
+        static let brokenImage = UIImage(named: K.ImageString.brokenImage)
 
     }
 

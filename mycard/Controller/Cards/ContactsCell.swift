@@ -25,6 +25,7 @@ class ContactsCell: UITableViewCell {
             descriptionLabel.text = viewModel.role
             avatarImageView.isHidden = viewModel.avatarImageIsHidden
             avatarImageView.image = nil
+            avatarImageView.tag = 1
             avatarImageView.loadThumbnail(urlSting: viewModel.avatarImageUrl ?? "")
             avatarContainerView.backgroundColor = viewModel.color.withAlphaComponent(0.1)
             nameInitialsLabel.textColor = viewModel.color
