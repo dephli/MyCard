@@ -29,15 +29,14 @@ class CardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
-        navigationController?.hidesBarsOnSwipe = true
-        viewModel = CardViewModel()
-        viewModel.bindError = handleError
-        viewModel.bindContactsRetrievalSuccess = contactsRetrievalSuccessful
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel = CardViewModel()
+        viewModel.bindError = handleError
+        viewModel.bindContactsRetrievalSuccess = contactsRetrievalSuccessful
+        self.showActivityIndicator()
         cardTableView.isHidden = true
         emptyCardsView.isHidden = true
         dismissKey()
@@ -120,6 +119,8 @@ class CardViewController: UIViewController {
     }
 
     private func contactsRetrievalSuccessful() {
+        self.removeActivityIndicator()
+        self.removeActivityIndicator()
         emptyCardsView.isHidden = !viewModel.contactsIsEmpty
         cardTableView.isHidden = viewModel.contactsIsEmpty
         self.contacts = viewModel.contacts

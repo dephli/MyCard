@@ -54,19 +54,19 @@ class ProfileViewController: UIViewController {
             style: .plain,
             target: self,
             action: #selector(addButtonPressed))
-
-        navigationController?.navigationBar.prefersLargeTitles = true
         let font = UIFont(name: "inter", size: 24)
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.font: font!
 
         ]
-        navigationController?.hidesBarsOnSwipe = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+//        navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = AuthService.username
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: avatarImageView)
         navigationItem.rightBarButtonItems = [settingsButton, addButton]
         navigationController?.navigationBar.tintColor = .black
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func viewDidLoad() {
@@ -134,7 +134,6 @@ class ProfileViewController: UIViewController {
     private func deleteCardSuccessful() {
         profileCardCollectionView.reloadData()
         self.removeActivityIndicator()
-//        self.profileCardCollectionView.reloadData()
     }
 
     private func fetchCardsSuccessful(cards: [Contact]) {

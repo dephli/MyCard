@@ -96,53 +96,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
-                                <rect key="frame" x="24" y="108" width="272" height="411"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <color key="backgroundColor" name="MC White"/>
                                 <color key="tintColor" name="MC White"/>
                                 <color key="sectionIndexBackgroundColor" name="MC White"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rD1-zw-T2f">
-                                        <rect key="frame" x="0.0" y="28" width="272" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rD1-zw-T2f" id="IT6-FQ-pgS">
-                                            <rect key="frame" x="0.0" y="0.0" width="272" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-BQ-8Gx">
-                                <rect key="frame" x="240" y="439" width="56" height="56"/>
-                                <color key="backgroundColor" name="MC Blue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="2i6-uu-4ql"/>
-                                    <constraint firstAttribute="width" constant="56" id="qry-5S-sDU"/>
-                                </constraints>
-                                <color key="tintColor" name="MC White"/>
-                                <state key="normal" image="add card"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="28"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" name="MC Blue 40"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="createCardPressed:" destination="k24-77-c8G" eventType="touchUpInside" id="nLU-io-Ur0"/>
-                                    <segue destination="3cY-qt-pzE" kind="presentation" identifier="CardsToCreateCard" id="dSc-nj-7MS"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTI-5V-EUJ">
                                 <rect key="frame" x="16" y="52" width="288" height="48"/>
                                 <subviews>
@@ -211,10 +180,43 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-BQ-8Gx">
+                                        <rect key="frame" x="240" y="395" width="56" height="56"/>
+                                        <color key="backgroundColor" name="MC Blue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="2i6-uu-4ql"/>
+                                            <constraint firstAttribute="width" constant="56" id="qry-5S-sDU"/>
+                                        </constraints>
+                                        <color key="tintColor" name="MC White"/>
+                                        <state key="normal" image="add card"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="28"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" name="MC Blue 40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createCardPressed:" destination="k24-77-c8G" eventType="touchUpInside" id="nLU-io-Ur0"/>
+                                            <segue destination="3cY-qt-pzE" kind="presentation" identifier="CardsToCreateCard" id="dSc-nj-7MS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="MC White"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aLp-BQ-8Gx" secondAttribute="trailing" constant="24" id="8KO-5S-K0H"/>
                                     <constraint firstItem="nci-zl-Ves" firstAttribute="centerX" secondItem="Mig-5N-Egc" secondAttribute="centerX" id="Qya-8x-KmG"/>
+                                    <constraint firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="iQh-NA-1Ba"/>
                                     <constraint firstItem="nci-zl-Ves" firstAttribute="centerY" secondItem="Mig-5N-Egc" secondAttribute="centerY" id="lxr-zE-aQH"/>
                                 </constraints>
                             </view>
@@ -222,26 +224,23 @@
                         <viewLayoutGuide key="safeArea" id="155-iA-Vsi"/>
                         <color key="backgroundColor" name="MC White"/>
                         <constraints>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="aLp-BQ-8Gx" secondAttribute="trailing" constant="24" id="1ob-gp-fbk"/>
-                            <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="24" id="9D4-pb-Th0"/>
+                            <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" id="9D4-pb-Th0"/>
                             <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="Ac8-pT-8RA"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="leading" secondItem="Gqs-O2-oAD" secondAttribute="leading" id="BmA-uD-sSL"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="Mig-5N-Egc" secondAttribute="trailing" id="F6L-ye-jmZ"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" constant="24" id="GTi-ap-pNJ"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" id="GTi-ap-pNJ"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="bottom" secondItem="155-iA-Vsi" secondAttribute="bottom" id="N3f-Ky-ghW"/>
                             <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="16" id="SGb-Qe-Uif"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
                             <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="WOA-gR-VQL"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="BTI-5V-EUJ" secondAttribute="trailing" constant="16" id="bKa-Oc-7Q4"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="iV7-xB-5hJ"/>
-                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="uYd-Ub-S6q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="m0U-ej-1un"/>
                     <connections>
                         <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
                         <outlet property="emptyCardsView" destination="Mig-5N-Egc" id="pAd-ap-MKk"/>
-                        <outlet property="floatiingButtonConstraints" destination="uYd-Ub-S6q" id="WD8-GF-JYy"/>
                         <segue destination="6H9-H6-S1g" kind="show" identifier="CardsToCardDetails" id="Ki3-ol-g6J"/>
                     </connections>
                 </viewController>

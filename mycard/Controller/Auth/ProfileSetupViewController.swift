@@ -37,7 +37,6 @@ class ProfileSetupViewController: UIViewController {
                 self.alert(title: "Profile Update Failed", message: error.localizedDescription)
             } else {
                 self.setRootViewController()
-                self.performSegue(withIdentifier: K.Segues.authToCards, sender: self)
             }
         }
     }
