@@ -72,7 +72,6 @@
 		82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AF5D562581211500E5E18B /* PersonalInfo.storyboard */; };
 		82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF5D5C258121C700E5E18B /* PersonalInfoViewController.swift */; };
 		82B6969E257C12BD005AFE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6969D257C12BD005AFE62 /* AppDelegate.swift */; };
-		82B696A0257C12BD005AFE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6969F257C12BD005AFE62 /* SceneDelegate.swift */; };
 		82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696A1257C12BD005AFE62 /* StartScreenViewController.swift */; };
 		82B696A5257C12BD005AFE62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B696A3257C12BD005AFE62 /* Main.storyboard */; };
 		82B696A7257C12C0005AFE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B696A6257C12C0005AFE62 /* Assets.xcassets */; };
@@ -98,6 +97,7 @@
 		82C7D8C725DEAE8C00F05B91 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7D8C625DEAE8C00F05B91 /* SettingsViewController.swift */; };
 		82C7D8CF25DF299F00F05B91 /* ChangePhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7D8CE25DF299F00F05B91 /* ChangePhoneNumberViewController.swift */; };
 		82CE969925FD76C5009316EB /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE969825FD76C5009316EB /* CardViewModel.swift */; };
+		82CE96A425FE42BE009316EB /* ContactsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE96A325FE42BE009316EB /* ContactsCellViewModel.swift */; };
 		82D176AF25B76F22005155C2 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D176AE25B76F22005155C2 /* AccountInfoViewController.swift */; };
 		82EA557125CDFD21000BE90A /* UIVIewAcitivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */; };
 		82EA557925CE0043000BE90A /* UIViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA557825CE0043000BE90A /* UIViewAlert.swift */; };
@@ -195,7 +195,6 @@
 		82AF5D5C258121C700E5E18B /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		82B6969A257C12BD005AFE62 /* mycard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B6969D257C12BD005AFE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82B6969F257C12BD005AFE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		82B696A1257C12BD005AFE62 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		82B696A4257C12BD005AFE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82B696A6257C12C0005AFE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +225,7 @@
 		82C7D8C625DEAE8C00F05B91 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		82C7D8CE25DF299F00F05B91 /* ChangePhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneNumberViewController.swift; sourceTree = "<group>"; };
 		82CE969825FD76C5009316EB /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		82CE96A325FE42BE009316EB /* ContactsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCellViewModel.swift; sourceTree = "<group>"; };
 		82D176AE25B76F22005155C2 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
 		82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewAcitivityIndicator.swift; sourceTree = "<group>"; };
 		82EA557825CE0043000BE90A /* UIViewAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAlert.swift; sourceTree = "<group>"; };
@@ -482,7 +482,6 @@
 				821AE45925F64DFF00C60EAE /* ViewModel */,
 				82B696AB257C12C0005AFE62 /* Info.plist */,
 				82B6969D257C12BD005AFE62 /* AppDelegate.swift */,
-				82B6969F257C12BD005AFE62 /* SceneDelegate.swift */,
 				82B696A6257C12C0005AFE62 /* Assets.xcassets */,
 				82B696A8257C12C0005AFE62 /* LaunchScreen.storyboard */,
 				82354CC425DF495400C13A68 /* GoogleService-Info.plist */,
@@ -626,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				82CE969825FD76C5009316EB /* CardViewModel.swift */,
+				82CE96A325FE42BE009316EB /* ContactsCellViewModel.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -923,6 +923,7 @@
 				820034D225F7B3C800D1E974 /* NotesViewModel.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
 				828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */,
+				82CE96A425FE42BE009316EB /* ContactsCellViewModel.swift in Sources */,
 				82EA557125CDFD21000BE90A /* UIVIewAcitivityIndicator.swift in Sources */,
 				82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */,
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
@@ -976,7 +977,6 @@
 				827853E425CC324200652F9B /* UIImageViewExtension.swift in Sources */,
 				829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */,
 				820034C925F7A58E00D1E974 /* NotesViewController.swift in Sources */,
-				82B696A0257C12BD005AFE62 /* SceneDelegate.swift in Sources */,
 				825FC3882586BE5000FAA8E8 /* PhoneNumberManager.swift in Sources */,
 				8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */,
 			);
@@ -1158,10 +1158,11 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1183,10 +1184,11 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

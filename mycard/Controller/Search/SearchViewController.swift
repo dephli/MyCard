@@ -51,10 +51,17 @@ class SearchViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CardDetailsViewController {
-            let contact = contacts[(tableView.indexPathForSelectedRow?.row)!]
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                return
+            }
+            let contact = contacts[indexPath.row]
+
+            let selectedCellImage = (tableView.cellForRow(at: indexPath) as! ContactsCell).avatarImageView.image
+
             CardManager.shared.currentContactDetails = contact
             CardManager.shared.currentEditableContact = contact
-            destination.viewModel = CardDetailsViewModel()
+            destination.viewModel = CardDetailsViewModel(contactImage: selectedCellImage)
+
         }
     }
 
@@ -75,9 +82,11 @@ class SearchViewController: UIViewController {
         searchController.searchBar
             .setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
 
-        let textfield = searchController.searchBar.searchTextField
+        if #available(iOS 13.0, *) {
+            let textfield = searchController.searchBar.searchTextField
 
-        textfield.setTextStyle(with: K.TextStyles.bodyBlack)
+            textfield.setTextStyle(with: K.TextStyles.bodyBlack)
+        }
 
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()
@@ -144,7 +153,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             contact = contacts[indexPath.row]
         }
-        cell?.contact = contact
+        cell?.viewModel = ContactsCellViewModel(contact: contact!)
         return cell!
 
     }

@@ -158,7 +158,7 @@ extension EmailListStackView {
 
     func setupMinusButton(at index: Int, isHidden: Bool) -> UIButton {
         let minusButton = UIButton()
-        minusButton.setImage(UIImage(named: "remove"), for: .normal)
+        minusButton.setImage(K.Images.minus, for: .normal)
         minusButton.tintColor = .black
         minusButton.widthAnchor.constraint(equalToConstant: 16).isActive = true
         minusButton.tag = index

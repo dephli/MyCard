@@ -36,8 +36,7 @@ class VerifyNumberViewModel: NSObject {
     }
 
     private func verifyRegularAuth(_ code: String) {
-        UserManager.auth.submitCode(with: code) {
-            [self] (error) in
+        UserManager.auth.submitCode(with: code) { [self] (error) in
             if let error = error {
                 bindErrorObject!(error)
             } else {

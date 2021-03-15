@@ -34,17 +34,17 @@ class ReviewPhotoViewController: UIViewController {
 
 // MARK: - Custom methods
     private func decodeImage() {
-        let visionImage = VisionImage(image: backgroundImage!)
-        visionImage.orientation = backgroundImage!.imageOrientation
-
-        let textRecognizer = TextRecognizer.textRecognizer()
-
-        textRecognizer.process(visionImage) { (text, error) in
-            guard error == nil, let result = text else {
-                print("could not decode text")
-                return
-            }
-        }
+//        let visionImage = VisionImage(image: backgroundImage!)
+//        visionImage.orientation = backgroundImage!.imageOrientation
+//
+//        let textRecognizer = TextRecognizer.textRecognizer()
+//
+//        textRecognizer.process(visionImage) { (text, error) in
+//            guard error == nil, let _ = text else {
+//                print("could not decode text")
+//                return
+//            }
+//        }
     }
 
     private func decodeLinguistics(text: String) {

@@ -27,26 +27,26 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="xTF-GK-5qq">
-                                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="yia-gv-ebK">
+                                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="yia-gv-ebK">
                                             <color key="tintColor" name="MC Black"/>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastly, set up your  account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1Q-RV-mEz">
-                                <rect key="frame" x="24" y="88" width="202" height="56"/>
+                                <rect key="frame" x="24" y="88" width="214.5" height="58.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep all your cards in one place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWS-6a-iVv">
-                                <rect key="frame" x="24" y="160" width="200.5" height="17"/>
+                                <rect key="frame" x="24" y="162.5" width="209.5" height="17"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                 <color key="textColor" name="MC Black 60"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business card" translatesAutoresizingMaskIntoConstraints="NO" id="kcy-qV-92l">
-                                <rect key="frame" x="163" y="238.5" width="88" height="84"/>
+                                <rect key="frame" x="163" y="241" width="88" height="84"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcU-Rj-S3u">
                                 <rect key="frame" x="24" y="790" width="366" height="48"/>
@@ -67,7 +67,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcI-W6-NaS">
-                                <rect key="frame" x="24" y="362.5" width="366" height="56"/>
+                                <rect key="frame" x="24" y="365" width="366" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="9Jy-HT-lDB"/>
                                 </constraints>
@@ -209,7 +209,7 @@
                                     <constraint firstAttribute="width" constant="24" id="hwi-P6-0DE"/>
                                 </constraints>
                                 <color key="tintColor" name="MC Black"/>
-                                <state key="normal" image="arrow.backward" catalog="system">
+                                <state key="normal" image="chevron.left" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
@@ -308,7 +308,7 @@
                                 <color key="barTintColor" name="MC White"/>
                                 <items>
                                     <navigationItem id="Bkh-g8-ieH">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="zxO-8I-6SO">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="zxO-8I-6SO">
                                             <connections>
                                                 <action selector="onBackButtonPressed:" destination="90I-YX-6Vb" id="mtv-RR-Pj9"/>
                                             </connections>
@@ -323,7 +323,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzz-S6-bWp">
-                                <rect key="frame" x="158" y="717" width="98" height="31"/>
+                                <rect key="frame" x="156" y="716" width="102" height="32"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                 <state key="normal" title="Resend Code">
                                     <color key="titleColor" name="MC Blue"/>
@@ -497,11 +497,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="GH.png" width="256" height="170.5"/>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="business card" width="88" height="84"/>
         <image name="camera" width="20" height="16"/>
         <image name="chevron down" width="10" height="6"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="profile placeholder" width="96" height="96"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

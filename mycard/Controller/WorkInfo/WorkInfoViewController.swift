@@ -22,8 +22,13 @@ class WorkInfoViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var continueButton: UIButton!
 
+    enum ContinueActionType {
+        case moveNext
+        case movePrevious
+    }
 // MARK: - Variables
     var viewModel: WorkInfoViewModel!
+    private var buttonPressed: ContinueActionType?
     private var keyboardHeight: Float?
     private var contact: Contact? {
         return CardManager.shared.currentEditableContact
@@ -38,7 +43,7 @@ class WorkInfoViewController: UIViewController {
         setupUI()
         viewModel.bindError = handleError
         viewModel.bindSaveSuccessful = saveSuccessful
-        viewModel.bindContinue = continueToNextPage
+        viewModel.bindContinue = continueToPage
         self.dismissKey()
         keyboardNotificationObservers()
     }
@@ -50,11 +55,12 @@ class WorkInfoViewController: UIViewController {
 
 // MARK: - Actions
     @IBAction func backBarButtonPressed(_ sender: Any) {
+        buttonPressed = .movePrevious
         saveCardData()
-        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func continueButtonPressed(_ sender: Any) {
+        buttonPressed = .moveNext
         saveCardData()
     }
 
@@ -97,8 +103,16 @@ class WorkInfoViewController: UIViewController {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
-    private func continueToNextPage() {
-        performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
+    private func continueToPage() {
+        switch buttonPressed {
+        case .moveNext:
+            performSegue(withIdentifier: K.Segues.workInfoToConfirmDetails, sender: self)
+        case .movePrevious:
+            dismiss(animated: true, completion: nil)
+        case .none:
+            return
+        }
+
     }
 
     private func keyboardNotificationObservers() {
@@ -111,14 +125,14 @@ class WorkInfoViewController: UIViewController {
 }
 
 // MARK: - Textfield delegates
-extension WorkInfoViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        var point = textField.convert(textField.frame.origin, to: self.scrollView)
-        point.x = 0.0
-        scrollView.setContentOffset(CGPoint(x: 0, y: 160), animated: true)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        scrollView.setContentOffset(CGPoint.zero, animated: true)
-    }
-}
+// extension WorkInfoViewController: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        var point = textField.convert(textField.frame.origin, to: self.scrollView)
+//        point.x = 0.0
+//        scrollView.setContentOffset(CGPoint(x: 0, y: 160), animated: true)
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+//        scrollView.setContentOffset(CGPoint.zero, animated: true)
+//    }
+// }

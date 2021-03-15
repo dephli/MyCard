@@ -37,7 +37,8 @@ class CardDetailsViewModel {
         }
     }
 
-    init() {
+    init(contactImage: UIImage?) {
+        self.contactImage = contactImage
         self.setNameInitials()
     }
 

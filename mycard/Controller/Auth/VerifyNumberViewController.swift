@@ -122,10 +122,19 @@ class VerifyNumberViewController: UIViewController {
 
     private func setRootViewController() {
         let storyboard = UIStoryboard(name: "Cards", bundle: nil)
-        let tabController = storyboard.instantiateViewController(
-            identifier: K.ViewIdentifiers.cardsTabBarController
-        ) as TabBarController
-        UIApplication.shared.windows.first?.rootViewController = tabController
+        if #available(iOS 13.0, *) {
+            let tabController = storyboard.instantiateViewController(
+                identifier: K.ViewIdentifiers.cardsTabBarController
+            ) as TabBarController
+            UIApplication.shared.windows.first?.rootViewController = tabController
+        } else {
+            // Fallback on earlier versions
+            let tabController = storyboard.instantiateViewController(
+                withIdentifier: K.ViewIdentifiers.cardsTabBarController
+            ) as! TabBarController
+            UIApplication.shared.windows.first?.rootViewController = tabController
+        }
+
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 
