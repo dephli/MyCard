@@ -65,6 +65,8 @@
 		829728FB258289B900C99E33 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728FA258289B900C99E33 /* AuthService.swift */; };
 		829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829729832582DDC000C99E33 /* NotificationNameExtension.swift */; };
 		829D8ED925FF92030054A79C /* PersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D8ED825FF92030054A79C /* PersonalInfoViewModel.swift */; };
+		829D8F2E26017EB00054A79C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 829D8F2D26017EB00054A79C /* Localizable.strings */; };
+		829D8F3B260186D30054A79C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D8F3A260186D30054A79C /* UILabelExtension.swift */; };
 		82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A82D91259117D000175898 /* ReviewPhotoViewController.swift */; };
 		82AD90D72587760D0014B96E /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90D62587760D0014B96E /* Email.swift */; };
 		82AD90DC258776180014B96E /* EmailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90DB258776180014B96E /* EmailManager.swift */; };
@@ -188,6 +190,8 @@
 		8297291C25828FCD00C99E33 /* mycard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mycard.entitlements; sourceTree = "<group>"; };
 		829729832582DDC000C99E33 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		829D8ED825FF92030054A79C /* PersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewModel.swift; sourceTree = "<group>"; };
+		829D8F2D26017EB00054A79C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		829D8F3A260186D30054A79C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		82A82D91259117D000175898 /* ReviewPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotoViewController.swift; sourceTree = "<group>"; };
 		82AD90D62587760D0014B96E /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		82AD90DB258776180014B96E /* EmailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailManager.swift; sourceTree = "<group>"; };
@@ -395,6 +399,7 @@
 				82EB82A2259D47920098399A /* UIVIewExtension.swift */,
 				82647B0025AE47F20091D104 /* StringExtension.swift */,
 				827853E325CC324200652F9B /* UIImageViewExtension.swift */,
+				829D8F3A260186D30054A79C /* UILabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,6 +445,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		829D8F3626017EC80054A79C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				829D8F2D26017EB00054A79C /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		82AF5D5B2581218E00E5E18B /* PersonalInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +488,7 @@
 		82B6969C257C12BD005AFE62 /* mycard */ = {
 			isa = PBXGroup;
 			children = (
+				829D8F3626017EC80054A79C /* Resources */,
 				8297291C25828FCD00C99E33 /* mycard.entitlements */,
 				829728EC2582889F00C99E33 /* Services */,
 				825A4B58257E54D900201A01 /* Extensions */,
@@ -778,6 +792,7 @@
 				82EB8292259D44420098399A /* QRCode.storyboard in Resources */,
 				82354CC525DF495400C13A68 /* GoogleService-Info.plist in Resources */,
 				82B696A7257C12C0005AFE62 /* Assets.xcassets in Resources */,
+				829D8F2E26017EB00054A79C /* Localizable.strings in Resources */,
 				82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */,
 				825C6DE925F2A37000F67717 /* Search.storyboard in Resources */,
 				820034C225F7A55400D1E974 /* Notes.storyboard in Resources */,
@@ -925,6 +940,7 @@
 				8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */,
 				820034D225F7B3C800D1E974 /* NotesViewModel.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
+				829D8F3B260186D30054A79C /* UILabelExtension.swift in Sources */,
 				828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */,
 				82CE96A425FE42BE009316EB /* ContactsCellViewModel.swift in Sources */,
 				82EA557125CDFD21000BE90A /* UIVIewAcitivityIndicator.swift in Sources */,
@@ -1162,7 +1178,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 27;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
@@ -1171,7 +1187,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.MyCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.myCrd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1188,7 +1204,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 27;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
@@ -1197,7 +1213,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.MyCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.myCrd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

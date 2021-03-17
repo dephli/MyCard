@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController {
 
         ]
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+
 //        navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = AuthService.username
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: avatarImageView)

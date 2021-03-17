@@ -236,7 +236,7 @@ extension PersonalInfoViewController {
             .constraint(
                 equalTo: socialMediaListStackView.bottomAnchor,
                 constant: 24)
-        socialMediaObservable.subscribe { [unowned self] accounts in
+        socialMediaObservable.subscribe { [unowned self] _ in
 
             constraintToLabel.isActive = viewModel.socialMediaIsEmpty
 
