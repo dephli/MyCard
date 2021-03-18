@@ -57,7 +57,6 @@ class PersonalInfoViewController: UIViewController,
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = PersonalInfoViewModel()
 
         self.dismissKey()
         uiSetup()
@@ -66,22 +65,22 @@ class PersonalInfoViewController: UIViewController,
             textfield.delegate = self
         }
         fullNameTextField.becomeFirstResponder()
-        if let avatarUrl = viewModel.avatarUrl {
-            avatarImageView.loadThumbnail(urlSting: avatarUrl)
-        }
         socialMediaListStackView.delegate = self
         disableStackViewConstraints()
-
-        if viewModel.fullName == "" {
-            nextButton.isEnabled = false
-        }
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        self.viewModel = PersonalInfoViewModel()
         registerKeyboardNotifications()
         populateWithData()
         fullNameTextField.text = viewModel.fullName
+        if let avatarUrl = viewModel.avatarUrl {
+            avatarImageView.loadThumbnail(urlSting: avatarUrl)
+        }
+        if viewModel.fullName == "" {
+            nextButton.isEnabled = false
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -8,12 +8,40 @@
 import Foundation
 
 class WorkInfoViewModel {
+    var businessInfo: BusinessInfo = BusinessInfo()
     var contact: Contact {
         CardManager.shared.currentEditableContact
     }
-    var companyName = ""
-    var role = ""
-    var address = ""
+    var companyName: String? {
+        get {
+            return businessInfo.companyName
+        }
+        
+        set {
+            businessInfo.companyName = newValue
+        }
+    }
+    var role: String? {
+        get {
+            return businessInfo.role
+        }
+        
+        set {
+            businessInfo.role = newValue
+        }
+    }
+    
+    var address: String? {
+        get {
+            return businessInfo.companyAddress
+        }
+        
+        set {
+            businessInfo.companyAddress = newValue
+        }
+    }
+    
+    
     var bindError: ((Error) -> Void)!
     var bindSaveSuccessful: (() -> Void)!
     var bindContinue: (() -> Void)!
@@ -21,9 +49,9 @@ class WorkInfoViewModel {
     let contactType = CardManager.shared.currentContactType
 
     init() {
-        role = contact.businessInfo?.role ?? ""
-        companyName = contact.businessInfo?.companyName ?? ""
-        address = contact.businessInfo?.companyAddress ?? ""
+        if let businessInfo = contact.businessInfo {
+            self.businessInfo = businessInfo
+        }
         if contactType == .editContactCard || contactType == .editPersonalCard {
             continueButtonTitle = "Save"
         }
@@ -31,18 +59,7 @@ class WorkInfoViewModel {
 
     func saveCurrentFlowData() {
         var contactCopy = contact
-
-        if contact.businessInfo == nil {
-            var businessInfo = BusinessInfo()
-            businessInfo.companyAddress = address
-            businessInfo.companyName = companyName
-            businessInfo.role = role
-            contactCopy.businessInfo = businessInfo
-        } else {
-            contactCopy.businessInfo?.companyAddress = address
-            contactCopy.businessInfo?.companyName = companyName
-            contactCopy.businessInfo?.role = role
-        }
+        contactCopy.businessInfo = self.businessInfo
         CardManager.shared.currentEditableContact = contactCopy
     }
 

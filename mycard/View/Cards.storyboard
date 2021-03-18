@@ -180,46 +180,44 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-BQ-8Gx">
-                                        <rect key="frame" x="240" y="395" width="56" height="56"/>
-                                        <color key="backgroundColor" name="MC Blue"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="2i6-uu-4ql"/>
-                                            <constraint firstAttribute="width" constant="56" id="qry-5S-sDU"/>
-                                        </constraints>
-                                        <color key="tintColor" name="MC White"/>
-                                        <state key="normal" image="add card"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="28"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" name="MC Blue 40"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="createCardPressed:" destination="k24-77-c8G" eventType="touchUpInside" id="nLU-io-Ur0"/>
-                                            <segue destination="3cY-qt-pzE" kind="presentation" identifier="CardsToCreateCard" id="dSc-nj-7MS"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="MC White"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="aLp-BQ-8Gx" secondAttribute="trailing" constant="24" id="8KO-5S-K0H"/>
                                     <constraint firstItem="nci-zl-Ves" firstAttribute="centerX" secondItem="Mig-5N-Egc" secondAttribute="centerX" id="Qya-8x-KmG"/>
-                                    <constraint firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="iQh-NA-1Ba"/>
                                     <constraint firstItem="nci-zl-Ves" firstAttribute="centerY" secondItem="Mig-5N-Egc" secondAttribute="centerY" id="lxr-zE-aQH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-BQ-8Gx">
+                                <rect key="frame" x="240" y="439" width="56" height="56"/>
+                                <color key="backgroundColor" name="MC Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="2i6-uu-4ql"/>
+                                    <constraint firstAttribute="width" constant="56" id="qry-5S-sDU"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" image="add card"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="MC Blue 40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createCardPressed:" destination="k24-77-c8G" eventType="touchUpInside" id="nLU-io-Ur0"/>
+                                    <segue destination="3cY-qt-pzE" kind="presentation" identifier="CardsToCreateCard" id="dSc-nj-7MS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="155-iA-Vsi"/>
                         <color key="backgroundColor" name="MC White"/>
@@ -227,12 +225,14 @@
                             <constraint firstItem="5qz-cS-P87" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" id="9D4-pb-Th0"/>
                             <constraint firstItem="BTI-5V-EUJ" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" constant="8" id="Ac8-pT-8RA"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="leading" secondItem="Gqs-O2-oAD" secondAttribute="leading" id="BmA-uD-sSL"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="aLp-BQ-8Gx" secondAttribute="trailing" constant="24" id="Cuj-oh-NnI"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="Mig-5N-Egc" secondAttribute="trailing" id="F6L-ye-jmZ"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="5qz-cS-P87" secondAttribute="trailing" id="GTi-ap-pNJ"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="bottom" secondItem="155-iA-Vsi" secondAttribute="bottom" id="N3f-Ky-ghW"/>
                             <constraint firstItem="BTI-5V-EUJ" firstAttribute="leading" secondItem="155-iA-Vsi" secondAttribute="leading" constant="16" id="SGb-Qe-Uif"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="5qz-cS-P87" secondAttribute="bottom" id="UR6-A3-iSr"/>
                             <constraint firstItem="5qz-cS-P87" firstAttribute="top" secondItem="BTI-5V-EUJ" secondAttribute="bottom" constant="8" id="WOA-gR-VQL"/>
+                            <constraint firstItem="155-iA-Vsi" firstAttribute="bottom" secondItem="aLp-BQ-8Gx" secondAttribute="bottom" constant="24" id="bGO-sC-Vlx"/>
                             <constraint firstItem="155-iA-Vsi" firstAttribute="trailing" secondItem="BTI-5V-EUJ" secondAttribute="trailing" constant="16" id="bKa-Oc-7Q4"/>
                             <constraint firstItem="Mig-5N-Egc" firstAttribute="top" secondItem="155-iA-Vsi" secondAttribute="top" id="iV7-xB-5hJ"/>
                         </constraints>
@@ -596,7 +596,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ki3-ol-g6J"/>
-        <segue reference="qr0-sv-zZB"/>
+        <segue reference="dSc-nj-7MS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add card" width="24" height="24"/>
