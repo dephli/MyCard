@@ -55,8 +55,11 @@ class WorkInfoViewController: UIViewController {
 
 // MARK: - Actions
     @IBAction func backBarButtonPressed(_ sender: Any) {
-        buttonPressed = .movePrevious
-        saveCardData()
+        viewModel.role = jobTitleTextField.text!
+        viewModel.companyName = companyNameTextField.text!
+        viewModel.address = workLocationTextField.text!
+        viewModel.saveCurrentFlowData()
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func continueButtonPressed(_ sender: Any) {

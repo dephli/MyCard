@@ -49,6 +49,18 @@ extension UIButton {
             self.titleEdgeInsets.left = newValue
         }
     }
+    
+    @IBInspectable
+    var localizableText: String? {
+        get {
+            return currentTitle
+        }
+        set {
+            UIView.performWithoutAnimation {
+                setTitle(NSLocalizedString(newValue!, comment: newValue!), for: .normal)
+            }
+        }
+    }
 
     func alignTextBelow(spacing: CGFloat = 6.0) {
       if let image = self.imageView?.image {
@@ -66,5 +78,7 @@ extension UIButton {
             right: -titleSize.width)
       }
     }
+    
+    
 
 }
