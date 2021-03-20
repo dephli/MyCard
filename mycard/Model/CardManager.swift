@@ -66,10 +66,23 @@ class CardManager {
         }
     }
 
+    func trim() {
+        /**
+         Emails and Phonenumbers have one created by default with empty strings in
+         their input fields. This creates an email or password with an empty address or
+         number field when the user decides against inputting a email or password.
+         This function is used to clear out those fields
+         */
+        let contact = currentEditableContact
+        currentEditableContact.phoneNumbers = contact.phoneNumbers?.filter({$0.number != ""})
+        currentEditableContact.emailAddresses = contact.emailAddresses?.filter({$0.address != ""})
+
+    }
+
     func reset() {
         contact.accept(Contact(name: Name()))
-        EmailManager.manager.list.accept([Email(type: .Personal, address: "")])
-        PhoneNumberManager.manager.list.accept([PhoneNumber(type: .Mobile, number: "")])
+        EmailManager.manager.replace(with: [])
+        PhoneNumberManager.manager.replace(with: [])
         SocialMediaManger.manager.list.accept([])
     }
 

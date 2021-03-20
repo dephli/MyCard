@@ -13,7 +13,7 @@ class PhoneListStackView: UIStackView {
     let numberTypes: [PhoneNumberType] = [.Mobile, .Home, .Work, .Other]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
-    func configure(with numbers: [PhoneNumber]) {
+    func configure(with numbers: [PhoneNumber] = []) {
         let pickerView = UIPickerView()
 
         pickerView.delegate = self
@@ -49,16 +49,16 @@ class PhoneListStackView: UIStackView {
 // MARK: - actions
 extension PhoneListStackView {
     @objc func textfieldDidChange(_ textfield: UITextField) {
-        var list = PhoneNumberManager.manager.list.value
+        var list = PhoneNumberManager.manager.numbers
         list[textfield.tag].number = textfield.text
-        PhoneNumberManager.manager.list.accept(list)
+        PhoneNumberManager.manager.replace(with: list)
     }
 
     @objc func removeView(_ button: UIButton) {
-        var list = PhoneNumberManager.manager.list.value
+        var list = PhoneNumberManager.manager.numbers
         let index = button.tag
         list.remove(at: index)
-        PhoneNumberManager.manager.list.accept(list)
+        PhoneNumberManager.manager.replace(with: list)
     }
 
     @objc func textfieldDidBeginEditing(_ textfield: UITextField) {
@@ -154,7 +154,7 @@ extension PhoneListStackView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var list = PhoneNumberManager.manager.list.value
+        var list = PhoneNumberManager.manager.numbers
         list[activePickerIndex!].type = numberTypes[row]
         PhoneNumberManager.manager.list.accept(list)
         activeTextField?.resignFirstResponder()

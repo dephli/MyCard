@@ -70,14 +70,13 @@ class ConfirmDetailsViewModel {
             createContactCard()
         case .createPersonalCard:
             createPersonalCard()
-        case .editContactCard:
-            editContactCard()
-        case .editPersonalCard:
-            editPersonalCard()
+        default:
+            return
         }
     }
 
-    internal func createContactCard() {
+    func createContactCard() {
+        CardManager.shared.trim()
         FirestoreService.shared.createContact(with: contact) { (error) in
             if let error = error {
                 self.bindError!(error)
@@ -87,30 +86,10 @@ class ConfirmDetailsViewModel {
         }
     }
 
-    func editContactCard() {
-        FirestoreService.shared.editContactCard(contact: contact) { [self](_, error) in
-            if let error = error {
-                bindError!(error)
-            } else {
-                CardManager.shared.currentContactDetails = contact
-                bindSaveSuccessful!()
-            }
-        }
-    }
 
     private func createPersonalCard() {
+        CardManager.shared.trim()
         FirestoreService.shared.createPersonalCard(with: contact) { (error) in
-
-            if let error = error {
-                self.bindError!(error)
-            } else {
-                self.bindSaveSuccessful!()
-            }
-        }
-    }
-
-    internal func editPersonalCard() {
-        FirestoreService.shared.editPersonalCard(contact: contact) { (_, error) in
             if let error = error {
                 self.bindError!(error)
             } else {

@@ -16,7 +16,7 @@ class WorkInfoViewModel {
         get {
             return businessInfo.companyName
         }
-        
+
         set {
             businessInfo.companyName = newValue
         }
@@ -25,23 +25,22 @@ class WorkInfoViewModel {
         get {
             return businessInfo.role
         }
-        
+
         set {
             businessInfo.role = newValue
         }
     }
-    
+
     var address: String? {
         get {
             return businessInfo.companyAddress
         }
-        
+
         set {
             businessInfo.companyAddress = newValue
         }
     }
-    
-    
+
     var bindError: ((Error) -> Void)!
     var bindSaveSuccessful: (() -> Void)!
     var bindContinue: (() -> Void)!
@@ -85,6 +84,7 @@ class WorkInfoViewModel {
     }
 
     func editContactCard() {
+        CardManager.shared.trim()
         FirestoreService.shared.editContactCard(contact: contact) { [self](_, error) in
             if let error = error {
                 bindError!(error)
@@ -97,6 +97,7 @@ class WorkInfoViewModel {
     }
 
     internal func editPersonalCard() {
+        CardManager.shared.trim()
         FirestoreService.shared.editPersonalCard(contact: contact) { (_, error) in
             if let error = error {
                 self.bindError!(error)

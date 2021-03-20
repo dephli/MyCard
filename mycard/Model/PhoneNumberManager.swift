@@ -27,4 +27,18 @@ struct PhoneNumberManager {
         list.accept(phoneList)
     }
 
+    func replace(with numbers: [PhoneNumber]) {
+        if numbers.isEmpty {
+            list.accept([
+                PhoneNumber(type: .Mobile, number: "")
+            ])
+        } else {
+            list.accept(numbers)
+        }
+    }
+
+    var numbers: [PhoneNumber] {
+        list.value
+    }
+
 }

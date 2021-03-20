@@ -13,7 +13,7 @@ class EmailListStackView: UIStackView {
     let emailTypes: [EmailType] = [.Personal, .Work, .Other]
     var activePickerIndex: Int?
     var activeTextField: UITextField?
-    func configure(with emails: [Email]) {
+    func configure(with emails: [Email] = []) {
         let pickerView = UIPickerView()
 
         self.axis = .vertical
@@ -70,24 +70,16 @@ class EmailListStackView: UIStackView {
 // MARK: - actions
 extension EmailListStackView {
     @objc func textfieldDidChange(_ textfield: UITextField) {
-        var list = EmailManager.manager.list.value
+        var list = EmailManager.manager.emails
         list[textfield.tag].address = textfield.text!
-//        if textfield.text!.isValid(.email) {
-//            DispatchQueue.main.async {
-//                let view = self.arrangedSubviews[textfield.tag] as? UIStackView
-//                (view?.arrangedSubviews[1] as? UILabel)?.text = ""
-//                self.setNeedsLayout()
-//                self.layoutIfNeeded()
-//            }
-//        }
-        EmailManager.manager.list.accept(list)
+        EmailManager.manager.replace(with: list)
     }
 
     @objc func removeView(_ button: UIButton) {
-        var list = EmailManager.manager.list.value
+        var list = EmailManager.manager.emails
         let index = button.tag
         list.remove(at: index)
-        EmailManager.manager.list.accept(list)
+        EmailManager.manager.replace(with: list)
     }
 
     @objc func textfieldDidBeginEditing(_ textfield: UITextField) {
@@ -188,9 +180,9 @@ extension EmailListStackView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var list = EmailManager.manager.list.value
+        var list = EmailManager.manager.emails
         list[activePickerIndex!].type = emailTypes[row]
-        EmailManager.manager.list.accept(list)
+        EmailManager.manager.replace(with: list)
         activeTextField?.resignFirstResponder()
     }
 
