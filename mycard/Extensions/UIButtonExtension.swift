@@ -49,7 +49,7 @@ extension UIButton {
             self.titleEdgeInsets.left = newValue
         }
     }
-    
+
     @IBInspectable
     var localizableText: String? {
         get {
@@ -78,7 +78,5 @@ extension UIButton {
             right: -titleSize.width)
       }
     }
-    
-    
 
 }

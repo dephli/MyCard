@@ -26,6 +26,9 @@ class CardDetailsViewModel {
     var bindTriggerPhoneNumberList: (([PhoneNumber]) -> Void)?
     var bindCardDeleted: (() -> Void)?
     var contactImage: UIImage?
+    var avatarImageUrl: String? {
+        contact.profilePicUrl
+    }
     var note: String? {
         let note = contact.note
         if note == nil || note == "" {
@@ -237,10 +240,10 @@ class CardDetailsViewModel {
         manager.currentEditableContact = contact
         SocialMediaManger.manager.list.accept( contact.socialMediaProfiles ?? [])
         if let phoneNumbers = contact.phoneNumbers {
-            PhoneNumberManager.manager.list.accept(phoneNumbers)
+            PhoneNumberManager.manager.replace(with: phoneNumbers)
         }
         if let emails = contact.emailAddresses {
-            EmailManager.manager.list.accept(emails)
+            EmailManager.manager.replace(with: emails)
         }
     }
 

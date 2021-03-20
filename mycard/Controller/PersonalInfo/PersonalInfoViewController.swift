@@ -49,9 +49,6 @@ class PersonalInfoViewController: UIViewController,
         SocialMediaManger.manager.list.asObservable()
     let imagePicker = UIImagePickerController()
     var keyboardHeight: Float?
-    var contact: Contact? {
-        return CardManager.shared.currentEditableContact
-    }
     let disposeBag = DisposeBag()
 
 // MARK: - ViewController methods
@@ -72,6 +69,7 @@ class PersonalInfoViewController: UIViewController,
 
     override func viewWillAppear(_ animated: Bool) {
         self.viewModel = PersonalInfoViewModel()
+        viewModel.bindHandleError = handleError
         registerKeyboardNotifications()
         populateWithData()
         fullNameTextField.text = viewModel.fullName
@@ -169,6 +167,15 @@ class PersonalInfoViewController: UIViewController,
     }
 
 // MARK: - Custom methods
+    func handleError(error: Error, title: String) {
+        self.removeActivityIndicator()
+        self.alert(title: title, message: error.localizedDescription)
+    }
+
+    func handleImageUploadSuccess() {
+        self.removeActivityIndicator()
+    }
+
     func removeKeyboardObservers() {
         NotificationCenter.default
             .removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -292,23 +299,12 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
         dismiss(animated: true, completion: nil)
         self.showActivityIndicator()
         guard let image = info[.editedImage] as? UIImage else {return}
-        DataStorageService.uploadImage(image: image, type: .network) { (url, error) in
+        viewModel.uploadPhoto(image: image) {
             self.removeActivityIndicator()
-            if let error = error {
-                self.alert(title: "Image upload failed", message: error.localizedDescription)
-
-            } else {
-//              create local contact as global contact is a get variable
                 DispatchQueue.main.async {
                     self.avatarImageView.image = image
                 }
-
-                var contact = self.contact
-                contact?.profilePicUrl = url
-                CardManager.shared.currentEditableContact = contact!
-            }
         }
-
     }
 }
 // MARK: - Textfield delegate

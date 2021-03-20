@@ -13,6 +13,7 @@ class CardDetailsViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var nameInitialsLabel: UILabel!
     @IBOutlet weak var nameInitialsView: UIView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var detailsStackView: ContactDetailsStackView!
@@ -161,6 +162,9 @@ class CardDetailsViewController: UIViewController {
         noteTextField.text = viewModel.note
         noteTextField.textColor = viewModel.noteTextColor
         nameInitialsLabel.text = viewModel.nameInitials
+        if let avatarImageUrl = viewModel.avatarImageUrl {
+            avatarImageView.loadThumbnail(urlSting: avatarImageUrl)
+        }
         detailsStackView.configure(contact: viewModel.contact)
     }
 

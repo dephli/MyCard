@@ -35,7 +35,6 @@ class SetupCardViewController: UIViewController {
         return
     }
 
-// TODO - extract the transition methods to a viewTransition file
     @IBAction func skipButtonPressed(_ sender: Any) {
         let transition = CATransition()
         transition.duration = 0.4

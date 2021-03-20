@@ -26,7 +26,6 @@
 		822D8D2025FAA3F900308A97 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D8D1F25FAA3F900308A97 /* Error.swift */; };
 		822D8D2925FBE4E900308A97 /* WorkInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D8D2825FBE4E900308A97 /* WorkInfoViewModel.swift */; };
 		822D8D2F25FC2B8200308A97 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D8D2E25FC2B8200308A97 /* ProfileViewModel.swift */; };
-		82354CC525DF495400C13A68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82354CC425DF495400C13A68 /* GoogleService-Info.plist */; };
 		82354CCA25DFEB0200C13A68 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */; };
 		82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82455941257D1123003DCB4C /* SetupCardViewController.swift */; };
 		825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B59257E54F900201A01 /* UITextFieldExtension.swift */; };
@@ -67,6 +66,7 @@
 		829D8ED925FF92030054A79C /* PersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D8ED825FF92030054A79C /* PersonalInfoViewModel.swift */; };
 		829D8F2E26017EB00054A79C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 829D8F2D26017EB00054A79C /* Localizable.strings */; };
 		829D8F3B260186D30054A79C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D8F3A260186D30054A79C /* UILabelExtension.swift */; };
+		829D8F69260356F90054A79C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 829D8F68260356F90054A79C /* GoogleService-Info.plist */; };
 		82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A82D91259117D000175898 /* ReviewPhotoViewController.swift */; };
 		82AD90D72587760D0014B96E /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90D62587760D0014B96E /* Email.swift */; };
 		82AD90DC258776180014B96E /* EmailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90DB258776180014B96E /* EmailManager.swift */; };
@@ -150,7 +150,6 @@
 		822D8D1F25FAA3F900308A97 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		822D8D2825FBE4E900308A97 /* WorkInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewModel.swift; sourceTree = "<group>"; };
 		822D8D2E25FC2B8200308A97 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		82354CC425DF495400C13A68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeNameViewController.swift; path = ../../../../../../../Documents/ChangeNameViewController.swift; sourceTree = "<group>"; };
 		82455941257D1123003DCB4C /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
 		825A4B59257E54F900201A01 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		829D8ED825FF92030054A79C /* PersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		829D8F2D26017EB00054A79C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		829D8F3A260186D30054A79C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		829D8F68260356F90054A79C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82A82D91259117D000175898 /* ReviewPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotoViewController.swift; sourceTree = "<group>"; };
 		82AD90D62587760D0014B96E /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		82AD90DB258776180014B96E /* EmailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailManager.swift; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 				82B6969D257C12BD005AFE62 /* AppDelegate.swift */,
 				82B696A6257C12C0005AFE62 /* Assets.xcassets */,
 				82B696A8257C12C0005AFE62 /* LaunchScreen.storyboard */,
-				82354CC425DF495400C13A68 /* GoogleService-Info.plist */,
+				829D8F68260356F90054A79C /* GoogleService-Info.plist */,
 			);
 			path = mycard;
 			sourceTree = "<group>";
@@ -790,7 +790,6 @@
 				82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */,
 				82B696AA257C12C0005AFE62 /* LaunchScreen.storyboard in Resources */,
 				82EB8292259D44420098399A /* QRCode.storyboard in Resources */,
-				82354CC525DF495400C13A68 /* GoogleService-Info.plist in Resources */,
 				82B696A7257C12C0005AFE62 /* Assets.xcassets in Resources */,
 				829D8F2E26017EB00054A79C /* Localizable.strings in Resources */,
 				82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */,
@@ -799,6 +798,7 @@
 				82C4378C257CFFB500CF945F /* Inter-Bold.ttf in Resources */,
 				82C43786257CFF9B00CF945F /* Inter-Regular.ttf in Resources */,
 				82097D41259B4270000CB955 /* CardDetails.storyboard in Resources */,
+				829D8F69260356F90054A79C /* GoogleService-Info.plist in Resources */,
 				82C43787257CFF9B00CF945F /* Inter-Medium.ttf in Resources */,
 				82B696A5257C12BD005AFE62 /* Main.storyboard in Resources */,
 			);
@@ -1178,7 +1178,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
@@ -1204,7 +1204,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;

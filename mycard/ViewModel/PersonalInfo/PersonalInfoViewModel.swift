@@ -27,6 +27,8 @@ class PersonalInfoViewModel {
     var contact = CardManager.shared.currentEditableContact
     var avatarUrl: String?
 
+    var bindHandleError: ((Error, String) -> Void)!
+
     var socialMedia: [SocialMedia] {
         SocialMediaManger.manager.getAll
     }
@@ -258,11 +260,6 @@ class PersonalInfoViewModel {
         middleName = ""
         lastName = ""
         suffix = ""
-
-//                    resetTextFieldContents
-//        for i in 1..<nameStackView.arrangedSubviews.count {
-//            (nameStackView.arrangedSubviews[i] as? UITextField)?.text = ""
-//        }
     }
 
     func setAllNames() {
@@ -299,8 +296,8 @@ class PersonalInfoViewModel {
         contact.name.middleName = self.middleName
         contact.name.prefix = self.prefix
         contact.name.suffix = self.suffix
-        contact.phoneNumbers = PhoneNumberManager.manager.list.value
-        contact.emailAddresses = EmailManager.manager.list.value
+        contact.phoneNumbers = PhoneNumberManager.manager.numbers
+        contact.emailAddresses = EmailManager.manager.emails
         contact.socialMediaProfiles = SocialMediaManger.manager.getAll
 
         CardManager.shared.currentEditableContact = contact
@@ -318,7 +315,7 @@ class PersonalInfoViewModel {
     }
 
     func addNewEmail() {
-        let emails = EmailManager.manager.list.value
+        let emails = EmailManager.manager.emails
 
 //        you cannot add another email if any is empty
         if !emails.contains(where: { (email) -> Bool in
@@ -343,6 +340,25 @@ class PersonalInfoViewModel {
            nextButtonEnabled = false
         } else {
             nextButtonEnabled = true
+        }
+    }
+
+    func uploadPhoto(image: UIImage, completion: (@escaping() -> Void)) {
+        DataStorageService.uploadImage(image: image, type: .network) {[self] (url, error) in
+            if error != nil {
+                let uploadError = CustomError(
+                    str: "Failed to upload image. Please check if you have an internet connection") as Error
+                self.bindHandleError(
+                    uploadError,
+                    NSLocalizedString(
+                        "Something Happened",
+                        comment: "Image upload failed"
+                    )
+                )
+            } else {
+                contact.profilePicUrl = url
+                completion()
+            }
         }
     }
 

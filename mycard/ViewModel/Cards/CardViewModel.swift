@@ -128,10 +128,10 @@ class CardViewModel {
         manager.currentEditableContact = contact
         SocialMediaManger.manager.list.accept( contact.socialMediaProfiles ?? [])
         if let phoneNumbers = contact.phoneNumbers {
-            PhoneNumberManager.manager.list.accept(phoneNumbers)
+            PhoneNumberManager.manager.replace(with: phoneNumbers)
         }
         if let emails = contact.emailAddresses {
-            EmailManager.manager.list.accept(emails)
+            EmailManager.manager.replace(with: emails)
         }
     }
 
