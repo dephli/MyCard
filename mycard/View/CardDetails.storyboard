@@ -59,7 +59,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASt-bA-w5d">
-                                                                <rect key="frame" x="173.5" y="30.5" width="19" height="19"/>
+                                                                <rect key="frame" x="173" y="30.5" width="20.5" height="19.5"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
@@ -72,27 +72,40 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. John Agyekum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gQ-LL-pGY">
-                                                                <rect key="frame" x="116.5" y="72" width="133.5" height="19"/>
+                                                                <rect key="frame" x="112" y="72" width="142" height="19.5"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senior Content Analyst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWI-xr-jMg">
-                                                                <rect key="frame" x="96" y="95" width="174.5" height="20.5"/>
+                                                                <rect key="frame" x="96" y="95.5" width="174.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EeT-Zk-vA2">
+                                                                <rect key="frame" x="163" y="20" width="40" height="40"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="MC White"/>
                                                         <constraints>
+                                                            <constraint firstItem="EeT-Zk-vA2" firstAttribute="trailing" secondItem="iAB-3P-Z8F" secondAttribute="trailing" id="5ng-je-CQ4"/>
                                                             <constraint firstItem="aWI-xr-jMg" firstAttribute="centerX" secondItem="vQ9-WJ-lyF" secondAttribute="centerX" id="8ur-a2-p7n"/>
                                                             <constraint firstItem="8gQ-LL-pGY" firstAttribute="centerX" secondItem="vQ9-WJ-lyF" secondAttribute="centerX" id="Clj-Vw-BJO"/>
                                                             <constraint firstItem="8gQ-LL-pGY" firstAttribute="top" secondItem="iAB-3P-Z8F" secondAttribute="bottom" constant="12" id="Grk-lL-orC"/>
+                                                            <constraint firstItem="EeT-Zk-vA2" firstAttribute="centerX" secondItem="iAB-3P-Z8F" secondAttribute="centerX" id="OyE-VK-iDI"/>
                                                             <constraint firstItem="aWI-xr-jMg" firstAttribute="top" secondItem="8gQ-LL-pGY" secondAttribute="bottom" constant="4" id="QO4-qq-gni"/>
                                                             <constraint firstItem="iAB-3P-Z8F" firstAttribute="top" secondItem="vQ9-WJ-lyF" secondAttribute="top" constant="20" id="Rqd-uZ-Eha"/>
+                                                            <constraint firstItem="EeT-Zk-vA2" firstAttribute="top" secondItem="iAB-3P-Z8F" secondAttribute="top" id="YoF-nG-BHT"/>
+                                                            <constraint firstItem="EeT-Zk-vA2" firstAttribute="bottom" secondItem="iAB-3P-Z8F" secondAttribute="bottom" id="d7x-30-5qo"/>
                                                             <constraint firstItem="iAB-3P-Z8F" firstAttribute="centerX" secondItem="vQ9-WJ-lyF" secondAttribute="centerX" id="eqt-pe-pnc"/>
                                                             <constraint firstItem="ASt-bA-w5d" firstAttribute="centerY" secondItem="iAB-3P-Z8F" secondAttribute="centerY" id="geB-eq-QKz"/>
+                                                            <constraint firstItem="EeT-Zk-vA2" firstAttribute="leading" secondItem="iAB-3P-Z8F" secondAttribute="leading" id="vdZ-uN-arO"/>
                                                             <constraint firstItem="ASt-bA-w5d" firstAttribute="centerX" secondItem="iAB-3P-Z8F" secondAttribute="centerX" id="w21-nY-2cX"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -228,7 +241,7 @@
                                                 <rect key="frame" x="24" y="356.5" width="366" height="108"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="570-yQ-Xc9">
-                                                        <rect key="frame" x="16" y="16" width="334" height="59"/>
+                                                        <rect key="frame" x="16" y="16" width="334" height="59.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YNa-va-IBz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="24"/>
@@ -250,7 +263,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a note" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QON-Jj-t65">
-                                                                <rect key="frame" x="0.0" y="40" width="334" height="19"/>
+                                                                <rect key="frame" x="0.0" y="40" width="334" height="19.5"/>
                                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <nil key="highlightedColor"/>
@@ -338,6 +351,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <size key="freeformSize" width="414" height="501"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="EeT-Zk-vA2" id="02Y-Yj-wVS"/>
                         <outlet property="cardNameLabel" destination="8gQ-LL-pGY" id="u5i-FG-CBo"/>
                         <outlet property="cardRoleLabel" destination="aWI-xr-jMg" id="W2w-NQ-sr4"/>
                         <outlet property="cardView" destination="ISd-bk-rTQ" id="G27-LU-el2"/>

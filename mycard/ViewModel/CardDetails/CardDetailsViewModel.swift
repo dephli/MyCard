@@ -26,6 +26,9 @@ class CardDetailsViewModel {
     var bindTriggerPhoneNumberList: (([PhoneNumber]) -> Void)?
     var bindCardDeleted: (() -> Void)?
     var contactImage: UIImage?
+    var avatarImageUrl: String? {
+        contact.profilePicUrl
+    }
     var note: String? {
         let note = contact.note
         if note == nil || note == "" {
