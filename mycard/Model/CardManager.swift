@@ -9,8 +9,13 @@ import Foundation
 import RxCocoa
 
 class CardManager {
+    /**
+     This is a singleton that holds the single source of truth for creating, editing (or displaying the details
+     of a network ) card. Uses RxCocoa to save the state
+     */
     private init () {}
-
+    
+//    instance to be called in order to use any property here
     static let shared = CardManager()
 
     private let contact: BehaviorRelay<Contact> =
@@ -80,13 +85,21 @@ class CardManager {
     }
 
     func reset() {
-        contact.accept(Contact(name: Name()))
+        /**
+         This removes any email, social media, phone number or contact in state
+         */
+        currentEditableContact = Contact(name: Name())
         EmailManager.manager.replace(with: [])
         PhoneNumberManager.manager.replace(with: [])
         SocialMediaManger.manager.list.accept([])
     }
 
     enum CardType {
+        /**
+         All create, and edit actions of Personal cards or Contact cards go through one flow.
+         This enum is to differentiate between the flow be it a create or edit of Personal card
+         or a create or edit of a Contact(Network) card.
+         */
         case createPersonalCard
         case createContactCard
         case editPersonalCard

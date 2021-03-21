@@ -48,7 +48,7 @@ class NotesViewController: UIViewController {
 // MARK: - Custom Methods
 
     func notesSaved() {
-
+//        ios 12 and below have no presentation controller delegate
         if #available(iOS 13.0, *) {
             self.presentationController?.delegate?.presentationControllerDidDismiss?(self.presentationController!)
         }
