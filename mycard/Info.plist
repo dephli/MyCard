@@ -38,7 +38,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>MyCrd app camera usage</string>
+	<string>Access to camera is needed to take pictures of </string>
 	<key>NSContactsUsageDescription</key>
 	<string>MyCrd needs access to your contacts to be able to export this contact</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -50,8 +50,44 @@
 		<string>Inter-SemiBold.ttf</string>
 		<string>Inter-Bold.ttf</string>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Search for a card</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Search</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>SearchAction</string>
+		</dict>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

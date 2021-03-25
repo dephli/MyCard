@@ -7,7 +7,7 @@ target 'mycard' do
 
   # Pods for mycard
   # firebase pods
-  pod 'GoogleMLKit/TextRecognition'
+#  pod 'GoogleMLKit/TextRecognition'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'

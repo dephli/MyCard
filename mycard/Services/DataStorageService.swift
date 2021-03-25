@@ -8,10 +8,6 @@
 import Foundation
 import FirebaseStorage
 
-protocol DataStorageDelegate: AnyObject {
-    func uploadImage(image: UIImage, onUploadComplete: @escaping(String?, Error?) -> Void)
-}
-
 class DataStorageService {
 
     enum UploadType {
@@ -33,7 +29,6 @@ class DataStorageService {
 
         let date = Date().timeIntervalSince1970
 
-//        let random = Int.random(in: 10000000..<20000000)
 //        to generate unique id for image, use date + a random 8 digit number
         guard let uid = AuthService.uid else {return}
         switch type {
@@ -69,4 +64,63 @@ class DataStorageService {
             onActionCompleted(error)
         }
     }
+
+    static func uploadImage(image: UIImage,
+                            documentId: String,
+                            imageType: FileUploadManager.FileUploadType,
+                            completionHandler: @escaping(Error?) -> Void) {
+
+        let fileManager = FileManager.default
+        let documentsPath = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let imagePath = documentsPath?.appendingPathComponent("\(documentId).jpg")
+        do {
+            try image.jpegData(compressionQuality: 1)?.write(to: imagePath!)
+        } catch {
+            let error = CustomError(str: "Failed to load upload image") as Error
+            completionHandler(error)
+        }
+
+        startUpload(
+            fileUrl: imagePath!,
+            contentType: "application/octet-stream",
+            documentId: documentId,
+            imageType: imageType
+        )
+    }
+
+    static func startUpload(
+        fileUrl: URL,
+        contentType: String,
+        documentId: String,
+        imageType: FileUploadManager.FileUploadType
+    ) {
+            FileUploadManager.shared.startUpload(
+                fileUrl: fileUrl,
+                contentType: contentType,
+                documentId: documentId,
+                imageType: imageType
+            )
+    }
+
+//    enum FileUploadType {
+//        case personalCard
+//        case networkCard
+//    }
+//
+//    static func startUpload(fileUrl: URL, contentType: String, documentId: String, imageType: FileUploadType) {
+//        if let token = AuthService.idToken {
+//           self.uploadType = imageType
+//            self.documentId = documentId
+//            let urlString = "https://firebasestorage.googleapis.com/v0/b/my-card-a7ec2.appspot.com/o?name=images/profile/\(documentId).jpg"
+//            let uploadUrl = URL(
+//                string: urlString)!
+//            var urlRequest = URLRequest(url: uploadUrl)
+//            urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//            urlRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
+//            urlRequest.httpMethod = "POST"
+//            let uploadTask = FileUploadManager.shared.urlSession.uploadTask(with: urlRequest, fromFile: fileUrl)
+//            uploadTask.resume()
+//
+//        }
+//    }
 }

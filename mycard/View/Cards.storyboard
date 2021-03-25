@@ -251,13 +251,13 @@
         <!--Search View Controller-->
         <scene sceneID="iMg-gF-uyv">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="317-pS-tvz" customClass="SearchViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" modalTransitionStyle="crossDissolve" id="317-pS-tvz" customClass="SearchViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7uE-5a-hHg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ehy-J3-P7V">
-                                <rect key="frame" x="24" y="44" width="272" height="475"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vkz-x8-WEm">
@@ -291,13 +291,13 @@
                             <constraint firstItem="Vkz-x8-WEm" firstAttribute="top" secondItem="aeo-8K-qBM" secondAttribute="top" id="08L-yD-eX2"/>
                             <constraint firstItem="Ehy-J3-P7V" firstAttribute="bottom" secondItem="aeo-8K-qBM" secondAttribute="bottom" id="7fi-Zg-V6M"/>
                             <constraint firstItem="aeo-8K-qBM" firstAttribute="bottom" secondItem="Ehy-J3-P7V" secondAttribute="bottom" id="CJy-qz-QcO"/>
-                            <constraint firstAttribute="trailing" secondItem="Ehy-J3-P7V" secondAttribute="trailing" constant="24" id="Kss-e8-IDb"/>
+                            <constraint firstAttribute="trailing" secondItem="Ehy-J3-P7V" secondAttribute="trailing" id="Kss-e8-IDb"/>
                             <constraint firstItem="Vkz-x8-WEm" firstAttribute="leading" secondItem="aeo-8K-qBM" secondAttribute="leading" id="btr-Eb-mut"/>
                             <constraint firstItem="Ehy-J3-P7V" firstAttribute="top" secondItem="aeo-8K-qBM" secondAttribute="top" id="fj0-nQ-Vi0"/>
                             <constraint firstItem="aeo-8K-qBM" firstAttribute="bottom" secondItem="Vkz-x8-WEm" secondAttribute="bottom" id="j7P-cQ-gox"/>
                             <constraint firstItem="Ehy-J3-P7V" firstAttribute="top" secondItem="aeo-8K-qBM" secondAttribute="top" id="mwe-S0-ePC"/>
                             <constraint firstItem="aeo-8K-qBM" firstAttribute="trailing" secondItem="Vkz-x8-WEm" secondAttribute="trailing" id="myD-ii-rZE"/>
-                            <constraint firstItem="Ehy-J3-P7V" firstAttribute="leading" secondItem="7uE-5a-hHg" secondAttribute="leading" constant="24" id="z1u-MG-e2g"/>
+                            <constraint firstItem="Ehy-J3-P7V" firstAttribute="leading" secondItem="7uE-5a-hHg" secondAttribute="leading" id="z1u-MG-e2g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8m4-Lo-94q"/>
@@ -595,7 +595,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ki3-ol-g6J"/>
+        <segue reference="Dzk-wi-zzd"/>
         <segue reference="dSc-nj-7MS"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -605,7 +605,7 @@
         <image name="empty cards doodle" width="168" height="168"/>
         <image name="no result found" width="218" height="76"/>
         <image name="sort" width="24" height="24"/>
-        <image name="user" width="16" height="18"/>
+        <image name="user" width="24" height="24"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

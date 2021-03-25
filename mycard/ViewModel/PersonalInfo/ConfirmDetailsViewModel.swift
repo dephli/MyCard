@@ -89,10 +89,15 @@ class ConfirmDetailsViewModel {
     func createContactCard() {
 //        trim out empty emails and phone numbers before creating a network card
         CardManager.shared.trim()
-        FirestoreService.shared.createContact(with: contact) { (error) in
+        FirestoreService.shared.createContact(with: contact) { (error, documentId) in
             if let error = error {
                 self.bindError!(error)
             } else {
+                DataStorageService.uploadImage(image: CardManager.shared.contactImage!, documentId: documentId!, imageType: .networkCard) { (error) in
+                    if let error = error {
+                        self.bindError!(error)
+                    }
+                }
                 self.bindSaveSuccessful!()
             }
         }
@@ -102,10 +107,15 @@ class ConfirmDetailsViewModel {
         //        trim out empty emails and phone numbers before creating a personal card
 
         CardManager.shared.trim()
-        FirestoreService.shared.createPersonalCard(with: contact) { (error) in
+        FirestoreService.shared.createPersonalCard(with: contact) { (error, documentId) in
             if let error = error {
                 self.bindError!(error)
             } else {
+                DataStorageService.uploadImage(image: CardManager.shared.contactImage!, documentId: documentId!, imageType: .personalCard) { (error) in
+                    if let error = error {
+                        self.bindError!(error)
+                    }
+                }
                 self.bindSaveSuccessful!()
             }
         }

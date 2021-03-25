@@ -34,7 +34,7 @@ struct EmailManager {
         emailList.remove(at: index)
         list.accept(emailList)
     }
-    
+
     var emails: [Email] {
         list.value
     }

@@ -17,7 +17,6 @@ class CardViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var cardTableView: UITableView!
     @IBOutlet weak var emptyCardsView: UIView!
-    @IBOutlet weak var floatiingButtonConstraints: NSLayoutConstraint!
 
 // MARK: - Variables
     private var aView: UIView?
@@ -129,9 +128,6 @@ class CardViewController: UIViewController {
 
     private func uiSetup() {
         navigationController?.navigationBar.shadowImage = UIImage()
-        let imageView = UIImageView(image: K.Images.profilePlaceholder)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: imageView)
-
     }
 
     private func editContact(indexPath: IndexPath) {
@@ -148,7 +144,6 @@ class CardViewController: UIViewController {
         let phoneContact = viewModel.createCNContact(contact: contact, contactImage: image)
         let contactVc = CNContactViewController(forUnknownContact: phoneContact)
         contactVc.contactStore = store
-        contactVc.delegate = self
         contactVc.allowsActions = false
         navigationController?.navigationBar.isHidden = false
         hidesBottomBarWhenPushed = true
@@ -225,8 +220,4 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
             return UIMenu(title: "", children: [editAction, exportAction, deleteAction])
         }
     }
-}
-
-extension CardViewController: CNContactViewControllerDelegate {
-
 }

@@ -202,13 +202,6 @@ extension SocialMediaViewController: UITextFieldDelegate {
         } else {
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
-//        UIView.animate(withDuration: 0.2) {
-//            if textField.tag == 0 {
-//                self.view.frame.origin.y = -150
-//            } else if textField.tag == 1 {
-//                self.view.frame.origin.y = -100
-//            }
-//        }
         return true
     }
 

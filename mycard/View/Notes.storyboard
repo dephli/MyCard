@@ -28,7 +28,7 @@
                                 <color key="barTintColor" name="MC White"/>
                                 <items>
                                     <navigationItem title="Note" id="Rdk-UN-TXD">
-                                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="89n-Oe-M6S">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="89n-Oe-M6S">
                                             <color key="tintColor" name="MC Black"/>
                                             <connections>
                                                 <action selector="closeButtonPressed:" destination="Ofs-jx-Dfk" id="WW8-kL-5TL"/>
@@ -84,7 +84,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -159,4 +159,14 @@ class AuthService: AuthServiceDelegate {
         }
         return nil
     }
+
+    static var token: String = ""
+
+    static var idToken: String? {
+        Auth.auth().currentUser?.getIDToken { (tokenString, _) in
+            self.token = tokenString!
+            print("hello")
+        }
+        return self.token
+    }
 }

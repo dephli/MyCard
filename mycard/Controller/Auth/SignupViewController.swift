@@ -107,7 +107,6 @@ class SignupViewController: UIViewController {
     }
 
     private func showVerificationModal () {
-
         phoneNumberText = "\(countryCode!)\(phoneNumberTextField.text!.replacingOccurrences(of: " ", with: ""))"
 
         if phoneNumberText!.isValid(.phoneNumber) {

@@ -14,7 +14,7 @@ class CardManager {
      of a network ) card. Uses RxCocoa to save the state
      */
     private init () {}
-    
+
 //    instance to be called in order to use any property here
     static let shared = CardManager()
 
@@ -28,6 +28,9 @@ class CardManager {
     private let personalCards: BehaviorRelay<[Contact]> = BehaviorRelay(value: [])
 
     private let contactCards: BehaviorRelay<[Contact]> = BehaviorRelay(value: [])
+
+//    image uploaded by user to be used as the contact image of the current contact
+    var contactImage: UIImage?
 
     var createdContactCards: [Contact] {
         get {
@@ -92,6 +95,7 @@ class CardManager {
         EmailManager.manager.replace(with: [])
         PhoneNumberManager.manager.replace(with: [])
         SocialMediaManger.manager.list.accept([])
+        contactImage = nil
     }
 
     enum CardType {

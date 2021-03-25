@@ -55,6 +55,7 @@
 		827853E925CC32B200652F9B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827853E825CC32B200652F9B /* Networking.swift */; };
 		8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285225125A53F3300D5C950 /* ImagePickerService.swift */; };
 		828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */; };
+		828C1766260B7CBA0086D04D /* FileUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C1765260B7CBA0086D04D /* FileUploadManager.swift */; };
 		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
 		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
 		8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C924258F6AF100D3FA58 /* Camera.storyboard */; };
@@ -110,6 +111,9 @@
 		82EB82A3259D47920098399A /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB82A2259D47920098399A /* UIVIewExtension.swift */; };
 		82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0AA062580719200F1DFFC /* ContactsCell.swift */; };
 		82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F0AA072580719200F1DFFC /* ContactsCell.xib */; };
+		82F8136D26076C3D0038071D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8136C26076C3D0038071D /* SceneDelegate.swift */; };
+		82F813752608A1710038071D /* PhotoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F813742608A1700038071D /* PhotoBottomSheet.swift */; };
+		82F8137D2608DDE40038071D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8137C2608DDE30038071D /* Reachability.swift */; };
 		FE8895A1A19FB6C5C59B4ECD /* Pods_mycard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +183,7 @@
 		827853E825CC32B200652F9B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8285225125A53F3300D5C950 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
 		828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMultiPhoneEmailStackView.swift; sourceTree = "<group>"; };
+		828C1765260B7CBA0086D04D /* FileUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadManager.swift; sourceTree = "<group>"; };
 		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
 		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
 		8293C924258F6AF100D3FA58 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -241,6 +246,9 @@
 		82EB82A2259D47920098399A /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 		82F0AA062580719200F1DFFC /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		82F0AA072580719200F1DFFC /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
+		82F8136C26076C3D0038071D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		82F813742608A1700038071D /* PhotoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBottomSheet.swift; sourceTree = "<group>"; };
+		82F8137C2608DDE30038071D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8CA3228599EE86A84A48B245 /* Pods-mycard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.release.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.release.xcconfig"; sourceTree = "<group>"; };
 		BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mycard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1FA86754D109944863536B /* Pods-mycard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.debug.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -502,6 +510,7 @@
 				82B696A6257C12C0005AFE62 /* Assets.xcassets */,
 				82B696A8257C12C0005AFE62 /* LaunchScreen.storyboard */,
 				829D8F68260356F90054A79C /* GoogleService-Info.plist */,
+				82F8136C26076C3D0038071D /* SceneDelegate.swift */,
 			);
 			path = mycard;
 			sourceTree = "<group>";
@@ -613,6 +622,9 @@
 				828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */,
 				8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */,
 				822D8D1F25FAA3F900308A97 /* Error.swift */,
+				82F813742608A1700038071D /* PhotoBottomSheet.swift */,
+				82F8137C2608DDE30038071D /* Reachability.swift */,
+				828C1765260B7CBA0086D04D /* FileUploadManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -685,7 +697,6 @@
 				4A99D361E95D2A4E1070815D /* [CP] Embed Pods Frameworks */,
 				82B4443425E55F650074F574 /* ShellScript */,
 				82AE248825F05FAE003A4A82 /* ShellScript */,
-				10034E5E9D8A9BDA8E2B13B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -821,23 +832,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10034E5E9D8A9BDA8E2B13B7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mycard/Pods-mycard-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mycard/Pods-mycard-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mycard/Pods-mycard-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2F4B7891DD52836D6C848A91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -940,6 +934,7 @@
 				8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */,
 				820034D225F7B3C800D1E974 /* NotesViewModel.swift in Sources */,
 				82C43756257C4F6000CF945F /* TextStyle.swift in Sources */,
+				828C1766260B7CBA0086D04D /* FileUploadManager.swift in Sources */,
 				829D8F3B260186D30054A79C /* UILabelExtension.swift in Sources */,
 				828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */,
 				82CE96A425FE42BE009316EB /* ContactsCellViewModel.swift in Sources */,
@@ -948,9 +943,11 @@
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
 				8263ED7E25DDE64F0000E77C /* PersonalCardCollectionViewCell.swift in Sources */,
 				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
+				82F813752608A1710038071D /* PhotoBottomSheet.swift in Sources */,
 				82C7D8CF25DF299F00F05B91 /* ChangePhoneNumberViewController.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
 				82647B0125AE47F20091D104 /* StringExtension.swift in Sources */,
+				82F8137D2608DDE40038071D /* Reachability.swift in Sources */,
 				82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */,
 				82BED3F5257F063C00F8E96E /* NavigationController.swift in Sources */,
 				82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */,
@@ -975,6 +972,7 @@
 				82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */,
 				82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */,
 				82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */,
+				82F8136D26076C3D0038071D /* SceneDelegate.swift in Sources */,
 				829728FB258289B900C99E33 /* AuthService.swift in Sources */,
 				825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */,
 				8214E634259047D10054A345 /* UIColorExtension.swift in Sources */,
@@ -1178,11 +1176,11 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1204,11 +1202,11 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

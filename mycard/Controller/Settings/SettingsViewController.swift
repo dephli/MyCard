@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController {
 // MARK: - Properties
     var profilePicUrl: String?
     let imagePicker = UIImagePickerController()
+    var photoBottomSheet: PhotoButtomSheet?
 
 // MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +41,10 @@ class SettingsViewController: UIViewController {
             self.avatarImage.loadThumbnail(urlSting: avatarImageUrl)
         }
 
+        photoBottomSheet = PhotoButtomSheet()
+        photoBottomSheet?.delegate = self
+        photoBottomSheet?.initialize()
+
         // Do any additional setup after loading the view.
     }
 
@@ -56,6 +61,7 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func uploadImageButtonPressed(_ sender: Any) {
+//        photoBottomSheet?.activate()
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
@@ -120,5 +126,15 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
                 }
             }
         }
+    }
+}
+
+extension SettingsViewController: PhotoBottomSheetDelegate {
+    func takePhotoPressed() {
+
+    }
+
+    func uploadPhotoPressed() {
+
     }
 }

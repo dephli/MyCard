@@ -42,7 +42,7 @@ class PersonalInfoViewController: UIViewController,
     @IBOutlet weak var customNavBar: CustomNavigationBar!
     @IBOutlet weak var bottomCaretButton: UIButton!
 
-    // MARK: - variables
+// MARK: - variables
     var viewModel: PersonalInfoViewModel!
     let phoneNumberObservable = PhoneNumberManager.manager.list.asObservable()
     let socialMediaObservable =
@@ -111,6 +111,7 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func socialMediaButtonPressed(_ sender: Any) {
+        saveProfileInfo()
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
 
@@ -167,16 +168,16 @@ class PersonalInfoViewController: UIViewController,
     }
 
 // MARK: - Custom methods
-    func handleError(error: Error, title: String) {
+    internal func handleError(error: Error, title: String) {
         self.removeActivityIndicator()
         self.alert(title: title, message: error.localizedDescription)
     }
 
-    func handleImageUploadSuccess() {
+    internal func handleImageUploadSuccess() {
         self.removeActivityIndicator()
     }
 
-    func removeKeyboardObservers() {
+    private func removeKeyboardObservers() {
         NotificationCenter.default
             .removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default
@@ -185,7 +186,7 @@ class PersonalInfoViewController: UIViewController,
             .removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    func registerKeyboardNotifications() {
+    private func registerKeyboardNotifications() {
         NotificationCenter.default
             .addObserver(self,
                          selector: #selector(keyboardWillChange),
@@ -205,7 +206,7 @@ class PersonalInfoViewController: UIViewController,
                          object: nil)
     }
 
-    func disableStackViewConstraints() {
+    private func disableStackViewConstraints() {
         phoneNumbersStackViewHeightConstraint.isActive = false
         emailListStackviewHeightConstraint.isActive = false
         socialMediaListStackViewHeightConstraint.isActive = false
@@ -218,7 +219,7 @@ class PersonalInfoViewController: UIViewController,
         performSegue(withIdentifier: K.Segues.personalInfoToSocialMedia, sender: self)
     }
 
-    func verifyTextFields() {
+    private func verifyTextFields() {
         populateViewModelNames()
         viewModel.verifyTextFields()
         nextButton.isEnabled = viewModel.nextButtonEnabled
@@ -297,14 +298,9 @@ extension PersonalInfoViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         dismiss(animated: true, completion: nil)
-        self.showActivityIndicator()
         guard let image = info[.editedImage] as? UIImage else {return}
-        viewModel.uploadPhoto(image: image) {
-            self.removeActivityIndicator()
-                DispatchQueue.main.async {
-                    self.avatarImageView.image = image
-                }
-        }
+        avatarImageView.image = image
+        viewModel.avatarImage = image
     }
 }
 // MARK: - Textfield delegate
@@ -313,7 +309,6 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         var point = textField.convert(textField.frame.origin, to: self.scrollView)
         point.x = 0.0
-
         scrollView.setContentOffset(CGPoint(x: 0, y: Int(self.keyboardHeight ?? 0)), animated: true)
     }
 

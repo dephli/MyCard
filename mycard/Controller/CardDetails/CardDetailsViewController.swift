@@ -38,8 +38,11 @@ class CardDetailsViewController: UIViewController {
 
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.setHidesBackButton(false, animated: true)
         populateViewsWithData()
     }
@@ -65,8 +68,8 @@ class CardDetailsViewController: UIViewController {
             vc!.contact = viewModel.contact
         } else if segue.destination is NotesViewController {
             let vc = segue.destination as! NotesViewController
-            vc.presentationController?.delegate = self
             vc.viewModel = NotesViewModel()
+            vc.presentationController?.delegate = self
         }
     }
 
