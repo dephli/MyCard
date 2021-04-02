@@ -18,14 +18,23 @@ class SettingsViewController: UIViewController {
 
 // MARK: - Properties
     var profilePicUrl: String?
-    let imagePicker = UIImagePickerController()
-    var photoBottomSheet: PhotoButtomSheet?
+//    let imagePicker = UIImagePickerController()
+    let imagePicker = ImagePickerService()
+    let slideVc = AvatarImageBottomSheet()
+    var viewModel: SettingsViewModel!
 
 // MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        nameTextLabel.text = AuthService.username
-        numberTextLabel.text = AuthService.phoneNumber
+        viewModel = SettingsViewModel()
+        viewModel.bindError = handleError
+        nameTextLabel.text = viewModel.userName
+        numberTextLabel.text = viewModel.phoneNumber
+        if let avatarImageUrl = AuthService.avatarUrl {
+            self.avatarImage.loadThumbnail(urlSting: avatarImageUrl)
+        } else {
+            self.avatarImage.image = K.Images.profilePlaceholder
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,104 +46,81 @@ class SettingsViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .black
 
-        if let avatarImageUrl = AuthService.avatarUrl {
-            self.avatarImage.loadThumbnail(urlSting: avatarImageUrl)
-        }
-
-        photoBottomSheet = PhotoButtomSheet()
-        photoBottomSheet?.delegate = self
-        photoBottomSheet?.initialize()
-
         // Do any additional setup after loading the view.
     }
 
 // MARK: - Actions
     @IBAction func logoutButtonPressed(_ sender: Any) {
-        UserManager.auth.logout { (error) in
-            if let error = error {
-                self.alert(title: "Error", message: error.localizedDescription)
-            } else {
-                self.setRootViewController()
-                self.navigationController?.popToRootViewController(animated: true)
-            }
+        viewModel.logout {
+            viewModel.setRootViewController()
         }
     }
 
     @IBAction func uploadImageButtonPressed(_ sender: Any) {
-//        photoBottomSheet?.activate()
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = true
-            present(imagePicker, animated: true)
-        }
+        slideVc.delegate = self
+        slideVc.modalPresentationStyle = .custom
+        slideVc.transitioningDelegate = self
+        self.present(slideVc, animated: true, completion: nil)
     }
     // MARK: - Custom Methods
-    private func setRootViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if #available(iOS 13.0, *) {
-            guard let navController = storyboard
-                    .instantiateViewController(
-                        identifier: K.ViewIdentifiers.startScreenViewController
-                    ) as? StartScreenViewController else {
-                return
-            }
-            UIApplication.shared.windows.first?.rootViewController = navController
-        } else {
-            // Fallback on earlier versions
 
-            guard let navController = storyboard
-                    .instantiateViewController(
-                        withIdentifier: K.ViewIdentifiers.startScreenViewController
-                    ) as? StartScreenViewController else {
-                return
-            }
-            UIApplication.shared.windows.first?.rootViewController = navController
-        }
-
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    private func handleError(title: String, error: Error) {
+        self.removeActivityIndicator()
+        self.alert(title: title, message: error.localizedDescription)
     }
 }
 
 extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [
-                                UIImagePickerController.InfoKey: Any
-                                ]) {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [
+            UIImagePickerController.InfoKey: Any
+            ]
+    ) {
 
         dismiss(animated: true, completion: nil)
         guard let image = info[.editedImage] as? UIImage else {return}
-
         DispatchQueue.main.async {
             self.avatarImage.image = image
         }
         self.showActivityIndicator()
-
-        DataStorageService.uploadImage(image: image, type: .profile) { (url, error) in
-            if error != nil {
-                self.removeActivityIndicator()
-                self.avatarImage.image = K.Images.profilePlaceholder
-                self.alert(title: "Image upload failed", message: "Could not upload image")
-            } else {
-                let user = User(avatarImageUrl: url)
-                UserManager.auth.updateUser(with: user) { (error) in
-                    self.removeActivityIndicator()
-                    if error != nil {
-                        self.alert(title: "Image upload failed", message: "Could not upload image")
-                    }
-                }
+        viewModel.uploadImage(image: image) {
+            self.removeActivityIndicator()
+            DispatchQueue.main.async {
+                self.avatarImage.image = image
             }
         }
     }
 }
 
-extension SettingsViewController: PhotoBottomSheetDelegate {
-    func takePhotoPressed() {
+extension SettingsViewController: AvatarImageBottomSheetDelegate {
+    func removePhotoPressed() {
+        slideVc.dismiss(animated: true, completion: nil)
+        self.showActivityIndicator()
+        viewModel.removeImage {
+            self.removeActivityIndicator()
+            self.viewWillAppear(false)
+        }
+    }
 
+    func takePhotoPressed() {
+        slideVc.dismiss(animated: true, completion: nil)
+        imagePicker.selectImage(self, sourceType: .camera)
     }
 
     func uploadPhotoPressed() {
+        slideVc.dismiss(animated: true, completion: nil)
+        let imagePicker = ImagePickerService()
+        imagePicker.selectImage(self)
+    }
+}
 
+extension SettingsViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

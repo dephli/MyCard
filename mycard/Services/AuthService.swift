@@ -104,6 +104,18 @@ class AuthService: AuthServiceDelegate {
 
         }
     }
+    
+    
+    func removeAvatarUrl(completionHandler: @escaping (Error?) -> Void) {
+
+        let request = Auth.auth().currentUser?.createProfileChangeRequest()
+        request?.photoURL = nil
+
+        request?.commitChanges(completion: { (error) in
+            completionHandler(error)
+        })
+
+    }
 
     func updateUser(user: User, onActionComplete: @escaping (Error?) -> Void) {
 

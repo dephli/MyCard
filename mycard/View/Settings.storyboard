@@ -46,6 +46,7 @@
                                     <constraint firstAttribute="height" constant="40" id="D8v-5u-zXv"/>
                                     <constraint firstAttribute="width" constant="40" id="tZr-Wj-PM0"/>
                                 </constraints>
+                                <color key="tintColor" name="MC White"/>
                                 <state key="normal" image="camera"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

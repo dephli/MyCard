@@ -7,6 +7,7 @@
 
 import UIKit
 import MSPeekCollectionViewDelegateImplementation
+import ContactsUI
 
 class ProfileViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class ProfileViewController: UIViewController {
 // MARK: - Variables
     private var topViewOffset: CGFloat?
     private var lastContentOffset: CGFloat?
-    private var currentVisibleCard = 0
+    private var currentIndexPath = IndexPath(item: 0, section: 0)
     private var personalCards: [Contact]?
     private var behavior = MSCollectionViewPeekingBehavior()
     var viewModel: ProfileViewModel!
@@ -109,8 +110,88 @@ class ProfileViewController: UIViewController {
     @objc func settingsButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: K.Segues.profileToSettings, sender: self)
     }
+
+    @IBAction func sharePressed(_ sender: Any) {
+        let contact = self.personalCards![self.currentIndexPath.row]
+        guard let cell = profileCardCollectionView
+                .cellForItem(at: currentIndexPath) as? PersonalCardCollectionViewCell else {
+            fatalError("Could not convert cell to PersonalCardCollectionViewCell")
+        }
+        let image = cell.avatarImageView.image
+        var cnContact = CNContact()
+
+//        Every cell in personalCardCollectionViewCell has a default
+//        image hence there will never be an instance
+//        where the image in the imageview is nil. For
+//        this reason, we check if there is an image url
+//        in the contact struct. If there is we use the image in the imageview else we return nil
+        if contact.profilePicUrl?.isEmpty == true {
+            cnContact = viewModel.createCNContact(contact: contact, contactImage: nil)
+        } else {
+            cnContact = viewModel.createCNContact(contact: contact, contactImage: image)
+        }
+
+        let fileManager = FileManager.default
+        do {
+            let cacheDirectory = try fileManager
+                .url(
+                    for: .cachesDirectory,
+                    in: .userDomainMask,
+                    appropriateFor: nil,
+                    create: true)
+
+            let fileLocation = cacheDirectory
+                .appendingPathComponent("\(CNContactFormatter().string(from: cnContact)!)")
+                .appendingPathExtension("vcf")
+
+            let contactData = try CNContactVCardSerialization.data(with: [cnContact])
+
+            try contactData.write(to: (fileLocation.absoluteURL), options: .atomicWrite)
+
+            let activityVc = UIActivityViewController(activityItems: [fileLocation], applicationActivities: nil)
+
+            present(activityVc, animated: true, completion: nil)
+            self.modalPresentationStyle = .fullScreen
+        } catch {
+            self.alert(title: "Error", message: error.localizedDescription)
+        }
+    }
+
+    @IBAction func morePressed(_ sender: Any) {
+//        Edit action
+        var image = K.Images.edit
+        let editAction = UIAlertAction(
+            title: "Edit Card", style: .default) { [self] (_) in
+            let contact = self.personalCards![self.currentIndexPath.row]
+            viewModel.editPersonalCard(contact: contact)
+            self.performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
+        }
+        editAction.setValue(image, forKey: "image")
+        editAction.setValue(0, forKey: "titleTextAlignment")
+
+//        Delete action
+        let deleteAction = UIAlertAction(title: "Delete card", style: .destructive) { (_) in
+            self.confirmDeletion()
+        }
+
+        image = K.Images.delete
+        deleteAction.setValue(image, forKey: "image")
+        deleteAction.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+
+//        Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let alertController = UIAlertController(title: nil, message: nil,
+              preferredStyle: .actionSheet)
+
+//        Action view edits
+        alertController.view.tintColor = .black
+        let actions = [editAction, deleteAction, cancelAction]
+        for action in actions { alertController.addAction(action)}
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     @IBAction func editPressed(_ sender: Any) {
-        let contact = self.personalCards![self.currentVisibleCard]
+        let contact = self.personalCards![self.currentIndexPath.row]
         viewModel.editPersonalCard(contact: contact)
         self.performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
     }
@@ -126,9 +207,9 @@ class ProfileViewController: UIViewController {
     }
 
 // MARK: - Methods
-    private func handleError(error: Error) {
+    private func handleError(title: String, error: Error) {
         self.removeActivityIndicator()
-        alert(title: "Oops", message: error.localizedDescription)
+        alert(title: title, message: error.localizedDescription)
     }
 
     private func deleteCardSuccessful() {
@@ -160,7 +241,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func confirmDeletion() {
-        let contact = self.personalCards![self.currentVisibleCard]
+        let contact = self.personalCards![self.currentIndexPath.row]
 
         let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { [self] (_) in
             self.showActivityIndicator()
@@ -239,19 +320,19 @@ extension ProfileViewController: UICollectionViewDelegate,
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let visibleIndexPath = profileCardCollectionView.indexPathForItem(at: visiblePoint)
 
-        if visibleIndexPath?.row != currentVisibleCard {
+        if visibleIndexPath?.row != currentIndexPath.row {
 
-            if let index = visibleIndexPath?.row {
+            if let indexPath = visibleIndexPath {
                 UIView.animate(withDuration: 0.2) {
                     self.contactDetailsStackView.alpha = 0
                 } completion: { _ in
-                    self.contactDetailsStackView.configure(contact: self.personalCards?[index])
+                    self.contactDetailsStackView.configure(contact: self.personalCards?[indexPath.row])
 
                     UIView.animate(withDuration: 0.2) {
                         self.contactDetailsStackView.alpha = 1
                     }
                 }
-                self.currentVisibleCard = index
+                self.currentIndexPath = indexPath
             }
         }
     }

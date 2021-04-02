@@ -22,6 +22,9 @@ target 'mycard' do
   #pods for keychain
   pod 'KeychainAccess'
   
+  #pod for swiftQueue
+  pod 'SwiftQueue'
+  
   #pod for hero animation
   pod 'Hero'
 

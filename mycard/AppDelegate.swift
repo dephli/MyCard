@@ -55,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-    
 
     var bgSessionCompletionHandler: (() -> Void)?
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {

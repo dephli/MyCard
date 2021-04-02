@@ -8,9 +8,10 @@
 import Foundation
 
 class WorkInfoViewModel {
+    let manager = CardManager.shared
     var businessInfo: BusinessInfo = BusinessInfo()
     var contact: Contact {
-        CardManager.shared.currentEditableContact
+        manager.currentEditableContact
     }
     var companyName: String? {
         get {
@@ -59,7 +60,7 @@ class WorkInfoViewModel {
     func saveCurrentFlowData() {
         var contactCopy = contact
         contactCopy.businessInfo = self.businessInfo
-        CardManager.shared.currentEditableContact = contactCopy
+        manager.currentEditableContact = contactCopy
     }
 
     func saveCardData() {
@@ -84,26 +85,48 @@ class WorkInfoViewModel {
     }
 
     func editContactCard() {
-        CardManager.shared.trim()
+        manager.trim()
         FirestoreService.shared.editContactCard(contact: contact) { [self](_, error) in
             if let error = error {
                 bindError!(error)
             } else {
-                CardManager.shared.currentContactDetails = contact
-                CardManager.shared.reset()
+                if let image = CardManager.shared.contactImage {
+                    DataStorageService.uploadImage(
+                        image: image,
+                        documentId: contact.id!,
+                        imageType: .networkCard
+                    ) { (error) in
+                        if let error = error {
+                            bindError!(error)
+                        }
+                    }
+                }
+                manager.currentContactDetails = contact
+                manager.reset()
                 bindSaveSuccessful!()
             }
         }
     }
 
     internal func editPersonalCard() {
-        CardManager.shared.trim()
-        FirestoreService.shared.editPersonalCard(contact: contact) { (_, error) in
+        manager.trim()
+        FirestoreService.shared.editPersonalCard(contact: contact) { [self](_, error) in
             if let error = error {
                 self.bindError!(error)
             } else {
-                CardManager.shared.reset()
-                self.bindSaveSuccessful!()
+                if let image = manager.contactImage {
+                    DataStorageService.uploadImage(
+                        image: image,
+                        documentId: contact.id!,
+                        imageType: .personalCard
+                    ) { (error) in
+                        if let error = error {
+                            bindError!(error)
+                        }
+                    }
+                }
+                manager.reset()
+                bindSaveSuccessful!()
             }
         }
     }

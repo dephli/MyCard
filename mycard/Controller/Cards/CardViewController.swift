@@ -101,8 +101,8 @@ class CardViewController: UIViewController {
     }
 
 // MARK: - Methods
-    private func handleError(error: Error) {
-        alert(title: "Error", message: error.localizedDescription)
+    private func handleError(title: String, error: Error) {
+        alert(title: title, message: error.localizedDescription)
     }
 
     private func setupCardTableView() {

@@ -93,9 +93,15 @@ class ConfirmDetailsViewModel {
             if let error = error {
                 self.bindError!(error)
             } else {
-                DataStorageService.uploadImage(image: CardManager.shared.contactImage!, documentId: documentId!, imageType: .networkCard) { (error) in
-                    if let error = error {
-                        self.bindError!(error)
+                if let image = CardManager.shared.contactImage {
+                    DataStorageService.uploadImage(
+                        image: image,
+                        documentId: documentId!,
+                        imageType: .networkCard
+                    ) { (error) in
+                        if let error = error {
+                            self.bindError!(error)
+                        }
                     }
                 }
                 self.bindSaveSuccessful!()
@@ -111,9 +117,15 @@ class ConfirmDetailsViewModel {
             if let error = error {
                 self.bindError!(error)
             } else {
-                DataStorageService.uploadImage(image: CardManager.shared.contactImage!, documentId: documentId!, imageType: .personalCard) { (error) in
-                    if let error = error {
-                        self.bindError!(error)
+                if let image = CardManager.shared.contactImage {
+                    DataStorageService.uploadImage(
+                        image: image,
+                        documentId: documentId!,
+                        imageType: .personalCard
+                    ) { (error) in
+                        if let error = error {
+                            self.bindError!(error)
+                        }
                     }
                 }
                 self.bindSaveSuccessful!()

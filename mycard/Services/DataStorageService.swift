@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseStorage
+import SwiftQueue
 
 class DataStorageService {
 
@@ -86,7 +87,52 @@ class DataStorageService {
             documentId: documentId,
             imageType: imageType
         )
+
+// MARK: - Using Swiftqueue
+//        JobBuilder(type: ImageUploadJob.type)
+//            // One job per upload
+//            .singleInstance(forId: String(documentId))
+//            // Name the queue so SwiftQueue create a background task
+//            .parallel(queueName: "\(Bundle.main.bundleIdentifier)/photoupload")
+//            .with(params: [
+//                "path": imagePath!,
+//                "documentId": documentId,
+//                "imageType": imageType
+//            ]).retry(limit: .limited(5))
+//            .persist()
+//            .schedule(manager: uploadManager)
     }
+
+//    static func uploadImage(withUrl localFile: URL, documentId: String, imageType: ImageType, completionHandler: @escaping (Error?, String?) -> Void) {
+//        let storage = Storage.storage()
+//        let storageRef = storage.reference()
+//        let ref = storageRef.child("images/profile/\(documentId).jpg")
+//
+//        ref.putFile(from: localFile, metadata: nil) { _, error in
+//
+//            if let error = error {
+//                completionHandler(error, nil)
+//            } else {
+//                ref.downloadURL { (url, error) in
+//                    if let error = error {
+//                        completionHandler(error, nil)
+//                    } else {
+//                        if imageType == .personalCard {
+//                            FirestoreService.shared.editPersonalCard(
+//                                id: documentId,
+//                                field: "profilePicUrl",
+//                                value: url!.absoluteString)
+//                        } else if imageType == .networkCard {
+//                            FirestoreService.shared.editContactCard(
+//                                id: documentId,
+//                                field: "profilePicUrl",
+//                                value: url!.absoluteString)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     static func startUpload(
         fileUrl: URL,
@@ -102,25 +148,8 @@ class DataStorageService {
             )
     }
 
-//    enum FileUploadType {
-//        case personalCard
-//        case networkCard
-//    }
-//
-//    static func startUpload(fileUrl: URL, contentType: String, documentId: String, imageType: FileUploadType) {
-//        if let token = AuthService.idToken {
-//           self.uploadType = imageType
-//            self.documentId = documentId
-//            let urlString = "https://firebasestorage.googleapis.com/v0/b/my-card-a7ec2.appspot.com/o?name=images/profile/\(documentId).jpg"
-//            let uploadUrl = URL(
-//                string: urlString)!
-//            var urlRequest = URLRequest(url: uploadUrl)
-//            urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//            urlRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
-//            urlRequest.httpMethod = "POST"
-//            let uploadTask = FileUploadManager.shared.urlSession.uploadTask(with: urlRequest, fromFile: fileUrl)
-//            uploadTask.resume()
-//
-//        }
-//    }
+    enum ImageType: String {
+        case personalCard
+        case networkCard
+    }
 }

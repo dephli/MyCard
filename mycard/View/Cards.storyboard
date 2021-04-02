@@ -380,14 +380,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="db4-Uj-BeR" customClass="ContactDetailsStackView" customModule="mycard" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="302" width="272" height="48"/>
+                                                <rect key="frame" x="24" y="334" width="272" height="48"/>
                                                 <color key="backgroundColor" name="MC White"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="VbX-1Z-2h7"/>
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZD-Tf-1iR">
-                                                <rect key="frame" x="0.0" y="38" width="320" height="232"/>
+                                                <rect key="frame" x="0.0" y="38" width="320" height="264"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et6-V2-bVx">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
@@ -423,16 +423,16 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2iQ-XC-F9h">
-                                                        <rect key="frame" x="46" y="202" width="228" height="30"/>
+                                                        <rect key="frame" x="102" y="208" width="116" height="48"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY1-ts-Flj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY1-ts-Flj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="104" id="ESb-fe-HcB"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="O2X-lz-nHk"/>
+                                                                    <constraint firstAttribute="width" constant="48" id="ESb-fe-HcB"/>
+                                                                    <constraint firstAttribute="height" constant="48" id="O2X-lz-nHk"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                                                                <state key="normal" title="Edit">
+                                                                <color key="tintColor" name="MC Black"/>
+                                                                <state key="normal" image="square.and.arrow.up" catalog="system">
                                                                     <color key="titleColor" name="MC Black"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -440,24 +440,24 @@
                                                                         <color key="value" name="MC Black 5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="8"/>
+                                                                        <real key="value" value="24"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                         <real key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <action selector="editPressed:" destination="44q-Dm-qKS" eventType="touchUpInside" id="Ztv-g1-lOM"/>
+                                                                    <action selector="sharePressed:" destination="44q-Dm-qKS" eventType="touchUpInside" id="BqK-QN-zV2"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-1u-Ndp">
-                                                                <rect key="frame" x="124" y="0.0" width="104" height="30"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-1u-Ndp">
+                                                                <rect key="frame" x="68" y="0.0" width="48" height="48"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="Hup-N2-Gka"/>
-                                                                    <constraint firstAttribute="width" constant="104" id="a58-Og-NnF"/>
+                                                                    <constraint firstAttribute="height" constant="48" id="Hup-N2-Gka"/>
+                                                                    <constraint firstAttribute="width" constant="48" id="a58-Og-NnF"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                                                                <state key="normal" title="Delete">
+                                                                <color key="tintColor" name="MC Black"/>
+                                                                <state key="normal" image="ellipsis" catalog="system">
                                                                     <color key="titleColor" name="MC Black"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -465,14 +465,14 @@
                                                                         <color key="value" name="MC Black 5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="8"/>
+                                                                        <real key="value" value="24"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                         <real key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <action selector="deletePressed:" destination="44q-Dm-qKS" eventType="touchUpInside" id="6Qx-BM-ue2"/>
+                                                                    <action selector="morePressed:" destination="44q-Dm-qKS" eventType="touchUpInside" id="3HE-oX-HgJ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -483,13 +483,13 @@
                                                     <constraint firstItem="2iQ-XC-F9h" firstAttribute="centerX" secondItem="sZD-Tf-1iR" secondAttribute="centerX" id="8qD-Hg-bYY"/>
                                                     <constraint firstAttribute="trailing" secondItem="Et6-V2-bVx" secondAttribute="trailing" id="C0E-BF-Mh3"/>
                                                     <constraint firstItem="Et6-V2-bVx" firstAttribute="top" secondItem="sZD-Tf-1iR" secondAttribute="top" id="D6M-RT-BOw"/>
-                                                    <constraint firstAttribute="bottom" secondItem="2iQ-XC-F9h" secondAttribute="bottom" id="I4G-9P-7xK"/>
-                                                    <constraint firstAttribute="height" constant="232" id="iKE-vn-35Q"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2iQ-XC-F9h" secondAttribute="bottom" constant="8" id="I4G-9P-7xK"/>
+                                                    <constraint firstAttribute="height" constant="264" id="iKE-vn-35Q"/>
                                                     <constraint firstItem="Et6-V2-bVx" firstAttribute="leading" secondItem="sZD-Tf-1iR" secondAttribute="leading" id="jvz-g8-erY"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMw-tk-pkI">
-                                                <rect key="frame" x="0.0" y="350" width="320" height="169"/>
+                                                <rect key="frame" x="0.0" y="382" width="320" height="137"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -510,7 +510,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pW-o5-7bA">
-                                        <rect key="frame" x="0.0" y="8" width="320" height="467"/>
+                                        <rect key="frame" x="0.0" y="52" width="320" height="467"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business-card-alt" translatesAutoresizingMaskIntoConstraints="NO" id="gTQ-7E-YiR">
                                                 <rect key="frame" x="85" y="80" width="150" height="150"/>
@@ -596,15 +596,17 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Dzk-wi-zzd"/>
-        <segue reference="dSc-nj-7MS"/>
+        <segue reference="qr0-sv-zZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add card" width="24" height="24"/>
         <image name="business-card-alt" width="150" height="150"/>
         <image name="cards - stacked" width="24" height="24"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="empty cards doodle" width="168" height="168"/>
         <image name="no result found" width="218" height="76"/>
         <image name="sort" width="24" height="24"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="user" width="24" height="24"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

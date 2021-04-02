@@ -44,6 +44,7 @@ class PersonalInfoViewController: UIViewController,
 
 // MARK: - variables
     var viewModel: PersonalInfoViewModel!
+    let slideVc = AvatarImageBottomSheet()
     let phoneNumberObservable = PhoneNumberManager.manager.list.asObservable()
     let socialMediaObservable =
         SocialMediaManger.manager.list.asObservable()
@@ -116,8 +117,10 @@ class PersonalInfoViewController: UIViewController,
     }
 
     @IBAction func photoButtonPressed(_ sender: Any) {
-        let imagePicker = ImagePickerService()
-        imagePicker.selectImage(self)
+        slideVc.delegate = self
+        slideVc.modalPresentationStyle = .custom
+        slideVc.transitioningDelegate = self
+        self.present(slideVc, animated: true, completion: nil)
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
@@ -188,22 +191,25 @@ class PersonalInfoViewController: UIViewController,
 
     private func registerKeyboardNotifications() {
         NotificationCenter.default
-            .addObserver(self,
-                         selector: #selector(keyboardWillChange),
-                         name: UIResponder.keyboardWillShowNotification,
-                         object: nil)
+            .addObserver(
+                self,
+                selector: #selector(keyboardWillChange),
+                name: UIResponder.keyboardWillShowNotification,
+                object: nil)
 
         NotificationCenter.default
-            .addObserver(self,
-                         selector: #selector(keyboardWillChange),
-                         name: UIResponder.keyboardWillHideNotification,
-                         object: nil)
+            .addObserver(
+                self,
+                selector: #selector(keyboardWillChange),
+                name: UIResponder.keyboardWillHideNotification,
+                object: nil)
 
         NotificationCenter.default
-            .addObserver(self,
-                         selector: #selector(keyboardWillChange),
-                         name: UIResponder.keyboardWillChangeFrameNotification,
-                         object: nil)
+            .addObserver(
+                self,
+                selector: #selector(keyboardWillChange),
+                name: UIResponder.keyboardWillChangeFrameNotification,
+                object: nil)
     }
 
     private func disableStackViewConstraints() {
@@ -370,5 +376,36 @@ extension PersonalInfoViewController {
         DispatchQueue.main.async {[self] in
             fullNameTextField.text = viewModel.fullName
         }
+    }
+}
+//MARK: - UIViewControllerTransitioningDelegate
+extension PersonalInfoViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+//MARK: - AvatarImageBottomSheetDelegate
+extension PersonalInfoViewController: AvatarImageBottomSheetDelegate {
+    func removePhotoPressed() {
+        slideVc.dismiss(animated: true, completion: nil)
+//        self.showActivityIndicator()
+//        viewModel.removeImage {
+//            self.removeActivityIndicator()
+//            self.viewWillAppear(false)
+//        }
+    }
+
+    func takePhotoPressed() {
+        let imagePicker = ImagePickerService()
+        imagePicker.selectImage(self, sourceType: .camera)
+    }
+
+    func uploadPhotoPressed() {
+        let imagePicker = ImagePickerService()
+        imagePicker.selectImage(self)
     }
 }

@@ -7,14 +7,13 @@
 
 import Foundation
 
-class SignupViewModel: NSObject {
+class SignupViewModel: BaseViewModel {
     var bindSignupViewModelToController: (() -> Void)?
-    var bindErrorObject: ((Error) -> Void)?
 
     func authenticateUser(with phoneNumberText: String) {
         UserManager.auth.phoneNumberAuth(with: phoneNumberText ) { [self] (error) in
             if let error = error {
-                bindErrorObject!(error)
+                bindError!("Could Not Authenticate", error)
             } else {
                 bindSignupViewModelToController!()
             }

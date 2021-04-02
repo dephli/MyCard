@@ -91,14 +91,14 @@ class SignupViewController: UIViewController {
 // MARK: - Methods
     private func authenticateUser() {
         self.showActivityIndicator()
-        viewModel.bindErrorObject = handleErrorFunc
+        viewModel.bindError = handleErrorFunc
         viewModel.bindSignupViewModelToController = handleSuccess
         viewModel.authenticateUser(with: phoneNumberText ?? "")
     }
 
-    private func handleErrorFunc(error: Error) {
+    private func handleErrorFunc(title: String, error: Error) {
         self.removeActivityIndicator()
-        self.alert(title: "Error", message: error.localizedDescription)
+        self.alert(title: title, message: error.localizedDescription)
     }
 
     private func handleSuccess() {

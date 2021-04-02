@@ -26,8 +26,13 @@
 		822D8D2025FAA3F900308A97 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D8D1F25FAA3F900308A97 /* Error.swift */; };
 		822D8D2925FBE4E900308A97 /* WorkInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D8D2825FBE4E900308A97 /* WorkInfoViewModel.swift */; };
 		822D8D2F25FC2B8200308A97 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822D8D2E25FC2B8200308A97 /* ProfileViewModel.swift */; };
-		82354CCA25DFEB0200C13A68 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */; };
 		82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82455941257D1123003DCB4C /* SetupCardViewController.swift */; };
+		82472EE126163A90007BF9DF /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472EE026163A90007BF9DF /* ChangeNameViewController.swift */; };
+		82472EEF26164CB1007BF9DF /* AvatarImageBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472EEE26164CB1007BF9DF /* AvatarImageBottomSheet.swift */; };
+		82472EF426164EE0007BF9DF /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472EF326164EE0007BF9DF /* BottomSheetViewController.swift */; };
+		82472F07261666A5007BF9DF /* AvatarImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472F06261666A5007BF9DF /* AvatarImageViewModel.swift */; };
+		82472F0C261666B2007BF9DF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472F0B261666B2007BF9DF /* BaseViewModel.swift */; };
+		82472F1826168641007BF9DF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472F1726168641007BF9DF /* SettingsViewModel.swift */; };
 		825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B59257E54F900201A01 /* UITextFieldExtension.swift */; };
 		825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */; };
 		825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B66257E94B900201A01 /* OneTimeTextField.swift */; };
@@ -56,6 +61,9 @@
 		8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285225125A53F3300D5C950 /* ImagePickerService.swift */; };
 		828943BC25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */; };
 		828C1766260B7CBA0086D04D /* FileUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C1765260B7CBA0086D04D /* FileUploadManager.swift */; };
+		828C17DA260DDE590086D04D /* ImageUploadJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C17D9260DDE590086D04D /* ImageUploadJob.swift */; };
+		828C180F2615E6000086D04D /* PresentiationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C180E2615E6000086D04D /* PresentiationController.swift */; };
+		828C18142615EEF00086D04D /* AvatarImageBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828C18132615EEF00086D04D /* AvatarImageBottomSheet.xib */; };
 		8293C917258EEA9D00D3FA58 /* WorkInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */; };
 		8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */; };
 		8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8293C924258F6AF100D3FA58 /* Camera.storyboard */; };
@@ -154,8 +162,13 @@
 		822D8D1F25FAA3F900308A97 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		822D8D2825FBE4E900308A97 /* WorkInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewModel.swift; sourceTree = "<group>"; };
 		822D8D2E25FC2B8200308A97 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeNameViewController.swift; path = ../../../../../../../Documents/ChangeNameViewController.swift; sourceTree = "<group>"; };
 		82455941257D1123003DCB4C /* SetupCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCardViewController.swift; sourceTree = "<group>"; };
+		82472EE026163A90007BF9DF /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		82472EEE26164CB1007BF9DF /* AvatarImageBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageBottomSheet.swift; sourceTree = "<group>"; };
+		82472EF326164EE0007BF9DF /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		82472F06261666A5007BF9DF /* AvatarImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageViewModel.swift; sourceTree = "<group>"; };
+		82472F0B261666B2007BF9DF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		82472F1726168641007BF9DF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		825A4B59257E54F900201A01 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		825A4B66257E94B900201A01 /* OneTimeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeTextField.swift; sourceTree = "<group>"; };
@@ -184,6 +197,9 @@
 		8285225125A53F3300D5C950 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
 		828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMultiPhoneEmailStackView.swift; sourceTree = "<group>"; };
 		828C1765260B7CBA0086D04D /* FileUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadManager.swift; sourceTree = "<group>"; };
+		828C17D9260DDE590086D04D /* ImageUploadJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadJob.swift; sourceTree = "<group>"; };
+		828C180E2615E6000086D04D /* PresentiationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentiationController.swift; sourceTree = "<group>"; };
+		828C18132615EEF00086D04D /* AvatarImageBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarImageBottomSheet.xib; sourceTree = "<group>"; };
 		8293C916258EEA9D00D3FA58 /* WorkInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfo.storyboard; sourceTree = "<group>"; };
 		8293C91C258EEB0600D3FA58 /* WorkInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoViewController.swift; sourceTree = "<group>"; };
 		8293C924258F6AF100D3FA58 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
@@ -341,6 +357,7 @@
 		821AE45925F64DFF00C60EAE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				82472F10261666D3007BF9DF /* Shared */,
 				82CE969725FD76B4009316EB /* Cards */,
 				822D8D2D25FC2B6E00308A97 /* Profile */,
 				822D8D2725FBE4D900308A97 /* WorkInfo */,
@@ -348,6 +365,7 @@
 				822D8D1025F83B2200308A97 /* CardDetails */,
 				820034D025F7B3B400D1E974 /* Notes */,
 				821AE46325F66DBE00C60EAE /* Auth */,
+				82472F1C26168655007BF9DF /* Settings */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -394,6 +412,31 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		82472F022616663C007BF9DF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				82472EEE26164CB1007BF9DF /* AvatarImageBottomSheet.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		82472F10261666D3007BF9DF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				82472F06261666A5007BF9DF /* AvatarImageViewModel.swift */,
+				82472F0B261666B2007BF9DF /* BaseViewModel.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		82472F1C26168655007BF9DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				82472F1726168641007BF9DF /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		825A4B58257E54D900201A01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +464,33 @@
 				8263ED6425DB3EDC0000E77C /* ProfileSetupViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		828C17D7260DDDF40086D04D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82BED3EF257EFE1A00F8E96E /* TabBarController.swift */,
+				828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */,
+				8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */,
+				825A4B66257E94B900201A01 /* OneTimeTextField.swift */,
+				825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */,
+				82AD90E825879ECF0014B96E /* EmailListStackView.swift */,
+				827354412588BAC100236797 /* SocialMediaListStackView.swift */,
+				82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */,
+				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
+				82F813742608A1700038071D /* PhotoBottomSheet.swift */,
+				820F5B49258037480077174E /* CustomNavigationBar.swift */,
+				82BED3F4257F063C00F8E96E /* NavigationController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		828C17D8260DDE3F0086D04D /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				828C17D9260DDE590086D04D /* ImageUploadJob.swift */,
+			);
+			path = Jobs;
 			sourceTree = "<group>";
 		};
 		8293C91B258EEAE400D3FA58 /* WorkInfo */ = {
@@ -560,6 +630,7 @@
 				8263ED7D25DDE64F0000E77C /* PersonalCardCollectionViewCell.xib */,
 				82B6E36325DEA8DA005A32AA /* Settings.storyboard */,
 				820034C125F7A55400D1E974 /* Notes.storyboard */,
+				828C18132615EEF00086D04D /* AvatarImageBottomSheet.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -599,6 +670,7 @@
 				8214E62625902E4A0054A345 /* Start */,
 				82F8D36125D879C100C49D8C /* ProfileInfo */,
 				8200BCBD25F3A6C900DA97DA /* Search */,
+				82472F022616663C007BF9DF /* Shared */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -606,25 +678,17 @@
 		82C43754257C4F3C00CF945F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				828C17D8260DDE3F0086D04D /* Jobs */,
+				828C17D7260DDDF40086D04D /* Views */,
 				82C43755257C4F6000CF945F /* TextStyle.swift */,
 				82C4375D257C515100CF945F /* Constants.swift */,
 				82C43762257C5F8000CF945F /* ToolBelt.swift */,
-				825A4B66257E94B900201A01 /* OneTimeTextField.swift */,
-				82BED3EF257EFE1A00F8E96E /* TabBarController.swift */,
-				82BED3F4257F063C00F8E96E /* NavigationController.swift */,
-				820F5B49258037480077174E /* CustomNavigationBar.swift */,
-				825FC3932586E18000FAA8E8 /* PhoneListStackView.swift */,
-				82AD90E825879ECF0014B96E /* EmailListStackView.swift */,
-				827354412588BAC100236797 /* SocialMediaListStackView.swift */,
-				82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */,
-				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
 				82EA557D25CE35B2000BE90A /* KeyboardNotifications.swift */,
-				828943BB25D047DE0029B1D4 /* DetailsMultiPhoneEmailStackView.swift */,
-				8263ED5F25D93DD70000E77C /* ContactDetailsStackView.swift */,
 				822D8D1F25FAA3F900308A97 /* Error.swift */,
-				82F813742608A1700038071D /* PhotoBottomSheet.swift */,
 				82F8137C2608DDE30038071D /* Reachability.swift */,
 				828C1765260B7CBA0086D04D /* FileUploadManager.swift */,
+				828C180E2615E6000086D04D /* PresentiationController.swift */,
+				82472EF326164EE0007BF9DF /* BottomSheetViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -645,7 +709,7 @@
 			children = (
 				82C7D8C625DEAE8C00F05B91 /* SettingsViewController.swift */,
 				82C7D8CE25DF299F00F05B91 /* ChangePhoneNumberViewController.swift */,
-				82354CC925DFEB0200C13A68 /* ChangeNameViewController.swift */,
+				82472EE026163A90007BF9DF /* ChangeNameViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -793,6 +857,7 @@
 				825F15F0257D497400A3E103 /* Auth.storyboard in Resources */,
 				82B6E36425DEA8DA005A32AA /* Settings.storyboard in Resources */,
 				8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */,
+				828C18142615EEF00086D04D /* AvatarImageBottomSheet.xib in Resources */,
 				8214E62125902DF80054A345 /* ConfirmDetails.storyboard in Resources */,
 				82C43788257CFF9B00CF945F /* Inter-SemiBold.ttf in Resources */,
 				8263ED7F25DDE64F0000E77C /* PersonalCardCollectionViewCell.xib in Resources */,
@@ -924,8 +989,10 @@
 				829728CF2582704700C99E33 /* UIButtonExtension.swift in Sources */,
 				82C7D8C725DEAE8C00F05B91 /* SettingsViewController.swift in Sources */,
 				8263ED6025D93DD70000E77C /* ContactDetailsStackView.swift in Sources */,
+				82472EF426164EE0007BF9DF /* BottomSheetViewController.swift in Sources */,
 				822D8D1225F83B3E00308A97 /* CardDetailsViewModel.swift in Sources */,
 				820F5B4F258050B00077174E /* Contact.swift in Sources */,
+				828C180F2615E6000086D04D /* PresentiationController.swift in Sources */,
 				82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */,
 				827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */,
 				82BED3F0257EFE1A00F8E96E /* TabBarController.swift in Sources */,
@@ -947,7 +1014,9 @@
 				82C7D8CF25DF299F00F05B91 /* ChangePhoneNumberViewController.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
 				82647B0125AE47F20091D104 /* StringExtension.swift in Sources */,
+				82472F1826168641007BF9DF /* SettingsViewModel.swift in Sources */,
 				82F8137D2608DDE40038071D /* Reachability.swift in Sources */,
+				828C17DA260DDE590086D04D /* ImageUploadJob.swift in Sources */,
 				82BED3CE257EDB4200F8E96E /* UIViewControllerExtension.swift in Sources */,
 				82BED3F5257F063C00F8E96E /* NavigationController.swift in Sources */,
 				82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */,
@@ -963,19 +1032,22 @@
 				82AD90DC258776180014B96E /* EmailManager.swift in Sources */,
 				8285225225A53F3300D5C950 /* ImagePickerService.swift in Sources */,
 				829D8ED925FF92030054A79C /* PersonalInfoViewModel.swift in Sources */,
+				82472EEF26164CB1007BF9DF /* AvatarImageBottomSheet.swift in Sources */,
 				825C6DDD25F2917300F67717 /* SearchViewController.swift in Sources */,
 				82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */,
 				82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */,
-				82354CCA25DFEB0200C13A68 /* ChangeNameViewController.swift in Sources */,
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
+				82472F0C261666B2007BF9DF /* BaseViewModel.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,
 				82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */,
+				82472F07261666A5007BF9DF /* AvatarImageViewModel.swift in Sources */,
 				82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */,
 				82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */,
 				82F8136D26076C3D0038071D /* SceneDelegate.swift in Sources */,
 				829728FB258289B900C99E33 /* AuthService.swift in Sources */,
 				825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */,
 				8214E634259047D10054A345 /* UIColorExtension.swift in Sources */,
+				82472EE126163A90007BF9DF /* ChangeNameViewController.swift in Sources */,
 				82CE969925FD76C5009316EB /* CardViewModel.swift in Sources */,
 				820F5B4A258037480077174E /* CustomNavigationBar.swift in Sources */,
 				82EA557E25CE35B2000BE90A /* KeyboardNotifications.swift in Sources */,
@@ -1176,7 +1248,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
@@ -1185,6 +1257,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.myCrd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1202,7 +1275,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				INFOPLIST_FILE = mycard/Info.plist;
@@ -1211,6 +1284,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.myCrd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

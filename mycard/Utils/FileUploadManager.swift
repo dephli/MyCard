@@ -52,20 +52,23 @@ class FileUploadManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
         }
     }
 
-    private func updateDocument() {
+    private func updateDocument(_ storageName: String?) {
+        guard let name = storageName else {return}
         let storageReference = Storage.storage().reference()
-        let imageRef = storageReference.child("images/profile/\(documentId!).jpg")
+        let imageRef = storageReference.child(name)
         imageRef.downloadURL {[self] (url, _) in
-            if uploadType == .personalCard {
-                FirestoreService.shared.editPersonalCard(
-                    id: documentId!,
-                    field: "profilePicUrl",
-                    value: url!.absoluteString)
-            } else if uploadType == .networkCard {
-                FirestoreService.shared.editContactCard(
-                    id: documentId!,
-                    field: "profilePicUrl",
-                    value: url!.absoluteString)
+            if let url = url {
+                if uploadType == .personalCard {
+                    FirestoreService.shared.editPersonalCard(
+                        id: documentId!,
+                        field: "profilePicUrl",
+                        value: url.absoluteString)
+                } else if uploadType == .networkCard {
+                    FirestoreService.shared.editContactCard(
+                        id: documentId!,
+                        field: "profilePicUrl",
+                        value: url.absoluteString)
+                }
             }
         }
     }
@@ -79,7 +82,7 @@ class FileUploadManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
             })
 
             print(response!)
-            updateDocument()
+            session.finishTasksAndInvalidate()
 //            session.finishTasksAndInvalidate()
         }
     }
@@ -111,7 +114,13 @@ class FileUploadManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
     }
 
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
+        let decoder = JSONDecoder()
+        let data = try? decoder.decode(FirestoreStorageResponse.self, from: data)
+//        let data = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
+
+//        print(data?.name)
+        updateDocument(data?.name)
+
 //        try? FileManager.default.removeItem(at: location)
 
     }
@@ -125,4 +134,8 @@ class FileUploadManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
 //        self.response = response
         completionHandler(URLSession.ResponseDisposition.allow)
     }
+}
+
+struct FirestoreStorageResponse: Decodable {
+    var name: String
 }

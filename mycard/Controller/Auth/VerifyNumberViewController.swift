@@ -29,10 +29,12 @@ class VerifyNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dismissKey()
-        viewModel.bindErrorObject = handleError
+        viewModel.bindError = handleError
+        viewModel.bindSuccess = handleSuccess
         viewModel.bindVerifyPreNumberChange = verifyPhoneNumberForPreNumberChange
         viewModel.bindVerifyRegularAuth = verifyPhoneNumberForRegularAuth
         viewModel.bindVerifyPreNumberChange = verifyPhoneNumberForPreNumberChange
+
         uiSetup()
         codeTextField.becomeFirstResponder()
         codeTextField.delegate = self
@@ -41,12 +43,12 @@ class VerifyNumberViewController: UIViewController {
         if authFlowType == .confirmPhoneNumber {
             verifyNumberLabel.text = "Verify that it's you"
         }
-
-        NotificationCenter.default
-            .addObserver( self,
-                          selector: #selector(self.keyboardDidShow),
-                          name: OneTimeTextField.textDidChangeNotification,
-                          object: codeTextField)
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(self.keyboardDidShow),
+                name: OneTimeTextField.textDidChangeNotification,
+                object: codeTextField
+            )
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,13 +59,7 @@ class VerifyNumberViewController: UIViewController {
 // MARK: - Actions
     @IBAction func resendCode(_ sender: Any) {
         self.showActivityIndicator()
-        UserManager.auth.resendtoken { (error) in
-            if let error = error {
-                self.removeActivityIndicator()
-                self.alert(title: "Error", message: error.localizedDescription)
-            }
-            self.removeActivityIndicator()
-        }
+        viewModel.resendCode()
     }
 
     @IBAction func onBackButtonPressed(_ sender: Any) {
@@ -77,21 +73,23 @@ class VerifyNumberViewController: UIViewController {
     }
 
 // MARK: - Methods
-
-    private func handleError(error: Error) {
+    private func handleError(title: String, error: Error) {
         self.removeActivityIndicator()
-        self.alert(title: "Error", message: error.localizedDescription)
+        self.alert(title: title, message: error.localizedDescription)
+    }
+
+    private func handleSuccess() {
+        self.removeActivityIndicator()
     }
 
     @objc private func keyboardDidShow(notifcation: NSNotification) {
-     if codeTextField.text?.count == 6 {
-        verifyPhoneNumberButton.isEnabled = true
-        verifyButtonPressed(verifyPhoneNumberButton!)
+        if codeTextField.text?.count == 6 {
+            verifyPhoneNumberButton.isEnabled = true
+            verifyButtonPressed(verifyPhoneNumberButton!)
 
-     } else {
-        verifyPhoneNumberButton.isEnabled = false
-     }
-
+        } else {
+            verifyPhoneNumberButton.isEnabled = false
+        }
     }
 
     private func verifyPhoneNumberForRegularAuth() {
