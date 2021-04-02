@@ -104,8 +104,7 @@ class AuthService: AuthServiceDelegate {
 
         }
     }
-    
-    
+
     func removeAvatarUrl(completionHandler: @escaping (Error?) -> Void) {
 
         let request = Auth.auth().currentUser?.createProfileChangeRequest()

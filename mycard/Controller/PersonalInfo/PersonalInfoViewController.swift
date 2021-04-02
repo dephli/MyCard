@@ -378,7 +378,7 @@ extension PersonalInfoViewController {
         }
     }
 }
-//MARK: - UIViewControllerTransitioningDelegate
+// MARK: - UIViewControllerTransitioningDelegate
 extension PersonalInfoViewController: UIViewControllerTransitioningDelegate {
     func presentationController(
         forPresented presented: UIViewController,
@@ -388,23 +388,26 @@ extension PersonalInfoViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-//MARK: - AvatarImageBottomSheetDelegate
+// MARK: - AvatarImageBottomSheetDelegate
 extension PersonalInfoViewController: AvatarImageBottomSheetDelegate {
     func removePhotoPressed() {
+        viewModel.avatarUrl = ""
+//    set avatar url to an empty string instead of nil because
+//    firebase will treat an update with nil as an absence of
+//    value hence update will not work
+        viewModel.avatarImage = nil
+        avatarImageView.image = K.Images.profilePlaceholder
         slideVc.dismiss(animated: true, completion: nil)
-//        self.showActivityIndicator()
-//        viewModel.removeImage {
-//            self.removeActivityIndicator()
-//            self.viewWillAppear(false)
-//        }
     }
 
     func takePhotoPressed() {
+        slideVc.dismiss(animated: true, completion: nil)
         let imagePicker = ImagePickerService()
         imagePicker.selectImage(self, sourceType: .camera)
     }
 
     func uploadPhotoPressed() {
+        slideVc.dismiss(animated: true, completion: nil)
         let imagePicker = ImagePickerService()
         imagePicker.selectImage(self)
     }

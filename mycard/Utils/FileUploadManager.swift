@@ -38,7 +38,7 @@ class FileUploadManager: NSObject, URLSessionDelegate, URLSessionTaskDelegate, U
         if let token = AuthService.idToken {
             self.uploadType = imageType
             self.documentId = documentId
-            self.urlString = "https://firebasestorage.googleapis.com/v0/b/my-card-a7ec2.appspot.com/o?name=images/profile/\(documentId).jpg"
+            self.urlString = "https://firebasestorage.googleapis.com/v0/b/my-card-a7ec2.appspot.com/o?name=images/profiles/\(documentId).jpg"
             let uploadUrl = URL(
                 string: urlString!)!
             var urlRequest = URLRequest(url: uploadUrl)

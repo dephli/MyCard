@@ -57,7 +57,17 @@ class PersonalInfoViewModel {
     }
 
     var avatarUrl: String? {
-        contact.profilePicUrl
+        get {
+            if contact.profilePicUrl == "" ||
+                contact.profilePicUrl == nil {
+                return nil
+            } else {
+                return contact.profilePicUrl
+            }
+        }
+        set {
+            contact.profilePicUrl = newValue
+        }
     }
 
     var avatarImage: UIImage? {
