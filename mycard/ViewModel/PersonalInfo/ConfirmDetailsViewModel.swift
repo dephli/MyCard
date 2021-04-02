@@ -49,6 +49,11 @@ class ConfirmDetailsViewModel {
     }
 
     private func setNameInitials() {
+        /**
+         Takes the first letter of the firstName and lastName and creates an initials out of it.
+         If no firstName exists, it uses the first two letters of the lastName and vice versa. There will be
+         no instance where there's no firstName or lastName as such names as input is invalid
+         */
         let firstName = contact.name.firstName?.trimmingCharacters(in: .whitespaces)
         let lastName = contact.name.lastName?.trimmingCharacters(in: .whitespaces)
         if firstName != "" && lastName == "" {
@@ -65,6 +70,12 @@ class ConfirmDetailsViewModel {
     }
 
     func saveCard() {
+        /**
+         Confirm Details screen is only used for two actions. Creating a personal card or creating
+         a network card. As both flows are the same, this function is to differentiate between the
+         action of saving a personal card and a network card based on the contact flow type selected
+         at the beginning of the action.
+         */
         switch contactType {
         case .createContactCard:
             createContactCard()
@@ -76,23 +87,47 @@ class ConfirmDetailsViewModel {
     }
 
     func createContactCard() {
+//        trim out empty emails and phone numbers before creating a network card
         CardManager.shared.trim()
-        FirestoreService.shared.createContact(with: contact) { (error) in
+        FirestoreService.shared.createContact(with: contact) { (error, documentId) in
             if let error = error {
                 self.bindError!(error)
             } else {
+                if let image = CardManager.shared.contactImage {
+                    DataStorageService.uploadImage(
+                        image: image,
+                        documentId: documentId!,
+                        imageType: .networkCard
+                    ) { (error) in
+                        if let error = error {
+                            self.bindError!(error)
+                        }
+                    }
+                }
                 self.bindSaveSuccessful!()
             }
         }
     }
 
-
     private func createPersonalCard() {
+        //        trim out empty emails and phone numbers before creating a personal card
+
         CardManager.shared.trim()
-        FirestoreService.shared.createPersonalCard(with: contact) { (error) in
+        FirestoreService.shared.createPersonalCard(with: contact) { (error, documentId) in
             if let error = error {
                 self.bindError!(error)
             } else {
+                if let image = CardManager.shared.contactImage {
+                    DataStorageService.uploadImage(
+                        image: image,
+                        documentId: documentId!,
+                        imageType: .personalCard
+                    ) { (error) in
+                        if let error = error {
+                            self.bindError!(error)
+                        }
+                    }
+                }
                 self.bindSaveSuccessful!()
             }
         }

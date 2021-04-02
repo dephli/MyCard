@@ -59,6 +59,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         imageContainerView.backgroundColor = K.Colors.Black40
 
         let imageView = UIImageView(image: image)
+        imageView.tintColor = K.Colors.White
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
@@ -149,7 +150,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         //        NAME
         if ((contact?.name.fullName) != nil) && contact?.name.fullName != "" {
             let nameView = singleValueStackView(
-                icon: K.Images.userLight!,
+                icon: K.Images.user!,
                 label: "NAME",
                 text: contact?.name.fullName,
                 stackViewType: .other)

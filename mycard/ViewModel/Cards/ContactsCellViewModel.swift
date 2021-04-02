@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-class ContactsCellViewModel {
-//    var contact: Contact
-    var fullName: String
+class ContactsCellViewModel: BaseViewModel {
+    var fullName: String!
     var companyName: String?
     var role: String?
     var nameInitials = ""
     var avatarImageUrl: String?
     var avatarImageIsHidden = true
-    var color: UIColor
+    var color: UIColor!
 
     init(contact: Contact) {
+        super.init()
         color = UIColor.random
         fullName = contact.name.fullName ?? ""
         companyName = contact.businessInfo?.companyName

@@ -18,6 +18,7 @@ struct K {
     struct ViewControllers {
         static let signupViewController = "SignupViewController"
         static let changePhoneNumberViewController = "ChangePhoneNumberViewController"
+        static let searchViewController = "SearchViewController"
     }
 
     struct ColorString {
@@ -195,7 +196,7 @@ struct K {
         static let instagram = "socials instagram"
         static let linkedin = "socials linkedin"
         static let chevronRight = "chevron right"
-        static let userLight = "user light"
+        static let user = "user"
         static let mail = "mail"
         static let location = "location"
         static let office = "office"
@@ -222,7 +223,7 @@ struct K {
         static let instagram = UIImage(named: ImageString.instagram)
         static let linkedin = UIImage(named: ImageString.linkedin)
         static let chevronRight = UIImage(named: ImageString.chevronRight)
-        static let userLight = UIImage(named: ImageString.userLight)
+        static let user = UIImage(named: ImageString.user)
         static let mail = UIImage(named: ImageString.mail)
         static let location = UIImage(named: ImageString.location)
         static let office = UIImage(named: ImageString.office)

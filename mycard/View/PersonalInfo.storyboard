@@ -77,6 +77,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="Uej-pG-Q7e"/>
                                                     <constraint firstAttribute="width" constant="40" id="kak-dy-Pk2"/>
                                                 </constraints>
+                                                <color key="tintColor" name="MC White"/>
                                                 <state key="normal" image="camera"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

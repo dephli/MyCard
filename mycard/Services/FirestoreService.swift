@@ -16,39 +16,43 @@ class FirestoreService {
     private init() {}
 
 // MARK: - Create Contact
-    func createContact(with contact: Contact, onActionComplete: @escaping (Error?) -> Void) {
+    func createContact(with contact: Contact, onActionComplete: @escaping (Error?, String?) -> Void) {
         var contact = contact
-        let docRef = db.collection(K.Firestore.usersCollectionName).document(AuthService.uid!)
+        let docRef = db.collection(K.Firestore.usersCollectionName)
+            .document(AuthService.uid!)
+            .collection(K.Firestore.addedCardsCollectionName)
+            .document()
 
         contact.createdAt = Timestamp(date: Date())
 
         do {
-            try docRef.collection(K.Firestore.addedCardsCollectionName)
-                .document()
+            try docRef
                 .setData(from: contact)
         } catch {
-            return onActionComplete(error.localizedDescription)
+            return onActionComplete(error, nil)
         }
 
-        return onActionComplete(nil)
+        return onActionComplete(nil, docRef.documentID)
 
     }
 
 // MARK: - Create Personal Card
-    func createPersonalCard(with contact: Contact, onActionComplete: @escaping (Error?) -> Void) {
+    func createPersonalCard(with contact: Contact, onActionComplete: @escaping (Error?, String?) -> Void) {
         var contact = contact
         let docRef = db.collection(K.Firestore.personalCardCollectionName)
+            .document()
 
         contact.createdAt = Timestamp(date: Date())
         guard let uid = AuthService.uid else {return}
         contact.owner = uid
 
         do {
-            try docRef.document().setData(from: contact)
+            try docRef.setData(from: contact)
         } catch {
-            return onActionComplete(error)
+            return onActionComplete(error, nil)
         }
-        return onActionComplete(nil)
+
+        return onActionComplete(nil, docRef.documentID)
     }
 
 // MARK: - Get All Contact Cards
@@ -175,6 +179,32 @@ class FirestoreService {
 
         docRef.document(id).delete { (error) in
             onActionComplete(error)
+        }
+    }
+
+    func editContactCard(id: String,
+                         field: String,
+                         value: String,
+                         completionHandler: ((Error?) -> Void)? = nil) {
+        let docRef = db.collection(K.Firestore.usersCollectionName)
+            .document(AuthService.uid!)
+            .collection(K.Firestore.addedCardsCollectionName)
+
+        docRef.document(id).updateData([field: value]) { (error) in
+            completionHandler?(error)
+        }
+    }
+
+    func editPersonalCard(id: String,
+                          field: String,
+                          value: String,
+                          completionHandler: ((Error?) -> Void)? = nil) {
+        let docRef = db.collection(K.Firestore.usersCollectionName)
+            .document(AuthService.uid!)
+            .collection(K.Firestore.personalCardCollectionName)
+
+        docRef.document(id).updateData([field: value]) { (error) in
+            completionHandler?(error)
         }
     }
 }

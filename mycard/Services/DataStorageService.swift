@@ -7,10 +7,7 @@
 
 import Foundation
 import FirebaseStorage
-
-protocol DataStorageDelegate: AnyObject {
-    func uploadImage(image: UIImage, onUploadComplete: @escaping(String?, Error?) -> Void)
-}
+import SwiftQueue
 
 class DataStorageService {
 
@@ -33,7 +30,6 @@ class DataStorageService {
 
         let date = Date().timeIntervalSince1970
 
-//        let random = Int.random(in: 10000000..<20000000)
 //        to generate unique id for image, use date + a random 8 digit number
         guard let uid = AuthService.uid else {return}
         switch type {
@@ -68,5 +64,92 @@ class DataStorageService {
         storageRef.delete { (error) in
             onActionCompleted(error)
         }
+    }
+
+    static func uploadImage(image: UIImage,
+                            documentId: String,
+                            imageType: FileUploadManager.FileUploadType,
+                            completionHandler: @escaping(Error?) -> Void) {
+
+        let fileManager = FileManager.default
+        let documentsPath = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let imagePath = documentsPath?.appendingPathComponent("\(documentId).jpg")
+        do {
+            try image.jpegData(compressionQuality: 1)?.write(to: imagePath!)
+        } catch {
+            let error = CustomError(str: "Failed to load upload image") as Error
+            completionHandler(error)
+        }
+
+        startUpload(
+            fileUrl: imagePath!,
+            contentType: "application/octet-stream",
+            documentId: documentId,
+            imageType: imageType
+        )
+
+// MARK: - Using Swiftqueue
+//        JobBuilder(type: ImageUploadJob.type)
+//            // One job per upload
+//            .singleInstance(forId: String(documentId))
+//            // Name the queue so SwiftQueue create a background task
+//            .parallel(queueName: "\(Bundle.main.bundleIdentifier)/photoupload")
+//            .with(params: [
+//                "path": imagePath!,
+//                "documentId": documentId,
+//                "imageType": imageType
+//            ]).retry(limit: .limited(5))
+//            .persist()
+//            .schedule(manager: uploadManager)
+    }
+
+//    static func uploadImage(withUrl localFile: URL, documentId: String, imageType: ImageType, completionHandler: @escaping (Error?, String?) -> Void) {
+//        let storage = Storage.storage()
+//        let storageRef = storage.reference()
+//        let ref = storageRef.child("images/profile/\(documentId).jpg")
+//
+//        ref.putFile(from: localFile, metadata: nil) { _, error in
+//
+//            if let error = error {
+//                completionHandler(error, nil)
+//            } else {
+//                ref.downloadURL { (url, error) in
+//                    if let error = error {
+//                        completionHandler(error, nil)
+//                    } else {
+//                        if imageType == .personalCard {
+//                            FirestoreService.shared.editPersonalCard(
+//                                id: documentId,
+//                                field: "profilePicUrl",
+//                                value: url!.absoluteString)
+//                        } else if imageType == .networkCard {
+//                            FirestoreService.shared.editContactCard(
+//                                id: documentId,
+//                                field: "profilePicUrl",
+//                                value: url!.absoluteString)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+    static func startUpload(
+        fileUrl: URL,
+        contentType: String,
+        documentId: String,
+        imageType: FileUploadManager.FileUploadType
+    ) {
+            FileUploadManager.shared.startUpload(
+                fileUrl: fileUrl,
+                contentType: contentType,
+                documentId: documentId,
+                imageType: imageType
+            )
+    }
+
+    enum ImageType: String {
+        case personalCard
+        case networkCard
     }
 }

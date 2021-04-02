@@ -8,28 +8,29 @@
 import Foundation
 import ContactsUI
 
-class CardViewModel {
+class CardViewModel: BaseViewModel {
     var contacts: [Contact] {
         CardManager.shared.createdContactCards
     }
     var contactsIsEmpty: Bool {
         CardManager.shared.createdContactCards.isEmpty
     }
-    var bindError: ((Error) -> Void)!
     var bindContactsRetrievalSuccess: (() -> Void)!
-    init() {
+
+    override init() {
+        super.init()
         getAllContacts()
     }
 
     private func getAllContacts() {
         guard let uid = AuthService.uid else {
             let error = CustomError(str: "Inactive user. Login again") as Error
-            bindError(error)
+            bindError("Access Denied", error)
             return
         }
         FirestoreService.shared.getAllContacts(uid: uid) {[self] (error) in
             if let error = error {
-                bindError(error)
+                bindError("Error getting contacts", error)
             }
             bindContactsRetrievalSuccess()
         }
@@ -38,7 +39,7 @@ class CardViewModel {
     internal func deleteCard(contact: Contact) {
         FirestoreService.shared.deleteContactCard(contact: contact) {[self] (error) in
             if let error = error {
-                bindError!(error)
+                bindError!("Delete card failed", error)
             } else {
                 bindContactsRetrievalSuccess()
             }

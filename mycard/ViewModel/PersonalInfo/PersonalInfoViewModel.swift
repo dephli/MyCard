@@ -25,7 +25,6 @@ class PersonalInfoViewModel {
     var previousFirstName = ""
 
     var contact = CardManager.shared.currentEditableContact
-    var avatarUrl: String?
 
     var bindHandleError: ((Error, String) -> Void)!
 
@@ -54,6 +53,20 @@ class PersonalInfoViewModel {
 
         set {
             contact.name.fullName = newValue
+        }
+    }
+
+    var avatarUrl: String? {
+        contact.profilePicUrl
+    }
+
+    var avatarImage: UIImage? {
+        get {
+            return CardManager.shared.contactImage
+        }
+
+        set {
+            CardManager.shared.contactImage = newValue
         }
     }
 
@@ -133,9 +146,9 @@ class PersonalInfoViewModel {
         return filteredNames
     }
 
-    init() {
-        avatarUrl = contact.profilePicUrl
-    }
+//    init() {
+//        avatarUrl = contact.profilePicUrl
+//    }
 
     func splitFullname() {
 
@@ -361,5 +374,4 @@ class PersonalInfoViewModel {
             }
         }
     }
-
 }

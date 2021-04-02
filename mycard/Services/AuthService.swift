@@ -104,6 +104,18 @@ class AuthService: AuthServiceDelegate {
 
         }
     }
+    
+    
+    func removeAvatarUrl(completionHandler: @escaping (Error?) -> Void) {
+
+        let request = Auth.auth().currentUser?.createProfileChangeRequest()
+        request?.photoURL = nil
+
+        request?.commitChanges(completion: { (error) in
+            completionHandler(error)
+        })
+
+    }
 
     func updateUser(user: User, onActionComplete: @escaping (Error?) -> Void) {
 
@@ -158,5 +170,15 @@ class AuthService: AuthServiceDelegate {
             return user.photoURL?.absoluteString
         }
         return nil
+    }
+
+    static var token: String = ""
+
+    static var idToken: String? {
+        Auth.auth().currentUser?.getIDToken { (tokenString, _) in
+            self.token = tokenString!
+            print("hello")
+        }
+        return self.token
     }
 }

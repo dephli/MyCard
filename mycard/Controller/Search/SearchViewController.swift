@@ -47,6 +47,12 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.navigationBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,10 +60,14 @@ class SearchViewController: UIViewController {
             guard let indexPath = tableView.indexPathForSelectedRow else {
                 return
             }
-            let contact = contacts[indexPath.row]
+            var contact: Contact
+            if isFiltering {
+                contact = filteredContacts[indexPath.row]
+            } else {
+                contact = contacts[indexPath.row]
+            }
 
             let selectedCellImage = (tableView.cellForRow(at: indexPath) as! ContactsCell).avatarImageView.image
-
             CardManager.shared.currentContactDetails = contact
             CardManager.shared.currentEditableContact = contact
             destination.viewModel = CardDetailsViewModel(contactImage: selectedCellImage)
