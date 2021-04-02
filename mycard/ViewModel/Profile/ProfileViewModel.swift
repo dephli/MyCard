@@ -51,7 +51,7 @@ class ProfileViewModel: BaseViewModel {
             EmailManager.manager.replace(with: emails)
         }
     }
-    
+
     internal func createCNContact(contact: Contact, contactImage: UIImage?) -> CNMutableContact {
         let phoneContact = CNMutableContact()
         phoneContact.familyName = contact.name.lastName ?? ""
@@ -72,7 +72,7 @@ class ProfileViewModel: BaseViewModel {
 
         return phoneContact
     }
-    
+
     private func filteredEmails(_ contact: Contact) -> [CNLabeledValue<NSString>]? {
         //        filter emails
         if let emails = contact.emailAddresses {
@@ -129,7 +129,6 @@ class ProfileViewModel: BaseViewModel {
         }
         return nil
     }
-
 
     func createPersonalCard() {
         let manager = CardManager.shared
