@@ -76,34 +76,34 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.spaceandjonin.myCrd.search</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeSearch</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Search</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Search for cards</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Search</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.search</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.spaceandjonin.myCrd.createpersonalcard</string>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>user</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Add a personal card</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Create a new personal card</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a personal card</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.createpersonalcard</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.spaceandjonin.myCrd.createcard</string>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>cards-stacked</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Add a card</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Create a new network card</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a card</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.createcard</string>
 		</dict>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
