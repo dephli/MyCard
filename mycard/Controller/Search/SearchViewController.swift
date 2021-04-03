@@ -40,19 +40,12 @@ class SearchViewController: UIViewController {
                   bundle: nil),
             forCellReuseIdentifier: K.contactCellIdentifier
         )
-
-        setupSearchController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.navigationBar.isHidden = false
         navigationController?.setNavigationBarHidden(false, animated: true)
-
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+        setupSearchController()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

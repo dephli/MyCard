@@ -62,6 +62,7 @@ struct K {
         static let cardDetailsViewController = "CardDetailsViewController"
         static let personalInfoViewController = "PersonalInfoViewController"
         static let qrCodeViewController = "QRCodeViewController"
+        static let searchViewController = "SearchViewController"
     }
 
     struct TextStyles {

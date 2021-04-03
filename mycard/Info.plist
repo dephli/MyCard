@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.spaceandjonin.myCrd.photoUpload</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -72,14 +76,34 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.search</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeSearch</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Search for a card</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Search</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Search for cards</string>
+		</dict>
+		<dict>
 			<key>UIApplicationShortcutItemType</key>
-			<string>SearchAction</string>
+			<string>com.spaceandjonin.myCrd.createpersonalcard</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeShare</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a personal card</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Create a new personal card</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.createcard</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeShare</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a card</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Create a new network card</string>
 		</dict>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
