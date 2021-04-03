@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseStorage
-import SwiftQueue
 
 class DataStorageService {
 

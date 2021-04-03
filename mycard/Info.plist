@@ -88,8 +88,8 @@
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.spaceandjonin.myCrd.createpersonalcard</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeShare</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>user</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Add a personal card</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
@@ -98,8 +98,8 @@
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.spaceandjonin.myCrd.createcard</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeShare</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>cards-stacked</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Add a card</string>
 			<key>UIApplicationShortcutItemSubtitle</key>

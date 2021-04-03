@@ -16,14 +16,14 @@ target 'mycard' do
   pod 'Firebase/Analytics'
 
   #pods for rxswift
-  pod 'RxSwift'
+#  pod 'RxSwift'
   pod 'RxCocoa'
   
   #pods for keychain
   pod 'KeychainAccess'
   
   #pod for swiftQueue
-  pod 'SwiftQueue'
+#  pod 'SwiftQueue'
   
   #pod for hero animation
   pod 'Hero'
