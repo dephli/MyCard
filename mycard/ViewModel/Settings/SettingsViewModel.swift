@@ -33,7 +33,10 @@ class SettingsViewModel: BaseViewModel {
         DataStorageService.uploadImage(image: image, type: .profile) {[self] (url, error) in
             if error != nil {
                 let uploadError = CustomError(
-                    str: "Could not use the selected image as an avatar image. Please make sure you select a jpg or a png image")
+                    str: """
+                        Could not use the selected image as an avatar image.
+                        Please make sure you select a jpg or a png image
+                    """)
                     as Error
                 bindError("Image upload failed", uploadError)
             } else {

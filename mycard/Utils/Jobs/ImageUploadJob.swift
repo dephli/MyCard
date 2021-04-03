@@ -1,9 +1,9 @@
-////
-////  ImageUploadJob.swift
-////  mycard
-////
-////  Created by Joseph Maclean Arhin on 3/26/21.
-////
+//
+//  ImageUploadJob.swift
+//  mycard
+//
+//  Created by Joseph Maclean Arhin on 3/26/21.
+//
 //
 // import Foundation
 // import SwiftQueue

@@ -202,7 +202,6 @@ class FirestoreService {
         let docRef = db.collection(K.Firestore.personalCardCollectionName)
 
         docRef.document(id).updateData([field: value]) { (error) in
-            print(error?.localizedDescription)
             completionHandler?(error)
         }
     }
