@@ -92,7 +92,7 @@
             <objects>
                 <viewController storyboardIdentifier="CardViewController" modalTransitionStyle="crossDissolve" id="k24-77-c8G" customClass="CardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gqs-O2-oAD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-cS-P87">
@@ -156,22 +156,22 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nci-zl-Ves">
-                                        <rect key="frame" x="27.5" y="122" width="265.5" height="231"/>
+                                        <rect key="frame" x="36" y="123" width="248.5" height="229.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty cards doodle" translatesAutoresizingMaskIntoConstraints="NO" id="QkM-qr-GG9">
-                                                <rect key="frame" x="0.0" y="0.0" width="265.5" height="168"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="248.5" height="168"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-Yr-Dhf">
-                                                <rect key="frame" x="0.0" y="184" width="265.5" height="47"/>
+                                                <rect key="frame" x="0.0" y="184" width="248.5" height="45.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s get something going here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-gp-pEm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265.5" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="248.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
                                                         <color key="textColor" name="MC Black 40"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start adding some cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05x-Fr-JhA">
-                                                        <rect key="frame" x="51" y="30" width="163" height="17"/>
+                                                        <rect key="frame" x="47" y="29" width="154.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                         <color key="textColor" name="MC Black 40"/>
                                                         <nil key="highlightedColor"/>
@@ -253,7 +253,7 @@
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" modalTransitionStyle="crossDissolve" id="317-pS-tvz" customClass="SearchViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7uE-5a-hHg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ehy-J3-P7V">
@@ -264,13 +264,13 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="zSG-NN-541">
-                                        <rect key="frame" x="46.5" y="161.5" width="227.5" height="152"/>
+                                        <rect key="frame" x="51.5" y="162.5" width="217.5" height="150"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no result found" translatesAutoresizingMaskIntoConstraints="NO" id="lPf-Zf-7ka">
-                                                <rect key="frame" x="0.0" y="0.0" width="227.5" height="76"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="217.5" height="76"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops!, seems to  not be in  the mix" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edI-6e-um5">
-                                                <rect key="frame" x="0.0" y="108" width="227.5" height="44"/>
+                                                <rect key="frame" x="0.0" y="108" width="217.5" height="42"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                                                 <color key="textColor" name="MC Black 40"/>
                                                 <nil key="highlightedColor"/>
@@ -364,7 +364,7 @@
             <objects>
                 <viewController id="44q-Dm-qKS" customClass="ProfileViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sJG-et-bDh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juk-Yi-jJX">
@@ -374,20 +374,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqx-VT-QIM">
-                                                <rect key="frame" x="24" y="0.0" width="42.5" height="15"/>
+                                                <rect key="frame" x="24" y="0.0" width="40" height="14"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                                 <color key="textColor" name="MC Black 60"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="db4-Uj-BeR" customClass="ContactDetailsStackView" customModule="mycard" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="335" width="272" height="48"/>
+                                                <rect key="frame" x="24" y="334" width="272" height="48"/>
                                                 <color key="backgroundColor" name="MC White"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="VbX-1Z-2h7"/>
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZD-Tf-1iR">
-                                                <rect key="frame" x="0.0" y="39" width="320" height="264"/>
+                                                <rect key="frame" x="0.0" y="38" width="320" height="264"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et6-V2-bVx">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
@@ -489,7 +489,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMw-tk-pkI">
-                                                <rect key="frame" x="0.0" y="383" width="320" height="136"/>
+                                                <rect key="frame" x="0.0" y="382" width="320" height="137"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -516,13 +516,13 @@
                                                 <rect key="frame" x="85" y="80" width="150" height="150"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your personal cards to  Distribute" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KD-4O-MDa">
-                                                <rect key="frame" x="62" y="277" width="196.5" height="44"/>
+                                                <rect key="frame" x="67" y="277" width="186.5" height="42"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                                                 <color key="textColor" name="MC Black 40"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qee-2l-HbH">
-                                                <rect key="frame" x="94.5" y="354" width="131" height="48"/>
+                                                <rect key="frame" x="94.5" y="352" width="131" height="48"/>
                                                 <color key="backgroundColor" name="MC Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="NbW-qM-POy"/>

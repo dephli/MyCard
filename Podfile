@@ -7,13 +7,16 @@ target 'mycard' do
 
   # Pods for mycard
   # firebase pods
-#  pod 'GoogleMLKit/TextRecognition'
+  pod 'GoogleMLKit/TextRecognition'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
+  
+  # pod for CropImage
+  pod 'TOCropViewController'
 
   #pods for rxswift
 #  pod 'RxSwift'

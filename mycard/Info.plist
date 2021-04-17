@@ -42,11 +42,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Access to camera is needed to take pictures of </string>
+	<string>MyCrd needs access to your camera in order to take pictures of an avatar image</string>
 	<key>NSContactsUsageDescription</key>
 	<string>MyCrd needs access to your contacts to be able to export this contact</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>MyCrd needs access to your photos</string>
+	<string>MyCrd needs access to your photos to be able to upload an avatar image from your saved images</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Light.ttf</string>
