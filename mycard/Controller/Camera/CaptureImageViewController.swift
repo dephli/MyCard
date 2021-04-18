@@ -7,12 +7,11 @@
 
 import UIKit
 import AVFoundation
+import CropViewController
 
 class CaptureImageViewController: UIViewController {
-
+    static let identifier = String(describing: self)
 // MARK: - Outlets
-    @IBOutlet weak var addManuallyButton: UIButton!
-    @IBOutlet weak var importCardButton: UIButton!
     @IBOutlet weak var videoPreviewView: UIView!
 
 // MARK: - Variables
@@ -30,7 +29,6 @@ class CaptureImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,27 +45,18 @@ class CaptureImageViewController: UIViewController {
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func importCardButtonPressed(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.sourceType = .photoLibrary
             imagePicker.delegate = self
-            imagePicker.allowsEditing = true
             present(imagePicker, animated: true, completion: nil)
         }
     }
 
 // MARK: - Custom Methods
-
-    private func setupUI() {
-        addManuallyButton.alignTextBelow()
-        importCardButton.alignTextBelow()
-        addManuallyButton.setTitle(with: K.TextStyles.captionWhite, for: .normal)
-        importCardButton.setTitle(with: K.TextStyles.captionWhite, for: .normal)
-    }
-
     private func setupCamera() {
         captureSession = AVCaptureSession()
         captureSession!.sessionPreset = .high
@@ -107,6 +96,12 @@ class CaptureImageViewController: UIViewController {
             }
         }
     }
+    
+    private func cropImage(_ image: UIImage?) {
+        let cropViewController = CropViewController(image: image!)
+        cropViewController.delegate = self
+        present(cropViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Photo Capture delegate
@@ -117,9 +112,7 @@ extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
         else {return}
 
         let image = UIImage(data: imageData)
-        self.capturedImage = image
-        performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
-
+        cropImage(image)
     }
 }
 
@@ -128,11 +121,22 @@ extension CaptureImageViewController: UIImagePickerControllerDelegate &
                                       UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            self.capturedImage = image
-            dismiss(animated: true) {
-                self.performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
-            }
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Could not get original image")
         }
+        imagePicker.dismiss(animated: true, completion: nil)
+        cropImage(image)
+    }
+}
+
+extension CaptureImageViewController: CropViewControllerDelegate {
+    func cropViewController(
+        _ cropViewController: CropViewController,
+        didCropToImage image: UIImage,
+        withRect cropRect: CGRect,
+        angle: Int) {
+        self.capturedImage = image
+        cropViewController.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
     }
 }

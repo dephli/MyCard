@@ -23,6 +23,7 @@ struct K {
 
     struct ColorString {
         static let mcBlue = "MC Blue"
+        static let mcBlue10 = "MC Blue 10"
         static let mcBlack = "MC Black"
         static let mcBlack10 = "MC Black 10"
         static let mcBlack40 = "MC Black 40"
@@ -36,17 +37,18 @@ struct K {
     }
 
     struct Colors {
-        static let Blue = UIColor(named: ColorString.mcBlue)
-        static let Black = UIColor(named: ColorString.mcBlack)
-        static let Black5 = UIColor(named: ColorString.mcBlack5)
-        static let Black10 = UIColor(named: ColorString.mcBlack10)
-        static let Black40 = UIColor(named: ColorString.mcBlack40)
-        static let Black60 = UIColor(named: ColorString.mcBlack60)
-        static let White = UIColor(named: ColorString.mcWhite)
-        static let Yellow = UIColor(named: ColorString.mcYellow)
-        static let Green = UIColor(named: ColorString.mcGreen)
-        static let Wine = UIColor(named: ColorString.mcWine)
-        static let Red = UIColor(named: ColorString.mcRed)
+        static let Blue = UIColor(named: ColorString.mcBlue)!
+        static let Blue10 = UIColor(named: ColorString.mcBlue10)!
+        static let Black = UIColor(named: ColorString.mcBlack)!
+        static let Black5 = UIColor(named: ColorString.mcBlack5)!
+        static let Black10 = UIColor(named: ColorString.mcBlack10)!
+        static let Black40 = UIColor(named: ColorString.mcBlack40)!
+        static let Black60 = UIColor(named: ColorString.mcBlack60)!
+        static let White = UIColor(named: ColorString.mcWhite)!
+        static let Yellow = UIColor(named: ColorString.mcYellow)!
+        static let Green = UIColor(named: ColorString.mcGreen)!
+        static let Wine = UIColor(named: ColorString.mcWine)!
+        static let Red = UIColor(named: ColorString.mcRed)!
 
     }
 
@@ -184,6 +186,7 @@ struct K {
         static let confirmDetailsToNotes = "ConfirmDetailsToNotes"
         static let cardDetailsToNotes = "CardDetailsToNotes"
         static let profileToSettings = "ProfileToSettings"
+        static let cardsToCamera = "CardsToCamera"
     }
 
     struct Notifications {

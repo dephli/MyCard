@@ -23,6 +23,7 @@ class CardViewController: UIViewController {
     private var contacts: [Contact] = []
     private var sortedBy: SortBy = .recentlyAdded
     var viewModel: CardViewModel!
+    let addCardBottomSheet = AddCardBottomSheet()
 
 // MARK: - ViewController methods
     override func viewWillAppear(_ animated: Bool) {
@@ -96,8 +97,11 @@ class CardViewController: UIViewController {
         let manager = CardManager.shared
         manager.currentContactType = .createContactCard
         manager.reset()
+        addCardBottomSheet.modalPresentationStyle = .custom
+        addCardBottomSheet.delegate = self
+        addCardBottomSheet.transitioningDelegate = self
 
-        self.performSegue(withIdentifier: K.Segues.cardsToCreateCard, sender: self)
+        self.present(addCardBottomSheet, animated: true, completion: nil)
     }
 
 // MARK: - Methods
@@ -219,5 +223,37 @@ extension CardViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             return UIMenu(title: "", children: [editAction, exportAction, deleteAction])
         }
+    }
+}
+
+// MARK: - UITransitioningDelegate
+extension CardViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+// MARK: - BottomSheetDelegate
+extension CardViewController: AddCardBottomSheetDelegate {
+    func scanPhysicalCardPressed() {
+        addCardBottomSheet.dismiss(animated: true)
+        self.performSegue(withIdentifier: K.Segues.cardsToCamera, sender: self
+        )
+    }
+
+    func addManuallyPressed() {
+        addCardBottomSheet.dismiss(animated: true)
+//        DispatchQueue.main.async {
+//            self.hidesBottomBarWhenPushed = true
+//        }
+//        let storyboard = UIStoryboard(name: "Camera", bundle: nil)
+//        let vC = storyboard.instantiateViewController(identifier: CaptureImageViewController.identifier)
+        
+//        navigationController?.pushViewController(vC, animated: true)
+        self.performSegue(withIdentifier: K.Segues.cardsToCreateCard, sender: self)
+//        self.hidesBottomBarWhenPushed = false
     }
 }

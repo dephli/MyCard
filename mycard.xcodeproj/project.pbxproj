@@ -53,6 +53,9 @@
 		8263ED7F25DDE64F0000E77C /* PersonalCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8263ED7D25DDE64F0000E77C /* PersonalCardCollectionViewCell.xib */; };
 		82647AF925AE127A0091D104 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647AF825AE127A0091D104 /* CardManager.swift */; };
 		82647B0125AE47F20091D104 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82647B0025AE47F20091D104 /* StringExtension.swift */; };
+		8267F0BE262B6EC60070B75E /* ScaledElementProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267F0BD262B6EC60070B75E /* ScaledElementProcessor.swift */; };
+		8267F0C4262B97CE0070B75E /* AddCardBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8267F0C3262B97CE0070B75E /* AddCardBottomSheet.xib */; };
+		8267F0C9262B9BC90070B75E /* AddCardBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267F0C8262B9BC90070B75E /* AddCardBottomSheet.swift */; };
 		827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354412588BAC100236797 /* SocialMediaListStackView.swift */; };
 		827354472588CEE800236797 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827354462588CEE800236797 /* SocialMedia.swift */; };
 		8273544C2588CFDA00236797 /* SocialMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273544B2588CFDA00236797 /* SocialMediaManger.swift */; };
@@ -188,6 +191,9 @@
 		8263ED7D25DDE64F0000E77C /* PersonalCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		82647AF825AE127A0091D104 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		82647B0025AE47F20091D104 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8267F0BD262B6EC60070B75E /* ScaledElementProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledElementProcessor.swift; sourceTree = "<group>"; };
+		8267F0C3262B97CE0070B75E /* AddCardBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCardBottomSheet.xib; sourceTree = "<group>"; };
+		8267F0C8262B9BC90070B75E /* AddCardBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardBottomSheet.swift; sourceTree = "<group>"; };
 		827354412588BAC100236797 /* SocialMediaListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaListStackView.swift; sourceTree = "<group>"; };
 		827354462588CEE800236797 /* SocialMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMedia.swift; sourceTree = "<group>"; };
 		8273544B2588CFDA00236797 /* SocialMediaManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaManger.swift; sourceTree = "<group>"; };
@@ -606,6 +612,7 @@
 				82F0AA062580719200F1DFFC /* ContactsCell.swift */,
 				82BED3D8257EF6EB00F8E96E /* CardViewController.swift */,
 				82BED3E0257EF6F900F8E96E /* ProfileViewController.swift */,
+				8267F0C8262B9BC90070B75E /* AddCardBottomSheet.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -628,6 +635,7 @@
 				82B6E36325DEA8DA005A32AA /* Settings.storyboard */,
 				820034C125F7A55400D1E974 /* Notes.storyboard */,
 				828C18132615EEF00086D04D /* AvatarImageBottomSheet.xib */,
+				8267F0C3262B97CE0070B75E /* AddCardBottomSheet.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,6 +694,7 @@
 				828C1765260B7CBA0086D04D /* FileUploadManager.swift */,
 				828C180E2615E6000086D04D /* PresentiationController.swift */,
 				82472EF326164EE0007BF9DF /* BottomSheetViewController.swift */,
+				8267F0BD262B6EC60070B75E /* ScaledElementProcessor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -852,6 +861,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8267F0C4262B97CE0070B75E /* AddCardBottomSheet.xib in Resources */,
 				825F15F0257D497400A3E103 /* Auth.storyboard in Resources */,
 				82B6E36425DEA8DA005A32AA /* Settings.storyboard in Resources */,
 				8293C925258F6AF100D3FA58 /* Camera.storyboard in Resources */,
@@ -1011,6 +1021,7 @@
 				82B7B40125C24426009F24F1 /* FirestoreService.swift in Sources */,
 				827354422588BAC100236797 /* SocialMediaListStackView.swift in Sources */,
 				82BED3F0257EFE1A00F8E96E /* TabBarController.swift in Sources */,
+				8267F0BE262B6EC60070B75E /* ScaledElementProcessor.swift in Sources */,
 				821AE46825F66F9D00C60EAE /* VerifyNumberViewModel.swift in Sources */,
 				827354472588CEE800236797 /* SocialMedia.swift in Sources */,
 				8214E62F2590329B0054A345 /* ConfirmDetailsViewController.swift in Sources */,
@@ -1026,6 +1037,7 @@
 				8263ED7E25DDE64F0000E77C /* PersonalCardCollectionViewCell.swift in Sources */,
 				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
 				82C7D8CF25DF299F00F05B91 /* ChangePhoneNumberViewController.swift in Sources */,
+				8267F0C9262B9BC90070B75E /* AddCardBottomSheet.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
 				82647B0125AE47F20091D104 /* StringExtension.swift in Sources */,
 				82472F1826168641007BF9DF /* SettingsViewModel.swift in Sources */,

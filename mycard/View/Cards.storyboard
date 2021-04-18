@@ -215,7 +215,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createCardPressed:" destination="k24-77-c8G" eventType="touchUpInside" id="nLU-io-Ur0"/>
-                                    <segue destination="3cY-qt-pzE" kind="presentation" identifier="CardsToCreateCard" id="dSc-nj-7MS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -242,6 +241,8 @@
                         <outlet property="cardTableView" destination="5qz-cS-P87" id="5AI-05-Na3"/>
                         <outlet property="emptyCardsView" destination="Mig-5N-Egc" id="pAd-ap-MKk"/>
                         <segue destination="6H9-H6-S1g" kind="show" identifier="CardsToCardDetails" id="Ki3-ol-g6J"/>
+                        <segue destination="3cY-qt-pzE" kind="presentation" identifier="CardsToCreateCard" id="wLQ-i9-8ZI"/>
+                        <segue destination="k0K-JP-vrS" kind="presentation" identifier="CardsToCamera" id="6mc-Sd-crc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSX-w4-lk8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -309,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rY-Iz-w39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6393.75" y="61.267605633802816"/>
+            <point key="canvasLocation" x="6728" y="61"/>
         </scene>
         <!--PersonalInfo-->
         <scene sceneID="PTB-5p-8eQ">
@@ -341,6 +342,16 @@
             </objects>
             <point key="canvasLocation" x="6221" y="1028"/>
         </scene>
+        <!--Camera-->
+        <scene sceneID="GEX-ON-XOc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Camera" id="k0K-JP-vrS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1e5-JK-ASe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zm-iy-na4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6012" y="-224"/>
+        </scene>
         <!--Me-->
         <scene sceneID="DA6-ou-Bxb">
             <objects>
@@ -362,7 +373,7 @@
         <!--Profile View Controller-->
         <scene sceneID="tzq-EB-t5P">
             <objects>
-                <viewController id="44q-Dm-qKS" customClass="ProfileViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="44q-Dm-qKS" customClass="ProfileViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sJG-et-bDh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,8 +606,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dzk-wi-zzd"/>
-        <segue reference="qr0-sv-zZB"/>
+        <segue reference="Ki3-ol-g6J"/>
+        <segue reference="wLQ-i9-8ZI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add card" width="24" height="24"/>

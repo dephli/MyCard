@@ -19,7 +19,7 @@ class ConfirmDetailsViewModel {
     var nameInitials = ""
     var note: String {
         if contact.note == nil || contact.note == "" {
-            noteTextColor = K.Colors.Blue!
+            noteTextColor = K.Colors.Blue
             return "Add a note"
         } else {
             noteTextColor = K.Colors.Black

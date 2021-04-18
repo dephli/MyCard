@@ -302,7 +302,7 @@ extension ProfileViewController: UICollectionViewDelegate,
             fatalError("Cannot create new cell")
         }
 
-        cell.layer.shadowColor = K.Colors.Black10?.cgColor
+        cell.layer.shadowColor = K.Colors.Black10.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.layer.shadowRadius = 16
         cell.layer.shadowOpacity = 1

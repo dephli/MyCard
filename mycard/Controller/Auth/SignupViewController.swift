@@ -83,8 +83,9 @@ class SignupViewController: UIViewController {
             self.backButtonTopConstraint.constant = -5
             self.backButton.alpha = 0
             self.view.layoutIfNeeded()
-        } completion: { (_) in
-            self.dismiss(animated: false, completion: nil)
+        } completion: {[self] (_) in
+            navigationController?.popViewController(animated: true)
+//            self.dismiss(animated: false, completion: nil)
         }
     }
 

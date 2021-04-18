@@ -21,7 +21,7 @@
         <!--Personal Info View Controller-->
         <scene sceneID="uXD-p9-yEM">
             <objects>
-                <viewController storyboardIdentifier="PersonalInfoViewController" modalPresentationStyle="fullScreen" id="CHm-Rj-w6x" customClass="PersonalInfoViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalInfoViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="CHm-Rj-w6x" customClass="PersonalInfoViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uqb-2X-0r3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1243"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

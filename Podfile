@@ -16,7 +16,7 @@ target 'mycard' do
   pod 'Firebase/Analytics'
   
   # pod for CropImage
-  pod 'TOCropViewController'
+  pod 'CropViewController'
 
   #pods for rxswift
 #  pod 'RxSwift'
