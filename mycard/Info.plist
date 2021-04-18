@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.spaceandjonin.myCrd.photoUpload</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -38,11 +42,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Access to camera is needed to take pictures of </string>
+	<string>MyCrd needs access to your camera in order to take pictures of an avatar image</string>
 	<key>NSContactsUsageDescription</key>
 	<string>MyCrd needs access to your contacts to be able to export this contact</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>MyCrd needs access to your photos</string>
+	<string>MyCrd needs access to your photos to be able to upload an avatar image from your saved images</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Light.ttf</string>
@@ -75,11 +79,31 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeSearch</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Search for a card</string>
+			<string>Search for cards</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Search</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>SearchAction</string>
+			<string>com.spaceandjonin.myCrd.search</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>user</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Create a new personal card</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a personal card</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.createpersonalcard</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>cards-stacked</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Create a new network card</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a card</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.spaceandjonin.myCrd.createcard</string>
 		</dict>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

@@ -150,6 +150,14 @@ class ProfileViewController: UIViewController {
 
             let activityVc = UIActivityViewController(activityItems: [fileLocation], applicationActivities: nil)
 
+            activityVc.excludedActivityTypes = [
+                UIActivity.ActivityType.print,
+                UIActivity.ActivityType.copyToPasteboard,
+                UIActivity.ActivityType.postToTwitter,
+                UIActivity.ActivityType.postToFacebook,
+                UIActivity.ActivityType("com.toyopagroup.picaboo.share")
+            ]
+
             present(activityVc, animated: true, completion: nil)
             self.modalPresentationStyle = .fullScreen
         } catch {
@@ -336,4 +344,8 @@ extension ProfileViewController: UICollectionViewDelegate,
             }
         }
     }
+}
+
+extension UIActivity.ActivityType {
+    static let snapchat = UIActivity.ActivityType(rawValue: "com.toyopagroup.picaboo.share")
 }

@@ -120,7 +120,6 @@
 		82F0AA082580719200F1DFFC /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0AA062580719200F1DFFC /* ContactsCell.swift */; };
 		82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F0AA072580719200F1DFFC /* ContactsCell.xib */; };
 		82F8136D26076C3D0038071D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8136C26076C3D0038071D /* SceneDelegate.swift */; };
-		82F813752608A1710038071D /* PhotoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F813742608A1700038071D /* PhotoBottomSheet.swift */; };
 		82F8137D2608DDE40038071D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8137C2608DDE30038071D /* Reachability.swift */; };
 		FE8895A1A19FB6C5C59B4ECD /* Pods_mycard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */; };
 /* End PBXBuildFile section */
@@ -263,7 +262,6 @@
 		82F0AA062580719200F1DFFC /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		82F0AA072580719200F1DFFC /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
 		82F8136C26076C3D0038071D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		82F813742608A1700038071D /* PhotoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBottomSheet.swift; sourceTree = "<group>"; };
 		82F8137C2608DDE30038071D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8CA3228599EE86A84A48B245 /* Pods-mycard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.release.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.release.xcconfig"; sourceTree = "<group>"; };
 		BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mycard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -478,7 +476,6 @@
 				827354412588BAC100236797 /* SocialMediaListStackView.swift */,
 				82EA557025CDFD21000BE90A /* UIVIewAcitivityIndicator.swift */,
 				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
-				82F813742608A1700038071D /* PhotoBottomSheet.swift */,
 				820F5B49258037480077174E /* CustomNavigationBar.swift */,
 				82BED3F4257F063C00F8E96E /* NavigationController.swift */,
 			);
@@ -761,6 +758,7 @@
 				4A99D361E95D2A4E1070815D /* [CP] Embed Pods Frameworks */,
 				82B4443425E55F650074F574 /* ShellScript */,
 				82AE248825F05FAE003A4A82 /* ShellScript */,
+				A77F609023353BA5794B9FFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -972,6 +970,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		A77F609023353BA5794B9FFF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mycard/Pods-mycard-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mycard/Pods-mycard-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mycard/Pods-mycard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1010,7 +1025,6 @@
 				821590372588207D00A9F679 /* SocialMediaViewController.swift in Sources */,
 				8263ED7E25DDE64F0000E77C /* PersonalCardCollectionViewCell.swift in Sources */,
 				8293C91D258EEB0600D3FA58 /* WorkInfoViewController.swift in Sources */,
-				82F813752608A1710038071D /* PhotoBottomSheet.swift in Sources */,
 				82C7D8CF25DF299F00F05B91 /* ChangePhoneNumberViewController.swift in Sources */,
 				82455942257D1123003DCB4C /* SetupCardViewController.swift in Sources */,
 				82647B0125AE47F20091D104 /* StringExtension.swift in Sources */,
@@ -1257,7 +1271,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.myCrd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1284,7 +1298,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spaceandjonin.myCrd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

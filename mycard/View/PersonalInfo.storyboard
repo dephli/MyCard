@@ -199,7 +199,7 @@
                                                                     <constraint firstAttribute="height" constant="48" id="0d7-Df-uDZ"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" textContentType="honorifix-prefix"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="honorifix-prefix"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -271,7 +271,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" name="MC Black"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="namePhonePad" textContentType="honorifix-suffix"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="honorifix-suffix"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="8"/>
@@ -625,7 +625,7 @@
                                                             <constraint firstAttribute="height" constant="48" id="p1j-Li-m4W"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="twitter" textContentType="url"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                                                                 <real key="value" value="24"/>
