@@ -187,6 +187,7 @@ struct K {
         static let cardDetailsToNotes = "CardDetailsToNotes"
         static let profileToSettings = "ProfileToSettings"
         static let cardsToCamera = "CardsToCamera"
+        static let cameraToScannedCardDetails = "CameraToScannedCardDetails"
     }
 
     struct Notifications {
@@ -218,36 +219,39 @@ struct K {
         static let settings = "settings"
         static let phone = "phone"
         static let brokenImage = "broken_image"
+        static let swap = "swap"
+        static let untag = "untag"
+        static let tag = "untag"
 
     }
 
     struct Images {
-        static let facebook = UIImage(named: ImageString.facebook)
-        static let twitter = UIImage(named: ImageString.twitter)
-        static let instagram = UIImage(named: ImageString.instagram)
-        static let linkedin = UIImage(named: ImageString.linkedin)
-        static let chevronRight = UIImage(named: ImageString.chevronRight)
-        static let user = UIImage(named: ImageString.user)
-        static let mail = UIImage(named: ImageString.mail)
-        static let location = UIImage(named: ImageString.location)
-        static let office = UIImage(named: ImageString.office)
-        static let phone = UIImage(named: ImageString.phone)
-        static let check = UIImage(named: ImageString.check)
-        static let edit = UIImage(named: ImageString.edit)
-        static let scanQR = UIImage(named: ImageString.scanQR)
-        static let delete = UIImage(named: ImageString.delete)
-        static let share = UIImage(named: ImageString.share)
-        static let more = UIImage(named: ImageString.more)
-        static let contacts = UIImage(named: ImageString.contacts)
-        static let addToCollection = UIImage(named: ImageString.addToCollection)
-        static let profilePlaceholder = UIImage(named: ImageString.profilePlaceholder)
-
-//        system images
-        static let minus = UIImage(named: ImageString.minus)
-        static let plus = UIImage(named: ImageString.plus)
-        static let gearShape = UIImage(named: K.ImageString.settings)
-        static let brokenImage = UIImage(named: K.ImageString.brokenImage)
-
+        static let facebook = UIImage(named: ImageString.facebook)!
+        static let twitter = UIImage(named: ImageString.twitter)!
+        static let instagram = UIImage(named: ImageString.instagram)!
+        static let linkedin = UIImage(named: ImageString.linkedin)!
+        static let chevronRight = UIImage(named: ImageString.chevronRight)!
+        static let user = UIImage(named: ImageString.user)!
+        static let mail = UIImage(named: ImageString.mail)!
+        static let location = UIImage(named: ImageString.location)!
+        static let office = UIImage(named: ImageString.office)!
+        static let phone = UIImage(named: ImageString.phone)!
+        static let check = UIImage(named: ImageString.check)!
+        static let edit = UIImage(named: ImageString.edit)!
+        static let scanQR = UIImage(named: ImageString.scanQR)!
+        static let delete = UIImage(named: ImageString.delete)!
+        static let share = UIImage(named: ImageString.share)!
+        static let more = UIImage(named: ImageString.more)!
+        static let contacts = UIImage(named: ImageString.contacts)!
+        static let addToCollection = UIImage(named: ImageString.addToCollection)!
+        static let profilePlaceholder = UIImage(named: ImageString.profilePlaceholder)!
+        static let minus = UIImage(named: ImageString.minus)!
+        static let plus = UIImage(named: ImageString.plus)!
+        static let gearShape = UIImage(named: K.ImageString.settings)!
+        static let brokenImage = UIImage(named: K.ImageString.brokenImage)!
+        static let swap = UIImage(named: ImageString.swap)!
+        static let untag = UIImage(named: ImageString.untag)!
+        static let tag = UIImage(named: ImageString.tag)!
     }
 
     struct SocialMedia {

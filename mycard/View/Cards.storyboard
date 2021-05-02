@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="war-fk-8Jl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="war-fk-8Jl">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -102,7 +102,7 @@
                                 <color key="sectionIndexBackgroundColor" name="MC White"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rD1-zw-T2f">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rD1-zw-T2f" id="IT6-FQ-pgS">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -527,13 +527,13 @@
                                                 <rect key="frame" x="85" y="80" width="150" height="150"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your personal cards to  Distribute" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KD-4O-MDa">
-                                                <rect key="frame" x="67" y="277" width="186.5" height="42"/>
+                                                <rect key="frame" x="62" y="277" width="196.5" height="44"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                                                 <color key="textColor" name="MC Black 40"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qee-2l-HbH">
-                                                <rect key="frame" x="94.5" y="352" width="131" height="48"/>
+                                                <rect key="frame" x="94.5" y="354" width="131" height="48"/>
                                                 <color key="backgroundColor" name="MC Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="NbW-qM-POy"/>
@@ -570,6 +570,11 @@
                                     <constraint firstItem="aTc-u2-Ffv" firstAttribute="leading" secondItem="Juk-Yi-jJX" secondAttribute="leading" id="lbm-oh-1QP"/>
                                     <constraint firstAttribute="trailing" secondItem="aTc-u2-Ffv" secondAttribute="trailing" id="n1H-Fq-zNL"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="3pW-o5-7bA"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ee0-p6-uow"/>
@@ -607,7 +612,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ki3-ol-g6J"/>
-        <segue reference="wLQ-i9-8ZI"/>
+        <segue reference="qr0-sv-zZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add card" width="24" height="24"/>

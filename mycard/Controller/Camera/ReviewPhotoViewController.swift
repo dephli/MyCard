@@ -25,26 +25,31 @@ class ReviewPhotoViewController: UIViewController {
         backgroundImageView.layer.addSublayer(frameSubLayer)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        decodeImage()
+    }
+
 // MARK: - Actions
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func arrowButtonPressed(_ sender: Any) {
-        decodeImage()
+        self.performSegue(withIdentifier: K.Segues.cameraToScannedCardDetails, sender: self)
 //        performSegue(withIdentifier: K.Segues.cameraToAuth, sender: self)
     }
 
 // MARK: - Custom methods
     private func decodeImage() {
         self.showActivityIndicator()
-        ScaledElementProcessor().process(in: backgroundImageView!) { (text, elements) in
-            print(text)
+        ScaledElementProcessor().process(in: backgroundImageView!) { (_, elements) in
             self.removeActivityIndicator()
             elements.forEach { feature in
                 DispatchQueue.main.async {
                     self.frameSubLayer.addSublayer(feature.shapeLayer)
                 }
+
             }
+
         }
     }
 

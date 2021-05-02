@@ -96,7 +96,7 @@ class CaptureImageViewController: UIViewController {
             }
         }
     }
-    
+
     private func cropImage(_ image: UIImage?) {
         let cropViewController = CropViewController(image: image!)
         cropViewController.delegate = self

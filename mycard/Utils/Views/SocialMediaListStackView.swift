@@ -18,10 +18,10 @@ class SocialMediaListStackView: UIStackView {
     }
 
     let accountImageMap: [String: UIImage] = [
-        K.SocialMedia.facebook: K.Images.facebook!,
-        K.SocialMedia.instagram: K.Images.instagram!,
-        K.SocialMedia.linkedin: K.Images.linkedin!,
-        K.SocialMedia.twitter: K.Images.twitter!
+        K.SocialMedia.facebook: K.Images.facebook,
+        K.SocialMedia.instagram: K.Images.instagram,
+        K.SocialMedia.linkedin: K.Images.linkedin,
+        K.SocialMedia.twitter: K.Images.twitter
     ]
 
     weak var delegate: SocialMediaStackViewDelegate?

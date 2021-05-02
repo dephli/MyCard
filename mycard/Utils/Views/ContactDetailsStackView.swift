@@ -150,7 +150,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         //        NAME
         if ((contact?.name.fullName) != nil) && contact?.name.fullName != "" {
             let nameView = singleValueStackView(
-                icon: K.Images.user!,
+                icon: K.Images.user,
                 label: "NAME",
                 text: contact?.name.fullName,
                 stackViewType: .other)
@@ -176,7 +176,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         if contact?.phoneNumbers?.isEmpty == false
             && contact?.phoneNumbers?[0].number != "" {
             let phoneNumberView = multiValueStackView(
-                icon: K.Images.phone!,
+                icon: K.Images.phone,
                 label: "PHONE",
                 data: contact!.phoneNumbers ?? [])
 
@@ -206,7 +206,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             contact?.emailAddresses?.first?.address != "" {
             //        EMAIL ADDRESS
             let emailAddressView = multiValueStackView(
-                icon: K.Images.mail!,
+                icon: K.Images.mail,
                 label: "EMAIL",
                 data: contact!.emailAddresses ?? [])
 
@@ -239,7 +239,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             || contact?.businessInfo?.role?.isEmpty == false {
             //        WORK INFO
             let companyView = singleValueStackView(
-                icon: K.Images.office!,
+                icon: K.Images.office,
                 label: "WORK INFO",
                 text: contact?.businessInfo?.companyName,
                 stackViewType: .workInfo,
@@ -263,7 +263,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         if contact?.businessInfo?.companyAddress?.isEmpty == false {
             //        WORK LOCATION
             let workInfoView = singleValueStackView(
-                icon: K.Images.location!,
+                icon: K.Images.location,
                 label: "WORK LOCATION",
                 text: contact?.businessInfo?.companyAddress,
                 stackViewType: .other)

@@ -102,6 +102,10 @@
 		82BED3E1257EF6F900F8E96E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3E0257EF6F900F8E96E /* ProfileViewController.swift */; };
 		82BED3F0257EFE1A00F8E96E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3EF257EFE1A00F8E96E /* TabBarController.swift */; };
 		82BED3F5257F063C00F8E96E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BED3F4257F063C00F8E96E /* NavigationController.swift */; };
+		82C3DFDD263D571800333D74 /* ScannedCardDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C3DFDC263D571800333D74 /* ScannedCardDetails.storyboard */; };
+		82C3DFE4263D577C00333D74 /* ReviewScannedCardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3DFE3263D577C00333D74 /* ReviewScannedCardDetailsViewController.swift */; };
+		82C3DFEC263D579700333D74 /* ReviewScannedCardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3DFEB263D579700333D74 /* ReviewScannedCardDetailsViewModel.swift */; };
+		82C3DFF1263D697D00333D74 /* LabelledScannedDetailsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3DFF0263D697D00333D74 /* LabelledScannedDetailsStackView.swift */; };
 		82C43756257C4F6000CF945F /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C43755257C4F6000CF945F /* TextStyle.swift */; };
 		82C4375E257C515100CF945F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C4375D257C515100CF945F /* Constants.swift */; };
 		82C43763257C5F8000CF945F /* ToolBelt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C43762257C5F8000CF945F /* ToolBelt.swift */; };
@@ -247,6 +251,10 @@
 		82BED3E0257EF6F900F8E96E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		82BED3EF257EFE1A00F8E96E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		82BED3F4257F063C00F8E96E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		82C3DFDC263D571800333D74 /* ScannedCardDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannedCardDetails.storyboard; sourceTree = "<group>"; };
+		82C3DFE3263D577C00333D74 /* ReviewScannedCardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewScannedCardDetailsViewController.swift; sourceTree = "<group>"; };
+		82C3DFEB263D579700333D74 /* ReviewScannedCardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewScannedCardDetailsViewModel.swift; sourceTree = "<group>"; };
+		82C3DFF0263D697D00333D74 /* LabelledScannedDetailsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledScannedDetailsStackView.swift; sourceTree = "<group>"; };
 		82C43755257C4F6000CF945F /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		82C4375D257C515100CF945F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		82C43762257C5F8000CF945F /* ToolBelt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBelt.swift; sourceTree = "<group>"; };
@@ -361,6 +369,7 @@
 		821AE45925F64DFF00C60EAE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				82C3DFE2263D574E00333D74 /* ScannedCardDetails */,
 				82472F10261666D3007BF9DF /* Shared */,
 				82CE969725FD76B4009316EB /* Cards */,
 				822D8D2D25FC2B6E00308A97 /* Profile */,
@@ -484,6 +493,7 @@
 				82EA557825CE0043000BE90A /* UIViewAlert.swift */,
 				820F5B49258037480077174E /* CustomNavigationBar.swift */,
 				82BED3F4257F063C00F8E96E /* NavigationController.swift */,
+				82C3DFF0263D697D00333D74 /* LabelledScannedDetailsStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -617,6 +627,22 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		82C3DFE1263D573B00333D74 /* ScannedCardDetails */ = {
+			isa = PBXGroup;
+			children = (
+				82C3DFE3263D577C00333D74 /* ReviewScannedCardDetailsViewController.swift */,
+			);
+			path = ScannedCardDetails;
+			sourceTree = "<group>";
+		};
+		82C3DFE2263D574E00333D74 /* ScannedCardDetails */ = {
+			isa = PBXGroup;
+			children = (
+				82C3DFEB263D579700333D74 /* ReviewScannedCardDetailsViewModel.swift */,
+			);
+			path = ScannedCardDetails;
+			sourceTree = "<group>";
+		};
 		82C4374E257C42BC00CF945F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +662,7 @@
 				820034C125F7A55400D1E974 /* Notes.storyboard */,
 				828C18132615EEF00086D04D /* AvatarImageBottomSheet.xib */,
 				8267F0C3262B97CE0070B75E /* AddCardBottomSheet.xib */,
+				82C3DFDC263D571800333D74 /* ScannedCardDetails.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -662,6 +689,7 @@
 		82C43750257C42D000CF945F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				82C3DFE1263D573B00333D74 /* ScannedCardDetails */,
 				820034C725F7A56E00D1E974 /* Notes */,
 				82C7D8C525DEAE5800F05B91 /* Settings */,
 				82EB8296259D44660098399A /* QRCode */,
@@ -874,6 +902,7 @@
 				82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */,
 				82B696AA257C12C0005AFE62 /* LaunchScreen.storyboard in Resources */,
 				82EB8292259D44420098399A /* QRCode.storyboard in Resources */,
+				82C3DFDD263D571800333D74 /* ScannedCardDetails.storyboard in Resources */,
 				82B696A7257C12C0005AFE62 /* Assets.xcassets in Resources */,
 				829D8F2E26017EB00054A79C /* Localizable.strings in Resources */,
 				82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */,
@@ -1060,6 +1089,8 @@
 				829D8ED925FF92030054A79C /* PersonalInfoViewModel.swift in Sources */,
 				82472EEF26164CB1007BF9DF /* AvatarImageBottomSheet.swift in Sources */,
 				825C6DDD25F2917300F67717 /* SearchViewController.swift in Sources */,
+				82C3DFF1263D697D00333D74 /* LabelledScannedDetailsStackView.swift in Sources */,
+				82C3DFEC263D579700333D74 /* ReviewScannedCardDetailsViewModel.swift in Sources */,
 				82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */,
 				82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */,
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
@@ -1076,6 +1107,7 @@
 				82472EE126163A90007BF9DF /* ChangeNameViewController.swift in Sources */,
 				82CE969925FD76C5009316EB /* CardViewModel.swift in Sources */,
 				820F5B4A258037480077174E /* CustomNavigationBar.swift in Sources */,
+				82C3DFE4263D577C00333D74 /* ReviewScannedCardDetailsViewController.swift in Sources */,
 				82EA557E25CE35B2000BE90A /* KeyboardNotifications.swift in Sources */,
 				82B7B3F425C23D7B009F24F1 /* Name.swift in Sources */,
 				822D8D2F25FC2B8200308A97 /* ProfileViewModel.swift in Sources */,

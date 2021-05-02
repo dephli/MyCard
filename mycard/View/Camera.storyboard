@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -159,17 +159,17 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="TYr-Ir-cDE" id="n9C-wV-0q6"/>
-                        <segue destination="fvr-55-Kqv" kind="showDetail" identifier="CameratoAuth" id="wa7-6K-FJT"/>
+                        <segue destination="fvr-55-Kqv" kind="showDetail" identifier="CameraToScannedCardDetails" id="wa7-6K-FJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igC-c4-L6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1947.826086956522" y="150"/>
         </scene>
-        <!--Auth-->
+        <!--ScannedCardDetails-->
         <scene sceneID="i5Y-Q2-0LE">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Account Info" storyboardName="Auth" id="fvr-55-Kqv" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Account Info" storyboardName="ScannedCardDetails" id="fvr-55-Kqv" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pSx-r8-Hid"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaZ-37-beX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
