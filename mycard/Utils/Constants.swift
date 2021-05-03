@@ -142,6 +142,12 @@ struct K {
             emphasis: .regular,
             alignment: .left,
             lineSpacing: 1.2)
+        static let captionBlue = TextStyle(
+            style: .extraSmall,
+            color: .primary,
+            emphasis: .regular,
+            alignment: .left,
+            lineSpacing: 1.2)
         static let buttonWhite = TextStyle(
             style: .normal,
             color: .white,
@@ -221,8 +227,8 @@ struct K {
         static let brokenImage = "broken_image"
         static let swap = "swap"
         static let untag = "untag"
-        static let tag = "untag"
-
+        static let tag = "tag"
+        static let copy = "copy"
     }
 
     struct Images {
@@ -252,6 +258,9 @@ struct K {
         static let swap = UIImage(named: ImageString.swap)!
         static let untag = UIImage(named: ImageString.untag)!
         static let tag = UIImage(named: ImageString.tag)!
+        static let copy = UIImage(named: ImageString.copy)!
+
+        static let systemMinus = UIImage(systemName: "minus")!
     }
 
     struct SocialMedia {

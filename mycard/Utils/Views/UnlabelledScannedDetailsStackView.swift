@@ -1,78 +1,76 @@
 //
-//  LabelledScannedDetailsStackView.swift
-//  mycard
+//  UnlabelledScannedDetailsStackView.swift
+//  Pods
 //
-//  Created by Joseph Maclean Arhin on 5/1/21.
+//  Created by Joseph Maclean Arhin on 5/2/21.
 //
 
 import Foundation
 import UIKit
 
-class LabelledScannedDetailsStackView: UIStackView {
+class UnlabelledScannedDetailsStackView: UIStackView {
     func configure() {
         self.axis = .vertical
-        
-        for index in 1...5 {
+        self.spacing = 16
+
+        for _ in 1...2 {
             let dataView = dataView()
             addArrangedSubview(dataView)
-            if index < 5-1 {
-                addArrangedSubview(dividerView())
-            }
+            addArrangedSubview(divider())
+
         }
+
     }
 
     func dataView() -> UIView {
 
-//        image view
-        let imageView = generateImageView(image: K.Images.phone)
-
-//        title label
-        let labelTitle = titleLabel()
-        labelTitle.text = "PHONE NUMBER"
-
-        let captionLabel = subTitleLabel()
-        captionLabel.text = "Primary"
-        captionLabel.textColor = K.Colors.Green
-
-//        details label
         let detailLabel = detailsLabel()
-        detailLabel.text = "0203940292"
+        detailLabel.text = "Mr. John Agyekum"
 
         let verticalSubView = verticalStackView()
-        verticalSubView.addArrangedSubview(labelTitle)
         verticalSubView.addArrangedSubview(detailLabel)
-        verticalSubView.addArrangedSubview(captionLabel)
 
         let actionView = UIView()
-        actionView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        let copyRemoveActionView = horizontalStackView()
+//        actionView.distribution = .equalSpacing
 
-        let untagButton = generateButton(image: K.Images.untag)
-        let editButton = generateButton(image: K.Images.edit)
-        let changeButton = generateButton(image: K.Images.swap)
+        let addLabelButton = UIButton()
+        addLabelButton.translatesAutoresizingMaskIntoConstraints = false
+        addLabelButton.setImage(K.Images.tag, for: .normal)
+        addLabelButton.tintColor = K.Colors.Blue
+        addLabelButton.titleLabel?.lineBreakMode = .byWordWrapping
+        addLabelButton.setTitle("Add label", for: .normal)
+        addLabelButton.setTitle(with: K.TextStyles.captionBlue, for: .normal)
 
-        let horizontalSubView = horizontalStackView()
-        horizontalSubView.distribution = .fillProportionally
-        horizontalSubView.addArrangedSubview(imageView)
-        horizontalSubView.alignment = .leading
-        horizontalSubView.addArrangedSubview(verticalSubView)
+        actionView.addSubview(addLabelButton)
+        actionView.addSubview(copyRemoveActionView)
+        NSLayoutConstraint.activate([
+            actionView.heightAnchor.constraint(equalToConstant: 40),
+            addLabelButton.leadingAnchor.constraint(equalTo: actionView.leadingAnchor, constant: 0),
+            addLabelButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor),
+            addLabelButton.heightAnchor.constraint(equalToConstant: 40),
+            copyRemoveActionView.heightAnchor.constraint(equalToConstant: 40),
+            copyRemoveActionView.trailingAnchor.constraint(equalTo: actionView.trailingAnchor, constant: 0),
+            copyRemoveActionView.centerYAnchor.constraint(equalTo: actionView.centerYAnchor)
+        ])
 
-        let actionStackView = horizontalStackView()
-        actionStackView.spacing = 24
-        actionView.addSubview(actionStackView)
+        let removeButton = generateButton(image: K.Images.minus)
+        let copyButton = generateButton(image: K.Images.copy)
 
         NSLayoutConstraint.activate([
-            actionStackView.topAnchor.constraint(equalTo: actionView.topAnchor, constant: 0),
-            actionStackView.bottomAnchor.constraint(equalTo: actionView.bottomAnchor, constant: 0),
-            actionStackView.trailingAnchor.constraint(equalTo: actionView.trailingAnchor, constant: 0)
-        ])
-        actionStackView.addArrangedSubview(changeButton)
-        actionStackView.addArrangedSubview(editButton)
-        actionStackView.addArrangedSubview(untagButton)
+            removeButton.heightAnchor.constraint(equalToConstant: 40),
+            removeButton.widthAnchor.constraint(equalToConstant: 40),
+            copyButton.heightAnchor.constraint(equalToConstant: 40),
+            copyButton.widthAnchor.constraint(equalToConstant: 40)
 
-        let stackView = verticalStackView()
-        stackView.addArrangedSubview(horizontalSubView)
-        stackView.addArrangedSubview(actionView)
-        return stackView
+        ])
+
+        copyRemoveActionView.addArrangedSubview(copyButton)
+        copyRemoveActionView.addArrangedSubview(removeButton)
+
+        verticalSubView.addArrangedSubview(actionView)
+
+        return verticalSubView
     }
 
     func dividerView() -> UIView {
@@ -94,6 +92,14 @@ class LabelledScannedDetailsStackView: UIStackView {
         return dividerContainer
     }
 
+    func divider() -> UIView {
+        let divider = UIView()
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        divider.backgroundColor = K.Colors.Black5
+
+        return divider
+    }
     func titleLabel() -> UILabel {
         let label = UILabel()
         label.style(with: K.TextStyles.captionBlack60)
@@ -112,7 +118,7 @@ class LabelledScannedDetailsStackView: UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 16
+        stackView.spacing = 20
         return stackView
     }
 
@@ -131,9 +137,7 @@ class LabelledScannedDetailsStackView: UIStackView {
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 4
-
         return stackView
-
     }
 
     func subTitleLabel() -> UILabel {

@@ -9,11 +9,14 @@ import UIKit
 
 class ReviewScannedCardDetailsViewController: UIViewController {
 
+// MARK: - Outlets
     @IBOutlet weak var labelledDetailsStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var unlabelledDetailsStackViewHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var labelledDetailsStackView: LabelledScannedDetailsStackView!
+    @IBOutlet weak var unlabelledDetailStackView: UnlabelledScannedDetailsStackView!
 
-//    @IBOutlet weak var navBar: UINavigationBar!
+// MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +27,18 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Review scanned details"
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.hidesBarsOnSwipe = true
         labelledDetailsStackViewHeightConstraint.isActive = false
+        unlabelledDetailsStackViewHeightConstraint.isActive = false
         labelledDetailsStackView.configure()
+        unlabelledDetailStackView.configure()
+        
+    }
+
+// MARK: - Actions
+
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
