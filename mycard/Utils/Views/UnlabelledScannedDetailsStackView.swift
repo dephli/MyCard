@@ -8,13 +8,24 @@
 import Foundation
 import UIKit
 
+protocol UnlabelledScannedDetailsDelegate: AnyObject {
+    func addLabel(id: Int)
+    func duplicate(id: Int)
+    func remove(id: Int)
+}
+
 class UnlabelledScannedDetailsStackView: UIStackView {
-    func configure() {
+
+    weak var delegate: UnlabelledScannedDetailsDelegate!
+
+    func configure(details: [String]) {
+        self.removeAllArrangedSubviews()
+
         self.axis = .vertical
         self.spacing = 16
 
-        for _ in 1...2 {
-            let dataView = dataView()
+        for (index, detail) in details.enumerated() {
+            let dataView = dataView(detail, index: index)
             addArrangedSubview(dataView)
             addArrangedSubview(divider())
 
@@ -22,10 +33,10 @@ class UnlabelledScannedDetailsStackView: UIStackView {
 
     }
 
-    func dataView() -> UIView {
+    func dataView(_ detail: String, index: Int) -> UIView {
 
         let detailLabel = detailsLabel()
-        detailLabel.text = "Mr. John Agyekum"
+        detailLabel.text = detail
 
         let verticalSubView = verticalStackView()
         verticalSubView.addArrangedSubview(detailLabel)
@@ -56,6 +67,14 @@ class UnlabelledScannedDetailsStackView: UIStackView {
 
         let removeButton = generateButton(image: K.Images.minus)
         let copyButton = generateButton(image: K.Images.copy)
+
+        addLabelButton.tag = index
+        removeButton.tag = index
+        copyButton.tag = index
+
+        addLabelButton.addTarget(self, action: #selector(addLabelButtonPressed(_:)), for: .touchUpInside)
+        removeButton.addTarget(self, action: #selector(removeButtonPressed(_:)), for: .touchUpInside)
+        copyButton.addTarget(self, action: #selector(copyButtonPressed(_:)), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             removeButton.heightAnchor.constraint(equalToConstant: 40),
@@ -164,6 +183,18 @@ class UnlabelledScannedDetailsStackView: UIStackView {
         imageView.centerXAnchor.constraint(equalTo: imageContainerView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor).isActive = true
         return imageContainerView
+    }
+
+    @objc func addLabelButtonPressed(_ sender: UILabel) {
+        delegate.addLabel(id: sender.tag)
+    }
+
+    @objc func copyButtonPressed(_ sender: UILabel) {
+        delegate.duplicate(id: sender.tag)
+    }
+
+    @objc func removeButtonPressed(_ sender: UILabel) {
+        delegate.remove(id: sender.tag)
     }
 
 }

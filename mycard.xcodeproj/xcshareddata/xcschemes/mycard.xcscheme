@@ -48,6 +48,16 @@
                ReferencedContainer = "container:mycard.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8233144D2646A3A7005E9C83"
+               BuildableName = "myCrd.xctest"
+               BlueprintName = "myCrd"
+               ReferencedContainer = "container:mycard.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

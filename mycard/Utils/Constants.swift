@@ -194,6 +194,7 @@ struct K {
         static let profileToSettings = "ProfileToSettings"
         static let cardsToCamera = "CardsToCamera"
         static let cameraToScannedCardDetails = "CameraToScannedCardDetails"
+        static let reviewScannedDetailsToAssignLabel = "ReviewScannedDetailsToAssignLabel"
     }
 
     struct Notifications {
@@ -229,6 +230,9 @@ struct K {
         static let untag = "untag"
         static let tag = "tag"
         static let copy = "copy"
+        static let suitcase = "suitcase"
+        static let web = "web"
+
     }
 
     struct Images {
@@ -259,6 +263,8 @@ struct K {
         static let untag = UIImage(named: ImageString.untag)!
         static let tag = UIImage(named: ImageString.tag)!
         static let copy = UIImage(named: ImageString.copy)!
+        static let suitcase = UIImage(named: ImageString.suitcase)!
+        static let web = UIImage(named: ImageString.web)!
 
         static let systemMinus = UIImage(systemName: "minus")!
     }

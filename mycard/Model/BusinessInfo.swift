@@ -12,4 +12,5 @@ struct BusinessInfo: Codable {
     var companyName: String?
     var companyAddress: String?
     var companyLogo: String?
+    var website: String?
 }

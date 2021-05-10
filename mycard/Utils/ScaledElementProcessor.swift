@@ -21,19 +21,25 @@ class ScaledElementProcessor {
         textRecognizer = TextRecognizer.textRecognizer()
     }
 
-    func process(in imageView: UIImageView, completionHandler: @escaping(_ text: String, _ scaledElements: [ScaledElement]) -> Void) {
+    func process(in imageView: UIImageView, completionHandler: @escaping(_ scannedTexts: [String], _ text: String, _ scaledElements: [ScaledElement]) -> Void) {
         guard let image = imageView.image else { return }
         let visionImage = VisionImage(image: image)
         visionImage.orientation = image.imageOrientation
         textRecognizer.process(visionImage) { (result, error) in
             guard error == nil, let result = result, !result.text.isEmpty else {
-                completionHandler("", [])
+                completionHandler([""], "", [])
                 return
             }
 
             var scaledElements: [ScaledElement] = []
+            var resultText: [String] = []
+            var text = result.text
 
             for block in result.blocks {
+                let texts = block.text.split(separator: "\n").map(String.init)
+                texts.forEach { text in
+                    resultText.append(text)
+                }
                 for line in block.lines {
                     for element in line.elements {
                         let frame = self.createScaledFrame(
@@ -48,7 +54,7 @@ class ScaledElementProcessor {
                 }
             }
 
-            completionHandler(result.text, scaledElements)
+            completionHandler(resultText, text, scaledElements)
         }
     }
 

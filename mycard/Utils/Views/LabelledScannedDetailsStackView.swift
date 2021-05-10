@@ -8,40 +8,204 @@
 import Foundation
 import UIKit
 
+protocol LabelledScannedDetailsDelegate: AnyObject {
+    func untag(id: Int)
+    func edit(id: Int)
+    func swap(id: Int)
+}
+
 class LabelledScannedDetailsStackView: UIStackView {
-    func configure() {
+
+    let colorCodes = [
+        "Mobile": K.Colors.Blue,
+        "Home": K.Colors.Yellow,
+        "Work": K.Colors.Green,
+        "Other": K.Colors.Green,
+        "Personal": K.Colors.Blue
+    ]
+
+    weak var delegate: LabelledScannedDetailsDelegate!
+
+    func configure(_ contact: Contact) {
+        self.removeAllArrangedSubviews()
         self.axis = .vertical
-        
-        for index in 1...5 {
-            let dataView = dataView()
-            addArrangedSubview(dataView)
-            if index < 5-1 {
+
+        var viewArray: [UIView] = []
+        if let name = contact.name.fullName {
+            let nameView = nameView(name)
+            viewArray.append(nameView)
+        }
+
+        if contact.phoneNumbers?.isEmpty == false {
+            let phoneNumberView = phoneNumbersView(contact.phoneNumbers)
+            viewArray.append(phoneNumberView)
+        }
+
+        if contact.emailAddresses?.isEmpty == false {
+            let emailView = emailAddressesView(contact.emailAddresses)
+            viewArray.append(emailView)
+        }
+
+        if let companyName = contact.businessInfo?.companyName {
+            let companyView = companyNameView(companyName)
+            viewArray.append(companyView)
+        }
+
+        if let role = contact.businessInfo?.role {
+            let roleView = companyRoleView(role)
+            viewArray.append(roleView)
+        }
+
+        if let address = contact.businessInfo?.companyAddress {
+            let addressView = companyAddressView(address)
+            viewArray.append(addressView)
+        }
+
+        if let website = contact.businessInfo?.website {
+            let websiteView = websiteView(website)
+            viewArray.append(websiteView)
+        }
+
+        for (index, view) in viewArray.enumerated() {
+            if index != 0 {
                 addArrangedSubview(dividerView())
             }
+            addArrangedSubview(view)
         }
+
     }
 
-    func dataView() -> UIView {
+    func nameView(_ name: String?) -> UIView {
+        let nameView = singleValueStackView(icon: K.Images.user, label: "Full name", detail: name!)
+        return nameView
+    }
+
+    func phoneNumbersView(_ phoneNumbers: [PhoneNumber]?) -> UIView {
+        let phoneNumberView = multiValueStackView(
+            icon: K.Images.phone,
+            label: "Phone number",
+            data: phoneNumbers!
+        )
+        return phoneNumberView
+        
+    }
+
+    func emailAddressesView(_ emailAddresses: [Email]?) -> UIView {
+        let emailView = multiValueStackView(
+            icon: K.Images.phone,
+            label: "Email Addresses",
+            data: emailAddresses!
+        )
+        return emailView
+    }
+
+    func companyNameView(_ companyName: String) -> UIView {
+        let companyView = singleValueStackView(icon: K.Images.office, label: "Company Name", detail: companyName)
+        return companyView
+    }
+
+    func companyRoleView(_ companyRole: String) -> UIView {
+            let roleView = singleValueStackView(icon: K.Images.suitcase, label: "Role", detail: companyRole)
+        return roleView
+    }
+
+    func companyAddressView(_ location: String) -> UIView {
+            let view = singleValueStackView(icon: K.Images.location, label: "Company Location", detail: location)
+        return view
+    }
+
+    func websiteView(_ website: String) -> UIView {
+            let view = singleValueStackView(icon: K.Images.web, label: "Website", detail: website)
+        return view
+    }
+
+    func singleValueStackView(
+        icon: UIImage,
+        label: String,
+        detail: String
+    ) -> UIView {
 
 //        image view
-        let imageView = generateImageView(image: K.Images.phone)
+        let imageView = generateImageView(image: icon)
 
-//        title label
+        let horizontalSubView = horizontalStackView()
+        horizontalSubView.distribution = .fillProportionally
+        horizontalSubView.addArrangedSubview(imageView)
+        horizontalSubView.alignment = .leading
+        let detailView = detailView(detail: detail)
         let labelTitle = titleLabel()
-        labelTitle.text = "PHONE NUMBER"
+        labelTitle.text = label
+        detailView.insertArrangedSubview(labelTitle, at: 0)
+        horizontalSubView.addArrangedSubview(detailView)
 
-        let captionLabel = subTitleLabel()
-        captionLabel.text = "Primary"
-        captionLabel.textColor = K.Colors.Green
+        let stackView = verticalStackView()
+        stackView.addArrangedSubview(horizontalSubView)
+        return stackView
+    }
 
-//        details label
-        let detailLabel = detailsLabel()
-        detailLabel.text = "0203940292"
+    func multiValueStackView(
+        icon: UIImage,
+        label: String,
+        data: [Any]
+    ) -> UIView {
+//        image view
+        let imageView = generateImageView(image: icon)
+
+        let horizontalSubView = horizontalStackView()
+        horizontalSubView.distribution = .fillProportionally
+        horizontalSubView.addArrangedSubview(imageView)
+        horizontalSubView.alignment = .leading
+
+        let labelTitle = titleLabel()
+        labelTitle.text = label
 
         let verticalSubView = verticalStackView()
         verticalSubView.addArrangedSubview(labelTitle)
+
+        for (index, item) in data.enumerated() {
+
+            if index != 0 {
+                verticalSubView.addArrangedSubview(dividerView(fullWidth: true))
+            }
+            if let phoneNumber = item as? PhoneNumber {
+                let detailView = detailView(
+                    detail: phoneNumber.number!,
+                    caption: phoneNumber.type.rawValue,
+                    captionColor: colorCodes[phoneNumber.type.rawValue]!)
+                verticalSubView.addArrangedSubview(detailView)
+            }
+            if let email = item as? Email {
+                let detailView = detailView(
+                    detail: email.address,
+                    caption: email.type.rawValue,
+                    captionColor: colorCodes[email.type.rawValue]!)
+                verticalSubView.addArrangedSubview(detailView)
+            }
+        }
+
+        horizontalSubView.addArrangedSubview(verticalSubView)
+
+        let stackView = verticalStackView()
+        stackView.addArrangedSubview(horizontalSubView)
+        return stackView
+    }
+
+    func detailView(detail: String, caption: String? = nil, captionColor: UIColor = K.Colors.Blue) -> UIStackView {
+
+//        details label
+        let detailLabel = detailsLabel()
+        detailLabel.text = detail
+
+        let verticalSubView = verticalStackView()
         verticalSubView.addArrangedSubview(detailLabel)
-        verticalSubView.addArrangedSubview(captionLabel)
+
+        if let caption = caption {
+            let captionLabel = captionLabel()
+            captionLabel.text = caption
+            captionLabel.textColor = captionColor
+
+            verticalSubView.addArrangedSubview(captionLabel)
+        }
 
         let actionView = UIView()
         actionView.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -50,11 +214,12 @@ class LabelledScannedDetailsStackView: UIStackView {
         let editButton = generateButton(image: K.Images.edit)
         let changeButton = generateButton(image: K.Images.swap)
 
-        let horizontalSubView = horizontalStackView()
-        horizontalSubView.distribution = .fillProportionally
-        horizontalSubView.addArrangedSubview(imageView)
-        horizontalSubView.alignment = .leading
-        horizontalSubView.addArrangedSubview(verticalSubView)
+        untagButton.tag = 1
+        editButton.tag = 2
+        changeButton.tag = 3
+        untagButton.addTarget(self, action: #selector(untagButtonPressed(_:)), for: .touchUpInside)
+        editButton.addTarget(self, action: #selector(editButtonPressed(_:)), for: .touchUpInside)
+        changeButton.addTarget(self, action: #selector(changeButtonPressed(_:)), for: .touchUpInside)
 
         let actionStackView = horizontalStackView()
         actionStackView.spacing = 24
@@ -68,14 +233,11 @@ class LabelledScannedDetailsStackView: UIStackView {
         actionStackView.addArrangedSubview(changeButton)
         actionStackView.addArrangedSubview(editButton)
         actionStackView.addArrangedSubview(untagButton)
-
-        let stackView = verticalStackView()
-        stackView.addArrangedSubview(horizontalSubView)
-        stackView.addArrangedSubview(actionView)
-        return stackView
+        verticalSubView.addArrangedSubview(actionView)
+        return verticalSubView
     }
 
-    func dividerView() -> UIView {
+    func dividerView(fullWidth: Bool = false) -> UIView {
         let dividerContainer = UIView()
         dividerContainer.translatesAutoresizingMaskIntoConstraints = false
         dividerContainer.heightAnchor.constraint(equalToConstant: 32).isActive = true
@@ -87,7 +249,7 @@ class LabelledScannedDetailsStackView: UIStackView {
             divider.heightAnchor.constraint(equalToConstant: 1),
             divider.trailingAnchor.constraint(equalTo: dividerContainer.trailingAnchor, constant: 0),
             divider.centerYAnchor.constraint(equalTo: dividerContainer.centerYAnchor),
-            divider.leadingAnchor.constraint(equalTo: dividerContainer.leadingAnchor, constant: 56)
+            divider.leadingAnchor.constraint(equalTo: dividerContainer.leadingAnchor, constant: !fullWidth ? 56 : 0)
         ])
 
         divider.backgroundColor = K.Colors.Black5
@@ -136,7 +298,7 @@ class LabelledScannedDetailsStackView: UIStackView {
 
     }
 
-    func subTitleLabel() -> UILabel {
+    func captionLabel() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.style(with: K.TextStyles.captionBlack60)
@@ -160,6 +322,19 @@ class LabelledScannedDetailsStackView: UIStackView {
         imageView.centerXAnchor.constraint(equalTo: imageContainerView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor).isActive = true
         return imageContainerView
+    }
+
+    @objc func untagButtonPressed(_ sender: UIButton) {
+        delegate.untag(id: sender.tag)
+    }
+
+    @objc func editButtonPressed(_ sender: UIButton) {
+        delegate.edit(id: sender.tag)
+
+    }
+
+    @objc func changeButtonPressed(_ sender: UIButton) {
+        delegate.swap(id: sender.tag)
     }
 
 }

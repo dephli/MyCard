@@ -276,8 +276,8 @@ extension PersonalInfoViewController {
         customNavBar.setup(backIndicatorImage: "xmark")
         personalInfoLabel.style(with: K.TextStyles.heading1)
         pageCountLabel.style(with: K.TextStyles.subTitle)
-        emailLabel.style(with: K.TextStyles.subTitle)
-        socialMediaLabel.style(with: K.TextStyles.subTitle)
+        emailLabel.style(with: K.TextStyles.captionBlack60)
+        socialMediaLabel.style(with: K.TextStyles.captionBlack60)
 
         nameTitleLabel.style(with: K.TextStyles.captionBlack60)
         phoneTitleLabel.style(with: K.TextStyles.captionBlack60)

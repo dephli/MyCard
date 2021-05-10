@@ -129,7 +129,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         let innerStackView = verticalStackView()
 
         let label = titleLabel()
-        label.text = "SOCIAL MEDIA"
+        label.text = "Social media"
         let socialMediaListStackView = SocialMediaListStackView()
         socialMediaListStackView.axis = .vertical
         socialMediaListStackView.delegate = self
@@ -151,7 +151,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         if ((contact?.name.fullName) != nil) && contact?.name.fullName != "" {
             let nameView = singleValueStackView(
                 icon: K.Images.user,
-                label: "NAME",
+                label: "Name",
                 text: contact?.name.fullName,
                 stackViewType: .other)
             self.addArrangedSubview(nameView)
@@ -177,7 +177,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             && contact?.phoneNumbers?[0].number != "" {
             let phoneNumberView = multiValueStackView(
                 icon: K.Images.phone,
-                label: "PHONE",
+                label: "Phone",
                 data: contact!.phoneNumbers ?? [])
 
             self.addArrangedSubview(phoneNumberView)
@@ -207,7 +207,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             //        EMAIL ADDRESS
             let emailAddressView = multiValueStackView(
                 icon: K.Images.mail,
-                label: "EMAIL",
+                label: "Email",
                 data: contact!.emailAddresses ?? [])
 
             self.addArrangedSubview(emailAddressView)
@@ -240,7 +240,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             //        WORK INFO
             let companyView = singleValueStackView(
                 icon: K.Images.office,
-                label: "WORK INFO",
+                label: "Work info",
                 text: contact?.businessInfo?.companyName,
                 stackViewType: .workInfo,
                 otherText: contact?.businessInfo?.role)
@@ -264,8 +264,31 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             //        WORK LOCATION
             let workInfoView = singleValueStackView(
                 icon: K.Images.location,
-                label: "WORK LOCATION",
+                label: "Work location",
                 text: contact?.businessInfo?.companyAddress,
+                stackViewType: .other)
+            self.addArrangedSubview(workInfoView)
+
+            workInfoView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+            workInfoView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+
+            //        DIVIDER
+            let divider5 = UIView()
+            divider5.backgroundColor = K.Colors.Black5
+            self.addArrangedSubview(divider5)
+            divider5.heightAnchor.constraint(equalToConstant: 1).isActive = true
+            divider5.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 56).isActive = true
+            divider5.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        }
+    }
+    
+    fileprivate func websiteView(_ contact: Contact?) {
+        if contact?.businessInfo?.website?.isEmpty == false {
+            //        WORK LOCATION
+            let workInfoView = singleValueStackView(
+                icon: K.Images.location,
+                label: "Website",
+                text: contact?.businessInfo?.website,
                 stackViewType: .other)
             self.addArrangedSubview(workInfoView)
 
@@ -316,6 +339,8 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         workLocationView(contact)
 
         socialMediaView(contact)
+        
+        websiteView(contact)
     }
 
 }

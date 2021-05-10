@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ReviewScannedCardDetailsViewController: UIViewController {
 
@@ -15,10 +17,17 @@ class ReviewScannedCardDetailsViewController: UIViewController {
 
     @IBOutlet weak var labelledDetailsStackView: LabelledScannedDetailsStackView!
     @IBOutlet weak var unlabelledDetailStackView: UnlabelledScannedDetailsStackView!
+// MARK: - Variables
+
+    var viewModel: ReviewScannedCardDetailsViewModel!
+    var disposeBag = DisposeBag()
+    var currentUnlabelledIndex: Int?
 
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelledDetailsStackView.delegate = self
+        unlabelledDetailStackView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -30,9 +39,14 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         navigationController?.hidesBarsOnSwipe = true
         labelledDetailsStackViewHeightConstraint.isActive = false
         unlabelledDetailsStackViewHeightConstraint.isActive = false
-        labelledDetailsStackView.configure()
-        unlabelledDetailStackView.configure()
-        
+        viewModel.labelledScannedDetails.subscribe { [unowned self] contact in
+            labelledDetailsStackView.configure(contact)
+        }.disposed(by: disposeBag)
+
+        viewModel.unlabelledScannedDetails.subscribe { [unowned self] details in
+            unlabelledDetailStackView.configure(details: details)
+        }.disposed(by: disposeBag)
+
     }
 
 // MARK: - Actions
@@ -40,14 +54,49 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
+
+    @IBAction func createCardPressed(_ sender: Any) {
+
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? AssignLabelToScannedDetailsViewController {
+            destination.viewModel = viewModel
+        }
     }
-    */
+}
+
+extension ReviewScannedCardDetailsViewController: LabelledScannedDetailsDelegate {
+    func untag(id: Int) {
+
+    }
+
+    func edit(id: Int) {
+        print(id)
+    }
+
+    func swap(id: Int) {
+        print(id)
+    }
+
+}
+
+extension ReviewScannedCardDetailsViewController: UnlabelledScannedDetailsDelegate {
+    func addLabel(id: Int) {
+        viewModel.currentUnlabelledDetailIndex = id
+        performSegue(withIdentifier: K.Segues.reviewScannedDetailsToAssignLabel, sender: self)
+    }
+
+    func duplicate(id: Int) {
+        viewModel.duplicateDetail(at: id)
+
+    }
+
+    func remove(id: Int) {
+        viewModel.deleteUnlabelledDetail(at: id)
+    }
 
 }

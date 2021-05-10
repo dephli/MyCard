@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pi2-Ui-4pk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pi2-Ui-4pk">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -54,14 +54,21 @@
                                             <constraint firstAttribute="height" constant="1" id="Lm4-iW-mtu"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-3N-tIx">
+                                        <rect key="frame" x="16" y="363" width="382" height="1"/>
+                                        <color key="backgroundColor" name="MC Black 5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="2Ng-gb-RQI"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work or Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqR-ss-awA">
                                         <rect key="frame" x="16" y="31" width="382" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="MC Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORK LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAb-Sn-vcS">
-                                        <rect key="frame" x="16" y="259" width="136" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAb-Sn-vcS">
+                                        <rect key="frame" x="16" y="259" width="105" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="MC Black"/>
                                         <nil key="highlightedColor"/>
@@ -136,19 +143,47 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORK INFO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4Q-0X-HgY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4Q-0X-HgY">
                                         <rect key="frame" x="16" y="71" width="382" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="MC Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jca-m9-i4U">
+                                        <rect key="frame" x="16" y="380" width="382" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MC Black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xm8-CW-bhG">
+                                        <rect key="frame" x="16" y="417" width="382" height="48"/>
+                                        <color key="backgroundColor" name="MC Black 5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="EqK-eY-oXB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" name="MC White"/>
                                 <constraints>
                                     <constraint firstItem="55L-9a-QWi" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="0Wq-qh-Xsd"/>
+                                    <constraint firstItem="wIN-3N-tIx" firstAttribute="top" secondItem="GXe-2Q-Ekx" secondAttribute="bottom" constant="16" id="30t-7c-8PC"/>
                                     <constraint firstItem="pCv-1o-U1m" firstAttribute="top" secondItem="c6e-wv-FAZ" secondAttribute="top" constant="2" id="4kX-WK-IGf"/>
                                     <constraint firstAttribute="trailing" secondItem="90e-Os-jda" secondAttribute="trailing" constant="16" id="8Ot-i6-Jgp"/>
+                                    <constraint firstItem="Xm8-CW-bhG" firstAttribute="top" secondItem="jca-m9-i4U" secondAttribute="bottom" constant="16" id="8fo-G1-w9x"/>
+                                    <constraint firstItem="wIN-3N-tIx" firstAttribute="trailing" secondItem="GXe-2Q-Ekx" secondAttribute="trailing" id="8jw-t4-PT8"/>
+                                    <constraint firstItem="jca-m9-i4U" firstAttribute="trailing" secondItem="wIN-3N-tIx" secondAttribute="trailing" id="AWf-fq-0w9"/>
                                     <constraint firstItem="KQp-PH-Gr8" firstAttribute="top" secondItem="55L-9a-QWi" secondAttribute="bottom" constant="16" id="BmJ-IL-a0i"/>
+                                    <constraint firstItem="jca-m9-i4U" firstAttribute="leading" secondItem="wIN-3N-tIx" secondAttribute="leading" id="DqF-Jy-vOx"/>
                                     <constraint firstItem="U4Q-0X-HgY" firstAttribute="top" secondItem="EqR-ss-awA" secondAttribute="bottom" constant="19" id="HVK-ma-CIo"/>
                                     <constraint firstItem="90e-Os-jda" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="LNi-oP-bkN"/>
                                     <constraint firstItem="pCv-1o-U1m" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="PWj-CO-E66"/>
@@ -156,13 +191,17 @@
                                     <constraint firstItem="GXe-2Q-Ekx" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="Qcr-eu-BrV"/>
                                     <constraint firstItem="U4Q-0X-HgY" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="TUp-jh-2PW"/>
                                     <constraint firstItem="GXe-2Q-Ekx" firstAttribute="top" secondItem="LAb-Sn-vcS" secondAttribute="bottom" constant="19" id="UlB-1U-G2Q"/>
+                                    <constraint firstItem="jca-m9-i4U" firstAttribute="top" secondItem="wIN-3N-tIx" secondAttribute="bottom" constant="16" id="Vrt-MQ-4qo"/>
                                     <constraint firstItem="55L-9a-QWi" firstAttribute="top" secondItem="iGy-Yv-LS4" secondAttribute="bottom" constant="16" id="Xu7-Kj-6qs"/>
                                     <constraint firstItem="LAb-Sn-vcS" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="Zvf-07-jZ2"/>
+                                    <constraint firstItem="Xm8-CW-bhG" firstAttribute="leading" secondItem="jca-m9-i4U" secondAttribute="leading" id="ZxC-9j-Yno"/>
+                                    <constraint firstItem="wIN-3N-tIx" firstAttribute="leading" secondItem="GXe-2Q-Ekx" secondAttribute="leading" id="a7r-RO-tJA"/>
                                     <constraint firstAttribute="trailing" secondItem="iGy-Yv-LS4" secondAttribute="trailing" constant="16" id="cb3-hY-P3Z"/>
                                     <constraint firstAttribute="trailing" secondItem="GXe-2Q-Ekx" secondAttribute="trailing" constant="16" id="cdQ-95-Gzr"/>
                                     <constraint firstAttribute="trailing" secondItem="55L-9a-QWi" secondAttribute="trailing" constant="16" id="eRq-Ji-eYa"/>
                                     <constraint firstAttribute="trailing" secondItem="U4Q-0X-HgY" secondAttribute="trailing" constant="16" id="ehV-JL-rWH"/>
                                     <constraint firstItem="EqR-ss-awA" firstAttribute="top" secondItem="pCv-1o-U1m" secondAttribute="bottom" constant="8" symbolic="YES" id="h1d-hF-Ngf"/>
+                                    <constraint firstItem="Xm8-CW-bhG" firstAttribute="trailing" secondItem="jca-m9-i4U" secondAttribute="trailing" id="hQn-e3-bvH"/>
                                     <constraint firstItem="EqR-ss-awA" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="kf0-8y-YZl"/>
                                     <constraint firstAttribute="bottom" secondItem="90e-Os-jda" secondAttribute="bottom" constant="16" id="rVe-ka-PyY"/>
                                     <constraint firstItem="iGy-Yv-LS4" firstAttribute="leading" secondItem="c6e-wv-FAZ" secondAttribute="leading" constant="16" id="s1U-Bj-wgG"/>
@@ -192,6 +231,8 @@
                         <outlet property="navigationBar" destination="GCb-Yg-gu6" id="tbs-wm-ej8"/>
                         <outlet property="pageCountLabel" destination="pCv-1o-U1m" id="IrD-mS-1df"/>
                         <outlet property="titleLabel" destination="EqR-ss-awA" id="4ei-PF-dYp"/>
+                        <outlet property="websiteLabel" destination="jca-m9-i4U" id="WPK-1X-WQM"/>
+                        <outlet property="websiteTextField" destination="Xm8-CW-bhG" id="5ec-WQ-vLA"/>
                         <outlet property="workInfoSectionLabel" destination="U4Q-0X-HgY" id="0M9-lU-Pzy"/>
                         <outlet property="workLocationLabel" destination="LAb-Sn-vcS" id="QUC-mk-8IP"/>
                         <outlet property="workLocationTextField" destination="GXe-2Q-Ekx" id="mH2-6D-25X"/>

@@ -112,7 +112,8 @@ extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
         else {return}
 
         let image = UIImage(data: imageData)
-        cropImage(image)
+        let fixedImage = image?.fixOrientation()
+        cropImage(fixedImage)
     }
 }
 
@@ -125,7 +126,8 @@ extension CaptureImageViewController: UIImagePickerControllerDelegate &
             fatalError("Could not get original image")
         }
         imagePicker.dismiss(animated: true, completion: nil)
-        cropImage(image)
+        let fixedImage = image.fixOrientation()
+        cropImage(fixedImage)
     }
 }
 
