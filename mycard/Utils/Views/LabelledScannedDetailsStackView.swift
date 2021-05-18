@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 protocol LabelledScannedDetailsDelegate: AnyObject {
-    func untag(id: Int)
-    func edit(id: Int)
-    func swap(id: Int)
+    func untag(detail: (String, Int))
+    func edit(detail: (String, Int))
+    func swap(detail: (String, Int))
 }
 
 class LabelledScannedDetailsStackView: UIStackView {
@@ -87,7 +87,6 @@ class LabelledScannedDetailsStackView: UIStackView {
             data: phoneNumbers!
         )
         return phoneNumberView
-        
     }
 
     func emailAddressesView(_ emailAddresses: [Email]?) -> UIView {
@@ -132,7 +131,7 @@ class LabelledScannedDetailsStackView: UIStackView {
         horizontalSubView.distribution = .fillProportionally
         horizontalSubView.addArrangedSubview(imageView)
         horizontalSubView.alignment = .leading
-        let detailView = detailView(detail: detail)
+        let detailView = detailView(detail: detail, extraArg: label)
         let labelTitle = titleLabel()
         labelTitle.text = label
         detailView.insertArrangedSubview(labelTitle, at: 0)
@@ -171,14 +170,20 @@ class LabelledScannedDetailsStackView: UIStackView {
                 let detailView = detailView(
                     detail: phoneNumber.number!,
                     caption: phoneNumber.type.rawValue,
-                    captionColor: colorCodes[phoneNumber.type.rawValue]!)
+                    captionColor: colorCodes[phoneNumber.type.rawValue]!,
+                    extraArg: label,
+                    index: index
+                )
                 verticalSubView.addArrangedSubview(detailView)
             }
             if let email = item as? Email {
                 let detailView = detailView(
                     detail: email.address,
                     caption: email.type.rawValue,
-                    captionColor: colorCodes[email.type.rawValue]!)
+                    captionColor: colorCodes[email.type.rawValue]!,
+                    extraArg: label,
+                    index: index
+                )
                 verticalSubView.addArrangedSubview(detailView)
             }
         }
@@ -190,7 +195,13 @@ class LabelledScannedDetailsStackView: UIStackView {
         return stackView
     }
 
-    func detailView(detail: String, caption: String? = nil, captionColor: UIColor = K.Colors.Blue) -> UIStackView {
+    func detailView(
+        detail: String,
+        caption: String? = nil,
+        captionColor: UIColor = K.Colors.Blue,
+        extraArg: String = "",
+        index: Int = 0
+    ) -> UIStackView {
 
 //        details label
         let detailLabel = detailsLabel()
@@ -217,6 +228,11 @@ class LabelledScannedDetailsStackView: UIStackView {
         untagButton.tag = 1
         editButton.tag = 2
         changeButton.tag = 3
+
+        untagButton.labelledArgs = (name: extraArg, index: index)
+        editButton.labelledArgs = (name: extraArg, index: index)
+        changeButton.labelledArgs = (name: extraArg, index: index)
+
         untagButton.addTarget(self, action: #selector(untagButtonPressed(_:)), for: .touchUpInside)
         editButton.addTarget(self, action: #selector(editButtonPressed(_:)), for: .touchUpInside)
         changeButton.addTarget(self, action: #selector(changeButtonPressed(_:)), for: .touchUpInside)
@@ -278,8 +294,8 @@ class LabelledScannedDetailsStackView: UIStackView {
         return stackView
     }
 
-    func generateButton(image: UIImage) -> UIButton {
-        let button = UIButton()
+    func generateButton(image: UIImage) -> LabelledButton {
+        let button = LabelledButton()
         button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 24).isActive = true
@@ -324,17 +340,17 @@ class LabelledScannedDetailsStackView: UIStackView {
         return imageContainerView
     }
 
-    @objc func untagButtonPressed(_ sender: UIButton) {
-        delegate.untag(id: sender.tag)
+    @objc func untagButtonPressed(_ sender: LabelledButton) {
+        delegate.untag(detail: sender.labelledArgs as! (String, Int))
     }
 
-    @objc func editButtonPressed(_ sender: UIButton) {
-        delegate.edit(id: sender.tag)
+    @objc func editButtonPressed(_ sender: LabelledButton) {
+        delegate.edit(detail: sender.labelledArgs as! (String, Int))
 
     }
 
-    @objc func changeButtonPressed(_ sender: UIButton) {
-        delegate.swap(id: sender.tag)
+    @objc func changeButtonPressed(_ sender: LabelledButton) {
+        delegate.swap(detail: sender.labelledArgs as! (String, Int))
     }
 
 }

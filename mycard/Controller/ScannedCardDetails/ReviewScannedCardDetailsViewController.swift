@@ -70,16 +70,16 @@ class ReviewScannedCardDetailsViewController: UIViewController {
 }
 
 extension ReviewScannedCardDetailsViewController: LabelledScannedDetailsDelegate {
-    func untag(id: Int) {
-
+    func untag(detail: (String, Int)) {
+        viewModel.untagLabelledDetail(name: detail.0, index: detail.1)
     }
 
-    func edit(id: Int) {
-        print(id)
+    func edit(detail: (String, Int)) {
+        viewModel.editLabelledDetail(name: detail.0, index: detail.1)
     }
 
-    func swap(id: Int) {
-        print(id)
+    func swap(detail: (String, Int)) {
+        viewModel.swapLabelledDetail(name: detail.0, index: detail.1)
     }
 
 }

@@ -16,13 +16,13 @@ class WorkInfoViewController: UIViewController {
     @IBOutlet weak var workInfoSectionLabel: UILabel!
     @IBOutlet weak var workLocationLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
-    
+
     @IBOutlet weak var companyNameTextField: UITextField!
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var workLocationTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
-    
+
     enum ContinueActionType {
         case moveNext
         case movePrevious

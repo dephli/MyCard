@@ -41,7 +41,7 @@ class WorkInfoViewModel {
             businessInfo.companyAddress = newValue
         }
     }
-    
+
     var website: String? {
         get {
             return businessInfo.website

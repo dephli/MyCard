@@ -281,7 +281,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
             divider5.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         }
     }
-    
+
     fileprivate func websiteView(_ contact: Contact?) {
         if contact?.businessInfo?.website?.isEmpty == false {
             //        WORK LOCATION
@@ -339,7 +339,7 @@ class ContactDetailsStackView: UIStackView, SocialMediaStackViewDelegate {
         workLocationView(contact)
 
         socialMediaView(contact)
-        
+
         websiteView(contact)
     }
 

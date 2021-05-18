@@ -207,7 +207,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1342"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1b-nf-oJU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1327.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1276"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="draggable bar" translatesAutoresizingMaskIntoConstraints="NO" id="VdD-Nh-ojk">
                                                 <rect key="frame" x="179" y="12" width="56" height="6"/>
@@ -284,11 +284,11 @@
                                                     <constraint firstAttribute="height" constant="40" id="4HJ-tE-7bM"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5gu-qo-aZE">
-                                                <rect key="frame" x="24" y="264" width="366" height="40"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5gu-qo-aZE">
+                                                <rect key="frame" x="24" y="264" width="366" height="44.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-bk-aaq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-bk-aaq">
+                                                        <rect key="frame" x="0.0" y="2.5" width="40" height="40"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="7Ur-sW-Y7b">
                                                                 <rect key="frame" x="8" y="8" width="24" height="24"/>
@@ -309,14 +309,14 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcN-Og-bl3">
-                                                        <rect key="frame" x="56" y="10.5" width="254" height="19.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcN-Og-bl3">
+                                                        <rect key="frame" x="56" y="12.5" width="254" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yii-qa-SD6">
-                                                        <rect key="frame" x="326" y="0.0" width="40" height="40"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yii-qa-SD6">
+                                                        <rect key="frame" x="326" y="2.5" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="KCM-GY-nL9"/>
                                                             <constraint firstAttribute="height" constant="40" id="gMN-1Y-CRp"/>
@@ -326,7 +326,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="cRl-ou-mYo">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="cRl-ou-mYo">
                                                 <rect key="frame" x="80" y="304" width="310" height="200"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmz-Ew-AhU">
@@ -371,10 +371,10 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="u39-8d-GTE">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="u39-8d-GTE">
                                                 <rect key="frame" x="24" y="528" width="366" height="40"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOd-kA-Hhg">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOd-kA-Hhg">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-dZ-li3">
@@ -397,13 +397,13 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-RJ-xQv">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-RJ-xQv">
                                                         <rect key="frame" x="56" y="10.5" width="254" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAg-jT-P6C">
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAg-jT-P6C">
                                                         <rect key="frame" x="326" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="roJ-7s-72x"/>
@@ -415,30 +415,20 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="jUl-3h-IXZ">
-                                                <rect key="frame" x="80" y="568" width="254" height="200"/>
+                                                <rect key="frame" x="80" y="572.5" width="254" height="144"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yg3-EE-vyy">
                                                         <rect key="frame" x="0.0" y="0.0" width="254" height="32"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                                        <state key="normal" title="Mobile">
+                                                        <state key="normal" title="Personal">
                                                             <color key="titleColor" name="MC Black"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="emailPressed:" destination="i1T-Xh-cHJ" eventType="touchUpInside" id="OLw-t7-Vfa"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4B-cb-jCZ">
-                                                        <rect key="frame" x="0.0" y="56" width="254" height="32"/>
-                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                                        <state key="normal" title="Home">
-                                                            <color key="titleColor" name="MC Black"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="emailPressed:" destination="i1T-Xh-cHJ" eventType="touchUpInside" id="ae2-s1-GHq"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qks-wt-4Bo">
-                                                        <rect key="frame" x="0.0" y="112" width="254" height="32"/>
+                                                        <rect key="frame" x="0.0" y="56" width="254" height="32"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                         <state key="normal" title="Work">
                                                             <color key="titleColor" name="MC Black"/>
@@ -448,7 +438,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXp-ZA-2Gm">
-                                                        <rect key="frame" x="0.0" y="168" width="254" height="32"/>
+                                                        <rect key="frame" x="0.0" y="112" width="254" height="32"/>
                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                                         <state key="normal" title="Other">
                                                             <color key="titleColor" name="MC Black"/>
@@ -460,13 +450,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlL-ZU-5zb">
-                                                <rect key="frame" x="24" y="800" width="366" height="19.5"/>
+                                                <rect key="frame" x="24" y="748.5" width="366" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                 <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="thY-tV-vvp">
-                                                <rect key="frame" x="24" y="851.5" width="366" height="40"/>
+                                                <rect key="frame" x="24" y="800" width="366" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNK-xB-Ezg">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -507,7 +497,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="R9M-Z3-ifi">
-                                                <rect key="frame" x="24" y="915.5" width="366" height="40"/>
+                                                <rect key="frame" x="24" y="864" width="366" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j73-qF-aG7">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -548,7 +538,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EcR-GP-FpS">
-                                                <rect key="frame" x="24" y="979.5" width="366" height="40"/>
+                                                <rect key="frame" x="24" y="928" width="366" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6w-YE-AwI">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -589,7 +579,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GaZ-6I-LgR">
-                                                <rect key="frame" x="24" y="1043.5" width="366" height="40"/>
+                                                <rect key="frame" x="24" y="992" width="366" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-nO-GZD">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -630,13 +620,13 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZj-Qt-MLV">
-                                                <rect key="frame" x="24" y="1107.5" width="366" height="19.5"/>
+                                                <rect key="frame" x="24" y="1056" width="366" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                 <color key="textColor" name="MC Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="97j-59-FFj">
-                                                <rect key="frame" x="44" y="1143" width="346" height="168"/>
+                                                <rect key="frame" x="44" y="1091.5" width="346" height="168"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0n-rY-REB">
                                                         <rect key="frame" x="0.0" y="0.0" width="346" height="24"/>

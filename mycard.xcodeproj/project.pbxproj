@@ -76,6 +76,7 @@
 		829728F32582893B00C99E33 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728F22582893B00C99E33 /* UserManager.swift */; };
 		829728FB258289B900C99E33 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829728FA258289B900C99E33 /* AuthService.swift */; };
 		829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829729832582DDC000C99E33 /* NotificationNameExtension.swift */; };
+		829CF9CD26531CAE003991B1 /* LabelledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CF9CC26531CAE003991B1 /* LabelledButton.swift */; };
 		829D8ED925FF92030054A79C /* PersonalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D8ED825FF92030054A79C /* PersonalInfoViewModel.swift */; };
 		829D8F2E26017EB00054A79C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 829D8F2D26017EB00054A79C /* Localizable.strings */; };
 		829D8F3B260186D30054A79C /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D8F3A260186D30054A79C /* UILabelExtension.swift */; };
@@ -229,6 +230,7 @@
 		829728FA258289B900C99E33 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8297291C25828FCD00C99E33 /* mycard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mycard.entitlements; sourceTree = "<group>"; };
 		829729832582DDC000C99E33 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
+		829CF9CC26531CAE003991B1 /* LabelledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledButton.swift; sourceTree = "<group>"; };
 		829D8ED825FF92030054A79C /* PersonalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewModel.swift; sourceTree = "<group>"; };
 		829D8F2D26017EB00054A79C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		829D8F3A260186D30054A79C /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				82BED3F4257F063C00F8E96E /* NavigationController.swift */,
 				82C3DFF0263D697D00333D74 /* LabelledScannedDetailsStackView.swift */,
 				829E5E7026434A7700F663A3 /* UnlabelledScannedDetailsStackView.swift */,
+				829CF9CC26531CAE003991B1 /* LabelledButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1148,6 +1151,7 @@
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
 				82472F0C261666B2007BF9DF /* BaseViewModel.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,
+				829CF9CD26531CAE003991B1 /* LabelledButton.swift in Sources */,
 				82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */,
 				82472F07261666A5007BF9DF /* AvatarImageViewModel.swift in Sources */,
 				82A82D92259117D000175898 /* ReviewPhotoViewController.swift in Sources */,

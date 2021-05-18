@@ -27,7 +27,21 @@ class ReviewScannedCardDetailsViewModel {
     let unlabelledScannedDetails: BehaviorRelay<[String]> = BehaviorRelay(value: [])
 
     var unlabelledScannedDetailsArray: [String] {
-        unlabelledScannedDetails.value
+        get {
+            unlabelledScannedDetails.value
+        }
+        set {
+            unlabelledScannedDetails.accept(newValue)
+        }
+    }
+
+    var labelledContact: Contact {
+        get {
+            labelledScannedDetails.value
+        }
+        set {
+            labelledScannedDetails.accept(newValue)
+        }
     }
 
     init(scannedDetailsArray: [String], scannedDetails: String) {
@@ -140,6 +154,77 @@ class ReviewScannedCardDetailsViewModel {
         var unlabelledDetails = unlabelledScannedDetailsArray
         unlabelledDetails.remove(at: currentUnlabelledDetailIndex!)
         unlabelledScannedDetails.accept(unlabelledDetails)
+    }
+
+    func swapLabelledDetail(name: String, index: Int) {
+        return
+    }
+
+    func untagLabelledDetail(name: String, index: Int) {
+        switch name.lowercased() {
+        case "full name":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append(labelledContact.name.fullName!)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.name.fullName = nil
+            labelledContact = contact
+
+        case "phone number":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append(labelledContact.phoneNumbers![index].number!)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.phoneNumbers?.remove(at: index)
+            labelledContact = contact
+
+        case "email addresses":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append(labelledContact.emailAddresses![index].address)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.emailAddresses?.remove(at: index)
+            labelledContact = contact
+
+        case "company name":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append((labelledContact.businessInfo?.companyName)!)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.businessInfo?.companyName = nil
+            labelledContact = contact
+
+        case "role":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append((labelledContact.businessInfo?.role)!)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.businessInfo?.role = nil
+            labelledContact = contact
+
+        case "company location":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append((labelledContact.businessInfo?.companyAddress)!)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.businessInfo?.companyAddress = nil
+            labelledContact = contact
+
+        case "website":
+            var tempArray = unlabelledScannedDetailsArray
+            tempArray.append((labelledContact.businessInfo?.website)!)
+            unlabelledScannedDetailsArray = tempArray
+            var contact = labelledContact
+            contact.businessInfo?.website = nil
+            labelledContact = contact
+
+        default:
+            return
+        }
+    }
+
+    func editLabelledDetail(name: String, index: Int) {
+
     }
 
 }
