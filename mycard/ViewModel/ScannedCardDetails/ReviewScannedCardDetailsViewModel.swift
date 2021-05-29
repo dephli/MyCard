@@ -17,7 +17,7 @@ class ReviewScannedCardDetailsViewModel {
     enum BusinessInfoType: String {
         case companyName = "Company name"
         case role = "Role"
-        case workLocation = "Work location"
+        case workLocation = "Work address"
         case website = "Website"
     }
 
@@ -92,6 +92,40 @@ class ReviewScannedCardDetailsViewModel {
         self.unlabelledScannedDetails.accept(unlabelledDetails)
     }
 
+    func addDetail(_ detail: String, args: (type: String, subType: String)) {
+        var tempArray = unlabelledScannedDetailsArray
+        tempArray.append(detail)
+        currentUnlabelledDetailIndex = tempArray.count - 1
+        unlabelledScannedDetailsArray = tempArray
+
+        switch args.type.lowercased() {
+        case "full name":
+            untagFullName()
+            setFullName()
+        case "phone number":
+            setPhoneNumber(type: args.subType)
+        case "email address":
+            setEmail(type: args.subType)
+        case "company name":
+            untagCompanyName()
+            setBusinessInfo(type: "Company name")
+
+        case "role":
+            untagRole()
+            setBusinessInfo(type: "Role")
+        case "work address":
+            untagWorkAddress()
+            setBusinessInfo(type: "Work address")
+
+        case "website":
+            untagWebsite()
+            setBusinessInfo(type: "Website")
+
+        default:
+            return
+        }
+    }
+
     func setFullName() {
         var contact = labelledScannedDetails.value
         let unlabelledDetails = unlabelledScannedDetailsArray
@@ -156,75 +190,135 @@ class ReviewScannedCardDetailsViewModel {
         unlabelledScannedDetails.accept(unlabelledDetails)
     }
 
-    func swapLabelledDetail(name: String, index: Int) {
-        return
+    func changeToFullName(name: String, index: Int) {
+        self.untagLabelledDetail(name: "full name", index: 0)
+        self.untagLabelledDetail(name: name, index: index)
+        self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
+        self.setFullName()
+    }
+
+    func changeToPhoneNumber(name: String, index: Int, type: String) {
+        self.untagLabelledDetail(name: name, index: index)
+        self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
+        self.setPhoneNumber(type: type)
+    }
+
+    func changeToEmail(name: String, index: Int, type: String) {
+        self.untagLabelledDetail(name: name, index: index)
+        self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
+        self.setEmail(type: type)
+    }
+
+    func changeToBusinessInfo(name: String, index: Int, type: String) {
+        self.untagLabelledDetail(name: type, index: 0)
+        self.untagLabelledDetail(name: name, index: index)
+        self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
+        self.setBusinessInfo(type: type)
+    }
+
+    fileprivate func untagFullName() {
+        var tempArray = unlabelledScannedDetailsArray
+        if let name = labelledContact.name.fullName {
+            tempArray.append(name)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.name.fullName = nil
+        labelledContact = contact
+    }
+
+    fileprivate func untagPhoneNumber(_ index: Int) {
+        var tempArray = unlabelledScannedDetailsArray
+        if let number = labelledContact.phoneNumbers?[index].number {
+            tempArray.append(number)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.phoneNumbers?.remove(at: index)
+        labelledContact = contact
+    }
+
+    fileprivate func untagEmailAddress(_ index: Int) {
+        var tempArray = unlabelledScannedDetailsArray
+        if let address = labelledContact.emailAddresses?[index].address {
+            tempArray.append(address)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.emailAddresses?.remove(at: index)
+        labelledContact = contact
+    }
+
+    fileprivate func untagCompanyName() {
+        var tempArray = unlabelledScannedDetailsArray
+        if let company = labelledContact.businessInfo?.companyName {
+            tempArray.append(company)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.businessInfo?.companyName = nil
+        labelledContact = contact
+    }
+
+    fileprivate func untagRole() {
+        var tempArray = unlabelledScannedDetailsArray
+        if let role = labelledContact.businessInfo?.role {
+            tempArray.append(role)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.businessInfo?.role = nil
+        labelledContact = contact
+    }
+
+    fileprivate func untagWorkAddress() {
+        var tempArray = unlabelledScannedDetailsArray
+        if let location = labelledContact.businessInfo?.companyAddress {
+            tempArray.append(location)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.businessInfo?.companyAddress = nil
+        labelledContact = contact
+    }
+
+    fileprivate func untagWebsite() {
+        var tempArray = unlabelledScannedDetailsArray
+        if let website = labelledContact.businessInfo?.website {
+            tempArray.append(website)
+        }
+        unlabelledScannedDetailsArray = tempArray
+        var contact = labelledContact
+        contact.businessInfo?.website = nil
+        labelledContact = contact
     }
 
     func untagLabelledDetail(name: String, index: Int) {
         switch name.lowercased() {
         case "full name":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append(labelledContact.name.fullName!)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.name.fullName = nil
-            labelledContact = contact
+            untagFullName()
 
         case "phone number":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append(labelledContact.phoneNumbers![index].number!)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.phoneNumbers?.remove(at: index)
-            labelledContact = contact
+            untagPhoneNumber(index)
 
         case "email addresses":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append(labelledContact.emailAddresses![index].address)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.emailAddresses?.remove(at: index)
-            labelledContact = contact
+            untagEmailAddress(index)
 
         case "company name":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append((labelledContact.businessInfo?.companyName)!)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.businessInfo?.companyName = nil
-            labelledContact = contact
+            untagCompanyName()
 
         case "role":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append((labelledContact.businessInfo?.role)!)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.businessInfo?.role = nil
-            labelledContact = contact
+            untagRole()
 
-        case "company location":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append((labelledContact.businessInfo?.companyAddress)!)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.businessInfo?.companyAddress = nil
-            labelledContact = contact
+        case "work address":
+            untagWorkAddress()
 
         case "website":
-            var tempArray = unlabelledScannedDetailsArray
-            tempArray.append((labelledContact.businessInfo?.website)!)
-            unlabelledScannedDetailsArray = tempArray
-            var contact = labelledContact
-            contact.businessInfo?.website = nil
-            labelledContact = contact
+            untagWebsite()
 
         default:
             return
         }
-    }
-
-    func editLabelledDetail(name: String, index: Int) {
-
     }
 
 }

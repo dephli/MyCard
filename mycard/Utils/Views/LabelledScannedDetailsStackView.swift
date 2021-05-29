@@ -109,7 +109,7 @@ class LabelledScannedDetailsStackView: UIStackView {
     }
 
     func companyAddressView(_ location: String) -> UIView {
-            let view = singleValueStackView(icon: K.Images.location, label: "Company Location", detail: location)
+            let view = singleValueStackView(icon: K.Images.location, label: "Work Address", detail: location)
         return view
     }
 

@@ -22,14 +22,14 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     var viewModel: ReviewScannedCardDetailsViewModel!
     var disposeBag = DisposeBag()
     var currentUnlabelledIndex: Int?
+    var selectedDetailToChange: (name: String, index: Int)?
+    var selectedDetailToEdit: (name: String, index: Int)?
 
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
         labelledDetailsStackView.delegate = self
         unlabelledDetailStackView.delegate = self
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +37,8 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         navigationItem.title = "Review scanned details"
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.hidesBarsOnSwipe = true
-        labelledDetailsStackViewHeightConstraint.isActive = false
-        unlabelledDetailsStackViewHeightConstraint.isActive = false
+        labelledDetailsStackViewHeightConstraint?.isActive = false
+        unlabelledDetailsStackViewHeightConstraint?.isActive = false
         viewModel.labelledScannedDetails.subscribe { [unowned self] contact in
             labelledDetailsStackView.configure(contact)
         }.disposed(by: disposeBag)
@@ -65,6 +65,16 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? AssignLabelToScannedDetailsViewController {
             destination.viewModel = viewModel
+            guard let detail = selectedDetailToChange else {return}
+            destination.detailToChange = detail
+            self.selectedDetailToChange = nil
+        }
+        if let destination = segue.destination as? SelectLabelViewController {
+            destination.viewmodel = viewModel
+        }
+        if let destination = segue.destination as? EditDetailViewController {
+            destination.viewmodel = viewModel
+            destination.selectedDetailToEdit = self.selectedDetailToEdit
         }
     }
 }
@@ -75,11 +85,13 @@ extension ReviewScannedCardDetailsViewController: LabelledScannedDetailsDelegate
     }
 
     func edit(detail: (String, Int)) {
-        viewModel.editLabelledDetail(name: detail.0, index: detail.1)
+        selectedDetailToEdit = detail
+        performSegue(withIdentifier: K.Segues.reviewScannedDetailsToEditDetail, sender: self)
     }
 
     func swap(detail: (String, Int)) {
-        viewModel.swapLabelledDetail(name: detail.0, index: detail.1)
+        self.selectedDetailToChange = detail
+        performSegue(withIdentifier: K.Segues.reviewScannedDetailsToAssignLabel, sender: self)
     }
 
 }

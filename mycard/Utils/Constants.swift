@@ -195,6 +195,9 @@ struct K {
         static let cardsToCamera = "CardsToCamera"
         static let cameraToScannedCardDetails = "CameraToScannedCardDetails"
         static let reviewScannedDetailsToAssignLabel = "ReviewScannedDetailsToAssignLabel"
+        static let scannedDetailsToAddLabel = "ScannedDetailsToAddLabel"
+        static let selectLabelToAddDetail = "SelectLabelToAddDetail"
+        static let reviewScannedDetailsToEditDetail = "ReviewScannedDetailsToEditDetail"
     }
 
     struct Notifications {

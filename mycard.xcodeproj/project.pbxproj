@@ -36,6 +36,7 @@
 		825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B59257E54F900201A01 /* UITextFieldExtension.swift */; };
 		825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */; };
 		825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B66257E94B900201A01 /* OneTimeTextField.swift */; };
+		825BD5B22660E21300EAC541 /* AddDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825BD5B12660E21300EAC541 /* AddDetailViewController.swift */; };
 		825C6DDD25F2917300F67717 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C6DDC25F2917300F67717 /* SearchViewController.swift */; };
 		825C6DE925F2A37000F67717 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 825C6DE825F2A37000F67717 /* Search.storyboard */; };
 		825F15F0257D497400A3E103 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 825F15EF257D497400A3E103 /* Auth.storyboard */; };
@@ -90,6 +91,7 @@
 		82AD90E925879ECF0014B96E /* EmailListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD90E825879ECF0014B96E /* EmailListStackView.swift */; };
 		82AF5D572581211500E5E18B /* PersonalInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AF5D562581211500E5E18B /* PersonalInfo.storyboard */; };
 		82AF5D5D258121C700E5E18B /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF5D5C258121C700E5E18B /* PersonalInfoViewController.swift */; };
+		82AFB765266224FC00B74290 /* EditDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AFB764266224FC00B74290 /* EditDetailViewController.swift */; };
 		82B6969E257C12BD005AFE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6969D257C12BD005AFE62 /* AppDelegate.swift */; };
 		82B696A2257C12BD005AFE62 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B696A1257C12BD005AFE62 /* StartScreenViewController.swift */; };
 		82B696A5257C12BD005AFE62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82B696A3257C12BD005AFE62 /* Main.storyboard */; };
@@ -131,6 +133,7 @@
 		82F0AA092580719200F1DFFC /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F0AA072580719200F1DFFC /* ContactsCell.xib */; };
 		82F8136D26076C3D0038071D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8136C26076C3D0038071D /* SceneDelegate.swift */; };
 		82F8137D2608DDE40038071D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8137C2608DDE30038071D /* Reachability.swift */; };
+		82FE3B92265AFF01005D524E /* SelectLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE3B91265AFF01005D524E /* SelectLabelViewController.swift */; };
 		FE8895A1A19FB6C5C59B4ECD /* Pods_mycard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +192,7 @@
 		825A4B59257E54F900201A01 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		825A4B66257E94B900201A01 /* OneTimeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeTextField.swift; sourceTree = "<group>"; };
+		825BD5B12660E21300EAC541 /* AddDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddDetailViewController.swift; path = mycard/Controller/ScannedCardDetails/AddDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		825C6DDC25F2917300F67717 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		825C6DE825F2A37000F67717 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		825F15EF257D497400A3E103 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 		82AD90E825879ECF0014B96E /* EmailListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailListStackView.swift; sourceTree = "<group>"; };
 		82AF5D562581211500E5E18B /* PersonalInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalInfo.storyboard; sourceTree = "<group>"; };
 		82AF5D5C258121C700E5E18B /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		82AFB764266224FC00B74290 /* EditDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailViewController.swift; sourceTree = "<group>"; };
 		82B6969A257C12BD005AFE62 /* mycard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B6969D257C12BD005AFE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82B696A1257C12BD005AFE62 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +295,7 @@
 		82F0AA072580719200F1DFFC /* ContactsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
 		82F8136C26076C3D0038071D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		82F8137C2608DDE30038071D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		82FE3B91265AFF01005D524E /* SelectLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLabelViewController.swift; sourceTree = "<group>"; };
 		8CA3228599EE86A84A48B245 /* Pods-mycard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.release.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.release.xcconfig"; sourceTree = "<group>"; };
 		BAD193E712E49BFBD3744F48 /* Pods_mycard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mycard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1FA86754D109944863536B /* Pods-mycard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mycard.debug.xcconfig"; path = "Target Support Files/Pods-mycard/Pods-mycard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -645,6 +651,9 @@
 			children = (
 				82C3DFE3263D577C00333D74 /* ReviewScannedCardDetailsViewController.swift */,
 				829E5E7226434B3B00F663A3 /* AssignLabelToScannedDetailsViewController.swift */,
+				82FE3B91265AFF01005D524E /* SelectLabelViewController.swift */,
+				825BD5B12660E21300EAC541 /* AddDetailViewController.swift */,
+				82AFB764266224FC00B74290 /* EditDetailViewController.swift */,
 			);
 			path = ScannedCardDetails;
 			sourceTree = "<group>";
@@ -1149,8 +1158,10 @@
 				82B7B3F925C23D95009F24F1 /* BusinessInfo.swift in Sources */,
 				82EB8298259D447F0098399A /* QRCodeViewController.swift in Sources */,
 				82AD90D72587760D0014B96E /* Email.swift in Sources */,
+				82FE3B92265AFF01005D524E /* SelectLabelViewController.swift in Sources */,
 				82472F0C261666B2007BF9DF /* BaseViewModel.swift in Sources */,
 				825FC3832586BDED00FAA8E8 /* PhoneNumber.swift in Sources */,
+				825BD5B22660E21300EAC541 /* AddDetailViewController.swift in Sources */,
 				829CF9CD26531CAE003991B1 /* LabelledButton.swift in Sources */,
 				82BED3D9257EF6EB00F8E96E /* CardViewController.swift in Sources */,
 				82472F07261666A5007BF9DF /* AvatarImageViewModel.swift in Sources */,
@@ -1177,6 +1188,7 @@
 				82AD90E425879E7E0014B96E /* UIStackViewExtension.swift in Sources */,
 				8263ED6525DB3EDC0000E77C /* ProfileSetupViewController.swift in Sources */,
 				82C43763257C5F8000CF945F /* ToolBelt.swift in Sources */,
+				82AFB765266224FC00B74290 /* EditDetailViewController.swift in Sources */,
 				821603A625BF908500C8BCC3 /* DataStorageService.swift in Sources */,
 				827853E425CC324200652F9B /* UIImageViewExtension.swift in Sources */,
 				829729842582DDC000C99E33 /* NotificationNameExtension.swift in Sources */,
