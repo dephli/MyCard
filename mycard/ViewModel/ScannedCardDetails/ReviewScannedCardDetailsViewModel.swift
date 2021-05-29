@@ -109,28 +109,69 @@ class ReviewScannedCardDetailsViewModel {
         case "company name":
             untagCompanyName()
             setBusinessInfo(type: "Company name")
-
         case "role":
             untagRole()
             setBusinessInfo(type: "Role")
         case "work address":
             untagWorkAddress()
             setBusinessInfo(type: "Work address")
-
         case "website":
             untagWebsite()
             setBusinessInfo(type: "Website")
-
         default:
             return
         }
     }
 
+    func editLabelledDetail(_ detail: String, args: (type: String, index: Int)) {
+        var tempArray = unlabelledScannedDetailsArray
+        tempArray.append(detail)
+        currentUnlabelledDetailIndex = tempArray.count - 1
+        unlabelledScannedDetailsArray = tempArray
+
+        switch args.type.lowercased() {
+        case "full name":
+            setFullName()
+        case "phone number":
+            editPhoneNumber(detail, index: args.index)
+        case "email addresses":
+            editEmail(detail, index: args.index)
+        case "company name":
+            setBusinessInfo(type: "Company name")
+        case "role":
+            setBusinessInfo(type: "Role")
+        case "work address":
+            setBusinessInfo(type: "Work address")
+        case "website":
+            setBusinessInfo(type: "Website")
+        default:
+            return
+        }
+    }
+    
+    func editUnlabelledDetail(_ detail: String, index: Int) {
+        var unlabelledDetails = unlabelledScannedDetailsArray
+        unlabelledDetails[index] = detail
+        unlabelledScannedDetailsArray = unlabelledDetails
+    }
+
+    fileprivate func editPhoneNumber(_ newDetail: String, index: Int) {
+        var contact = labelledContact
+        contact.phoneNumbers?[index].number = newDetail
+        labelledContact = contact
+    }
+
+    fileprivate func editEmail(_ newDetail: String, index: Int) {
+        var contact = labelledContact
+        contact.emailAddresses?[index].address = newDetail
+        labelledContact = contact
+    }
+
     func setFullName() {
-        var contact = labelledScannedDetails.value
+        var contact = self.labelledContact
         let unlabelledDetails = unlabelledScannedDetailsArray
         contact.name.fullName = unlabelledDetails[currentUnlabelledDetailIndex!]
-        labelledScannedDetails.accept(contact)
+        self.labelledContact = contact
         removeUnlabelledDetail()
     }
 
@@ -319,6 +360,33 @@ class ReviewScannedCardDetailsViewModel {
         default:
             return
         }
+    }
+
+    func findDetail(name: String, index: Int) -> String {
+        var ans = ""
+        switch name.lowercased() {
+        case "full name":
+            ans = self.labelledContact.name.fullName ?? ""
+        case "phone number":
+            ans = self.labelledContact.phoneNumbers?[index].number ?? ""
+        case "email addresses":
+            ans = self.labelledContact.emailAddresses?[index].address ?? ""
+        case "company name":
+            ans = self.labelledContact.businessInfo?.companyName ?? ""
+        case "role":
+            ans = self.labelledContact.businessInfo?.role ?? ""
+        case "work address":
+            ans = self.labelledContact.businessInfo?.companyAddress ?? ""
+        case "website":
+            ans = self.labelledContact.businessInfo?.website ?? ""
+        default:
+            ans = ""
+        }
+        return ans
+    }
+    
+    func findDetail(index: Int) -> String {
+        return unlabelledScannedDetailsArray[index]
     }
 
 }

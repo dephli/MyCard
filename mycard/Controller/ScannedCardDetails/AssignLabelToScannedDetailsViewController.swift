@@ -62,7 +62,7 @@ class AssignLabelToScannedDetailsViewController: UIViewController {
     }
 
 //    TODO: add social media
-    @IBAction func socialMediaPressed(_ sender: Any) {
+    @IBAction func socialMediaPressed(_ sender: UIButton) {
     }
 
     /*

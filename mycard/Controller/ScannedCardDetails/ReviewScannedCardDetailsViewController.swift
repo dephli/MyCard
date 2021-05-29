@@ -24,6 +24,8 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     var currentUnlabelledIndex: Int?
     var selectedDetailToChange: (name: String, index: Int)?
     var selectedDetailToEdit: (name: String, index: Int)?
+    var selectedIndexToEdit: Int?
+    var detailEditType: EditDetailViewController.DetailEditType?
 
 // MARK: - ViewController methods
     override func viewDidLoad() {
@@ -61,7 +63,6 @@ class ReviewScannedCardDetailsViewController: UIViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? AssignLabelToScannedDetailsViewController {
             destination.viewModel = viewModel
@@ -75,6 +76,8 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         if let destination = segue.destination as? EditDetailViewController {
             destination.viewmodel = viewModel
             destination.selectedDetailToEdit = self.selectedDetailToEdit
+            destination.selectedIndexToEdit = self.selectedIndexToEdit
+            destination.editType = self.detailEditType
         }
     }
 }
@@ -86,6 +89,7 @@ extension ReviewScannedCardDetailsViewController: LabelledScannedDetailsDelegate
 
     func edit(detail: (String, Int)) {
         selectedDetailToEdit = detail
+        detailEditType = .labelled
         performSegue(withIdentifier: K.Segues.reviewScannedDetailsToEditDetail, sender: self)
     }
 
@@ -97,6 +101,12 @@ extension ReviewScannedCardDetailsViewController: LabelledScannedDetailsDelegate
 }
 
 extension ReviewScannedCardDetailsViewController: UnlabelledScannedDetailsDelegate {
+    func labelPressed(id: Int) {
+        selectedIndexToEdit = id
+        detailEditType = .unlabelled
+        performSegue(withIdentifier: K.Segues.reviewScannedDetailsToEditDetail, sender: self)
+    }
+
     func addLabel(id: Int) {
         viewModel.currentUnlabelledDetailIndex = id
         performSegue(withIdentifier: K.Segues.reviewScannedDetailsToAssignLabel, sender: self)
@@ -104,7 +114,6 @@ extension ReviewScannedCardDetailsViewController: UnlabelledScannedDetailsDelega
 
     func duplicate(id: Int) {
         viewModel.duplicateDetail(at: id)
-
     }
 
     func remove(id: Int) {

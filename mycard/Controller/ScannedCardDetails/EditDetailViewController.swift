@@ -8,28 +8,48 @@
 import UIKit
 
 class EditDetailViewController: UIViewController {
+    enum DetailEditType {
+        case labelled
+        case unlabelled
+    }
     // MARK: - Outlets
-    @IBOutlet var detailTextField: UITextField?
+    @IBOutlet var detailTextField: UITextField!
+    @IBOutlet weak var customNavBar: UINavigationBar!
 
     // MARK: - Variables
     var viewmodel: ReviewScannedCardDetailsViewModel!
-    var selectedDetailToEdit: (name: String, index: Int)!
+    var editType: DetailEditType!
+    var selectedDetailToEdit: (String, Int)!
+    var selectedIndexToEdit: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        dismissKey()
+        customNavBar.shadowImage = UIImage()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        if editType == .labelled {
+            detailTextField.text = viewmodel.findDetail(name: selectedDetailToEdit.0, index: selectedDetailToEdit.1)
+        } else if editType == .unlabelled {
+            detailTextField.text = viewmodel.findDetail(index: selectedIndexToEdit!)
+        }
     }
-    */
+
+    // MARK: - Actions
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        switch editType {
+        case .labelled:
+            viewmodel.editLabelledDetail(detailTextField.text!, args: selectedDetailToEdit)
+        case .unlabelled:
+            viewmodel.editUnlabelledDetail(detailTextField.text!, index: selectedIndexToEdit!)
+        default:
+            return
+        }
+        dismiss(animated: true, completion: nil)
     }
-    
 }

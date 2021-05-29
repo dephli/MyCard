@@ -12,6 +12,7 @@ protocol UnlabelledScannedDetailsDelegate: AnyObject {
     func addLabel(id: Int)
     func duplicate(id: Int)
     func remove(id: Int)
+    func labelPressed(id: Int)
 }
 
 class UnlabelledScannedDetailsStackView: UIStackView {
@@ -34,16 +35,19 @@ class UnlabelledScannedDetailsStackView: UIStackView {
     }
 
     func dataView(_ detail: String, index: Int) -> UIView {
-
         let detailLabel = detailsLabel()
         detailLabel.text = detail
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(labelPressed(_:)))
+        detailLabel.tag = index
+        detailLabel.isUserInteractionEnabled = true
+        detailLabel.addGestureRecognizer(tapGestureRecognizer)
 
         let verticalSubView = verticalStackView()
         verticalSubView.addArrangedSubview(detailLabel)
 
         let actionView = UIView()
         let copyRemoveActionView = horizontalStackView()
-//        actionView.distribution = .equalSpacing
 
         let addLabelButton = UIButton()
         addLabelButton.translatesAutoresizingMaskIntoConstraints = false
@@ -195,6 +199,10 @@ class UnlabelledScannedDetailsStackView: UIStackView {
 
     @objc func removeButtonPressed(_ sender: UILabel) {
         delegate.remove(id: sender.tag)
+    }
+
+    @objc func labelPressed(_ sender: UITapGestureRecognizer) {
+        delegate.labelPressed(id: sender.view!.tag)
     }
 
 }
