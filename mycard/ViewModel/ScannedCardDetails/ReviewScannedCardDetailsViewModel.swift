@@ -118,6 +118,19 @@ class ReviewScannedCardDetailsViewModel {
         case "website":
             untagWebsite()
             setBusinessInfo(type: "Website")
+        case "linkedin":
+            untagSocialMedia(type: args.type)
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+        case "facebook":
+            untagSocialMedia(type: args.type)
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+        case "instagram":
+            untagSocialMedia(type: args.type)
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+        case "twitter":
+            untagSocialMedia(type: args.type)
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+            
         default:
             return
         }
@@ -144,11 +157,19 @@ class ReviewScannedCardDetailsViewModel {
             setBusinessInfo(type: "Work address")
         case "website":
             setBusinessInfo(type: "Website")
+        case "linkedin":
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+        case "facebook":
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+        case "instagram":
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
+        case "twitter":
+            setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
         default:
             return
         }
     }
-    
+
     func editUnlabelledDetail(_ detail: String, index: Int) {
         var unlabelledDetails = unlabelledScannedDetailsArray
         unlabelledDetails[index] = detail
@@ -225,6 +246,23 @@ class ReviewScannedCardDetailsViewModel {
         removeUnlabelledDetail()
     }
 
+    func setSocialMedia(type: SocialMediaType) {
+        var contact = labelledContact
+        let unlabelledDetails = unlabelledScannedDetailsArray
+        let unlabelledDetail = unlabelledDetails[currentUnlabelledDetailIndex!]
+        if contact.socialMediaProfiles?.contains(where: {$0.type == type}) ?? false {
+            let index = contact.socialMediaProfiles?.firstIndex {$0.type == type}
+            contact.socialMediaProfiles![index!].usernameOrUrl = unlabelledDetail
+        } else {
+            let socialMedia = SocialMedia(usernameOrUrl: unlabelledDetail, type: type)
+            var profiles = contact.socialMediaProfiles ?? []
+            profiles.append(socialMedia)
+            contact.socialMediaProfiles = profiles
+        }
+        labelledContact = contact
+        removeUnlabelledDetail()
+    }
+
     private func removeUnlabelledDetail() {
         var unlabelledDetails = unlabelledScannedDetailsArray
         unlabelledDetails.remove(at: currentUnlabelledDetailIndex!)
@@ -248,6 +286,12 @@ class ReviewScannedCardDetailsViewModel {
         self.untagLabelledDetail(name: name, index: index)
         self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
         self.setEmail(type: type)
+    }
+    
+    func changeToSocialMedia(name: String, index: Int, type: String) {
+        self.untagLabelledDetail(name: name, index: index)
+        self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
+        self.setSocialMedia(type: SocialMediaType.init(rawValue: type)!)
     }
 
     func changeToBusinessInfo(name: String, index: Int, type: String) {
@@ -338,28 +382,41 @@ class ReviewScannedCardDetailsViewModel {
         switch name.lowercased() {
         case "full name":
             untagFullName()
-
         case "phone number":
             untagPhoneNumber(index)
-
         case "email addresses":
             untagEmailAddress(index)
-
         case "company name":
             untagCompanyName()
-
         case "role":
             untagRole()
-
         case "work address":
             untagWorkAddress()
-
         case "website":
             untagWebsite()
-
+        case "linkedin":
+            untagSocialMedia(type: name)
+        case "facebook":
+            untagSocialMedia(type: name)
+        case "instagram":
+            untagSocialMedia(type: name)
+        case "twitter":
+            untagSocialMedia(type: name)
         default:
             return
         }
+    }
+    
+    func untagSocialMedia(type: String) {
+        var tempArray = unlabelledScannedDetailsArray
+        var contact = labelledContact
+        let index = contact.socialMediaProfiles?.firstIndex {$0.type.rawValue == type}
+        if let index = index {
+            tempArray.append(contact.socialMediaProfiles![index].usernameOrUrl)
+            contact.socialMediaProfiles?.remove(at: index)
+        }
+        labelledContact = contact
+        unlabelledScannedDetailsArray = tempArray
     }
 
     func findDetail(name: String, index: Int) -> String {
@@ -379,14 +436,47 @@ class ReviewScannedCardDetailsViewModel {
             ans = self.labelledContact.businessInfo?.companyAddress ?? ""
         case "website":
             ans = self.labelledContact.businessInfo?.website ?? ""
+        case "linkedin":
+            ans = self.labelledContact.socialMediaProfiles!.filter({ $0.type.rawValue == name}).first!.usernameOrUrl
+        case "instagram":
+            ans = self.labelledContact.socialMediaProfiles!.filter({ $0.type.rawValue == name}).first!.usernameOrUrl
+        case "facebook":
+            ans = self.labelledContact.socialMediaProfiles!.filter({ $0.type.rawValue == name}).first!.usernameOrUrl
+        case "twitter":
+            ans = self.labelledContact.socialMediaProfiles!.filter({ $0.type.rawValue == name}).first!.usernameOrUrl
         default:
             ans = ""
         }
         return ans
     }
-    
+
     func findDetail(index: Int) -> String {
         return unlabelledScannedDetailsArray[index]
+    }
+
+    func createContactCard(completion: @escaping (Error?) -> Void) {
+        let personalInfoViewModel = PersonalInfoViewModel()
+        if let fullname = labelledContact.name.fullName {
+            personalInfoViewModel.fullName = fullname
+            personalInfoViewModel.splitFullname()
+            var contact = labelledContact
+            contact.name.prefix = personalInfoViewModel.prefix
+            contact.name.suffix = personalInfoViewModel.suffix
+            contact.name.firstName = personalInfoViewModel.firstName
+            contact.name.lastName = personalInfoViewModel.lastName
+            contact.name.middleName = personalInfoViewModel.middleName
+            labelledContact = contact
+        }
+
+        FirestoreService.shared.createContact(
+            with: labelledScannedDetails.value
+        ) { (error, _) in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
     }
 
 }

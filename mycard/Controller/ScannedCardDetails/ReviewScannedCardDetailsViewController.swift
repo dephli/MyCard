@@ -17,7 +17,8 @@ class ReviewScannedCardDetailsViewController: UIViewController {
 
     @IBOutlet weak var labelledDetailsStackView: LabelledScannedDetailsStackView!
     @IBOutlet weak var unlabelledDetailStackView: UnlabelledScannedDetailsStackView!
-// MARK: - Variables
+    @IBOutlet weak var createCardButton: UIButton!
+    // MARK: - Variables
 
     var viewModel: ReviewScannedCardDetailsViewModel!
     var disposeBag = DisposeBag()
@@ -42,13 +43,19 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         labelledDetailsStackViewHeightConstraint?.isActive = false
         unlabelledDetailsStackViewHeightConstraint?.isActive = false
         viewModel.labelledScannedDetails.subscribe { [unowned self] contact in
-            labelledDetailsStackView.configure(contact)
+            let labelledContact = contact.element
+            labelledDetailsStackView.configure(labelledContact!)
+            
+            if (labelledContact?.name.fullName) != nil {
+                createCardButton.isEnabled = true
+            } else {
+                createCardButton.isEnabled = false
+            }
         }.disposed(by: disposeBag)
 
         viewModel.unlabelledScannedDetails.subscribe { [unowned self] details in
             unlabelledDetailStackView.configure(details: details)
         }.disposed(by: disposeBag)
-
     }
 
 // MARK: - Actions
@@ -58,7 +65,13 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     }
 
     @IBAction func createCardPressed(_ sender: Any) {
-
+        viewModel.createContactCard { error in
+            if let error = error {
+                self.alert(title: "Error", message: error.localizedDescription)
+            } else {
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 
     // MARK: - Navigation

@@ -85,6 +85,9 @@
                                                         <state key="normal" title="Create card">
                                                             <color key="titleColor" name="MC White"/>
                                                         </state>
+                                                        <state key="disabled">
+                                                            <color key="titleColor" systemColor="systemGray2Color"/>
+                                                        </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="8"/>
@@ -188,6 +191,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="createCardButton" destination="3cT-zX-CEa" id="lly-HN-IpI"/>
                         <outlet property="labelledDetailsStackView" destination="hr7-hK-9Nl" id="K70-3u-DB6"/>
                         <outlet property="labelledDetailsStackViewHeightConstraint" destination="h8r-gy-lHB" id="K4w-5w-A1p"/>
                         <outlet property="unlabelledDetailStackView" destination="hfs-oh-sEB" id="9E1-rY-6dJ"/>
@@ -1551,30 +1555,6 @@
                                     <constraint firstAttribute="height" constant="1" id="wEE-Vv-QK5"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRF-Wl-KSn">
-                                <rect key="frame" x="24" y="177" width="70" height="32"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLG-j8-EG1">
-                                        <rect key="frame" x="8" y="8.5" width="54" height="15"/>
-                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="MC Gray Light"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WLG-j8-EG1" secondAttribute="trailing" constant="8" id="Djz-e3-p4D"/>
-                                    <constraint firstItem="WLG-j8-EG1" firstAttribute="centerX" secondItem="wRF-Wl-KSn" secondAttribute="centerX" id="Gjh-ag-tRf"/>
-                                    <constraint firstItem="WLG-j8-EG1" firstAttribute="leading" secondItem="wRF-Wl-KSn" secondAttribute="leading" constant="8" id="U5K-ky-bdi"/>
-                                    <constraint firstAttribute="height" constant="32" id="ehq-iE-lGd"/>
-                                    <constraint firstItem="WLG-j8-EG1" firstAttribute="centerY" secondItem="wRF-Wl-KSn" secondAttribute="centerY" id="x2c-e6-yZx"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="draggable bar" translatesAutoresizingMaskIntoConstraints="NO" id="cZj-A2-3CV">
                                 <rect key="frame" x="179" y="12" width="56" height="6"/>
                             </imageView>
@@ -1614,24 +1594,45 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bh-Xp-0AV">
+                                <rect key="frame" x="24" y="169" width="100" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="WdG-U8-fTW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="tintColor" name="MC Blue"/>
+                                <state key="normal" title="Add label" image="tag">
+                                    <color key="titleColor" name="MC Blue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftTitleSpacing">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J29-FA-zFK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4bh-Xp-0AV" firstAttribute="leading" secondItem="Tct-qj-528" secondAttribute="leading" id="0Pd-at-iNV"/>
                             <constraint firstItem="Tct-qj-528" firstAttribute="top" secondItem="imA-xT-kVu" secondAttribute="bottom" constant="24" id="23H-0w-4ee"/>
                             <constraint firstItem="Tct-qj-528" firstAttribute="trailing" secondItem="imA-xT-kVu" secondAttribute="trailing" id="6Fd-0g-DhW"/>
                             <constraint firstItem="cZj-A2-3CV" firstAttribute="top" secondItem="J29-FA-zFK" secondAttribute="top" constant="12" id="7QG-1k-7wX"/>
                             <constraint firstItem="Tct-qj-528" firstAttribute="leading" secondItem="imA-xT-kVu" secondAttribute="leading" id="FeP-Pg-SLT"/>
                             <constraint firstItem="uew-iO-9qO" firstAttribute="leading" secondItem="J29-FA-zFK" secondAttribute="leading" id="GsA-Hm-P22"/>
                             <constraint firstItem="imA-xT-kVu" firstAttribute="leading" secondItem="J29-FA-zFK" secondAttribute="leading" constant="24" id="IHF-CD-R7F"/>
-                            <constraint firstItem="wRF-Wl-KSn" firstAttribute="leading" secondItem="Tct-qj-528" secondAttribute="leading" id="IlR-hX-ll0"/>
                             <constraint firstItem="uew-iO-9qO" firstAttribute="top" secondItem="cZj-A2-3CV" secondAttribute="bottom" constant="6" id="XLm-6m-3ml"/>
                             <constraint firstItem="cZj-A2-3CV" firstAttribute="centerX" secondItem="aSC-xH-Pqc" secondAttribute="centerX" id="cJd-63-lBB"/>
-                            <constraint firstItem="wRF-Wl-KSn" firstAttribute="top" secondItem="Tct-qj-528" secondAttribute="bottom" constant="16" id="fsC-rh-DRY"/>
+                            <constraint firstItem="4bh-Xp-0AV" firstAttribute="top" secondItem="Tct-qj-528" secondAttribute="bottom" constant="8" id="fEU-1A-Nch"/>
                             <constraint firstItem="uew-iO-9qO" firstAttribute="trailing" secondItem="J29-FA-zFK" secondAttribute="trailing" id="jPZ-Kl-DcV"/>
                             <constraint firstItem="J29-FA-zFK" firstAttribute="trailing" secondItem="imA-xT-kVu" secondAttribute="trailing" constant="24" id="jgA-d1-ImY"/>
                             <constraint firstItem="imA-xT-kVu" firstAttribute="top" secondItem="uew-iO-9qO" secondAttribute="bottom" constant="8" id="lAs-ue-N4P"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4bh-Xp-0AV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edit detail" id="AB0-t0-bhk"/>
                     <connections>
@@ -1646,7 +1647,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fEn-KT-ndf"/>
+        <segue reference="ihW-0u-pkN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron down" width="10" height="6"/>
@@ -1663,6 +1664,7 @@
         <image name="socials linkedin" width="24" height="24"/>
         <image name="socials twitter" width="24" height="24"/>
         <image name="suitcase" width="24" height="24"/>
+        <image name="tag" width="24" height="24"/>
         <image name="user" width="24" height="24"/>
         <image name="web" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
@@ -1689,6 +1691,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

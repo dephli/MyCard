@@ -55,6 +55,8 @@ class UnlabelledScannedDetailsStackView: UIStackView {
         addLabelButton.tintColor = K.Colors.Blue
         addLabelButton.titleLabel?.lineBreakMode = .byWordWrapping
         addLabelButton.setTitle("Add label", for: .normal)
+        addLabelButton.contentHorizontalAlignment = .left
+        addLabelButton.leftTitleSpacing = 8
         addLabelButton.setTitle(with: K.TextStyles.captionBlue, for: .normal)
 
         actionView.addSubview(addLabelButton)
@@ -64,6 +66,7 @@ class UnlabelledScannedDetailsStackView: UIStackView {
             addLabelButton.leadingAnchor.constraint(equalTo: actionView.leadingAnchor, constant: 0),
             addLabelButton.centerYAnchor.constraint(equalTo: actionView.centerYAnchor),
             addLabelButton.heightAnchor.constraint(equalToConstant: 40),
+            addLabelButton.widthAnchor.constraint(equalToConstant: 100),
             copyRemoveActionView.heightAnchor.constraint(equalToConstant: 40),
             copyRemoveActionView.trailingAnchor.constraint(equalTo: actionView.trailingAnchor, constant: 0),
             copyRemoveActionView.centerYAnchor.constraint(equalTo: actionView.centerYAnchor)

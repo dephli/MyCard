@@ -66,6 +66,17 @@ class LabelledScannedDetailsStackView: UIStackView {
             viewArray.append(websiteView)
         }
 
+        if contact.socialMediaProfiles?.isEmpty == false {
+            contact.socialMediaProfiles?.forEach({ socialMedia in
+                let view = socialMediaView(
+                    socialMedia: socialMedia.type.rawValue,
+                    accountInfo: socialMedia.usernameOrUrl
+                )
+                viewArray.append(view)
+
+            })
+        }
+
         for (index, view) in viewArray.enumerated() {
             if index != 0 {
                 addArrangedSubview(dividerView())
@@ -104,17 +115,25 @@ class LabelledScannedDetailsStackView: UIStackView {
     }
 
     func companyRoleView(_ companyRole: String) -> UIView {
-            let roleView = singleValueStackView(icon: K.Images.suitcase, label: "Role", detail: companyRole)
+        let roleView = singleValueStackView(icon: K.Images.suitcase, label: "Role", detail: companyRole)
         return roleView
     }
 
     func companyAddressView(_ location: String) -> UIView {
-            let view = singleValueStackView(icon: K.Images.location, label: "Work Address", detail: location)
+        let view = singleValueStackView(icon: K.Images.location, label: "Work Address", detail: location)
         return view
     }
 
     func websiteView(_ website: String) -> UIView {
-            let view = singleValueStackView(icon: K.Images.web, label: "Website", detail: website)
+        let view = singleValueStackView(icon: K.Images.web, label: "Website", detail: website)
+        return view
+    }
+
+    func socialMediaView(socialMedia: String, accountInfo: String) -> UIView {
+        let view = socialMediaSingleValueStackView(
+            icon: UIImage(named: "socials \(socialMedia.lowercased())")!,
+            label: socialMedia, detail: accountInfo
+        )
         return view
     }
 
@@ -126,6 +145,30 @@ class LabelledScannedDetailsStackView: UIStackView {
 
 //        image view
         let imageView = generateImageView(image: icon)
+
+        let horizontalSubView = horizontalStackView()
+        horizontalSubView.distribution = .fillProportionally
+        horizontalSubView.addArrangedSubview(imageView)
+        horizontalSubView.alignment = .leading
+        let detailView = detailView(detail: detail, extraArg: label)
+        let labelTitle = titleLabel()
+        labelTitle.text = label
+        detailView.insertArrangedSubview(labelTitle, at: 0)
+        horizontalSubView.addArrangedSubview(detailView)
+
+        let stackView = verticalStackView()
+        stackView.addArrangedSubview(horizontalSubView)
+        return stackView
+    }
+
+    func socialMediaSingleValueStackView(
+        icon: UIImage,
+        label: String,
+        detail: String
+    ) -> UIView {
+
+//        image view
+        let imageView = generateSocialmediaImageView(image: icon)
 
         let horizontalSubView = horizontalStackView()
         horizontalSubView.distribution = .fillProportionally
@@ -338,6 +381,22 @@ class LabelledScannedDetailsStackView: UIStackView {
         imageView.centerXAnchor.constraint(equalTo: imageContainerView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor).isActive = true
         return imageContainerView
+    }
+
+    func generateSocialmediaImageView(image: UIImage) -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalToConstant: 40),
+            view.heightAnchor.constraint(equalToConstant: 40),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
+        ])
+
+        return view
     }
 
     @objc func untagButtonPressed(_ sender: LabelledButton) {

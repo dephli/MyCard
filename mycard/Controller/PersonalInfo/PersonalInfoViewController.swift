@@ -55,7 +55,6 @@ class PersonalInfoViewController: UIViewController,
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.dismissKey()
         uiSetup()
         nameSetup()
@@ -250,23 +249,21 @@ extension PersonalInfoViewController {
                 equalTo: socialMediaListStackView.bottomAnchor,
                 constant: 24)
         socialMediaObservable.subscribe { [unowned self] _ in
-
             constraintToLabel.isActive = viewModel.socialMediaIsEmpty
-
             constraintToStackView.isActive = !viewModel.socialMediaIsEmpty
-
             socialMediaListStackView.configure(with: viewModel.socialMedia, type: .creation)
-
             socialMediaButtonHeightConstraint.constant = viewModel.socialMediaHeightConstraint
             socialMediaButton.isHidden = viewModel.hideSocialMediaButton
-
         }.disposed(by: disposeBag)
 
-        phoneNumberObservable.subscribe(onNext: { [unowned self] numbers in
+        phoneNumberObservable
+            .subscribe(onNext: { [unowned self] numbers in
             phoneNumbersStackView.configure(with: numbers)
         }).disposed(by: disposeBag)
 
-        EmailManager.manager.list.asObservable().subscribe { [unowned self] emails in
+        EmailManager.manager.list
+            .asObservable()
+            .subscribe { [unowned self] emails in
             emailListStackView.configure(with: emails)
         }.disposed(by: disposeBag)
     }

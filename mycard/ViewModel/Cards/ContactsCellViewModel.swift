@@ -40,7 +40,7 @@ class ContactsCellViewModel: BaseViewModel {
             nameInitials = "\(lastName!.prefix(1))"
 
         } else if lastName != "" && firstName != "" {
-            nameInitials = "\(firstName!.prefix(1))\(lastName!.prefix(1))"
+            nameInitials = "\(firstName?.prefix(1) ?? "")\(lastName?.prefix(1) ?? "")"
         } else if firstName == "" && lastName == "" {
             nameInitials = "\(contact.name.fullName!.prefix(1))"
         }
