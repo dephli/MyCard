@@ -226,10 +226,11 @@ class CardDetailsViewModel {
     }
 
     func callNumber(number: String) {
+        let number = number.replacingOccurrences(of: " ", with: "")
         if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
-            let error = CustomError(str: "Please add an email") as Error
+            let error = CustomError(str: "Please add an phone number to make a call") as Error
             self.bindError!(error)
         }
     }

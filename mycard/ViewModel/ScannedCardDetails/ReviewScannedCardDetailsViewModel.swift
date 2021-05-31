@@ -82,8 +82,8 @@ class ReviewScannedCardDetailsViewModel {
     func duplicateDetail(at index: Int) {
         var unlabelledDetails = unlabelledScannedDetailsArray
         let detail = unlabelledDetails[index]
-        unlabelledDetails.insert(detail, at: index)
-        self.unlabelledScannedDetails.accept(unlabelledDetails)
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = detail
     }
 
     func deleteUnlabelledDetail(at index: Int) {
