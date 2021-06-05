@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import CoreMotion
 import CropViewController
 
 class CaptureImageViewController: UIViewController {
@@ -20,15 +21,23 @@ class CaptureImageViewController: UIViewController {
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     private var capturedImage: UIImage?
     private let imagePicker = UIImagePickerController()
+    var orientationLast = UIInterfaceOrientation(rawValue: 0)!
+    var motionManager: CMMotionManager?
+    var imageOrientation: UIImage.Orientation?
 
 // MARK: - ViewController methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupCamera()
+        initializeMotionManager()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        motionManager?.stopAccelerometerUpdates()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,6 +66,45 @@ class CaptureImageViewController: UIViewController {
     }
 
 // MARK: - Custom Methods
+    private func initializeMotionManager() {
+     motionManager = CMMotionManager()
+     motionManager?.accelerometerUpdateInterval = 0.2
+     motionManager?.gyroUpdateInterval = 0.2
+     motionManager?.startAccelerometerUpdates(
+        to: (OperationQueue.current)!,
+        withHandler: { (accelerometerData, error) -> Void in
+            if error == nil {
+                self.outputAccelerationData((accelerometerData?.acceleration)!)
+            } else {
+                print("\(error!)")
+            }
+        })
+     }
+
+    private func outputAccelerationData(_ acceleration: CMAcceleration) {
+        var orientationNew: UIInterfaceOrientation
+
+        if acceleration.x >= 0.75 {
+            orientationNew = .landscapeLeft
+            imageOrientation = .down
+        } else if acceleration.x <= -0.75 {
+            orientationNew = .landscapeRight
+            imageOrientation = .up
+        } else if acceleration.y <= -0.75 {
+            orientationNew = .portrait
+            imageOrientation = .right
+        } else if acceleration.y >= 0.75 {
+            orientationNew = .portraitUpsideDown
+            imageOrientation = .left
+        } else {
+            return
+        }
+        if orientationNew == orientationLast {
+            return
+        }
+        orientationLast = orientationNew
+    }
+
     private func setupCamera() {
         captureSession = AVCaptureSession()
         captureSession!.sessionPreset = .high
@@ -110,10 +158,15 @@ extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
 
         guard let imageData = photo.fileDataRepresentation()
         else {return}
-
-        let image = UIImage(data: imageData)
-        let fixedImage = image?.fixOrientation()
-        cropImage(fixedImage)
+        var image = UIImage(data: imageData)
+        let dataProvider  = CGDataProvider(data: imageData as CFData)
+        let cgImageRef = CGImage(
+            jpegDataProviderSource: dataProvider!,
+            decode: nil, shouldInterpolate: true,
+            intent: .defaultIntent
+        )
+        image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: imageOrientation!)
+        cropImage(image)
     }
 }
 

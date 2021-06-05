@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		82472F07261666A5007BF9DF /* AvatarImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472F06261666A5007BF9DF /* AvatarImageViewModel.swift */; };
 		82472F0C261666B2007BF9DF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472F0B261666B2007BF9DF /* BaseViewModel.swift */; };
 		82472F1826168641007BF9DF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82472F1726168641007BF9DF /* SettingsViewModel.swift */; };
+		824BA2412664D8C60098FB4D /* NotificationToast in Frameworks */ = {isa = PBXBuildFile; productRef = 824BA2402664D8C60098FB4D /* NotificationToast */; };
 		825A4B5A257E54F900201A01 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B59257E54F900201A01 /* UITextFieldExtension.swift */; };
 		825A4B62257E6C5D00201A01 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B61257E6C5D00201A01 /* UINavigationControllerExtension.swift */; };
 		825A4B67257E94B900201A01 /* OneTimeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A4B66257E94B900201A01 /* OneTimeTextField.swift */; };
@@ -314,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE8895A1A19FB6C5C59B4ECD /* Pods_mycard.framework in Frameworks */,
+				824BA2412664D8C60098FB4D /* NotificationToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +846,9 @@
 			dependencies = (
 			);
 			name = mycard;
+			packageProductDependencies = (
+				824BA2402664D8C60098FB4D /* NotificationToast */,
+			);
 			productName = mycard;
 			productReference = 82B6969A257C12BD005AFE62 /* mycard.app */;
 			productType = "com.apple.product-type.application";
@@ -919,6 +924,9 @@
 				Base,
 			);
 			mainGroup = 82B69691257C12BC005AFE62;
+			packageReferences = (
+				824BA23F2664D8C60098FB4D /* XCRemoteSwiftPackageReference "NotificationToast" */,
+			);
 			productRefGroup = 82B6969B257C12BD005AFE62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1420,7 +1428,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				HEADER_SEARCH_PATHS = (
@@ -1452,7 +1460,7 @@
 				CODE_SIGN_ENTITLEMENTS = mycard/mycard.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BAK5HAU59F;
 				HEADER_SEARCH_PATHS = (
@@ -1608,6 +1616,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		824BA23F2664D8C60098FB4D /* XCRemoteSwiftPackageReference "NotificationToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PhilippeWeidmann/NotificationToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		824BA2402664D8C60098FB4D /* NotificationToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 824BA23F2664D8C60098FB4D /* XCRemoteSwiftPackageReference "NotificationToast" */;
+			productName = NotificationToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82B69692257C12BC005AFE62 /* Project object */;
 }

@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import NotificationToast
 
 class ReviewScannedCardDetailsViewController: UIViewController {
 
@@ -45,7 +46,6 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         viewModel.labelledScannedDetails.subscribe { [unowned self] contact in
             let labelledContact = contact.element
             labelledDetailsStackView.configure(labelledContact!)
-            
             if (labelledContact?.name.fullName) != nil {
                 createCardButton.isEnabled = true
             } else {
@@ -127,6 +127,13 @@ extension ReviewScannedCardDetailsViewController: UnlabelledScannedDetailsDelega
 
     func duplicate(id: Int) {
         viewModel.duplicateDetail(at: id)
+        let toast = ToastView(
+            title: "Copied!",
+            titleFont: UIFont(name: "inter", size: 16)!,
+            icon: K.Images.copy,
+            iconSpacing: 16
+        )
+        toast.show()
     }
 
     func remove(id: Int) {

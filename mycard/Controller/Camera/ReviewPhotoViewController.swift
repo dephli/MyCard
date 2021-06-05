@@ -35,7 +35,10 @@ class ReviewPhotoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navController = segue.destination as? UINavigationController,
            let destination = navController.topViewController as? ReviewScannedCardDetailsViewController {
-            destination.viewModel = ReviewScannedCardDetailsViewModel(scannedDetailsArray: scannedTextArray!, scannedDetails: scannedText!)
+            destination.viewModel = ReviewScannedCardDetailsViewModel(
+                scannedDetailsArray: scannedTextArray!,
+                scannedDetails: scannedText!
+            )
         }
     }
 

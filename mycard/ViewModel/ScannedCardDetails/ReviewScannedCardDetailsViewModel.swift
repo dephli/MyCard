@@ -130,7 +130,7 @@ class ReviewScannedCardDetailsViewModel {
         case "twitter":
             untagSocialMedia(type: args.type)
             setSocialMedia(type: SocialMediaType.init(rawValue: args.type)!)
-            
+
         default:
             return
         }
@@ -287,7 +287,7 @@ class ReviewScannedCardDetailsViewModel {
         self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
         self.setEmail(type: type)
     }
-    
+
     func changeToSocialMedia(name: String, index: Int, type: String) {
         self.untagLabelledDetail(name: name, index: index)
         self.currentUnlabelledDetailIndex = unlabelledScannedDetailsArray.count - 1
@@ -406,7 +406,7 @@ class ReviewScannedCardDetailsViewModel {
             return
         }
     }
-    
+
     func untagSocialMedia(type: String) {
         var tempArray = unlabelledScannedDetailsArray
         var contact = labelledContact
