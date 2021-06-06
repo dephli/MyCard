@@ -40,7 +40,7 @@ class BottomSheetViewController: UIViewController {
             } else {
                 // Set back to original position of the view controller
                 UIView.animate(withDuration: 0.3) {
-                    self.view.frame.origin = self.pointOrigin ?? CGPoint(x: 0, y: 400)
+                    self.view.frame.origin = self.pointOrigin ?? CGPoint(x: 0, y: 500)
                 }
             }
         }

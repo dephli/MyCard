@@ -46,11 +46,6 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         viewModel.labelledScannedDetails.subscribe { [unowned self] contact in
             let labelledContact = contact.element
             labelledDetailsStackView.configure(labelledContact!)
-            if (labelledContact?.name.fullName) != nil {
-                createCardButton.isEnabled = true
-            } else {
-                createCardButton.isEnabled = false
-            }
         }.disposed(by: disposeBag)
 
         viewModel.unlabelledScannedDetails.subscribe { [unowned self] details in
@@ -65,11 +60,15 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     }
 
     @IBAction func createCardPressed(_ sender: Any) {
-        viewModel.createContactCard { error in
-            if let error = error {
-                self.alert(title: "Error", message: error.localizedDescription)
-            } else {
-                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        if viewModel.labelledContact.name.fullName == nil {
+            self.alert(title: "Please enter a name", message: "Cannot create a card without a name")
+        } else {
+            viewModel.createContactCard { error in
+                if let error = error {
+                    self.alert(title: "Error", message: error.localizedDescription)
+                } else {
+                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

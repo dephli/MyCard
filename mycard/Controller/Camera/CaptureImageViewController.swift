@@ -87,15 +87,19 @@ class CaptureImageViewController: UIViewController {
         if acceleration.x >= 0.75 {
             orientationNew = .landscapeLeft
             imageOrientation = .down
+            print("gyro landscape left")
         } else if acceleration.x <= -0.75 {
             orientationNew = .landscapeRight
             imageOrientation = .up
+            print("gyro landscape right")
         } else if acceleration.y <= -0.75 {
             orientationNew = .portrait
             imageOrientation = .right
+            print("gyro portrait")
         } else if acceleration.y >= 0.75 {
             orientationNew = .portraitUpsideDown
             imageOrientation = .left
+            print("gyro upsinde")
         } else {
             return
         }
@@ -165,7 +169,7 @@ extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
             decode: nil, shouldInterpolate: true,
             intent: .defaultIntent
         )
-        image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: imageOrientation!)
+        image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: imageOrientation ?? .up)
         cropImage(image)
     }
 }

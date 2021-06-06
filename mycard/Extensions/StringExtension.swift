@@ -74,7 +74,8 @@ extension String {
 
     func getWebsite() -> [String]? {
       if let regex = try? NSRegularExpression(
-            pattern: "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?",
+            pattern:
+                "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?",
             options: .caseInsensitive) {
           let string = self as NSString
 

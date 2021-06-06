@@ -80,7 +80,7 @@ class ReviewScannedCardDetailsViewModel {
     }
 
     func duplicateDetail(at index: Int) {
-        var unlabelledDetails = unlabelledScannedDetailsArray
+        let unlabelledDetails = unlabelledScannedDetailsArray
         let detail = unlabelledDetails[index]
         let pasteboard = UIPasteboard.general
         pasteboard.string = detail

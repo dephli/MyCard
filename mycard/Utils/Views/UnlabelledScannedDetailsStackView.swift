@@ -136,6 +136,8 @@ class UnlabelledScannedDetailsStackView: UIStackView {
     func detailsLabel() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.style(with: K.TextStyles.bodyBlack)
         return label
     }
