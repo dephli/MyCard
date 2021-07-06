@@ -8,16 +8,16 @@
 import UIKit
 
 class AssignLabelToScannedDetailsViewController: UIViewController {
-    
-    //MARK: - Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var detailTitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
 
-    //MARK: - properties
+    // MARK: - properties
     var viewModel: ReviewScannedCardDetailsViewModel!
     var detailToChange: (name: String, index: Int)?
 
-    //MARK: - viewcontroller methods
+    // MARK: - viewcontroller methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +36,7 @@ class AssignLabelToScannedDetailsViewController: UIViewController {
         }
     }
 
-    //MARK: - actions
+    // MARK: - actions
     @IBAction func fullNamePressed(_ sender: UIButton) {
         if let detail = detailToChange {
             viewModel.changeToFullName(name: detail.name, index: detail.index)

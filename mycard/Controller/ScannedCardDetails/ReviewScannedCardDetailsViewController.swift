@@ -112,15 +112,15 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     @objc private func notesViewTapped() {
         performSegue(withIdentifier: K.Segues.assignLabelToNotes, sender: self)
     }
-    
+
     private func handleError(error: Error) {
         self.alert(title: "Error", message: error.localizedDescription)
     }
-    
+
     private func contactSaveSuccessful() {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
-    
+
     private func firstContactSaveSuccessful() {
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let profileSetupViewController = storyboard.instantiateViewController(

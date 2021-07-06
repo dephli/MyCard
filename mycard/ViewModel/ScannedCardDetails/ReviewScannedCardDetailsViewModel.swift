@@ -26,12 +26,11 @@ class ReviewScannedCardDetailsViewModel {
     var noteIsHidden = false
 
     var currentUnlabelledDetailIndex: Int?
-        
+
     var bindSaveFirstPersonalContactSuccessful: (() -> Void)?
 
-    
     var bindSaveContactSuccessful: (() -> Void)?
-    
+
     var bindError: ((Error) -> Void)?
 
     let unlabelledScannedDetails: BehaviorRelay<[String]> = BehaviorRelay(value: [])
@@ -480,15 +479,15 @@ class ReviewScannedCardDetailsViewModel {
             contact.name.middleName = personalInfoViewModel.middleName
             labelledContact = contact
         }
-        
-        if contactType == .createPersonalCard || contactType == .createFirstCard{
+
+        if contactType == .createPersonalCard || contactType == .createFirstCard {
             createPersonalCard(contact: labelledContact)
         } else {
             createCard(contact: labelledContact)
         }
 
     }
-    
+
     private func createCard(contact: Contact) {
         FirestoreService.shared.createContact(
             with: labelledContact
@@ -500,11 +499,9 @@ class ReviewScannedCardDetailsViewModel {
             }
         }
     }
-    
-    
-    
+
     private func createPersonalCard(contact: Contact) {
-        FirestoreService.shared.createPersonalCard(with: labelledContact) {[self] (error, documentId) in
+        FirestoreService.shared.createPersonalCard(with: labelledContact) {[self] (error, _) in
             if let error = error {
                 self.bindError!(error)
             } else {

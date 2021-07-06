@@ -30,7 +30,6 @@ class ProfileViewController: UIViewController {
     var viewModel: ProfileViewModel!
     let addCardBottomSheet = AddCardBottomSheet()
 
-
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
@@ -353,7 +352,6 @@ extension ProfileViewController: UICollectionViewDelegate,
 extension UIActivity.ActivityType {
     static let snapchat = UIActivity.ActivityType(rawValue: "com.toyopagroup.picaboo.share")
 }
-
 
 // MARK: - UITransitioningDelegate
 extension ProfileViewController: UIViewControllerTransitioningDelegate {

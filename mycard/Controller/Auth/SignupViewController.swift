@@ -18,7 +18,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryPickerButton: UIButton!
     @IBOutlet weak var navbar: UINavigationBar!
-    
+
 // MARK: - Variables
     private var viewModel = SignupViewModel()
     private var verifyModal: UIView?
@@ -51,11 +51,11 @@ class SignupViewController: UIViewController {
                 target: self,
                 action: #selector(countryImageViewTapped)))
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         navbar.shadowImage = UIImage()
-        
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

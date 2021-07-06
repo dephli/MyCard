@@ -14,8 +14,8 @@ class SetupCardViewController: UIViewController {
     @IBOutlet weak var setupLabel: UILabel!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var arrowButton: UIButton!
-    
-    //MARK: - properties
+
+    // MARK: - properties
     let addCardBottomSheet = AddCardBottomSheet()
 
 // MARK: - ViewController methods

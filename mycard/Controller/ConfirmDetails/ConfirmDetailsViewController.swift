@@ -90,7 +90,7 @@ class ConfirmDetailsViewController: UIViewController {
     private func saveSuccessful() {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
-    
+
     private func firstCardSaveSuccessful() {
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let profileSetupViewController = storyboard.instantiateViewController(

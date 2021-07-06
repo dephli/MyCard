@@ -31,7 +31,7 @@ class ProfileSetupViewController: UIViewController {
     @IBAction func letsGoButtonPressed(_ sender: Any) {
         if fullNameTextField.text!.trimmingCharacters(in: .whitespaces) == "" {
             self.alert(title: "Error", message: "Name cannot be blank")
-            return 
+            return
         }
         self.showActivityIndicator()
         let user = User(name: fullNameTextField.text, avatarImageUrl: profilePicUrl)
