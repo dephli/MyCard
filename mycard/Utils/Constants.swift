@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 struct K {
+    static let cameraViewedFirstTime = "\(Bundle.main.bundleIdentifier!).CameraViewedFirstTime"
+    static let imageCropedFirstTime = "\(Bundle.main.bundleIdentifier!).imageCropedFirstTime"
     static let authVerificationId = "authVerificationID"
     static let contactCell = "ContactsCell"
     static let contactCellIdentifier = "ContactsReusableCell"
@@ -23,6 +25,7 @@ struct K {
 
     struct ColorString {
         static let mcBlue = "MC Blue"
+        static let mcBlue10 = "MC Blue 10"
         static let mcBlack = "MC Black"
         static let mcBlack10 = "MC Black 10"
         static let mcBlack40 = "MC Black 40"
@@ -36,17 +39,18 @@ struct K {
     }
 
     struct Colors {
-        static let Blue = UIColor(named: ColorString.mcBlue)
-        static let Black = UIColor(named: ColorString.mcBlack)
-        static let Black5 = UIColor(named: ColorString.mcBlack5)
-        static let Black10 = UIColor(named: ColorString.mcBlack10)
-        static let Black40 = UIColor(named: ColorString.mcBlack40)
-        static let Black60 = UIColor(named: ColorString.mcBlack60)
-        static let White = UIColor(named: ColorString.mcWhite)
-        static let Yellow = UIColor(named: ColorString.mcYellow)
-        static let Green = UIColor(named: ColorString.mcGreen)
-        static let Wine = UIColor(named: ColorString.mcWine)
-        static let Red = UIColor(named: ColorString.mcRed)
+        static let Blue = UIColor(named: ColorString.mcBlue)!
+        static let Blue10 = UIColor(named: ColorString.mcBlue10)!
+        static let Black = UIColor(named: ColorString.mcBlack)!
+        static let Black5 = UIColor(named: ColorString.mcBlack5)!
+        static let Black10 = UIColor(named: ColorString.mcBlack10)!
+        static let Black40 = UIColor(named: ColorString.mcBlack40)!
+        static let Black60 = UIColor(named: ColorString.mcBlack60)!
+        static let White = UIColor(named: ColorString.mcWhite)!
+        static let Yellow = UIColor(named: ColorString.mcYellow)!
+        static let Green = UIColor(named: ColorString.mcGreen)!
+        static let Wine = UIColor(named: ColorString.mcWine)!
+        static let Red = UIColor(named: ColorString.mcRed)!
 
     }
 
@@ -63,6 +67,7 @@ struct K {
         static let personalInfoViewController = "PersonalInfoViewController"
         static let qrCodeViewController = "QRCodeViewController"
         static let searchViewController = "SearchViewController"
+        static let profileSetupViewController = "ProfileSetupViewController"
     }
 
     struct TextStyles {
@@ -140,6 +145,12 @@ struct K {
             emphasis: .regular,
             alignment: .left,
             lineSpacing: 1.2)
+        static let captionBlue = TextStyle(
+            style: .extraSmall,
+            color: .primary,
+            emphasis: .regular,
+            alignment: .left,
+            lineSpacing: 1.2)
         static let buttonWhite = TextStyle(
             style: .normal,
             color: .white,
@@ -184,6 +195,18 @@ struct K {
         static let confirmDetailsToNotes = "ConfirmDetailsToNotes"
         static let cardDetailsToNotes = "CardDetailsToNotes"
         static let profileToSettings = "ProfileToSettings"
+        static let cardsToCamera = "CardsToCamera"
+        static let cameraToScannedCardDetails = "CameraToScannedCardDetails"
+        static let reviewScannedDetailsToAssignLabel = "ReviewScannedDetailsToAssignLabel"
+        static let scannedDetailsToAddLabel = "ScannedDetailsToAddLabel"
+        static let selectLabelToAddDetail = "SelectLabelToAddDetail"
+        static let reviewScannedDetailsToEditDetail = "ReviewScannedDetailsToEditDetail"
+        static let assignLabelToNotes = "AssignLabelToNotes"
+        static let setupCardToProfileSetup = "SetupCardToProfileSetup"
+        static let verifyNumberToSetupCard = "VerifyNumberToSetupCard"
+        static let setupCardToCamera = "SetupCardToCamera"
+        static let setupCardToPersonalInfo = "SetupCardToPersonalInfo"
+        static let profileToCamera = "ProfileToCamera"
     }
 
     struct Notifications {
@@ -215,36 +238,47 @@ struct K {
         static let settings = "settings"
         static let phone = "phone"
         static let brokenImage = "broken_image"
+        static let swap = "swap"
+        static let untag = "untag"
+        static let tag = "tag"
+        static let copy = "copy"
+        static let suitcase = "suitcase"
+        static let web = "web"
 
     }
 
     struct Images {
-        static let facebook = UIImage(named: ImageString.facebook)
-        static let twitter = UIImage(named: ImageString.twitter)
-        static let instagram = UIImage(named: ImageString.instagram)
-        static let linkedin = UIImage(named: ImageString.linkedin)
-        static let chevronRight = UIImage(named: ImageString.chevronRight)
-        static let user = UIImage(named: ImageString.user)
-        static let mail = UIImage(named: ImageString.mail)
-        static let location = UIImage(named: ImageString.location)
-        static let office = UIImage(named: ImageString.office)
-        static let phone = UIImage(named: ImageString.phone)
-        static let check = UIImage(named: ImageString.check)
-        static let edit = UIImage(named: ImageString.edit)
-        static let scanQR = UIImage(named: ImageString.scanQR)
-        static let delete = UIImage(named: ImageString.delete)
-        static let share = UIImage(named: ImageString.share)
-        static let more = UIImage(named: ImageString.more)
-        static let contacts = UIImage(named: ImageString.contacts)
-        static let addToCollection = UIImage(named: ImageString.addToCollection)
-        static let profilePlaceholder = UIImage(named: ImageString.profilePlaceholder)
+        static let facebook = UIImage(named: ImageString.facebook)!
+        static let twitter = UIImage(named: ImageString.twitter)!
+        static let instagram = UIImage(named: ImageString.instagram)!
+        static let linkedin = UIImage(named: ImageString.linkedin)!
+        static let chevronRight = UIImage(named: ImageString.chevronRight)!
+        static let user = UIImage(named: ImageString.user)!
+        static let mail = UIImage(named: ImageString.mail)!
+        static let location = UIImage(named: ImageString.location)!
+        static let office = UIImage(named: ImageString.office)!
+        static let phone = UIImage(named: ImageString.phone)!
+        static let check = UIImage(named: ImageString.check)!
+        static let edit = UIImage(named: ImageString.edit)!
+        static let scanQR = UIImage(named: ImageString.scanQR)!
+        static let delete = UIImage(named: ImageString.delete)!
+        static let share = UIImage(named: ImageString.share)!
+        static let more = UIImage(named: ImageString.more)!
+        static let contacts = UIImage(named: ImageString.contacts)!
+        static let addToCollection = UIImage(named: ImageString.addToCollection)!
+        static let profilePlaceholder = UIImage(named: ImageString.profilePlaceholder)!
+        static let minus = UIImage(named: ImageString.minus)!
+        static let plus = UIImage(named: ImageString.plus)!
+        static let gearShape = UIImage(named: K.ImageString.settings)!
+        static let brokenImage = UIImage(named: K.ImageString.brokenImage)!
+        static let swap = UIImage(named: ImageString.swap)!
+        static let untag = UIImage(named: ImageString.untag)!
+        static let tag = UIImage(named: ImageString.tag)!
+        static let copy = UIImage(named: ImageString.copy)!
+        static let suitcase = UIImage(named: ImageString.suitcase)!
+        static let web = UIImage(named: ImageString.web)!
 
-//        system images
-        static let minus = UIImage(named: ImageString.minus)
-        static let plus = UIImage(named: ImageString.plus)
-        static let gearShape = UIImage(named: K.ImageString.settings)
-        static let brokenImage = UIImage(named: K.ImageString.brokenImage)
-
+        static let systemMinus = UIImage(systemName: "minus")!
     }
 
     struct SocialMedia {

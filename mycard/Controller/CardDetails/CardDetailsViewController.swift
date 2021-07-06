@@ -68,7 +68,7 @@ class CardDetailsViewController: UIViewController {
             vc!.contact = viewModel.contact
         } else if segue.destination is NotesViewController {
             let vc = segue.destination as! NotesViewController
-            vc.viewModel = NotesViewModel()
+            vc.viewModel = NotesViewModel(directEdit: true)
             vc.presentationController?.delegate = self
         }
     }

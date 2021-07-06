@@ -42,6 +42,16 @@ class WorkInfoViewModel {
         }
     }
 
+    var website: String? {
+        get {
+            return businessInfo.website
+        }
+
+        set {
+            businessInfo.website = newValue
+        }
+    }
+
     var bindError: ((Error) -> Void)!
     var bindSaveSuccessful: (() -> Void)!
     var bindContinue: (() -> Void)!

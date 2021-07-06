@@ -15,11 +15,12 @@ class WorkInfoViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var workInfoSectionLabel: UILabel!
     @IBOutlet weak var workLocationLabel: UILabel!
-    @IBOutlet weak var continueButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var websiteLabel: UILabel!
+
     @IBOutlet weak var companyNameTextField: UITextField!
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var workLocationTextField: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
 
     enum ContinueActionType {
@@ -55,9 +56,10 @@ class WorkInfoViewController: UIViewController {
 
 // MARK: - Actions
     @IBAction func backBarButtonPressed(_ sender: Any) {
-        viewModel.role = jobTitleTextField.text!
-        viewModel.companyName = companyNameTextField.text!
-        viewModel.address = workLocationTextField.text!
+        viewModel.role = jobTitleTextField.text
+        viewModel.companyName = companyNameTextField.text
+        viewModel.address = workLocationTextField.text
+        viewModel.website = websiteTextField.text
         viewModel.saveCurrentFlowData()
         dismiss(animated: true, completion: nil)
     }
@@ -79,6 +81,7 @@ class WorkInfoViewController: UIViewController {
         workLocationTextField.text = viewModel.address
         companyNameTextField.text = viewModel.companyName
         jobTitleTextField.text = viewModel.role
+        websiteTextField.text = viewModel.website
     }
 
     private func setupUI() {
@@ -87,14 +90,16 @@ class WorkInfoViewController: UIViewController {
         pageCountLabel.style(with: K.TextStyles.subTitle)
         workInfoSectionLabel.style(with: K.TextStyles.subTitle)
         workLocationLabel.style(with: K.TextStyles.subTitle)
+        websiteLabel.style(with: K.TextStyles.subTitle)
         continueButton.setTitle(viewModel.continueButtonTitle, for: .normal)
 
     }
 
     private func saveCardData() {
-        viewModel.role = jobTitleTextField.text!
-        viewModel.companyName = companyNameTextField.text!
-        viewModel.address = workLocationTextField.text!
+        viewModel.role = jobTitleTextField.text
+        viewModel.companyName = companyNameTextField.text
+        viewModel.address = workLocationTextField.text
+        viewModel.website = websiteTextField.text
         viewModel.saveCardData()
     }
 

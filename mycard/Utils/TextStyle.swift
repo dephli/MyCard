@@ -69,19 +69,19 @@ extension TextStyle {
 
         switch color {
         case .white:
-            baseColor = K.Colors.White!
+            baseColor = K.Colors.White
         case .primary:
-            baseColor = K.Colors.Blue!
+            baseColor = K.Colors.Blue
         case .black:
-            baseColor = K.Colors.Black!
+            baseColor = K.Colors.Black
         case .black5:
-            baseColor = K.Colors.Black5!
+            baseColor = K.Colors.Black5
         case .black60:
-            baseColor = K.Colors.Black60!
+            baseColor = K.Colors.Black60
         case .black40:
-            baseColor = K.Colors.Black40!
+            baseColor = K.Colors.Black40
         case .red:
-            baseColor = K.Colors.Red!
+            baseColor = K.Colors.Red
         }
 
         return baseColor.withAlphaComponent(opacity)

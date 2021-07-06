@@ -13,6 +13,7 @@ class CardDetailsViewModel {
     var contact: Contact {
         CardManager.shared.currentContactDetails
     }
+
     var role: String {
         contact.businessInfo?.role ?? ""
     }
@@ -55,7 +56,7 @@ class CardDetailsViewModel {
             nameInitials = "\(lastName!.prefix(1))"
 
         } else if lastName != "" && firstName != "" {
-            nameInitials = "\(firstName!.prefix(1))\(lastName!.prefix(1))"
+            nameInitials = "\(firstName?.prefix(1) ?? "")\(lastName?.prefix(1) ?? "")"
         } else if firstName == "" && lastName == "" {
             nameInitials = "\(contact.name.fullName!.prefix(1))"
         }
@@ -226,10 +227,11 @@ class CardDetailsViewModel {
     }
 
     func callNumber(number: String) {
+        let number = number.replacingOccurrences(of: " ", with: "")
         if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
-            let error = CustomError(str: "Please add an email") as Error
+            let error = CustomError(str: "Please add an phone number to make a call") as Error
             self.bindError!(error)
         }
     }

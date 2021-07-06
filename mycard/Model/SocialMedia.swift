@@ -16,6 +16,6 @@ enum SocialMediaType: String, Codable {
 }
 
 struct SocialMedia: Codable, Equatable, Hashable {
-    let usernameOrUrl: String
-    let type: SocialMediaType
+    var usernameOrUrl: String
+    var type: SocialMediaType
 }

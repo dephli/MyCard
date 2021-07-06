@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
         <array key="Inter-SemiBold.ttf">
             <string>Inter-SemiBold</string>
         </array>
@@ -18,7 +21,7 @@
         <!--Capture Image View Controller-->
         <scene sceneID="LA9-5m-6Qh">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="kOJ-yS-wwY" customClass="CaptureImageViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CaptureImageViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="kOJ-yS-wwY" customClass="CaptureImageViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SGw-xU-CRW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,75 +33,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlt-fv-nNk" userLabel="Video PreviewView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-Lc-Btp">
-                                        <rect key="frame" x="32" y="321" width="350" height="176"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera top left angle" translatesAutoresizingMaskIntoConstraints="NO" id="tLn-h9-Dc7">
-                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="16" id="OQW-0Y-7NS"/>
-                                                    <constraint firstAttribute="height" constant="16" id="ZRj-tX-wPo"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera top right angle" translatesAutoresizingMaskIntoConstraints="NO" id="av7-tl-eQK">
-                                                <rect key="frame" x="334" y="0.0" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="7c9-FJ-rQQ"/>
-                                                    <constraint firstAttribute="width" constant="16" id="Qcq-Hu-FX5"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera bottom left angle" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-cP-fxQ">
-                                                <rect key="frame" x="0.0" y="160" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="16" id="YHx-s5-df6"/>
-                                                    <constraint firstAttribute="height" constant="16" id="yGV-mL-v0E"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera bottom right angle" translatesAutoresizingMaskIntoConstraints="NO" id="7Qh-rA-JTx">
-                                                <rect key="frame" x="334" y="160" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="16" id="sRw-Pj-OaG"/>
-                                                    <constraint firstAttribute="height" constant="16" id="tkP-bG-t4m"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="tLn-h9-Dc7" firstAttribute="top" secondItem="r0d-Lc-Btp" secondAttribute="top" id="2eO-Lf-Bzk"/>
-                                            <constraint firstItem="tLn-h9-Dc7" firstAttribute="leading" secondItem="r0d-Lc-Btp" secondAttribute="leading" id="7Ll-KX-CcT"/>
-                                            <constraint firstAttribute="height" constant="176" id="T0K-w5-jde"/>
-                                            <constraint firstItem="g8Q-cP-fxQ" firstAttribute="leading" secondItem="r0d-Lc-Btp" secondAttribute="leading" id="TOM-2I-qMm"/>
-                                            <constraint firstAttribute="trailing" secondItem="av7-tl-eQK" secondAttribute="trailing" id="VFC-kt-Jon"/>
-                                            <constraint firstAttribute="bottom" secondItem="7Qh-rA-JTx" secondAttribute="bottom" id="dJf-zf-Dcr"/>
-                                            <constraint firstAttribute="bottom" secondItem="g8Q-cP-fxQ" secondAttribute="bottom" id="qRW-lk-ZGh"/>
-                                            <constraint firstItem="av7-tl-eQK" firstAttribute="top" secondItem="r0d-Lc-Btp" secondAttribute="top" id="rZc-Ze-L8M"/>
-                                            <constraint firstAttribute="trailing" secondItem="7Qh-rA-JTx" secondAttribute="trailing" id="y3I-eQ-xkW"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-D0-xi6">
-                                        <rect key="frame" x="32" y="760" width="135" height="22"/>
-                                        <state key="normal" title="Add manually" image="create card"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HL-2P-bbX">
-                                        <rect key="frame" x="262" y="757" width="120" height="25"/>
-                                        <state key="normal" title="Import card" image="import"/>
-                                        <connections>
-                                            <action selector="importCardButtonPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="t7j-Nr-DlN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiZ-88-pel">
-                                        <rect key="frame" x="171" y="642" width="72" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="capture button"/>
-                                        <connections>
-                                            <action selector="capturePhotoPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="Kge-Dm-DFx"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGF-C4-7O5">
-                                        <rect key="frame" x="24" y="16" width="20" height="22"/>
+                                        <rect key="frame" x="28" y="16" width="13" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" name="MC White"/>
-                                        <state key="normal" image="arrow.backward" catalog="system"/>
+                                        <state key="normal" image="chevron.left" catalog="system"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="QMl-lz-Epx"/>
                                         </connections>
@@ -110,38 +49,112 @@
                                         <color key="textColor" name="MC White"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKR-6K-fhS">
+                                        <rect key="frame" x="171" y="714" width="72" height="72"/>
+                                        <color key="tintColor" name="MC Blue"/>
+                                        <state key="normal" image="scan-card" backgroundImage="capture button"/>
+                                        <connections>
+                                            <action selector="capturePhotoPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="RdJ-iq-fix"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwF-0r-NT7">
+                                        <rect key="frame" x="99" y="730" width="40" height="40"/>
+                                        <color key="backgroundColor" name="MC White"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="1Dm-Le-fQM"/>
+                                            <constraint firstAttribute="height" constant="40" id="p9d-UC-edt"/>
+                                        </constraints>
+                                        <color key="tintColor" name="MC Black"/>
+                                        <state key="normal" image="gallery"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="importCardButtonPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="ARw-SQ-0GL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="r0d-Lc-Btp" firstAttribute="centerX" secondItem="hlt-fv-nNk" secondAttribute="centerX" id="6TF-WD-dta"/>
-                                    <constraint firstItem="r0d-Lc-Btp" firstAttribute="leading" secondItem="hlt-fv-nNk" secondAttribute="leading" constant="32" id="HXs-B9-Mzi"/>
-                                    <constraint firstAttribute="bottom" secondItem="Lrc-D0-xi6" secondAttribute="bottom" constant="36" id="Jhq-N2-ePf"/>
-                                    <constraint firstAttribute="bottom" secondItem="6HL-2P-bbX" secondAttribute="bottom" constant="36" id="ShZ-CU-sQn"/>
-                                    <constraint firstItem="r0d-Lc-Btp" firstAttribute="centerY" secondItem="hlt-fv-nNk" secondAttribute="centerY" id="YF2-Lc-NKL"/>
-                                    <constraint firstItem="6HL-2P-bbX" firstAttribute="leading" secondItem="Lrc-D0-xi6" secondAttribute="trailing" constant="95" id="Zmc-g1-K42"/>
-                                    <constraint firstAttribute="trailing" secondItem="r0d-Lc-Btp" secondAttribute="trailing" constant="32" id="cYk-Ce-oPq"/>
-                                    <constraint firstItem="Lrc-D0-xi6" firstAttribute="leading" secondItem="r0d-Lc-Btp" secondAttribute="leading" id="mIM-u7-tLx"/>
+                                    <constraint firstItem="iKR-6K-fhS" firstAttribute="centerX" secondItem="hlt-fv-nNk" secondAttribute="centerX" id="DjM-E7-zbq"/>
+                                    <constraint firstItem="bwF-0r-NT7" firstAttribute="centerY" secondItem="iKR-6K-fhS" secondAttribute="centerY" id="Osd-pl-PlX"/>
+                                    <constraint firstItem="iKR-6K-fhS" firstAttribute="leading" secondItem="bwF-0r-NT7" secondAttribute="trailing" constant="32" id="ZDL-bQ-amx"/>
+                                    <constraint firstAttribute="bottom" secondItem="iKR-6K-fhS" secondAttribute="bottom" constant="32" id="eun-UI-3vF"/>
                                 </constraints>
+                            </view>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1TL-1g-XgT">
+                                <rect key="frame" x="32" y="310" width="350" height="276"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan_notice" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-E8-ktR">
+                                        <rect key="frame" x="139" y="32" width="72" height="72"/>
+                                        <color key="tintColor" name="MC White"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold card close to phone's camera to improve scan accuracy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq7-1s-ADz">
+                                        <rect key="frame" x="60.5" y="128" width="229.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                        <color key="textColor" name="MC White"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3X-4V-Ceo">
+                                        <rect key="frame" x="129" y="212" width="92" height="32"/>
+                                        <color key="backgroundColor" name="MC White"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="92" id="Xtu-xW-No9"/>
+                                            <constraint firstAttribute="height" constant="32" id="lKK-p8-yH4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                        <state key="normal" title="Ok, got it">
+                                            <color key="titleColor" name="MC Black"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="hideScanAlertButtonPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="cPq-1G-nyX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="MC Black 90"/>
+                                <constraints>
+                                    <constraint firstItem="T3X-4V-Ceo" firstAttribute="centerX" secondItem="1TL-1g-XgT" secondAttribute="centerX" id="0Bu-Os-Ad4"/>
+                                    <constraint firstItem="gA3-E8-ktR" firstAttribute="top" secondItem="1TL-1g-XgT" secondAttribute="top" constant="32" id="EiA-Wh-N7p"/>
+                                    <constraint firstAttribute="height" constant="276" id="Uut-1X-qWv"/>
+                                    <constraint firstAttribute="bottom" secondItem="T3X-4V-Ceo" secondAttribute="bottom" constant="32" id="cLz-VC-ICh"/>
+                                    <constraint firstItem="Lq7-1s-ADz" firstAttribute="centerX" secondItem="1TL-1g-XgT" secondAttribute="centerX" id="dgL-Yb-jO9"/>
+                                    <constraint firstItem="Lq7-1s-ADz" firstAttribute="top" secondItem="gA3-E8-ktR" secondAttribute="bottom" constant="24" id="hPd-Gg-Bk4"/>
+                                    <constraint firstItem="gA3-E8-ktR" firstAttribute="centerX" secondItem="1TL-1g-XgT" secondAttribute="centerX" id="w4F-p6-nlR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Fd-hO-hg1"/>
-                        <color key="backgroundColor" name="MC White"/>
+                        <color key="backgroundColor" name="MC Black"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QLI-Fm-IYt" secondAttribute="bottom" id="96Q-UN-bAS"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="leading" secondItem="5Fd-hO-hg1" secondAttribute="leading" id="9SV-rr-zwP"/>
+                            <constraint firstItem="1TL-1g-XgT" firstAttribute="leading" secondItem="5Fd-hO-hg1" secondAttribute="leading" constant="32" id="JLq-Qb-WCX"/>
                             <constraint firstItem="QLI-Fm-IYt" firstAttribute="leading" secondItem="SGw-xU-CRW" secondAttribute="leading" id="XKZ-i7-2E3"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="bottom" secondItem="5Fd-hO-hg1" secondAttribute="bottom" id="aWP-Li-dZZ"/>
                             <constraint firstItem="QLI-Fm-IYt" firstAttribute="top" secondItem="SGw-xU-CRW" secondAttribute="top" id="b8v-Um-Wt2"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="trailing" secondItem="5Fd-hO-hg1" secondAttribute="trailing" id="cSq-Jl-JRq"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="top" secondItem="5Fd-hO-hg1" secondAttribute="top" id="ceT-eK-ATu"/>
+                            <constraint firstItem="5Fd-hO-hg1" firstAttribute="trailing" secondItem="1TL-1g-XgT" secondAttribute="trailing" constant="32" id="ceW-ru-Fcb"/>
                             <constraint firstItem="QLI-Fm-IYt" firstAttribute="trailing" secondItem="5Fd-hO-hg1" secondAttribute="trailing" id="h9a-8e-tc7"/>
+                            <constraint firstItem="1TL-1g-XgT" firstAttribute="centerY" secondItem="SGw-xU-CRW" secondAttribute="centerY" id="kul-32-T6i"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xMG-DG-FKe"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="addManuallyButton" destination="Lrc-D0-xi6" id="fed-Vs-oCv"/>
-                        <outlet property="importCardButton" destination="6HL-2P-bbX" id="cIS-Ot-OLg"/>
+                        <outlet property="scanAlertView" destination="1TL-1g-XgT" id="gac-Tm-qBW"/>
                         <outlet property="videoPreviewView" destination="QLI-Fm-IYt" id="ZAM-78-0Gn"/>
                         <segue destination="Qf8-Xl-LGT" kind="presentation" identifier="CapturePhotoToReviewPhoto" id="suQ-Nm-IGA"/>
                     </connections>
@@ -158,13 +171,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYr-Ir-cDE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYr-Ir-cDE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qav-1G-ZvU">
-                                <rect key="frame" x="179" y="734" width="56" height="56"/>
+                                <rect key="frame" x="326" y="734" width="56" height="56"/>
                                 <color key="backgroundColor" name="MC Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Pb3-8W-Shs"/>
@@ -181,39 +194,60 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="arrowButtonPressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="N5g-hA-tT1"/>
-                                    <segue destination="fvr-55-Kqv" kind="showDetail" identifier="CameratoAuth" id="b98-A4-veX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZN-XK-oYm">
                                 <rect key="frame" x="16" y="44" width="18" height="22"/>
-                                <color key="tintColor" name="MC Black"/>
+                                <color key="tintColor" name="MC White"/>
                                 <state key="normal" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="Y3Y-Jq-0QI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpN-3r-48G">
+                                <rect key="frame" x="24" y="742" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CFX-Mp-84v"/>
+                                    <constraint firstAttribute="width" constant="40" id="kl1-0M-qLG"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" image="crop.rotate" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cropImagePressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="bWC-sl-fdK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rhn-ag-boP"/>
-                        <color key="backgroundColor" name="MC White"/>
+                        <color key="backgroundColor" name="MC Black"/>
                         <constraints>
                             <constraint firstItem="Rhn-ag-boP" firstAttribute="bottom" secondItem="qav-1G-ZvU" secondAttribute="bottom" constant="72" id="HUu-Db-mvE"/>
+                            <constraint firstItem="mpN-3r-48G" firstAttribute="leading" secondItem="Rhn-ag-boP" secondAttribute="leading" constant="24" id="Mae-6r-OEX"/>
+                            <constraint firstItem="Rhn-ag-boP" firstAttribute="trailing" secondItem="qav-1G-ZvU" secondAttribute="trailing" constant="32" id="Rln-Pp-QyR"/>
+                            <constraint firstItem="mpN-3r-48G" firstAttribute="centerY" secondItem="qav-1G-ZvU" secondAttribute="centerY" id="fJm-kP-Arq"/>
                             <constraint firstItem="OZN-XK-oYm" firstAttribute="leading" secondItem="Rhn-ag-boP" secondAttribute="leading" constant="16" id="ibW-yN-q6u"/>
-                            <constraint firstItem="qav-1G-ZvU" firstAttribute="centerX" secondItem="61x-5X-kev" secondAttribute="centerX" id="ni7-k4-Krs"/>
                             <constraint firstItem="OZN-XK-oYm" firstAttribute="top" secondItem="Rhn-ag-boP" secondAttribute="top" id="zqO-ND-pvK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="TYr-Ir-cDE" id="n9C-wV-0q6"/>
+                        <outlet property="cropButton" destination="mpN-3r-48G" id="jl2-Zu-Ssv"/>
+                        <segue destination="fvr-55-Kqv" kind="showDetail" identifier="CameraToScannedCardDetails" id="wa7-6K-FJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igC-c4-L6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1947.826086956522" y="150"/>
         </scene>
-        <!--Auth-->
+        <!--ScannedCardDetails-->
         <scene sceneID="i5Y-Q2-0LE">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Account Info" storyboardName="Auth" id="fvr-55-Kqv" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Account Info" storyboardName="ScannedCardDetails" id="fvr-55-Kqv" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pSx-r8-Hid"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaZ-37-beX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -222,18 +256,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
-        <image name="camera bottom left angle" width="18" height="18"/>
-        <image name="camera bottom right angle" width="18" height="18"/>
-        <image name="camera top left angle" width="18" height="18"/>
-        <image name="camera top right angle" width="18" height="18"/>
         <image name="capture button" width="72" height="72"/>
-        <image name="create card" width="26" height="22"/>
-        <image name="import" width="26" height="25"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="crop.rotate" catalog="system" width="114" height="128"/>
+        <image name="gallery" width="24" height="24"/>
+        <image name="scan-card" width="24" height="24"/>
+        <image name="scan_notice" width="72" height="72"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 90">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MC Blue">
             <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

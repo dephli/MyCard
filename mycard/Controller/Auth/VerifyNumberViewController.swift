@@ -102,7 +102,7 @@ class VerifyNumberViewController: UIViewController {
             && username?.trimmingCharacters(in: .whitespaces) != "" {
             self.setRootViewController()
         } else {
-            self.performSegue(withIdentifier: K.Segues.verifyNumberToProfileSetup, sender: self)
+            self.performSegue(withIdentifier: K.Segues.verifyNumberToSetupCard, sender: self)
         }
 
     }

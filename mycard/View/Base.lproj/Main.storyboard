@@ -1,145 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfz-n6-Aaq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfz-n6-Aaq">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setup Card View Controller-->
-        <scene sceneID="4FL-CF-OYd">
-            <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Lzh-RX-gxj" customClass="SetupCardViewController" customModule="mycard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZfK-G2-MSs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-Yg-e2V">
-                                <rect key="frame" x="24" y="100" width="366" height="40"/>
-                                <string key="text">A quick taste of what's 
-in store for you.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Set up your personal card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-EA-tQp">
-                                <rect key="frame" x="24" y="156" width="366" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MC card doodle" translatesAutoresizingMaskIntoConstraints="NO" id="S5K-VN-XbQ">
-                                <rect key="frame" x="110" y="217" width="194" height="194"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H97-RS-scI">
-                                <rect key="frame" x="179" y="712" width="56" height="56"/>
-                                <color key="backgroundColor" name="MC Blue"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="5dR-qe-AN2"/>
-                                    <constraint firstAttribute="height" constant="56" id="HaO-g0-jLL"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="titleShadowOffset" width="0.0" height="8"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" name="MC Blue 10"/>
-                                    <imageReference key="image" image="arrow.forward" catalog="system" symbolScale="large"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="28"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" name="MC Blue 40"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="arrowButtonPressed:" destination="Lzh-RX-gxj" eventType="touchUpInside" id="bV5-zk-X8m"/>
-                                    <segue destination="M9w-zf-q79" kind="show" id="M0X-55-2hk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceo-Gf-bTa">
-                                <rect key="frame" x="143" y="800" width="128" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="dwi-uM-4Dz"/>
-                                    <constraint firstAttribute="width" constant="128" id="uCA-vL-uKD"/>
-                                </constraints>
-                                <state key="normal" title="Skip for now">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="MC Black 10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="skipButtonPressed:" destination="Lzh-RX-gxj" eventType="touchUpInside" id="Qam-3n-tI1"/>
-                                    <segue destination="2we-T3-GYD" kind="show" id="ESe-C6-1uP"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="QjD-JB-tzP"/>
-                        <color key="backgroundColor" name="MC White"/>
-                        <constraints>
-                            <constraint firstItem="ceo-Gf-bTa" firstAttribute="top" secondItem="H97-RS-scI" secondAttribute="bottom" constant="32" id="6E3-OE-YOG"/>
-                            <constraint firstItem="YrV-Yg-e2V" firstAttribute="leading" secondItem="QjD-JB-tzP" secondAttribute="leading" constant="24" id="Afo-Pk-KEN"/>
-                            <constraint firstItem="fdC-EA-tQp" firstAttribute="top" secondItem="YrV-Yg-e2V" secondAttribute="bottom" constant="16" id="BnF-3F-8l3"/>
-                            <constraint firstItem="ceo-Gf-bTa" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="ISi-JR-4e2"/>
-                            <constraint firstItem="YrV-Yg-e2V" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="Ohh-h3-iju"/>
-                            <constraint firstItem="ceo-Gf-bTa" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="U3Q-4O-Dzu"/>
-                            <constraint firstItem="S5K-VN-XbQ" firstAttribute="top" secondItem="fdC-EA-tQp" secondAttribute="bottom" constant="40" id="aOd-zd-y3f"/>
-                            <constraint firstItem="H97-RS-scI" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="imd-lh-R5K"/>
-                            <constraint firstItem="fdC-EA-tQp" firstAttribute="leading" secondItem="QjD-JB-tzP" secondAttribute="leading" constant="24" id="let-1s-Hta"/>
-                            <constraint firstItem="YrV-Yg-e2V" firstAttribute="top" secondItem="ZfK-G2-MSs" secondAttribute="topMargin" constant="56" id="nAh-qd-cui"/>
-                            <constraint firstAttribute="bottom" secondItem="ceo-Gf-bTa" secondAttribute="bottom" constant="48" id="oy4-uy-9WS"/>
-                            <constraint firstItem="fdC-EA-tQp" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="rAZ-CP-oQe"/>
-                            <constraint firstItem="S5K-VN-XbQ" firstAttribute="centerX" secondItem="ZfK-G2-MSs" secondAttribute="centerX" id="uBT-6S-jYj"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="ovf-kx-n47">
-                        <barButtonItem key="backBarButtonItem" title=" " id="QjE-0K-wTI"/>
-                    </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="arrowButton" destination="H97-RS-scI" id="x4c-Or-R6o"/>
-                        <outlet property="descriptionLabel" destination="YrV-Yg-e2V" id="RqQ-2k-u16"/>
-                        <outlet property="setupLabel" destination="fdC-EA-tQp" id="GL6-4e-CKV"/>
-                        <outlet property="skipButton" destination="ceo-Gf-bTa" id="NE2-di-dLa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U52-w9-Laa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2642.0289855072465" y="85.714285714285708"/>
-        </scene>
-        <!--Camera-->
-        <scene sceneID="RJs-Ro-gi7">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="I" storyboardName="Camera" id="M9w-zf-q79" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="iwk-Ua-kf4"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LHV-i9-bS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3404" y="86"/>
-        </scene>
         <!--Auth-->
         <scene sceneID="oan-Gd-PrX">
             <objects>
@@ -198,7 +68,7 @@ in store for you.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Lzh-RX-gxj" kind="show" id="Lo3-Oj-G7A"/>
+                                    <segue destination="2we-T3-GYD" kind="show" id="TV3-VX-Mfm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-zD-adm">
@@ -268,13 +138,9 @@ place</string>
         </scene>
     </scenes>
     <resources>
-        <image name="MC card doodle" width="194" height="194"/>
         <image name="MC network doodle" width="276" height="268"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
-        <namedColor name="MC Black 10">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MC Blue">
             <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

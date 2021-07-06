@@ -7,13 +7,14 @@
 
 import UIKit
 import AVFoundation
+import CoreMotion
+import CropViewController
 
 class CaptureImageViewController: UIViewController {
-
+    static let identifier = String(describing: self)
 // MARK: - Outlets
-    @IBOutlet weak var addManuallyButton: UIButton!
-    @IBOutlet weak var importCardButton: UIButton!
     @IBOutlet weak var videoPreviewView: UIView!
+    @IBOutlet weak var scanAlertView: UIView!
 
 // MARK: - Variables
     private var captureSession: AVCaptureSession?
@@ -21,22 +22,38 @@ class CaptureImageViewController: UIViewController {
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     private var capturedImage: UIImage?
     private let imagePicker = UIImagePickerController()
+    var orientationLast = UIInterfaceOrientation(rawValue: 0)!
+    var motionManager: CMMotionManager?
+    var imageOrientation: UIImage.Orientation?
 
 // MARK: - ViewController methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupCamera()
+        initializeMotionManager()
+        let cameraViewed = UserDefaults.standard.bool(forKey: K.cameraViewedFirstTime)
+        if !cameraViewed {
+            Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(showCameraAlertView),
+                userInfo: nil, repeats: false
+            )
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        motionManager?.stopAccelerometerUpdates()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ReviewPhotoViewController {
             let vc = segue.destination as? ReviewPhotoViewController
-            vc?.backgroundImage = capturedImage
+            vc?.capturedImage = capturedImage
         }
     }
 
@@ -47,25 +64,75 @@ class CaptureImageViewController: UIViewController {
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func importCardButtonPressed(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.sourceType = .photoLibrary
             imagePicker.delegate = self
-            imagePicker.allowsEditing = true
             present(imagePicker, animated: true, completion: nil)
         }
     }
 
-// MARK: - Custom Methods
+    @IBAction func hideScanAlertButtonPressed(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: K.cameraViewedFirstTime)
+        UIView.animate(withDuration: 0.2) {
+            self.scanAlertView.alpha = 0
+        } completion: { _ in
+            self.scanAlertView.isHidden = true
+        }
+    }
 
-    private func setupUI() {
-        addManuallyButton.alignTextBelow()
-        importCardButton.alignTextBelow()
-        addManuallyButton.setTitle(with: K.TextStyles.captionWhite, for: .normal)
-        importCardButton.setTitle(with: K.TextStyles.captionWhite, for: .normal)
+// MARK: - Custom Methods
+    @objc private func showCameraAlertView() {
+        self.scanAlertView.isHidden = false
+        UIView.animate(withDuration: 0.2) {
+            self.scanAlertView.alpha = 1
+        }
+    }
+
+    private func initializeMotionManager() {
+     motionManager = CMMotionManager()
+     motionManager?.accelerometerUpdateInterval = 0.2
+     motionManager?.gyroUpdateInterval = 0.2
+     motionManager?.startAccelerometerUpdates(
+        to: (OperationQueue.current)!,
+        withHandler: { (accelerometerData, error) -> Void in
+            if error == nil {
+                self.outputAccelerationData((accelerometerData?.acceleration)!)
+            } else {
+                print("\(error!)")
+            }
+        })
+     }
+
+    private func outputAccelerationData(_ acceleration: CMAcceleration) {
+        var orientationNew: UIInterfaceOrientation
+
+        if acceleration.x >= 0.75 {
+            orientationNew = .landscapeLeft
+            imageOrientation = .down
+            print("gyro landscape left")
+        } else if acceleration.x <= -0.75 {
+            orientationNew = .landscapeRight
+            imageOrientation = .up
+            print("gyro landscape right")
+        } else if acceleration.y <= -0.75 {
+            orientationNew = .portrait
+            imageOrientation = .right
+            print("gyro portrait")
+        } else if acceleration.y >= 0.75 {
+            orientationNew = .portraitUpsideDown
+            imageOrientation = .left
+            print("gyro upsinde")
+        } else {
+            return
+        }
+        if orientationNew == orientationLast {
+            return
+        }
+        orientationLast = orientationNew
     }
 
     private func setupCamera() {
@@ -107,6 +174,12 @@ class CaptureImageViewController: UIViewController {
             }
         }
     }
+
+    private func cropImage(_ image: UIImage?) {
+        let fixedImage = image!.fixOrientation()
+        self.capturedImage = fixedImage
+        performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
+    }
 }
 
 // MARK: - Photo Capture delegate
@@ -115,11 +188,15 @@ extension CaptureImageViewController: AVCapturePhotoCaptureDelegate {
 
         guard let imageData = photo.fileDataRepresentation()
         else {return}
-
-        let image = UIImage(data: imageData)
-        self.capturedImage = image
-        performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
-
+        var image = UIImage(data: imageData)
+        let dataProvider  = CGDataProvider(data: imageData as CFData)
+        let cgImageRef = CGImage(
+            jpegDataProviderSource: dataProvider!,
+            decode: nil, shouldInterpolate: true,
+            intent: .defaultIntent
+        )
+        image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: imageOrientation ?? .up)
+        cropImage(image)
     }
 }
 
@@ -128,11 +205,10 @@ extension CaptureImageViewController: UIImagePickerControllerDelegate &
                                       UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            self.capturedImage = image
-            dismiss(animated: true) {
-                self.performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
-            }
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Could not get original image")
         }
+        imagePicker.dismiss(animated: true, completion: nil)
+        cropImage(image)
     }
 }

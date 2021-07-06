@@ -14,11 +14,10 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signupLabel: UILabel!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var warningLabel: UILabel!
-    @IBOutlet weak var backButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryPickerButton: UIButton!
+    @IBOutlet weak var navbar: UINavigationBar!
 
 // MARK: - Variables
     private var viewModel = SignupViewModel()
@@ -31,8 +30,8 @@ class SignupViewController: UIViewController {
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .black
         self.dismissKey()
-
         if authFlowType == .changePhoneNumber {
             signupLabel.text = "Change Phone Number"
             signupButton.setTitle("Continue", for: .normal)
@@ -42,7 +41,6 @@ class SignupViewController: UIViewController {
         signupLabel.style(with: K.TextStyles.heading1)
         phoneNumberTextField.setTextStyle(with: K.TextStyles.bodyBlack40)
         signupButton.setTitle(with: K.TextStyles.buttonWhite, for: .normal)
-        backButtonTopConstraint.constant = -5
 
         let country = CountryManager.shared.currentCountry
         countryImageView.image = country?.flag
@@ -54,12 +52,18 @@ class SignupViewController: UIViewController {
                 action: #selector(countryImageViewTapped)))
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        navbar.shadowImage = UIImage()
+
+    }
+
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
-            self.backButtonTopConstraint.constant = 0
-            self.backButton.alpha = 1
-            self.view.layoutIfNeeded()
-        }
+//        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+//            self.backButtonTopConstraint.constant = 0
+//            self.backButton.alpha = 1
+//            self.view.layoutIfNeeded()
+//        }
         super.viewDidAppear(animated)
     }
 
@@ -79,13 +83,14 @@ class SignupViewController: UIViewController {
 
     @IBAction func backButtonPressed(_ sender: Any) {
 
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
-            self.backButtonTopConstraint.constant = -5
-            self.backButton.alpha = 0
-            self.view.layoutIfNeeded()
-        } completion: { (_) in
-            self.dismiss(animated: false, completion: nil)
-        }
+//        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+//            self.backButtonTopConstraint.constant = -5
+//            self.backButton.alpha = 0
+//            self.view.layoutIfNeeded()
+//        } completion: {[self] (_) in
+////            self.dismiss(animated: false, completion: nil)
+//        }
+        navigationController?.popViewController(animated: true)
     }
 
 // MARK: - Methods

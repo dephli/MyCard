@@ -26,7 +26,7 @@ class QRCodeViewController: UIViewController {
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.setGradientBackground( colorTop: K.Colors.Blue!, colorBottom: K.Colors.Wine!)
+        view.setGradientBackground( colorTop: K.Colors.Blue, colorBottom: K.Colors.Wine)
         setNames()
         qrCodeSetup()
         customNavBar.shadowImage = UIImage()

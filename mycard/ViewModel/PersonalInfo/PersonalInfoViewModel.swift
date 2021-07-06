@@ -156,10 +156,6 @@ class PersonalInfoViewModel {
         return filteredNames
     }
 
-//    init() {
-//        avatarUrl = contact.profilePicUrl
-//    }
-
     func splitFullname() {
 
         let fullName = self.fullName.trimmingCharacters(in: .whitespaces)

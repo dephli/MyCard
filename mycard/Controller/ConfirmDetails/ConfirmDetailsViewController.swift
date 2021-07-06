@@ -91,6 +91,14 @@ class ConfirmDetailsViewController: UIViewController {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
+    private func firstCardSaveSuccessful() {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let profileSetupViewController = storyboard.instantiateViewController(
+            identifier: K.ViewIdentifiers.profileSetupViewController
+        ) as ProfileSetupViewController
+        UIApplication.shared.windows.first?.rootViewController = profileSetupViewController
+    }
+
     @objc private func notesViewTapped() {
         performSegue(withIdentifier: K.Segues.confirmDetailsToNotes, sender: self)
     }

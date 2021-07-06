@@ -15,6 +15,9 @@ class SetupCardViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var arrowButton: UIButton!
 
+    // MARK: - properties
+    let addCardBottomSheet = AddCardBottomSheet()
+
 // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,6 @@ class SetupCardViewController: UIViewController {
         self.dismissKey()
         descriptionLabel.style(with: K.TextStyles.heading1)
         setupLabel.style(with: K.TextStyles.subTitle)
-        self.hero.isEnabled = true
-        arrowButton.hero.id = "arrowButton"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +33,11 @@ class SetupCardViewController: UIViewController {
 
 // MARK: - Actions
     @IBAction func arrowButtonPressed(_ sender: UIButton) {
-        return
+        addCardBottomSheet.modalPresentationStyle = .custom
+        addCardBottomSheet.delegate = self
+        addCardBottomSheet.transitioningDelegate = self
+
+        self.present(addCardBottomSheet, animated: true, completion: nil)
     }
 
     @IBAction func skipButtonPressed(_ sender: Any) {
@@ -42,5 +47,32 @@ class SetupCardViewController: UIViewController {
         transition.subtype = .none
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         view.window?.layer.add(transition, forKey: kCATransition)
+        performSegue(withIdentifier: K.Segues.setupCardToProfileSetup, sender: self)
+    }
+}
+
+// MARK: - UITransitioningDelegate
+extension SetupCardViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+// MARK: - BottomSheetDelegate
+extension SetupCardViewController: AddCardBottomSheetDelegate {
+    func scanPhysicalCardPressed() {
+        addCardBottomSheet.dismiss(animated: true)
+        CardManager.shared.currentContactType = .createFirstCard
+        self.performSegue(withIdentifier: K.Segues.setupCardToCamera, sender: self
+        )
+    }
+
+    func addManuallyPressed() {
+        CardManager.shared.currentContactType = .createFirstCard
+        addCardBottomSheet.dismiss(animated: true)
+        self.performSegue(withIdentifier: K.Segues.setupCardToPersonalInfo, sender: self)
     }
 }

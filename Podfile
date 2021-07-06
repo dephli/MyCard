@@ -1,5 +1,14 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '10.0'
+ platform :ios, '13.0'
+
+# Remove deployment target for each pod
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
+  end
+end
 
 target 'mycard' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -16,23 +25,23 @@ target 'mycard' do
   pod 'Firebase/Analytics'
   
   # pod for CropImage
-  pod 'TOCropViewController'
+  pod 'CropViewController'
 
   #pods for rxswift
-#  pod 'RxSwift'
+  #pod 'RxSwift'
   pod 'RxCocoa'
   
   #pods for keychain
   pod 'KeychainAccess'
   
   #pod for swiftQueue
-#  pod 'SwiftQueue'
+  #pod 'SwiftQueue'
   
   #pod for hero animation
   pod 'Hero'
 
-
-  
+  #pod for tooltip
+  pod 'EasyTipView', '~> 2.1'
   
   #country picker
   pod 'SKCountryPicker'

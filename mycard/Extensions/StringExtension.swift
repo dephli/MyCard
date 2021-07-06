@@ -54,4 +54,65 @@ extension String {
             range: NSRange(location: 0, length: fullString.length))
         return fullString
     }
+
+    func getEmails() -> [String]? {
+      if let regex = try? NSRegularExpression(
+            pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}",
+            options: .caseInsensitive) {
+          let string = self as NSString
+
+          return regex.matches(
+            in: self,
+            options: [],
+            range: NSRange(location: 0, length: string.length)
+          ).map {
+              string.substring(with: $0.range).lowercased()
+          }
+      }
+      return nil
+    }
+
+    func getWebsite() -> [String]? {
+      if let regex = try? NSRegularExpression(
+            pattern:
+                "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?",
+            options: .caseInsensitive) {
+          let string = self as NSString
+
+          return regex.matches(in: self, options: [], range: NSRange(location: 0, length: string.length)).map {
+              string.substring(with: $0.range).lowercased()
+          }
+      }
+      return nil
+    }
+
+    func getPhoneNumbers() -> [String?]? {
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
+            let matches = detector.matches(in: self, range: NSRange(self.startIndex..., in: self))
+            return matches.filter {
+                return $0.resultType == .phoneNumber
+            }.map {
+                return $0.phoneNumber
+            }
+
+        } catch {
+            return nil
+        }
+    }
+
+    func linguisticTagger() {
+        let tagger = NSLinguisticTagger(tagSchemes: [.nameType], options: 0)
+        tagger.string = self
+        let range = NSRange(location: 0, length: self.utf16.count)
+        let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
+        let tags: [NSLinguisticTag] = [.personalName, .placeName, .organizationName]
+        tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: options) { tag, tokenRange, _ in
+            if let tag = tag, tags.contains(tag) {
+                let name = (self as NSString).substring(with: tokenRange)
+                print("linguistics \(name): \(tag)")
+            }
+        }
+    }
+
 }
