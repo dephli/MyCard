@@ -219,6 +219,7 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
   - CropViewController (2.6.0)
+  - EasyTipView (2.1.0)
   - Firebase/Analytics (7.1.0):
     - Firebase/Core
   - Firebase/Auth (7.1.0):
@@ -399,6 +400,7 @@ PODS:
 
 DEPENDENCIES:
   - CropViewController
+  - EasyTipView (~> 2.1)
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Crashlytics
@@ -417,6 +419,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - CropViewController
+    - EasyTipView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -455,6 +458,7 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   CropViewController: 7093b39ec3cb508531b22d35773e06cecd7378d8
+  EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   Firebase: 78e8dd2e39d653de6270432ad84fe8b59f7bf4e8
   FirebaseAnalytics: 7f165a56dea86ddd5b8ce02af3bee982c683405c
   FirebaseAuth: f82c2cfcc1c107bb0a97735cdbce4eb2a601f710
@@ -489,6 +493,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SKCountryPicker: e057b1f6592aeff19789983f104e0432d6079bfa
 
-PODFILE CHECKSUM: 653f1be45c16673b5312d48c55487d17b21d2bd5
+PODFILE CHECKSUM: 2c81acc5e19ec891c9390fcc96412946e115bb34
 
 COCOAPODS: 1.10.0

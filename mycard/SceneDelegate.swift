@@ -48,15 +48,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         } else {
             if keychainService.token != nil && userDefaults.bool(forKey: "hasPreviousAuth"){
-                let storyboard = UIStoryboard(name: "Cards", bundle: nil)
-                guard let rootVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else {
-                    print("ViewController not found")
-                    return
-                }
-                let rootNC = UINavigationController(rootViewController: rootVC)
-                self.window?.rootViewController = rootNC
-                self.window?.makeKeyAndVisible()
                 
+                let username = AuthService.username
+                
+                if username != nil
+                    && username?.trimmingCharacters(in: .whitespaces) != "" {
+                    let storyboard = UIStoryboard(name: "Cards", bundle: nil)
+                    guard let rootVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else {
+                        print("ViewController not found")
+                        return
+                    }
+                    let rootNC = UINavigationController(rootViewController: rootVC)
+                    self.window?.rootViewController = rootNC
+                } else {
+                    let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+                    let profileSetupViewController = storyboard.instantiateViewController(
+                        identifier: K.ViewIdentifiers.profileSetupViewController
+                    ) as ProfileSetupViewController
+                    
+                    self.window?.rootViewController = profileSetupViewController
+
+                }
+                self.window?.makeKeyAndVisible()
+
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let rootVC = storyboard.instantiateViewController(identifier: "StartScreenViewController") as? StartScreenViewController else {

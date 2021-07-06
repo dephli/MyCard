@@ -246,14 +246,6 @@ extension CardViewController: AddCardBottomSheetDelegate {
 
     func addManuallyPressed() {
         addCardBottomSheet.dismiss(animated: true)
-//        DispatchQueue.main.async {
-//            self.hidesBottomBarWhenPushed = true
-//        }
-//        let storyboard = UIStoryboard(name: "Camera", bundle: nil)
-//        let vC = storyboard.instantiateViewController(identifier: CaptureImageViewController.identifier)
-
-//        navigationController?.pushViewController(vC, animated: true)
         self.performSegue(withIdentifier: K.Segues.cardsToCreateCard, sender: self)
-//        self.hidesBottomBarWhenPushed = false
     }
 }

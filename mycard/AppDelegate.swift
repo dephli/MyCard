@@ -18,41 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Firestore.firestore()
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let keychainService = KeychainService()
-        let userDefaults = UserDefaults.standard
-
-
-        if keychainService.token != nil && userDefaults.bool(forKey: K.hasPreviousAuth) {
-            let storyboard = UIStoryboard(name: "Cards", bundle: nil)
-            if #available(iOS 13.0, *) {
-                
-                let vc = storyboard.instantiateViewController(identifier: K.ViewIdentifiers.cardsTabBarController) as? TabBarController
-                let rootNC = UINavigationController(rootViewController: vc!)
-                self.window?.rootViewController = rootNC
-            } else {
-                let vc = storyboard.instantiateViewController(withIdentifier: K.ViewIdentifiers.cardsTabBarController) as? TabBarController
-                let rootNC = UINavigationController(rootViewController: vc!)
-                self.window?.rootViewController = rootNC
-            }
-
-        } else {
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if #available(iOS 13.0, *) {
-                let vc = storyboard.instantiateViewController(identifier: K.ViewIdentifiers.startScreenViewController) as? StartScreenViewController
-                let rootNC = UINavigationController(rootViewController: vc!)
-                self.window?.rootViewController = rootNC
-            } else {
-                // Fallback on earlier versions
-                let vc = storyboard.instantiateViewController(withIdentifier: K.ViewIdentifiers.startScreenViewController) as? StartScreenViewController
-                let rootNC = UINavigationController(rootViewController: vc!)
-                self.window?.rootViewController = rootNC
-            }
-        }
-        self.window?.makeKeyAndVisible()
-
         return true
     }
 

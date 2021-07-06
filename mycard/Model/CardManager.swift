@@ -18,7 +18,7 @@ class CardManager {
 //    instance to be called in order to use any property here
     static let shared = CardManager()
 
-    private let contact: BehaviorRelay<Contact> =
+    let contact: BehaviorRelay<Contact> =
         BehaviorRelay(value: Contact(name: Name()))
 
     private let contactDetails: BehaviorRelay<Contact> = BehaviorRelay(value: Contact(name: Name()))
@@ -108,6 +108,7 @@ class CardManager {
         case createContactCard
         case editPersonalCard
         case editContactCard
+        case createFirstCard
     }
 
 }

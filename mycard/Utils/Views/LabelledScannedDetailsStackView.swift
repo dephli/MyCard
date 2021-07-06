@@ -103,7 +103,7 @@ class LabelledScannedDetailsStackView: UIStackView {
     func emailAddressesView(_ emailAddresses: [Email]?) -> UIView {
         let emailView = multiValueStackView(
             icon: K.Images.phone,
-            label: "Email Addresses",
+            label: "Email Address",
             data: emailAddresses!
         )
         return emailView

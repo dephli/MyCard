@@ -7,7 +7,6 @@
 
 import Foundation
 import Firebase
-import KeychainAccess
 
 protocol AuthServiceDelegate: AnyObject {
     func register(phoneNumber: String, onActionComplete: @escaping (Error?) -> Void)

@@ -43,7 +43,7 @@ class ConfirmDetailsViewModel {
             saveButtonTitle = "Edit card"
         }
 
-        if contactType == .createPersonalCard {
+        if contactType == .createPersonalCard || contactType == .createFirstCard {
             noteIsHidden = true
         }
     }

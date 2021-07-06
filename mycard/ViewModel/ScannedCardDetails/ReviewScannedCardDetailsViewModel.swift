@@ -21,9 +21,19 @@ class ReviewScannedCardDetailsViewModel {
         case website = "Website"
     }
 
-    var currentUnlabelledDetailIndex: Int?
+    private let contactType = CardManager.shared.currentContactType
 
-    let labelledScannedDetails: BehaviorRelay<Contact> = BehaviorRelay(value: Contact(name: Name()))
+    var noteIsHidden = false
+
+    var currentUnlabelledDetailIndex: Int?
+        
+    var bindSaveFirstPersonalContactSuccessful: (() -> Void)?
+
+    
+    var bindSaveContactSuccessful: (() -> Void)?
+    
+    var bindError: ((Error) -> Void)?
+
     let unlabelledScannedDetails: BehaviorRelay<[String]> = BehaviorRelay(value: [])
 
     var unlabelledScannedDetailsArray: [String] {
@@ -37,15 +47,18 @@ class ReviewScannedCardDetailsViewModel {
 
     var labelledContact: Contact {
         get {
-            labelledScannedDetails.value
+            CardManager.shared.currentEditableContact
         }
         set {
-            labelledScannedDetails.accept(newValue)
+            CardManager.shared.currentEditableContact = newValue
         }
     }
 
     init(scannedDetailsArray: [String], scannedDetails: String) {
         splitDetails(scannedDetailsArray, scannedDetails)
+        if contactType == .createPersonalCard || contactType == .createFirstCard {
+            noteIsHidden = true
+        }
     }
 
     func splitDetails (_ detailsArray: [String], _ details: String) {
@@ -75,7 +88,7 @@ class ReviewScannedCardDetailsViewModel {
                 unlabelledArray.append(text)
             }
         }
-        labelledScannedDetails.accept(contact)
+        labelledContact = contact
         unlabelledScannedDetails.accept(unlabelledArray)
     }
 
@@ -147,7 +160,7 @@ class ReviewScannedCardDetailsViewModel {
             setFullName()
         case "phone number":
             editPhoneNumber(detail, index: args.index)
-        case "email addresses":
+        case "email address":
             editEmail(detail, index: args.index)
         case "company name":
             setBusinessInfo(type: "Company name")
@@ -197,20 +210,20 @@ class ReviewScannedCardDetailsViewModel {
     }
 
     func setPhoneNumber(type: String) {
-        var contact = labelledScannedDetails.value
+        var contact = labelledContact
         let unlabelledDetails = unlabelledScannedDetailsArray
 
         let phoneNumber = PhoneNumber(
             type: PhoneNumberType.init(rawValue: type)!,
             number: unlabelledDetails[currentUnlabelledDetailIndex!])
         contact.phoneNumbers?.append(phoneNumber)
-        labelledScannedDetails.accept(contact)
+        labelledContact = contact
         removeUnlabelledDetail()
 
     }
 
     func setEmail(type: String) {
-        var contact = labelledScannedDetails.value
+        var contact = labelledContact
         let unlabelledDetails = unlabelledScannedDetailsArray
 
         let email = Email(
@@ -218,13 +231,13 @@ class ReviewScannedCardDetailsViewModel {
             address: unlabelledDetails[currentUnlabelledDetailIndex!]
         )
         contact.emailAddresses?.append(email)
-        labelledScannedDetails.accept(contact)
+        labelledContact = contact
         removeUnlabelledDetail()
     }
 
     func setBusinessInfo(type: String) {
         let infoType = BusinessInfoType.init(rawValue: type)
-        var contact = labelledScannedDetails.value
+        var contact = labelledContact
         let unlabelledDetails = unlabelledScannedDetailsArray
 
         let unlabelledDetail = unlabelledDetails[currentUnlabelledDetailIndex!]
@@ -242,7 +255,7 @@ class ReviewScannedCardDetailsViewModel {
             return
         }
 
-        labelledScannedDetails.accept(contact)
+        labelledContact = contact
         removeUnlabelledDetail()
     }
 
@@ -384,7 +397,7 @@ class ReviewScannedCardDetailsViewModel {
             untagFullName()
         case "phone number":
             untagPhoneNumber(index)
-        case "email addresses":
+        case "email address":
             untagEmailAddress(index)
         case "company name":
             untagCompanyName()
@@ -426,7 +439,7 @@ class ReviewScannedCardDetailsViewModel {
             ans = self.labelledContact.name.fullName ?? ""
         case "phone number":
             ans = self.labelledContact.phoneNumbers?[index].number ?? ""
-        case "email addresses":
+        case "email address":
             ans = self.labelledContact.emailAddresses?[index].address ?? ""
         case "company name":
             ans = self.labelledContact.businessInfo?.companyName ?? ""
@@ -454,7 +467,7 @@ class ReviewScannedCardDetailsViewModel {
         return unlabelledScannedDetailsArray[index]
     }
 
-    func createContactCard(completion: @escaping (Error?) -> Void) {
+    func createContactCard() {
         let personalInfoViewModel = PersonalInfoViewModel()
         if let fullname = labelledContact.name.fullName {
             personalInfoViewModel.fullName = fullname
@@ -467,14 +480,39 @@ class ReviewScannedCardDetailsViewModel {
             contact.name.middleName = personalInfoViewModel.middleName
             labelledContact = contact
         }
+        
+        if contactType == .createPersonalCard || contactType == .createFirstCard{
+            createPersonalCard(contact: labelledContact)
+        } else {
+            createCard(contact: labelledContact)
+        }
 
+    }
+    
+    private func createCard(contact: Contact) {
         FirestoreService.shared.createContact(
-            with: labelledScannedDetails.value
-        ) { (error, _) in
+            with: labelledContact
+        ) { [self](error, _) in
             if let error = error {
-                completion(error)
+                bindError!(error)
             } else {
-                completion(nil)
+                bindSaveContactSuccessful!()
+            }
+        }
+    }
+    
+    
+    
+    private func createPersonalCard(contact: Contact) {
+        FirestoreService.shared.createPersonalCard(with: labelledContact) {[self] (error, documentId) in
+            if let error = error {
+                self.bindError!(error)
+            } else {
+                    if contactType == .createFirstCard {
+                        bindSaveFirstPersonalContactSuccessful!()
+                } else {
+                    bindSaveContactSuccessful!()
+                }
             }
         }
     }

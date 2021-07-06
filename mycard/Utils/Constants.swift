@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 struct K {
+    static let cameraViewedFirstTime = "\(Bundle.main.bundleIdentifier!).CameraViewedFirstTime"
+    static let imageCropedFirstTime = "\(Bundle.main.bundleIdentifier!).imageCropedFirstTime"
     static let authVerificationId = "authVerificationID"
     static let contactCell = "ContactsCell"
     static let contactCellIdentifier = "ContactsReusableCell"
@@ -65,6 +67,7 @@ struct K {
         static let personalInfoViewController = "PersonalInfoViewController"
         static let qrCodeViewController = "QRCodeViewController"
         static let searchViewController = "SearchViewController"
+        static let profileSetupViewController = "ProfileSetupViewController"
     }
 
     struct TextStyles {
@@ -198,6 +201,12 @@ struct K {
         static let scannedDetailsToAddLabel = "ScannedDetailsToAddLabel"
         static let selectLabelToAddDetail = "SelectLabelToAddDetail"
         static let reviewScannedDetailsToEditDetail = "ReviewScannedDetailsToEditDetail"
+        static let assignLabelToNotes = "AssignLabelToNotes"
+        static let setupCardToProfileSetup = "SetupCardToProfileSetup"
+        static let verifyNumberToSetupCard = "VerifyNumberToSetupCard"
+        static let setupCardToCamera = "SetupCardToCamera"
+        static let setupCardToPersonalInfo = "SetupCardToPersonalInfo"
+        static let profileToCamera = "ProfileToCamera"
     }
 
     struct Notifications {

@@ -13,6 +13,7 @@ class CardDetailsViewModel {
     var contact: Contact {
         CardManager.shared.currentContactDetails
     }
+    
     var role: String {
         contact.businessInfo?.role ?? ""
     }

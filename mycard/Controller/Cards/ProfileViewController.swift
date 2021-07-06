@@ -21,13 +21,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emptyCardsVIew: UIView!
     @IBOutlet weak var contactDetailsStackView: ContactDetailsStackView!
 
-// MARK: - Variables
+// MARK: - Properties
     private var topViewOffset: CGFloat?
     private var lastContentOffset: CGFloat?
     private var currentIndexPath = IndexPath(item: 0, section: 0)
     private var personalCards: [Contact]?
     private var behavior = MSCollectionViewPeekingBehavior()
     var viewModel: ProfileViewModel!
+    let addCardBottomSheet = AddCardBottomSheet()
+
 
 // MARK: - Viewcontroller methods
     override func viewWillAppear(_ animated: Bool) {
@@ -55,14 +57,14 @@ class ProfileViewController: UIViewController {
             style: .plain,
             target: self,
             action: #selector(addButtonPressed))
-        let font = UIFont(name: "inter", size: 24)
+        let font = UIFont(name: "Inter-SemiBold", size: 24)
+
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.font: font!
 
         ]
         navigationController?.navigationBar.prefersLargeTitles = true
 
-//        navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = AuthService.username
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: avatarImageView)
         navigationItem.rightBarButtonItems = [settingsButton, addButton]
@@ -103,8 +105,11 @@ class ProfileViewController: UIViewController {
 
 // MARK: - Actions
     @objc func addButtonPressed() {
-        viewModel.createPersonalCard()
-        performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
+        addCardBottomSheet.modalPresentationStyle = .custom
+        addCardBottomSheet.delegate = self
+        addCardBottomSheet.transitioningDelegate = self
+
+        self.present(addCardBottomSheet, animated: true, completion: nil)
     }
 
     @objc func settingsButtonPressed(_ sender: Any) {
@@ -210,8 +215,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func createCardPressed(_ sender: Any) {
-        viewModel.createPersonalCard()
-        self.performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
+        addButtonPressed()
     }
 
 // MARK: - Methods
@@ -348,4 +352,32 @@ extension ProfileViewController: UICollectionViewDelegate,
 
 extension UIActivity.ActivityType {
     static let snapchat = UIActivity.ActivityType(rawValue: "com.toyopagroup.picaboo.share")
+}
+
+
+// MARK: - UITransitioningDelegate
+extension ProfileViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+// MARK: - BottomSheetDelegate
+extension ProfileViewController: AddCardBottomSheetDelegate {
+    func scanPhysicalCardPressed() {
+        viewModel.createPersonalCard()
+        addCardBottomSheet.dismiss(animated: true)
+        self.performSegue(withIdentifier: K.Segues.profileToCamera, sender: self
+        )
+    }
+
+    func addManuallyPressed() {
+        viewModel.createPersonalCard()
+        addCardBottomSheet.dismiss(animated: true)
+        self.performSegue(withIdentifier: K.Segues.profileToCreateCard, sender: self)
+
+    }
 }

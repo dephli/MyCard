@@ -28,20 +28,20 @@ target 'mycard' do
   pod 'CropViewController'
 
   #pods for rxswift
-#  pod 'RxSwift'
+  #pod 'RxSwift'
   pod 'RxCocoa'
   
   #pods for keychain
   pod 'KeychainAccess'
   
   #pod for swiftQueue
-#  pod 'SwiftQueue'
+  #pod 'SwiftQueue'
   
   #pod for hero animation
   pod 'Hero'
 
-
-  
+  #pod for tooltip
+  pod 'EasyTipView', '~> 2.1'
   
   #country picker
   pod 'SKCountryPicker'

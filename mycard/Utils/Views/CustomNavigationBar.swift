@@ -13,17 +13,6 @@ class CustomNavigationBar: UINavigationBar {
 
         self.backIndicatorTransitionMaskImage = UIImage(named: indicatorImage)
         self.backIndicatorImage = UIImage(named: "xmark")
-
-        if #available(iOS 13, *) {
-            // iOS 13:
-            let appearance = self.standardAppearance
-            appearance.configureWithOpaqueBackground()
-            appearance.shadowImage = nil
-            appearance.shadowColor = nil
-            self.standardAppearance = appearance
-        } else {
-            // iOS 12 and below:
-            self.shadowImage = UIImage()
-        }
+        self.shadowImage = UIImage()
     }
 }

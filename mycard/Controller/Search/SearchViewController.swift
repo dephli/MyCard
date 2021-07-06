@@ -62,7 +62,6 @@ class SearchViewController: UIViewController {
 
             let selectedCellImage = (tableView.cellForRow(at: indexPath) as! ContactsCell).avatarImageView.image
             CardManager.shared.currentContactDetails = contact
-            CardManager.shared.currentEditableContact = contact
             destination.viewModel = CardDetailsViewModel(contactImage: selectedCellImage)
 
         }
@@ -113,13 +112,13 @@ class SearchViewController: UIViewController {
                 })
             case "role":
                 filteredContacts = contacts.filter({ (contact) -> Bool in
-                    return contact.businessInfo?.role!.lowercased().contains(text) ?? false
+                    return contact.businessInfo?.role?.lowercased().contains(text) ?? false
                 })
             default:
                 filteredContacts = contacts.filter({ (contact) -> Bool in
                     return contact.name.fullName?.lowercased().contains(text) ?? false ||
-                        contact.businessInfo?.companyName!.lowercased().contains(text) ?? false ||
-                        contact.businessInfo?.role!.lowercased().contains(text) ?? false
+                        contact.businessInfo?.companyName?.lowercased().contains(text) ?? false ||
+                        contact.businessInfo?.role?.lowercased().contains(text) ?? false
                 })
             }
         } else {

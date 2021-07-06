@@ -14,6 +14,7 @@ class CaptureImageViewController: UIViewController {
     static let identifier = String(describing: self)
 // MARK: - Outlets
     @IBOutlet weak var videoPreviewView: UIView!
+    @IBOutlet weak var scanAlertView: UIView!
 
 // MARK: - Variables
     private var captureSession: AVCaptureSession?
@@ -30,6 +31,15 @@ class CaptureImageViewController: UIViewController {
         super.viewDidAppear(animated)
         setupCamera()
         initializeMotionManager()
+        let cameraViewed = UserDefaults.standard.bool(forKey: K.cameraViewedFirstTime)
+        if !cameraViewed {
+            Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(showCameraAlertView),
+                userInfo: nil, repeats: false
+            )
+        }
     }
 
     override func viewDidLoad() {
@@ -43,7 +53,7 @@ class CaptureImageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ReviewPhotoViewController {
             let vc = segue.destination as? ReviewPhotoViewController
-            vc?.backgroundImage = capturedImage
+            vc?.capturedImage = capturedImage
         }
     }
 
@@ -65,7 +75,23 @@ class CaptureImageViewController: UIViewController {
         }
     }
 
+    @IBAction func hideScanAlertButtonPressed(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: K.cameraViewedFirstTime)
+        UIView.animate(withDuration: 0.2) {
+            self.scanAlertView.alpha = 0
+        } completion: { _ in
+            self.scanAlertView.isHidden = true
+        }
+    }
+
 // MARK: - Custom Methods
+    @objc private func showCameraAlertView() {
+        self.scanAlertView.isHidden = false
+        UIView.animate(withDuration: 0.2) {
+            self.scanAlertView.alpha = 1
+        }
+    }
+
     private func initializeMotionManager() {
      motionManager = CMMotionManager()
      motionManager?.accelerometerUpdateInterval = 0.2
@@ -150,9 +176,9 @@ class CaptureImageViewController: UIViewController {
     }
 
     private func cropImage(_ image: UIImage?) {
-        let cropViewController = CropViewController(image: image!)
-        cropViewController.delegate = self
-        present(cropViewController, animated: true, completion: nil)
+        let fixedImage = image!.fixOrientation()
+        self.capturedImage = fixedImage
+        performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
     }
 }
 
@@ -183,19 +209,6 @@ extension CaptureImageViewController: UIImagePickerControllerDelegate &
             fatalError("Could not get original image")
         }
         imagePicker.dismiss(animated: true, completion: nil)
-        let fixedImage = image.fixOrientation()
-        cropImage(fixedImage)
-    }
-}
-
-extension CaptureImageViewController: CropViewControllerDelegate {
-    func cropViewController(
-        _ cropViewController: CropViewController,
-        didCropToImage image: UIImage,
-        withRect cropRect: CGRect,
-        angle: Int) {
-        self.capturedImage = image
-        cropViewController.dismiss(animated: true, completion: nil)
-        performSegue(withIdentifier: K.Segues.capturePhotoToReviewPhoto, sender: self)
+        cropImage(image)
     }
 }

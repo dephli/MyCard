@@ -11,14 +11,19 @@ class NotesViewModel: NSObject {
 
     var bindNoteSaved: (() -> Void)?
     var bindError: ((Error?) -> Void)?
+    var directEdit: Bool
     private var contact = CardManager.shared.currentEditableContact
-    private var contactType = CardManager.shared.currentContactType
+
+    init(directEdit: Bool = false) {
+        self.directEdit = directEdit
+    }
+
     var note: String {
         contact.note ?? ""
     }
 
     private func editContact() {
-        if contactType == .editContactCard {
+        if directEdit {
             FirestoreService.shared.editContactCard(contact: contact) { (contact, error) in
                 if let error = error {
                     self.bindError!(error)

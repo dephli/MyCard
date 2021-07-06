@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kOJ-yS-wwY">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
         <array key="Inter-SemiBold.ttf">
             <string>Inter-SemiBold</string>
         </array>
@@ -81,23 +84,77 @@
                                     <constraint firstAttribute="bottom" secondItem="iKR-6K-fhS" secondAttribute="bottom" constant="32" id="eun-UI-3vF"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1TL-1g-XgT">
+                                <rect key="frame" x="32" y="310" width="350" height="276"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan_notice" translatesAutoresizingMaskIntoConstraints="NO" id="gA3-E8-ktR">
+                                        <rect key="frame" x="139" y="32" width="72" height="72"/>
+                                        <color key="tintColor" name="MC White"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold card close to phone's camera to improve scan accuracy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq7-1s-ADz">
+                                        <rect key="frame" x="60.5" y="128" width="229.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                        <color key="textColor" name="MC White"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3X-4V-Ceo">
+                                        <rect key="frame" x="129" y="212" width="92" height="32"/>
+                                        <color key="backgroundColor" name="MC White"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="92" id="Xtu-xW-No9"/>
+                                            <constraint firstAttribute="height" constant="32" id="lKK-p8-yH4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                        <state key="normal" title="Ok, got it">
+                                            <color key="titleColor" name="MC Black"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="hideScanAlertButtonPressed:" destination="kOJ-yS-wwY" eventType="touchUpInside" id="cPq-1G-nyX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="MC Black 90"/>
+                                <constraints>
+                                    <constraint firstItem="T3X-4V-Ceo" firstAttribute="centerX" secondItem="1TL-1g-XgT" secondAttribute="centerX" id="0Bu-Os-Ad4"/>
+                                    <constraint firstItem="gA3-E8-ktR" firstAttribute="top" secondItem="1TL-1g-XgT" secondAttribute="top" constant="32" id="EiA-Wh-N7p"/>
+                                    <constraint firstAttribute="height" constant="276" id="Uut-1X-qWv"/>
+                                    <constraint firstAttribute="bottom" secondItem="T3X-4V-Ceo" secondAttribute="bottom" constant="32" id="cLz-VC-ICh"/>
+                                    <constraint firstItem="Lq7-1s-ADz" firstAttribute="centerX" secondItem="1TL-1g-XgT" secondAttribute="centerX" id="dgL-Yb-jO9"/>
+                                    <constraint firstItem="Lq7-1s-ADz" firstAttribute="top" secondItem="gA3-E8-ktR" secondAttribute="bottom" constant="24" id="hPd-Gg-Bk4"/>
+                                    <constraint firstItem="gA3-E8-ktR" firstAttribute="centerX" secondItem="1TL-1g-XgT" secondAttribute="centerX" id="w4F-p6-nlR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Fd-hO-hg1"/>
                         <color key="backgroundColor" name="MC Black"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QLI-Fm-IYt" secondAttribute="bottom" id="96Q-UN-bAS"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="leading" secondItem="5Fd-hO-hg1" secondAttribute="leading" id="9SV-rr-zwP"/>
+                            <constraint firstItem="1TL-1g-XgT" firstAttribute="leading" secondItem="5Fd-hO-hg1" secondAttribute="leading" constant="32" id="JLq-Qb-WCX"/>
                             <constraint firstItem="QLI-Fm-IYt" firstAttribute="leading" secondItem="SGw-xU-CRW" secondAttribute="leading" id="XKZ-i7-2E3"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="bottom" secondItem="5Fd-hO-hg1" secondAttribute="bottom" id="aWP-Li-dZZ"/>
                             <constraint firstItem="QLI-Fm-IYt" firstAttribute="top" secondItem="SGw-xU-CRW" secondAttribute="top" id="b8v-Um-Wt2"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="trailing" secondItem="5Fd-hO-hg1" secondAttribute="trailing" id="cSq-Jl-JRq"/>
                             <constraint firstItem="hlt-fv-nNk" firstAttribute="top" secondItem="5Fd-hO-hg1" secondAttribute="top" id="ceT-eK-ATu"/>
+                            <constraint firstItem="5Fd-hO-hg1" firstAttribute="trailing" secondItem="1TL-1g-XgT" secondAttribute="trailing" constant="32" id="ceW-ru-Fcb"/>
                             <constraint firstItem="QLI-Fm-IYt" firstAttribute="trailing" secondItem="5Fd-hO-hg1" secondAttribute="trailing" id="h9a-8e-tc7"/>
+                            <constraint firstItem="1TL-1g-XgT" firstAttribute="centerY" secondItem="SGw-xU-CRW" secondAttribute="centerY" id="kul-32-T6i"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xMG-DG-FKe"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="scanAlertView" destination="1TL-1g-XgT" id="gac-Tm-qBW"/>
                         <outlet property="videoPreviewView" destination="QLI-Fm-IYt" id="ZAM-78-0Gn"/>
                         <segue destination="Qf8-Xl-LGT" kind="presentation" identifier="CapturePhotoToReviewPhoto" id="suQ-Nm-IGA"/>
                     </connections>
@@ -147,18 +204,39 @@
                                     <action selector="closeButtonPressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="Y3Y-Jq-0QI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpN-3r-48G">
+                                <rect key="frame" x="24" y="742" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CFX-Mp-84v"/>
+                                    <constraint firstAttribute="width" constant="40" id="kl1-0M-qLG"/>
+                                </constraints>
+                                <color key="tintColor" name="MC White"/>
+                                <state key="normal" image="crop.rotate" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cropImagePressed:" destination="Qf8-Xl-LGT" eventType="touchUpInside" id="bWC-sl-fdK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rhn-ag-boP"/>
                         <color key="backgroundColor" name="MC Black"/>
                         <constraints>
                             <constraint firstItem="Rhn-ag-boP" firstAttribute="bottom" secondItem="qav-1G-ZvU" secondAttribute="bottom" constant="72" id="HUu-Db-mvE"/>
+                            <constraint firstItem="mpN-3r-48G" firstAttribute="leading" secondItem="Rhn-ag-boP" secondAttribute="leading" constant="24" id="Mae-6r-OEX"/>
                             <constraint firstItem="Rhn-ag-boP" firstAttribute="trailing" secondItem="qav-1G-ZvU" secondAttribute="trailing" constant="32" id="Rln-Pp-QyR"/>
+                            <constraint firstItem="mpN-3r-48G" firstAttribute="centerY" secondItem="qav-1G-ZvU" secondAttribute="centerY" id="fJm-kP-Arq"/>
                             <constraint firstItem="OZN-XK-oYm" firstAttribute="leading" secondItem="Rhn-ag-boP" secondAttribute="leading" constant="16" id="ibW-yN-q6u"/>
                             <constraint firstItem="OZN-XK-oYm" firstAttribute="top" secondItem="Rhn-ag-boP" secondAttribute="top" id="zqO-ND-pvK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="TYr-Ir-cDE" id="n9C-wV-0q6"/>
+                        <outlet property="cropButton" destination="mpN-3r-48G" id="jl2-Zu-Ssv"/>
                         <segue destination="fvr-55-Kqv" kind="showDetail" identifier="CameraToScannedCardDetails" id="wa7-6K-FJT"/>
                     </connections>
                 </viewController>
@@ -181,11 +259,16 @@
         <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="capture button" width="72" height="72"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="crop.rotate" catalog="system" width="114" height="128"/>
         <image name="gallery" width="24" height="24"/>
         <image name="scan-card" width="24" height="24"/>
+        <image name="scan_notice" width="72" height="72"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="MC Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MC Black 90">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MC Blue">
             <color red="0.33300000429153442" green="0.075000002980232239" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

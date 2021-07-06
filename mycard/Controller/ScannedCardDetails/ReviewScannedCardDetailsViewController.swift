@@ -16,9 +16,15 @@ class ReviewScannedCardDetailsViewController: UIViewController {
     @IBOutlet weak var labelledDetailsStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var unlabelledDetailsStackViewHeightConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var emptyLabelledDetailsView: UIView!
+    @IBOutlet weak var emptyUnlabelledDetailsView: UIView!
     @IBOutlet weak var labelledDetailsStackView: LabelledScannedDetailsStackView!
     @IBOutlet weak var unlabelledDetailStackView: UnlabelledScannedDetailsStackView!
     @IBOutlet weak var createCardButton: UIButton!
+    @IBOutlet weak var notesView: UIView!
+    @IBOutlet weak var noteLabel: UILabel!
+    @IBOutlet weak var assignLabelActionLabel: UILabel!
+    @IBOutlet weak var unlabelledStackViewTopConstraint: NSLayoutConstraint!
     // MARK: - Variables
 
     var viewModel: ReviewScannedCardDetailsViewModel!
@@ -34,6 +40,11 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         super.viewDidLoad()
         labelledDetailsStackView.delegate = self
         unlabelledDetailStackView.delegate = self
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(notesViewTapped))
+        notesView.addGestureRecognizer(gestureRecognizer)
+        viewModel.bindError = handleError
+        viewModel.bindSaveContactSuccessful = contactSaveSuccessful
+        viewModel.bindSaveFirstPersonalContactSuccessful = firstContactSaveSuccessful
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,13 +54,43 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         navigationController?.hidesBarsOnSwipe = true
         labelledDetailsStackViewHeightConstraint?.isActive = false
         unlabelledDetailsStackViewHeightConstraint?.isActive = false
-        viewModel.labelledScannedDetails.subscribe { [unowned self] contact in
+        notesView.isHidden = viewModel.noteIsHidden
+        let labelledHeightConstraint = labelledDetailsStackView.heightAnchor.constraint(equalToConstant: 138)
+        let unlabelledHeightConstraint = unlabelledDetailStackView.heightAnchor.constraint(equalToConstant: 138)
+        CardManager.shared.contact.subscribe { [unowned self] contact in
             let labelledContact = contact.element
             labelledDetailsStackView.configure(labelledContact!)
+            if labelledDetailsStackView.subviews.isEmpty {
+                labelledHeightConstraint.isActive = true
+                self.emptyLabelledDetailsView.isHidden = false
+            } else {
+                labelledHeightConstraint.isActive = false
+                self.emptyLabelledDetailsView.isHidden = true
+            }
+            noteLabel.text = labelledContact?.note ?? "Add a note"
+            if labelledContact?.note?.isEmpty ?? true {
+                noteLabel.textColor = K.Colors.Blue
+            } else {
+                noteLabel.textColor = K.Colors.Black
+            }
+
         }.disposed(by: disposeBag)
 
         viewModel.unlabelledScannedDetails.subscribe { [unowned self] details in
-            unlabelledDetailStackView.configure(details: details)
+
+            let unlabelledDetails = details.element
+            if unlabelledDetails!.isEmpty {
+                unlabelledHeightConstraint.isActive = true
+                emptyUnlabelledDetailsView.isHidden = false
+                assignLabelActionLabel.isHidden = true
+                self.unlabelledStackViewTopConstraint.constant = 0
+            } else {
+                unlabelledHeightConstraint.isActive = false
+                unlabelledDetailStackView.configure(details: unlabelledDetails!)
+                emptyUnlabelledDetailsView.isHidden = true
+                assignLabelActionLabel.isHidden = false
+                self.unlabelledStackViewTopConstraint.constant = 16
+            }
         }.disposed(by: disposeBag)
     }
 
@@ -63,14 +104,29 @@ class ReviewScannedCardDetailsViewController: UIViewController {
         if viewModel.labelledContact.name.fullName == nil {
             self.alert(title: "Please enter a name", message: "Cannot create a card without a name")
         } else {
-            viewModel.createContactCard { error in
-                if let error = error {
-                    self.alert(title: "Error", message: error.localizedDescription)
-                } else {
-                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                }
-            }
+            viewModel.createContactCard()
         }
+    }
+
+    // MARK: - Custom methods
+    @objc private func notesViewTapped() {
+        performSegue(withIdentifier: K.Segues.assignLabelToNotes, sender: self)
+    }
+    
+    private func handleError(error: Error) {
+        self.alert(title: "Error", message: error.localizedDescription)
+    }
+    
+    private func contactSaveSuccessful() {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func firstContactSaveSuccessful() {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let profileSetupViewController = storyboard.instantiateViewController(
+            identifier: K.ViewIdentifiers.profileSetupViewController
+        ) as ProfileSetupViewController
+        UIApplication.shared.windows.first?.rootViewController = profileSetupViewController
     }
 
     // MARK: - Navigation
@@ -81,15 +137,18 @@ class ReviewScannedCardDetailsViewController: UIViewController {
             guard let detail = selectedDetailToChange else {return}
             destination.detailToChange = detail
             self.selectedDetailToChange = nil
-        }
-        if let destination = segue.destination as? SelectLabelViewController {
+
+        } else if let destination = segue.destination as? SelectLabelViewController {
             destination.viewmodel = viewModel
-        }
-        if let destination = segue.destination as? EditDetailViewController {
+
+        } else if let destination = segue.destination as? EditDetailViewController {
             destination.viewmodel = viewModel
             destination.selectedDetailToEdit = self.selectedDetailToEdit
             destination.selectedIndexToEdit = self.selectedIndexToEdit
             destination.editType = self.detailEditType
+
+        } else if let destination = segue.destination as? NotesViewController {
+            destination.viewModel = NotesViewModel()
         }
     }
 }

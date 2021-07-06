@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="phR-uh-jED">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="phR-uh-jED">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -231,7 +231,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+23312345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sm-5W-hK9">
-                                <rect key="frame" x="153.5" y="300" width="107.5" height="19"/>
+                                <rect key="frame" x="147" y="300" width="120" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                 <color key="textColor" name="MC Black 60"/>
                                 <nil key="highlightedColor"/>
@@ -308,14 +308,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8A-WB-Fcj">
-                                <rect key="frame" x="24" y="44" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qqw-OQ-Ia2">
-                                <rect key="frame" x="24" y="89" width="366" height="48"/>
+                                <rect key="frame" x="24" y="68" width="366" height="48"/>
                                 <color key="backgroundColor" name="MC Black 5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Xfh-em-OIH"/>
@@ -355,18 +349,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dvJ-TW-euY" firstAttribute="trailing" secondItem="Qqw-OQ-Ia2" secondAttribute="trailing" constant="24" id="NTe-gE-lgW"/>
-                            <constraint firstItem="Qqw-OQ-Ia2" firstAttribute="top" secondItem="B8A-WB-Fcj" secondAttribute="bottom" constant="24" id="QnY-PE-qsl"/>
                             <constraint firstItem="Qqw-OQ-Ia2" firstAttribute="leading" secondItem="dvJ-TW-euY" secondAttribute="leading" constant="24" id="UmU-h7-qKO"/>
+                            <constraint firstItem="Qqw-OQ-Ia2" firstAttribute="top" secondItem="dvJ-TW-euY" secondAttribute="top" constant="24" id="WOb-CO-JPr"/>
                             <constraint firstItem="SG2-6e-dQW" firstAttribute="leading" secondItem="dvJ-TW-euY" secondAttribute="leading" constant="24" id="XyL-cR-3ao"/>
                             <constraint firstItem="dvJ-TW-euY" firstAttribute="bottom" secondItem="SG2-6e-dQW" secondAttribute="bottom" constant="24" id="YwR-49-GQn"/>
-                            <constraint firstItem="B8A-WB-Fcj" firstAttribute="top" secondItem="dvJ-TW-euY" secondAttribute="top" id="dHV-JX-77B"/>
-                            <constraint firstItem="B8A-WB-Fcj" firstAttribute="leading" secondItem="dvJ-TW-euY" secondAttribute="leading" constant="24" id="kbO-HH-NEd"/>
                             <constraint firstItem="dvJ-TW-euY" firstAttribute="trailing" secondItem="SG2-6e-dQW" secondAttribute="trailing" constant="24" id="oNM-5c-51P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dfS-wS-zeb"/>
                     <connections>
-                        <outlet property="nameLabel" destination="B8A-WB-Fcj" id="h0F-J1-uqF"/>
                         <outlet property="nameTextField" destination="Qqw-OQ-Ia2" id="uuI-D1-yPZ"/>
                     </connections>
                 </viewController>
